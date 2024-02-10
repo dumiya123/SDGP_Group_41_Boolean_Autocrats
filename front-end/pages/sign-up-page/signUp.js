@@ -14,6 +14,8 @@ const SignupScreen = () => {
         console.log('Password:'.password);
 
         //This is the point to add the API call or Authentication Logic
+        
+
 
 
     };
@@ -21,7 +23,7 @@ const SignupScreen = () => {
 
     return(
         <View style={styles.container}>
-            
+
         </View>
     )
     
