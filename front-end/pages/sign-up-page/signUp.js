@@ -14,13 +14,14 @@ const SignupScreen = () => {
         console.log('Password:'.password);
 
         //This is the point to add the API call or Authentication Logic
-        
+
+
     };
 
 
     return(
         <View style={styles.container}>
-            <Text>Please enter your email and password</Text>
+            
         </View>
     )
     
