@@ -1,3 +1,4 @@
+
 import React, {Component, useState} from 'react';
 import {StyleSheet, TouchableOpacity, Text, View} from 'react-native';
 
@@ -9,4 +10,8 @@ const SignUp = () =>
     
 
 
-}
+
+import React from 'react';
+import {StyleSheet, TouchableOpacity, Text, View} from 'react-native';
+
+
