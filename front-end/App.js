@@ -8,7 +8,7 @@ import SignupScreen  from './pages/sign-up-page/signUp';
 function SignUp() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <Text>SignUp</Text>
+    <SignupScreen/>
     </View>    
   );
 }
