@@ -29,7 +29,10 @@ export default function App() {
         <Tab.Screen name="Settings" component={SettingsScreen} />
       </Tab.Navigator>
     </NavigationContainer>
+    
   );
 }
+
+
 
 
