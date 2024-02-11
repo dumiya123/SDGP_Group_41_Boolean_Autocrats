@@ -1,27 +1,37 @@
 // Import necessary modules from the 'react' and 'react-native' libraries
+
 import React, { useState } from 'react';   
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 
 // Define the SignUp functional component.
+
 const SignupScreen = () => {
+    // State variables to hold email and password using the 'useState' hook
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  // create a function to handle signup
+
   const handleSignup = () => {
-    // Implement your signup logic here, e.g., send data to a backend API
+    // Implement signup logic here, e.g., send data to a backend API
     console.log('Email:', email);
     console.log('Password:', password);
-    // You can add your API call or authentication logic here
+    // You can add  API call or authentication logic here
   };
+
+  //render the UI for SignUp Screen
 
   return (
     <View style={styles.container}>
+        {/*Display a welcome message.*/ }
       <Text style={styles.title}>Welcome to the SaveNest</Text>
+      {/* TextInput for entering email */}
       <TextInput
         style={styles.input}
         placeholder="Email"
         onChangeText={(text) => setEmail(text)}
       />
+      {/* TextInput for entering Password */}
       <TextInput
         style={styles.input}
         placeholder="Password"
@@ -29,6 +39,8 @@ const SignupScreen = () => {
         onChangeText={(text) => setPassword(text)}
       />
       <Button title="Sign Up" onPress={handleSignup} />
+      <Button title="Sign in with Google" onPress={handleSignup} />
+      <Button title="Sign in with Facebook" onPress={handleSignup} />
     </View>
   );
 };
