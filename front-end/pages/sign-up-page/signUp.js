@@ -15,7 +15,7 @@ const SignupScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Sign Up</Text>
+      <Text style={styles.title}>Welcome to the SaveNest</Text>
       <TextInput
         style={styles.input}
         placeholder="Email"
