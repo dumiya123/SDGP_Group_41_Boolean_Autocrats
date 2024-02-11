@@ -1,5 +1,5 @@
 import * as React from 'react';  //import necessary modules from react and React natve 
-import { View } from 'react-native';    //View is a component of react native that helps in organizing the elements on the screen.
+import { View ,Image} from 'react-native';    //View is a component of react native that helps in organizing the elements on the screen.
 import SignupScreen from './pages/sign-up-page/signUp';   //Importing the SignUpScreen component from the specified file path
 
 

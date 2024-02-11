@@ -1,8 +1,6 @@
 // Import necessary modules from the 'react' and 'react-native' libraries
-import { View,Text,Image } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet} from 'react-native';
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet ,Image} from 'react-native';
-const save_nest_img = require("./assets/image2.jpg")
 
 // Define the SignUp functional component.
 const SignupScreen = () => {
@@ -25,7 +23,6 @@ const SignupScreen = () => {
     <View style={styles.container}>
       {/* Display a welcome message. */}
       <Spacer size={100} />
-      <Image source={save_nest_img}/>
       <Text style={styles.title}>Welcome to the SaveNest</Text>
       <Spacer size={100} />
       {/* TextInput for entering email */}
@@ -81,6 +78,7 @@ const styles = StyleSheet.create({
     width: 80, // Set the desired width for all buttons
     backgroundColor: '#3498db',
     borderRadius: 10,
+
   },
 });
 
