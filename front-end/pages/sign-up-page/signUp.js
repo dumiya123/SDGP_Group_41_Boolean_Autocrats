@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 
+
 // Define the SignUp functional component.
 const SignupScreen = () => {
   // State variables to hold email and password using the 'useState' hook
@@ -22,13 +23,16 @@ const SignupScreen = () => {
   return (
     <View style={styles.container}>
       {/* Display a welcome message. */}
+      <Spacer size={100} />
       <Text style={styles.title}>Welcome to the SaveNest</Text>
+      <Spacer size={100} />
       {/* TextInput for entering email */}
       <TextInput
         style={styles.input}
         placeholder="Email"
         onChangeText={(text) => setEmail(text)}
       />
+      <Spacer size={100} />
       {/* TextInput for entering Password */}
       <TextInput
         style={styles.input}
@@ -36,9 +40,10 @@ const SignupScreen = () => {
         secureTextEntry
         onChangeText={(text) => setPassword(text)}
       />
-      <Button title="Sign Up" onPress={handleSignup} />
       <Spacer size={100} />
-      <Button title="Sign in with Google" onPress={handleSignup} />
+      <Button title="               Sign Up               " onPress={handleSignup} />
+      <Spacer size={100} />
+      <Button title="Sign in with Google    " onPress={handleSignup} />
       <Spacer size={100} />
       <Button title="Sign in with Facebook" onPress={handleSignup} />
     </View>
@@ -51,6 +56,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
+
     
   },
   
@@ -71,6 +77,8 @@ const styles = StyleSheet.create({
 
   button: {
     width: 80, // Set the desired width for all buttons
+    backgroundColor: '#3498db',
+    borderRadius: 10,
   },
 });
 
