@@ -1,6 +1,9 @@
 // Import necessary modules from the 'react' and 'react-native' libraries
+import { View, Text, TextInput, Button, StyleSheet,Image} from 'react-native';
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+const logoImg = require('./images/image2.jpg')
+
+
 
 // Define the SignUp functional component.
 const SignupScreen = () => {
@@ -21,14 +24,18 @@ const SignupScreen = () => {
 
   return (
     <View style={styles.container}>
+      <Image source={logoImg} style={{width:370 ,height:250,borderRadius:30}}/>
       {/* Display a welcome message. */}
+      <Spacer size={100} />
       <Text style={styles.title}>Welcome to the SaveNest</Text>
-      {/* TextInput for entering email */}
+      <Spacer size={100} />
+      {/* Text Input for entering email */}
       <TextInput
         style={styles.input}
         placeholder="Email"
         onChangeText={(text) => setEmail(text)}
       />
+      <Spacer size={100} />
       {/* TextInput for entering Password */}
       <TextInput
         style={styles.input}
@@ -36,9 +43,10 @@ const SignupScreen = () => {
         secureTextEntry
         onChangeText={(text) => setPassword(text)}
       />
-      <Button title="Sign Up" onPress={handleSignup} />
       <Spacer size={100} />
-      <Button title="Sign in with Google" onPress={handleSignup} />
+      {/* <Button title="               Sign Up               " onPress={handleSignup} /> */}
+      <Spacer size={100} />
+      <Button title=" Sign in with Google " onPress={handleSignup} />
       <Spacer size={100} />
       <Button title="Sign in with Facebook" onPress={handleSignup} />
     </View>
@@ -51,6 +59,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
+
     
   },
   
@@ -71,6 +80,9 @@ const styles = StyleSheet.create({
 
   button: {
     width: 80, // Set the desired width for all buttons
+    backgroundColor: '#3498db',
+    borderRadius: 10,
+
   },
 });
 
