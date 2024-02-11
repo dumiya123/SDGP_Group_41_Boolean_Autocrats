@@ -24,7 +24,7 @@ const SignupScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Image source={logoImg} style={{width:500 ,height:300}}/>
+      <Image source={logoImg} style={{width:370 ,height:250,borderRadius:30}}/>
       {/* Display a welcome message. */}
       <Spacer size={100} />
       <Text style={styles.title}>Welcome to the SaveNest</Text>
