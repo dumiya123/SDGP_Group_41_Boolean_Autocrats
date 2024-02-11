@@ -1,40 +1,20 @@
-import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import * as React from 'react';  //import necessary modules from react and React natve 
+import { View } from 'react-native';    //View is a component of react native that helps in organizing the elements on the screen.
+import SignupScreen from './pages/sign-up-page/signUp';   
 
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home!</Text>
-    </View>
-  );
-}
 
-function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
 
-const Tab = createBottomTabNavigator();
-
+// Main App component
 export default function App() {
   return (
-    <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    // Main container view with flex styling
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <SignupScreen />
+    </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#151515',
-    flex: 1,
-  },
-});
+
+
+
+
