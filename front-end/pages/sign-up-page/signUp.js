@@ -1,7 +1,8 @@
-
-import React, { useState } from 'react';
+// Import necessary modules from the 'react' and 'react-native' libraries
+import React, { useState } from 'react';   
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 
+// Define the SignUp functional component.
 const SignupScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

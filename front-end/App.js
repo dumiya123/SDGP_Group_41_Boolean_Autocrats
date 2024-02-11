@@ -5,6 +5,7 @@ import SignupScreen from './pages/sign-up-page/signUp';   //Importing the SignUp
 
 
 // Main App component
+//This component created to show the sign Up screen to the User.
 export default function App() {
   return (
     // Main container view with flex styling
