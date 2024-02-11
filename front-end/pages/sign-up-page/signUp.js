@@ -44,9 +44,9 @@ const SignupScreen = () => {
         onChangeText={(text) => setPassword(text)}
       />
       <Spacer size={100} />
-      <Button title="               Sign Up               " onPress={handleSignup} />
+      {/* <Button title="               Sign Up               " onPress={handleSignup} /> */}
       <Spacer size={100} />
-      <Button title="Sign in with Google    " onPress={handleSignup} />
+      <Button title=" Sign in with Google " onPress={handleSignup} />
       <Spacer size={100} />
       <Button title="Sign in with Facebook" onPress={handleSignup} />
     </View>
