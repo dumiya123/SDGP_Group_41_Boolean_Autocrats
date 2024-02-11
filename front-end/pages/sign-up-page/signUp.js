@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     
   },
+  
 
   title: {
     fontSize: 24,
