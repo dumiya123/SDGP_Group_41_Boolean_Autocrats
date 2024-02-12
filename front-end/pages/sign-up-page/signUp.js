@@ -1,8 +1,7 @@
 // Import necessary modules from the 'react' and 'react-native' libraries
 import { View, Text, TextInput, Button, StyleSheet,Image} from 'react-native';
 import React, { useState } from 'react';
-const logoImg = require('./images/image2.jpg')
-
+const logoImg = require('./images/Login_image.png')
 
 
 // Define the SignUp functional component.
@@ -36,6 +35,7 @@ const SignupScreen = () => {
         onChangeText={(text) => setEmail(text)}
       />
       <Spacer size={100} />
+
       {/* TextInput for entering Password */}
       <TextInput
         style={styles.input}
@@ -43,11 +43,16 @@ const SignupScreen = () => {
         secureTextEntry
         onChangeText={(text) => setPassword(text)}
       />
+
       <Spacer size={100} />
+
       {/* <Button title="               Sign Up               " onPress={handleSignup} /> */}
       <Spacer size={100} />
+
       <Button title=" Sign in with Google " onPress={handleSignup} />
+
       <Spacer size={100} />
+
       <Button title="Sign in with Facebook" onPress={handleSignup} />
     </View>
   );
