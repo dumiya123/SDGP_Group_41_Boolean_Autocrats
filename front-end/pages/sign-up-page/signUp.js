@@ -3,7 +3,6 @@ import { View, Text, TextInput, Button, StyleSheet,Image} from 'react-native';
 import React, { useState } from 'react';
 const logoImg = require('./images/Login_image.png')
 
-
 // Define the SignUp functional component.
 const SignupScreen = () => {
   // State variables to hold email and password using the 'useState' hook
@@ -94,5 +93,5 @@ const styles = StyleSheet.create({
 export default SignupScreen;
 
 
-//some change
+
 
