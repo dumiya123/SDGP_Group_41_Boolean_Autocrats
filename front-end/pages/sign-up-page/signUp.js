@@ -68,7 +68,7 @@ const SignupScreen = () => {
       {/* <Spacer size={20} /> */}
       <Button title="               Sign Up with Google                    " onPress={handleSignup} color={"#F6B17A"} />
       <Text ></Text>
-      <Button title="                              Sign Up                                " onPress={handleSignup} color={"#F6B17A"} />
+      <Button title="            Sign Up with Facebook                  " onPress={handleSignup} color={"#F6B17A"} />
       
 
       {/* Uncomment the following lines if you want to include Google and Facebook sign-in buttons */}
