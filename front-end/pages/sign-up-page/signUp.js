@@ -73,11 +73,6 @@ const SignupScreen = () => {
       <Button title="            Sign Up with Facebook                  " onPress={handleSignup} color={"#F6B17A"} />
       <Text style={{padding:11,fontSize:13}}>Already Have an account? Login</Text>
       
-
-      {/* Uncomment the following lines if you want to include Google and Facebook sign-in buttons */}
-      {/* <Button title="Sign in with Google" onPress={handleSignup} />
-      <Spacer size={20} />
-      <Button title="Sign in with Facebook" onPress={handleSignup} /> */}
     </View>
   );
 };
@@ -121,9 +116,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#3498db',
     borderRadius: 10,
   },
-
-
-
 
 });
 
