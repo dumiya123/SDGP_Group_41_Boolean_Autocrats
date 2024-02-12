@@ -20,24 +20,23 @@ const SignupScreen = () => {
   };
 
   // render the UI for SignUp Screen
-  const Spacer = ({ size }) => <View style={{ width: 100, height: 20 }} />;
+  const Spacer = ({ size }) => <View style={{ width: 100, height: 70 }} />;
 
   return (
     <View style={styles.container}>
-      <Image source={logoImg} style={{ width: 470, height: 250, borderRadius: 30 }} />
+      <Image source={logoImg} style={{ width: 370, height: 250, padding: 20 }} />
       {/* Display a welcome message. */}
-      <Spacer size={100} />
-      <Text style={styles.title}>Welcome to the SaveNest</Text>
-      <Spacer size={100} />
+      {/* <Spacer size={80} /> */}
+      <Text style={styles.title}>
+        Hello!. Register to get{'\n'}Start..!
+      </Text>
 
-      <Text style={styles.label}>Name</Text>
-            {/* Text Input for entering Name */}
-       <TextInput
+      {/* Text Input for entering Name */}
+      <TextInput
         style={styles.input}
         placeholder="Enter your name"
         onChangeText={(text) => setName(text)}
       />
-      <Spacer size={20} />
 
       {/* Text Input for entering Email */}
       <TextInput
@@ -45,8 +44,6 @@ const SignupScreen = () => {
         placeholder="Enter your email"
         onChangeText={(text) => setEmail(text)}
       />
-      <Text style={styles.label}>Email</Text>
-    
 
       {/* Text Input for entering Password */}
       <TextInput
@@ -55,24 +52,22 @@ const SignupScreen = () => {
         secureTextEntry
         onChangeText={(text) => setPassword(text)}
       />
-      <Text style={styles.label}>Password</Text>
 
       <TextInput
-              style={styles.input}
-              placeholder="Enter your password"
-              secureTextEntry
-              onChangeText={(text) => setPassword(text)}
+        style={styles.input}
+        placeholder="Confirm your password"
+        secureTextEntry
+        onChangeText={(text) => setPassword(text)}
       />
 
       <Spacer size={100} />
 
-      {/* <Button title="               Sign Up               " onPress={handleSignup} /> */}
+      <Button title="Sign Up" onPress={handleSignup} />
       <Spacer size={20} />
 
-      {/* <Button title=" Sign in with Google " onPress={handleSignup} />
-
+      {/* Uncomment the following lines if you want to include Google and Facebook sign-in buttons */}
+      {/* <Button title="Sign in with Google" onPress={handleSignup} />
       <Spacer size={20} />
-
       <Button title="Sign in with Facebook" onPress={handleSignup} /> */}
     </View>
   );
@@ -87,7 +82,9 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: 24,
+    fontWeight: 'bold',
+    fontStyle: 'italic',
+    fontSize: 26,
     marginBottom: 16,
   },
 
@@ -101,7 +98,7 @@ const styles = StyleSheet.create({
   },
 
   label: {
-    fontSize: 18,
+    fontSize: 15,
     marginTop: 5,
     marginBottom: 10,
   },
@@ -114,6 +111,7 @@ const styles = StyleSheet.create({
 });
 
 export default SignupScreen;
+
 
 
 
