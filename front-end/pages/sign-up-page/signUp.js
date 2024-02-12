@@ -59,7 +59,7 @@ const SignupScreen = () => {
         secureTextEntry
         onChangeText={(text) => setPassword(text)}
       />
-
+      
       <Spacer size={100} />
 
       <Button title="Sign Up" onPress={handleSignup} />
