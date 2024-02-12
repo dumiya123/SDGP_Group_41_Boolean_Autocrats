@@ -48,7 +48,7 @@ const SignupScreen = () => {
       {/* Text Input for entering Password */}
       <TextInput
         style={styles.input}
-        placeholder="Enter password"
+        placeholder=" Enter password"
         secureTextEntry
         onChangeText={(text) => setPassword(text)}
       />
@@ -63,8 +63,9 @@ const SignupScreen = () => {
       {/* <Spacer size={100} /> */}
 
       <Button title="                              Sign Up                                " onPress={handleSignup} color={"#F6B17A"} />
-      <View styles={{ borderBottomWidth: 1, borderColor: 'black', width: '80%', marginVertical: 10}}></View>
+      {/* <View styles={{ borderBottomWidth: 1, borderColor: 'black', width: '80%', marginVertical: 10}}></View> */}
       <Text style={{padding:20}}>Or Sign Up With</Text>
+
       <Spacer size={20} />
       
 
@@ -82,6 +83,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
+    padding:30,
   },
 
   title: {
@@ -98,6 +100,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 16,
     paddingLeft: 8,
+    borderCurve:'circular',
+    borderEndEndRadius:20,
+    
   },
 
   label: {
@@ -111,6 +116,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#3498db',
     borderRadius: 10,
   },
+
+
 
 
 });
