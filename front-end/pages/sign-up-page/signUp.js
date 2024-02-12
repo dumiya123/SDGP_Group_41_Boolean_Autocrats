@@ -34,36 +34,36 @@ const SignupScreen = () => {
       {/* Text Input for entering Name */}
       <TextInput
         style={styles.input}
-        placeholder="Enter your name"
+        placeholder="Enter Username"
         onChangeText={(text) => setName(text)}
       />
 
       {/* Text Input for entering Email */}
       <TextInput
         style={styles.input}
-        placeholder="Enter your email"
+        placeholder="Enter email"
         onChangeText={(text) => setEmail(text)}
       />
 
       {/* Text Input for entering Password */}
       <TextInput
         style={styles.input}
-        placeholder="Enter your password"
+        placeholder="Enter password"
         secureTextEntry
         onChangeText={(text) => setPassword(text)}
       />
 
       <TextInput
         style={styles.input}
-        placeholder="Confirm your password"
+        placeholder="Confirm password"
         secureTextEntry
         onChangeText={(text) => setPassword(text)}
       />
-      
-      <Spacer size={100} />
 
-      <Button title="Sign Up" onPress={handleSignup} />
-      <Spacer size={20} />
+      {/* <Spacer size={100} /> */}
+
+      <Button title="                              Sign Up                                " onPress={handleSignup} />
+      <Spacer size={20} /> 
 
       {/* Uncomment the following lines if you want to include Google and Facebook sign-in buttons */}
       {/* <Button title="Sign in with Google" onPress={handleSignup} />
