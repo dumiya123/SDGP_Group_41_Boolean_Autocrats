@@ -66,11 +66,12 @@ const SignupScreen = () => {
 
       <Button title="                              Sign Up                                " onPress={handleSignup} color={"#F6B17A"} />
       {/* <View styles={{ borderBottomWidth: 1, borderColor: 'black', width: '80%', marginVertical: 10}}></View> */}
-      <Text style={{padding:10,fontStyle:'italic',fontSize:12}}>Or Sign Up With</Text>
+      <Text style={{padding:11,fontStyle:'italic',fontSize:13}}>Or Sign Up With</Text>
       {/* <Spacer size={20} /> */}
       <Button title="               Sign Up with Google                    " onPress={handleSignup} color={"#F6B17A"} />
       <Text ></Text>
       <Button title="            Sign Up with Facebook                  " onPress={handleSignup} color={"#F6B17A"} />
+      <Text style={{padding:11,fontSize:13}}>Already Have an account? Login</Text>
       
 
       {/* Uncomment the following lines if you want to include Google and Facebook sign-in buttons */}
