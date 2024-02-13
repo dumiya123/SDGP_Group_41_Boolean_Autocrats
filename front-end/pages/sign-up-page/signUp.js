@@ -32,16 +32,24 @@ const SignupScreen = () => {
       {/* Text Input for entering email */}
       <TextInput
         style={styles.input}
-        placeholder="Email"
-        onChangeText={(text) => setEmail(text)}
+        placeholder="Enter Username"
+        onChangeText={(text) => setUsername(text)}
       />
-      <Spacer size={100} />
+      {/* <Spacer size={100} /> */}
       {/* TextInput for entering Password */}
       <TextInput
         style={styles.input}
-        placeholder="Password"
+        placeholder="Enter email"
+        secureTextEntry
+        onChangeText={(text) => setEmail(text)}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Enter Password"
         secureTextEntry
         onChangeText={(text) => setPassword(text)}
+      />
+      <TextInput
       />
       <Spacer size={100} />
       {/* <Button title="               Sign Up               " onPress={handleSignup} /> */}
