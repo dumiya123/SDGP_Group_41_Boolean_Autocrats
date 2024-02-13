@@ -54,7 +54,8 @@ const SignupScreen = () => {
           placeholder='Confirm Password'
           secureTextEntry
           onChangeText={(text) => setPassword(text)}
-/>
+      />
+
       <Spacer size={100} />
       {/* <Button title="               Sign Up               " onPress={handleSignup} /> */}
       <Spacer size={100} />
