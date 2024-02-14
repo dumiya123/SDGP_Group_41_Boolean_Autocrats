@@ -3,8 +3,6 @@ import { View, Text, TextInput, Button, StyleSheet,Image} from 'react-native';
 import React, { useState } from 'react';
 const logoImg = require('./images/image2.jpg')
 
-
-
 // Define the SignUp functional component.
 const SignupScreen = () => {
   // State variables to hold email and password using the 'useState' hook
@@ -61,11 +59,11 @@ const SignupScreen = () => {
       <Spacer size={100} />
       <Text>Or Sign Up with</Text>
       <Spacer size={100} />
-      <Button title='    Sign Up with Google  ' onPress={()=>googleLogin()} color="#DE4D5A"/> 
+      <Button title='    Sign Up with Google  ' onPress={googleLogin()} color="#DE4D5A"/> 
       <Spacer size={100} />
-      <Button title=' Sign Up with faceBook' onPress={()=>facebookLogin} color="#3B5998"/>
+      <Button title=' Sign Up with faceBook' onPress={facebookLogin()} color="#3B5998"/>
       <Spacer size={100} />
-      <Text>Already HAve an Account? Login in</Text>
+      <Text>Already Have an Account? Login in</Text>
 
       {/* <Button title=" Sign in with Google " onPress={handleSignup} />
       <Spacer size={100} />
