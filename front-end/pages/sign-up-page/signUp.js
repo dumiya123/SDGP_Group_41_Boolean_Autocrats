@@ -58,6 +58,7 @@ const SignupScreen = () => {
       />
 
       {/* <Spacer size={100} /> */}
+
       <Button title="               Sign Up               " onPress={handleSignup} />
       <Spacer size={100} />
       <Text style={styles.finaltext}>Or Sign Up with</Text>
