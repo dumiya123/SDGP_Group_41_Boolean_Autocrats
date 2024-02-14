@@ -24,11 +24,11 @@ const SignupScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Image source={logoImg} style={{width:370 ,height:250,borderRadius:30}}/>
+      <Image source={logoImg} style={{width:300 ,height:220,borderRadius:30}}/>
       {/* Display a welcome message. */}
-      <Spacer size={100} />
-      <Text style={styles.title}>Welcome to the SaveNest</Text>
-      <Spacer size={100} />
+      {/* <Spacer size={100} /> */}
+      <Text style={styles.title}>Hello! Register to get{'\n'}Start.</Text>
+      {/* <Spacer size={100} /> */}
       {/* Text Input for entering email */}
       <TextInput
         style={styles.input}
@@ -56,12 +56,14 @@ const SignupScreen = () => {
           onChangeText={(text) => setPassword(text)}
       />
 
+      {/* <Spacer size={100} /> */}
+      <Button title="               Sign Up               " onPress={handleSignup} />
+      {/* <Spacer size={100} /> */}
+      <Text>Or Sign Up</Text>
+      
+      {/* <Button title=" Sign in with Google " onPress={handleSignup} />
       <Spacer size={100} />
-      {/* <Button title="               Sign Up               " onPress={handleSignup} /> */}
-      <Spacer size={100} />
-      <Button title=" Sign in with Google " onPress={handleSignup} />
-      <Spacer size={100} />
-      <Button title="Sign in with Facebook" onPress={handleSignup} />
+      <Button title="Sign in with Facebook" onPress={handleSignup} /> */}
     </View>
   );
 };
@@ -80,6 +82,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     marginBottom: 16,
+    fontStyle:'italic',
   },
 
   input: {
