@@ -4,17 +4,30 @@ import SignupScreen from './pages/sign-up-page/signUp';   //Importing the SignUp
 
 
 
+
 // Main App component
 //This component created to show the sign Up screen to the User.
 export default function App() {
   return (
     // Main container view with flex styling
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' ,backgroundColor:'F39F5A'}}>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' ,backgroundColor:'#4477CE'}}>
       {/* Render the SignUpScreen component */}
       <SignupScreen />
+      
     </View>
   );
 }
+
+// export default function App()
+// {
+//   return(
+//     <View style={{ padding:30,justifyContent: 'flex-end', alignItems: 'center' ,backgroundColor:'#4477CE'}}>
+//       <Social_Media_Buttons/>
+//     </View>
+
+
+//   );
+// }
 
 
 

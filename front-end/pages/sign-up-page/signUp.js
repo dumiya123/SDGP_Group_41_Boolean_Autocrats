@@ -1,8 +1,9 @@
 // Import necessary modules from the 'react' and 'react-native' libraries
-import { View, Text, TextInput, Button, StyleSheet,Image} from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet,Image,TouchableOpacity} from 'react-native';
 import React, { useState } from 'react';
-const logoImg = require('./images/image2.jpg')
-
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { FontAwesome5 } from 'react-native-vector-icons'; // Import FontAwesome5 for Twitter icon
+const logoImg = require('./images/signup.png')
 
 
 // Define the SignUp functional component.
@@ -24,11 +25,11 @@ const SignupScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Image source={logoImg} style={{width:370 ,height:250,borderRadius:30}}/>
+      <Image source={logoImg} style={{width:300 ,height:220,borderRadius:30}}/>
       {/* Display a welcome message. */}
-      <Spacer size={100} />
-      <Text style={styles.title}>Welcome to the SaveNest</Text>
-      <Spacer size={100} />
+      {/* <Spacer size={100} /> */}
+      <Text style={styles.title}>Hello! Register to get{'\n'}Start.</Text>
+      {/* <Spacer size={100} /> */}
       {/* Text Input for entering email */}
       <TextInput
         style={styles.input}
@@ -50,34 +51,58 @@ const SignupScreen = () => {
         onChangeText={(text) => setPassword(text)}
       />
       <TextInput
+          style={styles.input}
+          placeholder='Confirm Password'
+          secureTextEntry
+          onChangeText={(text) => setPassword(text)}
       />
+
+      {/* <Spacer size={100} /> */}
+
+      <Button title="               Sign Up               " onPress={handleSignup} />
       <Spacer size={100} />
-      {/* <Button title="               Sign Up               " onPress={handleSignup} /> */}
+      <Text style={styles.finaltext}>Or Sign Up with</Text>
       <Spacer size={100} />
-      <Button title=" Sign in with Google " onPress={handleSignup} />
+      <Button title='    Sign Up with Google  ' onPress={()=>googleLogin()} color="#DE4D5A"/> 
       <Spacer size={100} />
-      <Button title="Sign in with Facebook" onPress={handleSignup} />
+      <Button title=' Sign Up with faceBook' onPress={()=>facebookLogin()} color="#3B5998"/>
+      <Spacer size={100} />
+      <Text style={styles.finaltext}>Already Have an Account? Login in</Text>
+      
+
+      
+      
+
+      
+
+
     </View>
   );
+
+  
 };
 
 const styles = StyleSheet.create({
-  container: {
+  container: 
+  {
+
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
 
-    
   },
   
 
-  title: {
+  title: 
+  {
     fontSize: 24,
     marginBottom: 16,
+    fontStyle:'italic',
   },
 
-  input: {
+  input: 
+  {
     height: 40,
     width: 300,
     borderColor: '#9EC8B9',
@@ -86,13 +111,26 @@ const styles = StyleSheet.create({
     paddingLeft: 8,
   },
 
-  button: {
+  button: 
+  {
     width: 80, // Set the desired width for all buttons
     backgroundColor: '#3498db',
     borderRadius: 10,
 
   },
+
+  finaltext:
+  {
+    color:'#040D12',
+    fontStyle:'italic',
+  }
+
+
+
+
 });
 
 export default SignupScreen;
+
+
 
