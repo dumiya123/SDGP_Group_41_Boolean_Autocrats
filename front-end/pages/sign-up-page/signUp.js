@@ -58,9 +58,13 @@ const SignupScreen = () => {
 
       {/* <Spacer size={100} /> */}
       <Button title="               Sign Up               " onPress={handleSignup} />
-      {/* <Spacer size={100} /> */}
-      <Text>Or Sign Up</Text>
-      
+      <Spacer size={100} />
+      <Text>Or Sign Up with</Text>
+      <Spacer size={100} />
+      <Button title='    Sign Up with Google  ' onPress={()=>googleLogin()} color="#DE4D5A"/> 
+      <Spacer size={100} />
+      <Button title=' Sign Up with faceBook' onPress={()=>facebookLogin} color="#3B5998"/>
+
       {/* <Button title=" Sign in with Google " onPress={handleSignup} />
       <Spacer size={100} />
       <Button title="Sign in with Facebook" onPress={handleSignup} /> */}
