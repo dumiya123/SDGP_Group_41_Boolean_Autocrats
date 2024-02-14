@@ -1,6 +1,8 @@
 // Import necessary modules from the 'react' and 'react-native' libraries
-import { View, Text, TextInput, Button, StyleSheet,Image} from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet,Image,TouchableOpacity} from 'react-native';
 import React, { useState } from 'react';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { FontAwesome5 } from 'react-native-vector-icons'; // Import FontAwesome5 for Twitter icon
 const logoImg = require('./images/signup.png')
 
 // Define the SignUp functional component.
@@ -57,39 +59,49 @@ const SignupScreen = () => {
       {/* <Spacer size={100} /> */}
       <Button title="               Sign Up               " onPress={handleSignup} />
       <Spacer size={100} />
-      <Text>Or Sign Up with</Text>
+      <Text style={styles.finaltext}>Or Sign Up with</Text>
       <Spacer size={100} />
       <Button title='    Sign Up with Google  ' onPress={()=>googleLogin()} color="#DE4D5A"/> 
       <Spacer size={100} />
       <Button title=' Sign Up with faceBook' onPress={()=>facebookLogin()} color="#3B5998"/>
       <Spacer size={100} />
-      <Text>Already Have an Account? Login in</Text>
+      <Text style={styles.finaltext}>Already Have an Account? Login in</Text>
+      
 
       {/* <Button title=" Sign in with Google " onPress={handleSignup} />
       <Spacer size={100} />
       <Button title="Sign in with Facebook" onPress={handleSignup} /> */}
+      
+      
+
+
     </View>
   );
+
+  
 };
 
 const styles = StyleSheet.create({
-  container: {
+  container: 
+  {
+
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
 
-
   },
   
 
-  title: {
+  title: 
+  {
     fontSize: 24,
     marginBottom: 16,
     fontStyle:'italic',
   },
 
-  input: {
+  input: 
+  {
     height: 40,
     width: 300,
     borderColor: '#9EC8B9',
@@ -98,13 +110,26 @@ const styles = StyleSheet.create({
     paddingLeft: 8,
   },
 
-  button: {
+  button: 
+  {
     width: 80, // Set the desired width for all buttons
     backgroundColor: '#3498db',
     borderRadius: 10,
 
   },
+
+  finaltext:
+  {
+    color:'#040D12',
+    fontStyle:'italic',
+  }
+
+
+
+
 });
 
 export default SignupScreen;
+
+
 
