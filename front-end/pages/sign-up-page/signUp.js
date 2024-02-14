@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { FontAwesome5 } from 'react-native-vector-icons'; // Import FontAwesome5 for Twitter icon
 const logoImg = require('./images/signup.png')
 
+
 // Define the SignUp functional component.
 const SignupScreen = () => {
   // State variables to hold email and password using the 'useState' hook
@@ -68,10 +69,9 @@ const SignupScreen = () => {
       <Text style={styles.finaltext}>Already Have an Account? Login in</Text>
       
 
-      {/* <Button title=" Sign in with Google " onPress={handleSignup} />
-      <Spacer size={100} />
-      <Button title="Sign in with Facebook" onPress={handleSignup} /> */}
       
+      
+
       
 
 
