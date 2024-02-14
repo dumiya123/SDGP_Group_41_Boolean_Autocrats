@@ -11,7 +11,6 @@ router.get("/",function(req,res){
 });
 
 //router for the signup endpoint
-router.post('/signup', controllerUser.signUp);
-
+router.route("/signup").post(controllerUser.signUp)
 
 module.exports = router;
