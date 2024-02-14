@@ -3,12 +3,14 @@ const cors = require('cors');
 const cookieSession = require('cookie-session');
 const Sequelize = require('sequelize');
 const config = require('./config/config.json');
+const routes=require('./routes');
 
 const app = express();
-
 // Middlewares for the app
-app.use(express.json());
+app.use(express.json());  
 app.use(cors());
+app.use("/user", routes);
+
 
 // Sequelize configuration
 const sequelize = new Sequelize(config.development); 
@@ -29,4 +31,5 @@ sequelize
 const port = 8080;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
+  
 });
