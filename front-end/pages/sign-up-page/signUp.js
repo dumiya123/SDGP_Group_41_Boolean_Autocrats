@@ -12,6 +12,7 @@ const SignupScreen = () => {
   // State variables to hold email and password using the 'useState' hook
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const[isPasswordShown,setIsPasswordShown] = useState(false);
 
   // create a function to handle signup
   const handleSignup = () => {
@@ -21,8 +22,10 @@ const SignupScreen = () => {
     // You can add API call or authentication logic here
   };
 
-  // render the UI for SignUp Screen
+
   const Spacer = ({ size }) => <View style={{ width: 100, height: 20 }} />;
+
+    // render the UI for SignUp Screen
 
   return (
     <View style={styles.container}>
@@ -77,11 +80,11 @@ const SignupScreen = () => {
           position:'absolute',
           right:12,
           padding:12
-          
-
+        
          }}
       >
-        <Ionicons name='eye-off' size={19}/>
+
+        <Ionicons name='eye-off' size={19} color={'black'}/>
 
       </TouchableOpacity>
 
@@ -105,7 +108,7 @@ const SignupScreen = () => {
             }}
       >
 
-        <Ionicons name='eye-off' size={19}/>
+        <Ionicons name='eye-off' size={19} color={'black'}/>
 
       </TouchableOpacity>
 
@@ -118,20 +121,37 @@ const SignupScreen = () => {
       </View>
 
       <View>
+
       <Text style={styles.finaltext}>Or Sign Up with</Text>
+      <Spacer size={100} />
+
+      </View>
+
+      <Button title='    Sign Up with Google  ' onPress={()=>googleLogin()} color="#DE4D5A"/> 
+      <Spacer size={100} />
+
+      <View>
+
+        <Button title=' Sign Up with faceBook' onPress={()=>facebookLogin()} color="#3B5998"/>
+        <Spacer size={100} />
+
+      </View>
+
+      <View>
+
+      <Text style={styles.finaltext}>Already Have an Account? Login in</Text>
 
       </View>
 
       
        
       
-      <Spacer size={100} />
-      <Button title='    Sign Up with Google  ' onPress={()=>googleLogin()} color="#DE4D5A"/> 
-      <Spacer size={100} />
-      <Button title=' Sign Up with faceBook' onPress={()=>facebookLogin()} color="#3B5998"/>
-      <Spacer size={100} />
-      <Text style={styles.finaltext}>Already Have an Account? Login in</Text>
-      <View></View>
+      
+      
+      
+      
+      
+ 
 
     </View>
     
