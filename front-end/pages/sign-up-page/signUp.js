@@ -48,7 +48,9 @@ const SignupScreen = () => {
       />
 
       </View>
-      {/* TextInput for entering Password */}
+
+      {/*Declare a separate View Tag for Show Enter email Text Input Field */}
+      {/* TextInput for enter email */}
       <TextInput
         style={styles.input}
         placeholder="Enter email"
