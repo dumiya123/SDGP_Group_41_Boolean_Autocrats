@@ -1,8 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const cookieSession = require('cookie-session');
-const Sequelize = require('sequelize');
-const config = require('./config/config.json');
+const cookieSession = require('cookie-parser');
 const routes=require('./routes');
 const db = require('./models');
 
@@ -10,6 +8,8 @@ const app = express();
 // Middlewares for the app
 app.use(express.json());  
 app.use(cors());
+app.use(cookieSession());
+
 app.use("/user", routes);
 
 
