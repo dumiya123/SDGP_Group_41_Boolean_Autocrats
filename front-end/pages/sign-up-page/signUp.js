@@ -147,6 +147,7 @@ const SignupScreen = () => {
 
       <Text style={styles.finaltext}>Already Have an Account? Login in</Text>
 
+
       </View>
 
       
@@ -174,6 +175,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
+    backgroundColor:'#B4A5A5',
+    
 
   },
   

@@ -7,7 +7,7 @@ import SignupScreen from './pages/sign-up-page/signUp';   //Importing the SignUp
 export default function App() {
   return (
     // Main container view with flex styling
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' ,backgroundColor:'#4477CE'}}>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' ,backgroundColor:'#B4A5A5'}}>
       {/* Render the SignUpScreen component */}
       {/* <SignupScreen /> */}
       <SignupScreen />
