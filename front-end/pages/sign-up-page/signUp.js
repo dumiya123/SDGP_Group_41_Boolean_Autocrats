@@ -3,7 +3,8 @@ import { View, Text, TextInput, Button, StyleSheet,Image,TouchableOpacity} from 
 import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { FontAwesome5 } from 'react-native-vector-icons'; // Import FontAwesome5 for Twitter icon
-const logoImg = require('./images/signup.png')
+const logoImg = require('./images/signup.png');
+import {Ionicons} from "@expo/vector-icons"; 
 
 
 // Define the SignUp functional component.
@@ -25,42 +26,58 @@ const SignupScreen = () => {
 
   return (
     <View style={styles.container}>
+
+      {/*Below Image component will show the Image which is showing in top of the screen*/}
+
       <Image source={logoImg} style={{width:300 ,height:220,borderRadius:30}}/>
+
       {/* Display a welcome message. */}
-      {/* <Spacer size={100} /> */}
-      <Text style={styles.title}>Hello! Register to get{'\n'}Start.</Text>
-      {/* <Spacer size={100} /> */}
+
+      <Text style={styles.title}>Hello! Register to get Start.</Text>
+    
+      
+
+      {/*Declare a separate View Tag for Show Enter Username Text Input Field */}
       {/* Text Input for entering email */}
+
+      <View>
       <TextInput
         style={styles.input}
-        placeholder="Enter Username"
+        placeholder="Enter Username"             
         onChangeText={(text) => setUsername(text)}
       />
-      {/* <Spacer size={100} /> */}
+
+      </View>
       {/* TextInput for entering Password */}
       <TextInput
         style={styles.input}
         placeholder="Enter email"
         secureTextEntry
         onChangeText={(text) => setEmail(text)}
-      />
+      /> 
+   
       <TextInput
         style={styles.input}
         placeholder="Enter Password"
         secureTextEntry
         onChangeText={(text) => setPassword(text)}
       />
+      
+
       <TextInput
           style={styles.input}
           placeholder='Confirm Password'
           secureTextEntry
           onChangeText={(text) => setPassword(text)}
+          
       />
+
+      
 
       {/* <Spacer size={100} /> */}
 
-      <Button title="               Sign Up               " onPress={handleSignup} />
-      <Spacer size={100} />
+      <Button title="                 Sign Up               " onPress={handleSignup} style={{ borderRadius: 12 }} />
+       <Spacer size={100} />
       <Text style={styles.finaltext}>Or Sign Up with</Text>
       <Spacer size={100} />
       <Button title='    Sign Up with Google  ' onPress={()=>googleLogin()} color="#DE4D5A"/> 
@@ -68,15 +85,10 @@ const SignupScreen = () => {
       <Button title=' Sign Up with faceBook' onPress={()=>facebookLogin()} color="#3B5998"/>
       <Spacer size={100} />
       <Text style={styles.finaltext}>Already Have an Account? Login in</Text>
-      
-
-      
-      
-
-      
-
+      <View></View>
 
     </View>
+    
   );
 
   
@@ -98,7 +110,9 @@ const styles = StyleSheet.create({
   {
     fontSize: 24,
     marginBottom: 16,
-    fontStyle:'italic',
+    
+    alignContent:'stretch',
+    flexDirection:'row'
   },
 
   input: 
