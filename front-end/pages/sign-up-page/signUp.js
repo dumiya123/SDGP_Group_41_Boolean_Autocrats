@@ -111,15 +111,20 @@ const SignupScreen = () => {
 
       </View>
 
+      <View>
+      <Button title="                 Sign Up               " onPress={handleSignup} style={{ borderRadius:40 }} />
+      <Spacer size={100} />
 
-    
-      
+      </View>
 
-      {/* <Spacer size={100} /> */}
-
-      <Button title="                 Sign Up               " onPress={handleSignup} style={{ borderRadius: 12 }} />
-       <Spacer size={100} />
+      <View>
       <Text style={styles.finaltext}>Or Sign Up with</Text>
+
+      </View>
+
+      
+       
+      
       <Spacer size={100} />
       <Button title='    Sign Up with Google  ' onPress={()=>googleLogin()} color="#DE4D5A"/> 
       <Spacer size={100} />
