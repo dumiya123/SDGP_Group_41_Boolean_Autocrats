@@ -97,12 +97,22 @@ const SignupScreen = () => {
           
       />
 
+      <TouchableOpacity
+            style={{
+              position:'absolute',
+              right:12,
+              padding:12
+            }}
+      >
+
+        <Ionicons name='eye-off' size={19}/>
+
+      </TouchableOpacity>
+
       </View>
 
 
-      
-
-
+    
       
 
       {/* <Spacer size={100} /> */}
