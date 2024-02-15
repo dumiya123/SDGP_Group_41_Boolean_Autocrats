@@ -51,21 +51,44 @@ const SignupScreen = () => {
 
       {/*Declare a separate View Tag for Show Enter email Text Input Field */}
       {/* TextInput for enter email */}
+
+      <View>
       <TextInput
         style={styles.input}
         placeholder="Enter email"
         secureTextEntry
         onChangeText={(text) => setEmail(text)}
       /> 
-   
+
+      </View>
+
+      {/*Declare a separate View Tag for Show Enter Password Text Input Field */}
+      {/* TextInput for enter Password */}
+
+      <View>
       <TextInput
         style={styles.input}
         placeholder="Enter Password"
         secureTextEntry
         onChangeText={(text) => setPassword(text)}
       />
-      
+      <TouchableOpacity
+         style={{
+          position:'absolute',
+          right:12,
+          padding:12
+          
 
+         }}
+      >
+        <Ionicons name='eye-off' size={19}/>
+
+      </TouchableOpacity>
+
+      </View>
+
+      <View>
+        
       <TextInput
           style={styles.input}
           placeholder='Confirm Password'
@@ -73,6 +96,12 @@ const SignupScreen = () => {
           onChangeText={(text) => setPassword(text)}
           
       />
+
+      </View>
+
+
+      
+
 
       
 
