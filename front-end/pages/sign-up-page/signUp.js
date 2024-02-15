@@ -129,6 +129,7 @@ const SignupScreen = () => {
       <Spacer size={100} />
 
       </View>
+      
 
       <View>
 
