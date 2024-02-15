@@ -22,6 +22,11 @@ const SignupScreen = () => {
     // You can add API call or authentication logic here
   };
 
+  const togglePasswordVisibility = () => {
+    setIsPasswordShown((prev) =>!prev);
+
+  };
+
 
   const Spacer = ({ size }) => <View style={{ width: 100, height: 20 }} />;
 
@@ -72,7 +77,7 @@ const SignupScreen = () => {
       <TextInput
         style={styles.input}
         placeholder="Enter Password"
-        secureTextEntry
+        secureTextEntry={!isPasswordShown}
         onChangeText={(text) => setPassword(text)}
       />
       <TouchableOpacity
@@ -82,9 +87,10 @@ const SignupScreen = () => {
           padding:12
         
          }}
+         onPress={togglePasswordVisibility}
       >
 
-        <Ionicons name='eye-off' size={19} color={'black'}/>
+        <Ionicons name={isPasswordShown ? 'eye' : 'eye-off'} size={19} color={'black'} />
 
       </TouchableOpacity>
 
@@ -95,7 +101,7 @@ const SignupScreen = () => {
       <TextInput
           style={styles.input}
           placeholder='Confirm Password'
-          secureTextEntry
+          secureTextEntry={isPasswordShown}
           onChangeText={(text) => setPassword(text)}
           
       />
@@ -106,20 +112,24 @@ const SignupScreen = () => {
               right:12,
               padding:12
             }}
+            onPress={togglePasswordVisibility}
       >
 
-        <Ionicons name='eye-off' size={19} color={'black'}/>
-
+        <Ionicons name={isPasswordShown ? 'eye' : 'eye-off'} size={19} color={'black'} />
       </TouchableOpacity>
 
       </View>
 
+
+
+
       <View>
-      <Button title="                 Sign Up               " onPress={handleSignup} style={{ borderRadius:40 }} />
+      <Spacer size={100} />
+      <Button title="                 Sign Up                 " onPress={handleSignup} style={{ borderRadius:40 }} />
       <Spacer size={100} />
 
       </View>
-
+      
       <View>
 
       <Text style={styles.finaltext}>Or Sign Up with</Text>
@@ -141,17 +151,9 @@ const SignupScreen = () => {
 
       <Text style={styles.finaltext}>Already Have an Account? Login in</Text>
 
+
       </View>
 
-      
-       
-      
-      
-      
-      
-      
-      
- 
 
     </View>
     
@@ -168,6 +170,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
+    backgroundColor:'#B4A5A5',
+    
 
   },
   
