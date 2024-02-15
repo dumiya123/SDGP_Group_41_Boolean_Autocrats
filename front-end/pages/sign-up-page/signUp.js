@@ -120,8 +120,12 @@ const SignupScreen = () => {
 
       </View>
 
+
+
+
       <View>
-      <Button title="                 Sign Up               " onPress={handleSignup} style={{ borderRadius:40 }} />
+      <Spacer size={100} />
+      <Button title="                 Sign Up                 " onPress={handleSignup} style={{ borderRadius:40 }} />
       <Spacer size={100} />
 
       </View>
@@ -150,15 +154,6 @@ const SignupScreen = () => {
 
       </View>
 
-      
-       
-      
-      
-      
-      
-      
-      
- 
 
     </View>
     
