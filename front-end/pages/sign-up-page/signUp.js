@@ -130,7 +130,6 @@ const SignupScreen = () => {
 
       </View>
       
-
       <View>
 
       <Text style={styles.finaltext}>Or Sign Up with</Text>
