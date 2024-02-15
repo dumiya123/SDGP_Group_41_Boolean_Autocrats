@@ -1,4 +1,6 @@
 let controllerUser = require('./controllers/userController');
+const verifyToken = require('./middleware/JWT');
+
 
 
 let router = require('express').Router();
@@ -12,5 +14,8 @@ router.get("/",function(req,res){
 
 //router for the signup endpoint
 router.route("/signup").post(controllerUser.signUp)
+router.route("/signIn").post(controllerUser.signIn)
+router.route("/res").post(verifyToken,controllerUser.testRoute);
+
 
 module.exports = router;
