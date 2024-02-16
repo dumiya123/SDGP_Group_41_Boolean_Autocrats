@@ -141,6 +141,7 @@ const SignupScreen = () => {
         uncheckedIcon="check-box-outline-blank"
         iconRight
         iconSize={10} // Adjust the size as needed
+        checkedColor='black' //change the color of the check mark inside the check box .
         
 
         />
