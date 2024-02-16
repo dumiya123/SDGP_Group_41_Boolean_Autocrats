@@ -120,9 +120,6 @@ const SignupScreen = () => {
 
       </View>
 
-
-
-
       <View>
       <Spacer size={100} />
       <Button title="                 Sign Up                 " onPress={handleSignup} style={{ borderRadius:40 }} />
