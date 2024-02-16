@@ -238,7 +238,7 @@ const styles = StyleSheet.create({
   finaltext:
   {
     color:'#040D12',
-    fontStyle:'italic',
+
 
   }
 
