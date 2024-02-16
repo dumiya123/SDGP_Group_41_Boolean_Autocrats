@@ -139,6 +139,8 @@ const SignupScreen = () => {
         iconType="material"
         checkedIcon="check-box"
         uncheckedIcon="check-box-outline-blank"
+        iconRight
+        iconSize={10} // Adjust the size as needed
         
 
         />
@@ -146,8 +148,8 @@ const SignupScreen = () => {
 
         </View>
 
-      <View>
-      <Text style={{}}></Text>
+      <View style={{paddingTop:10}}>
+      {/* <Text style={{paddingBottom:-9}}></Text> */}
       <Button title="                 Sign Up                 " onPress={handleSignup} style={{ borderRadius:40 }} />
       <Spacer size={100} />
 
