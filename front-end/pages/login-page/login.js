@@ -6,7 +6,7 @@ import { View, Text, TextInput, Button, StyleSheet,Image,TouchableOpacity, Press
 export default function login() {
   return (
     <View>
-        <Text>Login</Text>
+
     </View>
     
   )

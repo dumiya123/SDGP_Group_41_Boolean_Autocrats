@@ -1,18 +1,32 @@
 import * as React from 'react';  //import necessary modules from react and React natve 
 import { View ,Image} from 'react-native';    //View is a component of react native that helps in organizing the elements on the screen.
 import SignupScreen from './pages/sign-up-page/signUp';   //Importing the SignUpScreen component from the specified file path
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import LoginScreen from '../front-end/pages/login-page/login'; // Assuming you have a LoginScreen component
+
+const Stack = createStackNavigator();
 
 // Main App component
 //This component created to show the sign Up screen to the User.
 export default function App() {
   return (
     // Main container view with flex styling
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' ,backgroundColor:'#B4A5A5'}}>
+    <View style={{ flex: 1, justifyContent: 'cnpmenter', alignItems: 'center' ,backgroundColor:'#B4A5A5'}}>
       {/* Render the SignUpScreen component */}
       {/* <SignupScreen /> */}
       <SignupScreen />
+      <LoginScreen/>
       
     </View>
+    // <NavigationContainer>
+    //   <Stack.Navigator initialRouteName="Signup">
+    //   <Stack.Screen name="Signup" component={SignupScreen} />
+    //   <Stack.Screen name="Login" component={LoginScreen} />
+    //   </Stack.Navigator>
+
+
+    // </NavigationContainer>
   );
 }
 

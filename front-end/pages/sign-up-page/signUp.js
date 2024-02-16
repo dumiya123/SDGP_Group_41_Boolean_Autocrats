@@ -253,7 +253,7 @@ const SignupScreen = ({navigation}) => {
        }}>
         <Text style={{fontSize:16,color:'black'}}>Already have an Account ? </Text>
         <Pressable
-        onPress={() => navigation.navigate("login")}>
+        onPress={() => navigation.navigate()}>
           <Text
           style={{
             fontSize:16,
