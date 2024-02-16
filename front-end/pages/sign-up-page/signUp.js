@@ -1,15 +1,16 @@
 // Import necessary modules from the 'react' and 'react-native' libraries
-import { View, Text, TextInput, Button, StyleSheet,Image,TouchableOpacity} from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet,Image,TouchableOpacity, Pressable} from 'react-native';
 import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { FontAwesome5 } from 'react-native-vector-icons'; // Import FontAwesome5 for Twitter icon
 const logoImg = require('./images/signup.png');
 import { CheckBox } from 'react-native-elements';  // Import CheckBox from react-native-elements
 import {Ionicons} from "@expo/vector-icons"; 
+import { NavigationContainer } from '@react-navigation/native';
 
 
 // Define the SignUp functional component.
-const SignupScreen = () => {
+const SignupScreen = ({navigation}) => {
   // State variables to hold email and password using the 'useState' hook
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -151,40 +152,121 @@ const SignupScreen = () => {
 
       <View style={{paddingTop:10}}>
       {/* <Text style={{paddingBottom:-9}}></Text> */}
-      <Button title="                 Sign Up                 " onPress={handleSignup} style={{ borderRadius:40 }} />
-      <Spacer size={100} />
+      <Button title="                                       Sign Up                                     " onPress={() =>console.log("Sign Up Pressed") } 
+      style={{ borderRadius:40}} />
+      <Text style={{marginBottom:-12}}></Text>
 
       </View>
-      
-      <View>
 
-      <Text style={styles.finaltext}>Or Sign Up with</Text>
-      <Spacer size={100} />
+      <View style={{flexDirection:'row',alignItems:'flex-end',marginVertical:20}}>
+        <View
+        style={{
+          flex:1,
+          height:1,
+          backgroundColor:'grey',
+          marginHorizontal:10,
+          marginLeft:12,
+          marginRight:10,
+ 
+        }}
+        />
+        <Text style={{fontSize:14}}>    Or Sign up with </Text>
+        <View
+        style={{
+          flex:1,
+          height:1,
+          backgroundColor:'grey',
+          marginHorizontal:10
+        }}
+        />
 
+        
       </View>
-      <View
-         style={{marginRight:8}}
-         value={{}}
+
+      <View style={{
+        flexDirection:'row',
+        justifyContent:'center',
+
+
+      }}>  
+      <TouchableOpacity
+      onPress={() => console.log('Pressed')}
+      style={{
+        flex:1,
+        alignItems:'center',
+        justifyContent:'center',
+        flexDirection:'row',
+        height:42,
+        borderWidth:1,
+        borderColor:'gray',
+        marginRight:4,
+        borderRadius:10,
+        backgroundColor:'#F39F5A',
+        marginEnd:25,
+        marginStart:25
+      }}
       >
+        <Icon name='google'  size={30} color="#4285F4"/>
+        <Text>        Sign Up With Google</Text>
+
+      </TouchableOpacity>
+
+      </View>
+      <Text></Text>
+
+      <View style={{
+        flexDirection:'row',
+        justifyContent:'center',
+
+      }}>
+        <TouchableOpacity
+        onPress={() => console.log('Pressed')}
+        style={{
+          flex:1,
+          alignItems:'center',
+          justifyContent:'center',
+          flexDirection:'row',
+          height:42,
+          borderWidth:1,
+          borderColor:'grey',
+          marginRight:4,
+          borderRadius:10,
+          backgroundColor:'#F39F5A',
+          marginEnd:25,
+          marginStart:25
+          
+        }} 
+        >
+           <Icon name="facebook-square" size={30} color="#1877F2" />
+           <Text>     Sign Up With faceBook</Text>
+
+        </TouchableOpacity>
+      </View>
+
+
+
+      <View
+       style={{
+        flexDirection:'row',
+        justifyContent:'center',
+        marginVertical:22
+       }}>
+        <Text style={{fontSize:16,color:'black'}}>Already have an Account ? </Text>
+        <Pressable
+        onPress={() => navigation.navigate("login")}>
+          <Text
+          style={{
+            fontSize:16,
+            color:'blue',
+            fontWeight:'bold',
+            marginLeft:6
+          }} 
+          >Login</Text>
+        </Pressable>
 
       </View>
 
-      <Button title='    Sign Up with Google  ' onPress={()=>googleLogin()} color="#DE4D5A"/> 
-      <Spacer size={100} />
 
-      <View>
-
-        <Button title=' Sign Up with faceBook' onPress={()=>facebookLogin()} color="#3B5998"/>
-        <Spacer size={100} />
-
-      </View>
-
-      <View>
-
-      <Text style={styles.finaltext}>Already Have an Account? Login in</Text>
-
-
-      </View>
 
 
     </View>
@@ -235,12 +317,9 @@ const styles = StyleSheet.create({
 
   },
 
-  finaltext:
-  {
-    color:'#040D12',
 
 
-  }
+  
 
 
 
