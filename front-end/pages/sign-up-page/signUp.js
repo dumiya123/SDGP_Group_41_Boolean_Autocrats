@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { FontAwesome5 } from 'react-native-vector-icons'; // Import FontAwesome5 for Twitter icon
 const logoImg = require('./images/signup.png');
+import { CheckBox } from 'react-native-elements';  // Import CheckBox from react-native-elements
 import {Ionicons} from "@expo/vector-icons"; 
 
 
@@ -12,6 +13,7 @@ const SignupScreen = () => {
   // State variables to hold email and password using the 'useState' hook
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isSelected, setSelection] = useState(false); // Corrected variable name
   const[isPasswordShown,setIsPasswordShown] = useState(false);
 
   // create a function to handle signup
@@ -115,13 +117,37 @@ const SignupScreen = () => {
             onPress={togglePasswordVisibility}
       >
 
+ 
+
         <Ionicons name={isPasswordShown ? 'eye' : 'eye-off'} size={19} color={'black'} />
       </TouchableOpacity>
 
       </View>
 
+      <View style={{
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'flex-start',
+        marginBottom:1
+
+
+        }}> 
+        <CheckBox
+        checked={isSelected}
+        onPress={()=>setSelection(!isSelected)}
+        containerStyle={{marginRight: 8, marginLeft: -77, padding: 0, borderWidth: 0}}
+        iconType="material"
+        checkedIcon="check-box"
+        uncheckedIcon="check-box-outline-blank"
+        
+
+        />
+        <Text>Agree to Terms And Conditions</Text>
+
+        </View>
+
       <View>
-      <Spacer size={100} />
+      <Text style={{}}></Text>
       <Button title="                 Sign Up                 " onPress={handleSignup} style={{ borderRadius:40 }} />
       <Spacer size={100} />
 
@@ -131,6 +157,12 @@ const SignupScreen = () => {
 
       <Text style={styles.finaltext}>Or Sign Up with</Text>
       <Spacer size={100} />
+
+      </View>
+      <View
+         style={{marginRight:8}}
+         value={{}}
+      >
 
       </View>
 
@@ -204,6 +236,7 @@ const styles = StyleSheet.create({
   {
     color:'#040D12',
     fontStyle:'italic',
+
   }
 
 
