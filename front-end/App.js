@@ -3,7 +3,6 @@ import { View ,Image} from 'react-native';    //View is a component of react nat
 import SignupScreen from './pages/sign-up-page/signUp';   //Importing the SignUpScreen component from the specified file path
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import LoginScreen from '../front-end/pages/login-page/login'; // Assuming you have a LoginScreen component
 
 const Stack = createStackNavigator();
 
@@ -16,7 +15,7 @@ export default function App() {
       {/* Render the SignUpScreen component */}
       {/* <SignupScreen /> */}
       <SignupScreen />
-      <LoginScreen/>
+
       
     </View>
     // <NavigationContainer>
