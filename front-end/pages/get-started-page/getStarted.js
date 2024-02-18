@@ -6,11 +6,13 @@ import image2 from '../../assets/image2.jpg';
 import image3 from '../../assets/image3.jpg';
 import image4 from '../../assets/image4.jpg';
 import image5 from '../../assets/image5.jpg';
-
+import { useNavigation } from '@react-navigation/native';
 
 const GetStarted = () => {
+  const navigation = useNavigation();
+  
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1}}>
       <ScrollView
         style={{ flex: 1 }}
         horizontal={true}
@@ -41,6 +43,7 @@ const GetStarted = () => {
           imageSource={image5}
           header="Visualize Your Finances: Graphical Analysis with Our Budget App"
           paragraph="At the end of your budget, our app delivers insightful analytics through visual graphs."
+          navigation={navigation}  // Pass the navigation prop to ImageBox
         />
     
       </ScrollView>
