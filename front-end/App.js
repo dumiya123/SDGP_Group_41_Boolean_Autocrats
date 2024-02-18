@@ -13,16 +13,59 @@ import HomeScreen from './pages/home-page/home';
 import SettingsScreen from './pages/settings-page/settingScreen'; // Import your SettingsScreen component
 import UpdateBudget from './pages/update-budget-page/updateBudget';
 
+
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator(); // Create the Tab navigator
 
+
 const BottomTabNavigator = () => {
+
+function HomeScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Home!</Text>
+    </View>
+  );
+}
+
+
+function add() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>add!</Text>
+    </View>
+  );
+}
+
+function SettingsScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Settings!</Text>
+    </View>
+  );
+}
+
+function HomeTabNavigator() {
+
   return (
     <Tab.Navigator>
+
       <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}/>
       <Tab.Screen name="Update Budget" component={UpdateBudget}options={{ headerShown: false }}/>
       <Tab.Screen name="Settings" component={SettingsScreen}options={{ headerShown: false }} />
+
+      <Tab.Screen name="Home" component={HomeScreen}/>
+      <Tab.Screen name="Update Budget" component={UpdateBudget}/>
+      <Tab.Screen name="Settings" component={SettingsScreen} />
+
+
     </Tab.Navigator>
+
+      <Tab.Screen name="add" component={add}/>
+      
+    </Tab.Navigator> 
+
   );
 };
 
