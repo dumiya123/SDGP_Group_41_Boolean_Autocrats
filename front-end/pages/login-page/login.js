@@ -138,7 +138,7 @@ const LoginScreen = () => {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={()=>Navigation.navigate()}
+          onPress={() => navigation.navigate('HOME')}
           style={{
             flexDirection: 'row',
             alignItems: 'center',
