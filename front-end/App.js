@@ -14,7 +14,7 @@ import SettingsScreen from './pages/settings-page/settingScreen'; // Import your
 import UpdateBudget from './pages/update-budget-page/updateBudget';
 
 const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator(); // Create the Tab navigator
+const Tab = createBottomTabNavigator();
 
 const BottomTabNavigator = () => {
   return (
