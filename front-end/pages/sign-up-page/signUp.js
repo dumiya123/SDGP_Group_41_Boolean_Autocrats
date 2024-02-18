@@ -15,6 +15,12 @@ const SignupScreen = () => {
   const [isPasswordShown, setIsPasswordShown] = useState(false);
   const [loading, setLoading] = useState(false);
 
+
+
+
+
+  // create a function to handle signup
+
   const handleSignup = () => {
     setLoading(true);
     // Simulate an API call or authentication process
