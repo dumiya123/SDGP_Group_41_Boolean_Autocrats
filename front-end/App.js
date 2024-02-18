@@ -3,42 +3,44 @@ import { View ,Image} from 'react-native';    //View is a component of react nat
 import SignupScreen from './pages/sign-up-page/signUp';   //Importing the SignUpScreen component from the specified file path
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
-const Stack = createStackNavigator();
-
-// Main App component
-//This component created to show the sign Up screen to the User.
+import LoginScreen from './pages/login-page/login';
+import GetStarted from './pages/get-started-page/getStarted';
+import 'react-native-gesture-handler';
+import VerificationEmail from './pages/forget-password-pages/verificationEmail';
+import VerificationCodeScreen from './pages/forget-password-pages/verificationCode';
+import PasswordForm from './pages/forget-password-pages/createPassword';
+import ConfirmPasswordScreen from './pages/forget-password-pages/confirmPassword';
 export default function App() {
+
+  const Stack = createStackNavigator();
+  
+  
+
+
   return (
-    // Main container view with flex styling
-    <View style={{ flex: 1, justifyContent: 'cnpmenter', alignItems: 'center' ,backgroundColor:'#B4A5A5'}}>
-      {/* Render the SignUpScreen component */}
-      {/* <SignupScreen /> */}
-      <SignupScreen />
 
-      
-    </View>
-    // <NavigationContainer>
-    //   <Stack.Navigator initialRouteName="Signup">
-    //   <Stack.Screen name="Signup" component={SignupScreen} />
-    //   <Stack.Screen name="Login" component={LoginScreen} />
-    //   </Stack.Navigator>
-
-
-    // </NavigationContainer>
+    <NavigationContainer>
+      <Stack.Navigator>
+      <Stack.Screen name='GET STARTED' component={GetStarted}
+        options={{ headerShown: false }}/>
+      <Stack.Screen name="LOG IN" component={LoginScreen}
+        options={{ headerShown: false }}/>
+      <Stack.Screen name="SIGN UP" component={SignupScreen}
+        options={{ headerShown: false }}/>
+      <Stack.Screen name ="Verification Email" component={VerificationEmail}
+        options={{ headerShown: false }}/>
+      <Stack.Screen name="CODE" component={VerificationCodeScreen}
+        options={{ headerShown: false }}/>
+      <Stack.Screen name='CREATEPW' component={PasswordForm}
+        options={{ headerShown: false }}/>
+      <Stack.Screen name='CONFIRMPW' component={ConfirmPasswordScreen}
+        options={{ headerShown: false }}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-// export default function App()
-// {
-//   return(
-//     <View style={{ padding:30,justifyContent: 'flex-end', alignItems: 'center' ,backgroundColor:'#4477CE'}}>
-//       <Social_Media_Buttons/>
-//     </View>
 
-
-//   );
-// }
 
 
 

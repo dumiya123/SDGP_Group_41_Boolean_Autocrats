@@ -1,8 +1,11 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, Dimensions, PixelRatio, Button } from 'react-native';
+import { View, Text, Image, StyleSheet, Dimensions, PixelRatio, TouchableOpacity } from 'react-native';
 import image5 from '../../assets/image5.jpg';
+import { useNavigation } from '@react-navigation/native';
 
 const ImageBox = ({ imageSource, header, paragraph }) => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.slide}>
       <Image source={imageSource} style={styles.imageStyle} />
@@ -10,13 +13,16 @@ const ImageBox = ({ imageSource, header, paragraph }) => {
         <Text style={styles.header}>{header}</Text>
         <Text style={styles.paragraph}>{paragraph}</Text>
         {imageSource === image5 && (
-          <View style={styles.buttonContainer}>
-            <Button
-              title='Get Started'
-              
-              color="#fff" 
-            />
-          </View>
+          <TouchableOpacity
+            onPress={() => {
+              // Handle 'Get Started' button press
+              navigation.navigate("LOG IN");
+            }}
+          >
+            <View style={styles.buttonContainer}>
+              <Text style={styles.buttonText}>Get Started</Text>
+            </View>
+          </TouchableOpacity>
         )}
       </View>
     </View>
@@ -27,15 +33,18 @@ const styles = StyleSheet.create({
   slide: {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
+    backgroundColor:'#395B64'
   },
   imageStyle: {
     height: PixelRatio.getPixelSizeForLayoutSize(135),
     width: '100%',
+    
   },
   wrapper: {
     justifyContent: 'center',
     alignItems: 'center',
     marginVertical: 30,
+    backgroundColor:'#395B64'
   },
   header: {
     fontSize: 30,
@@ -55,7 +64,14 @@ const styles = StyleSheet.create({
     marginTop: 50,
     backgroundColor: '#301B3F', 
     borderRadius: 10, 
-    overflow: 'hidden', 
+    overflow: 'hidden',
+    padding: 15,
+  },
+  buttonText: {
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
 
