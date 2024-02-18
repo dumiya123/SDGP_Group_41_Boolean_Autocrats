@@ -17,8 +17,6 @@ const SignupScreen = () => {
 
 
 
-
-
   // create a function to handle signup
 
   const handleSignup = () => {
