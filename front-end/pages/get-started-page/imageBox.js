@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, Dimensions, PixelRatio, TouchableOpacity } from 'react-native';
-import image5 from '../../assets/image5.jpg';
+import image5 from './get-started-images/image5.jpg';
 import { useNavigation } from '@react-navigation/native';
 
 const ImageBox = ({ imageSource, header, paragraph }) => {
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     height: PixelRatio.getPixelSizeForLayoutSize(135),
     width: '100%',
     borderRadius:100,
-    borderWidth:70
+    
     
   },
   wrapper: {
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
   },
   buttonContainer: {
-    marginTop: 50,
+    marginTop: 20,
     backgroundColor: '#301B3F', 
     borderRadius: 10, 
     overflow: 'hidden',

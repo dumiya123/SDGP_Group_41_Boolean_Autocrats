@@ -1,11 +1,11 @@
 import React from 'react';
 import { ScrollView, SafeAreaView } from 'react-native';
-import ImageBox from '../../components/imageBox/ImageBox'; 
-import image1 from '../../assets/image1.jpg';
-import image2 from '../../assets/image2.jpg';
-import image3 from '../../assets/image3.jpg';
-import image4 from '../../assets/image4.jpg';
-import image5 from '../../assets/image5.jpg';
+import ImageBox from './imageBox'; 
+import image1 from './get-started-images/image1.jpg';
+import image2 from './get-started-images/image2.jpg';
+import image3 from './get-started-images/image3.jpg';
+import image4 from './get-started-images/image4.jpg';
+import image5 from './get-started-images/image5.jpg';
 import { useNavigation } from '@react-navigation/native';
 
 const GetStarted = () => {
