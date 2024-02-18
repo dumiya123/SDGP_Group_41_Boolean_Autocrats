@@ -11,6 +11,8 @@ import VerificationCodeScreen from './pages/forget-password-pages/verificationCo
 import PasswordForm from './pages/forget-password-pages/createPassword';
 import ConfirmPasswordScreen from './pages/forget-password-pages/confirmPassword';
 
+
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -21,6 +23,8 @@ function HomeScreen() {
     </View>
   );
 }
+
+
 function add() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -43,6 +47,7 @@ function HomeTabNavigator() {
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Settings" component={SettingsScreen} />
       <Tab.Screen name="add" component={add}/>
+      
     </Tab.Navigator> 
   );
 }
