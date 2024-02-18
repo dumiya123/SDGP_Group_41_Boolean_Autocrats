@@ -2,7 +2,7 @@ import requests
 import json
 
 url = "https://ocr.asprise.com/api/v1/receipt"
-image_path = "D:\SDGP Implementation\SDGP_Group_41_Boolean_Autocrats\\back-end\OCR-Feature\\0.jpg"
+image_path = "D:\SDGP Implementation\SDGP_Group_41_Boolean_Autocrats\\back-end\OCR-Feature\\10.jpg"
 
 res = requests.post(url,
                     data={
