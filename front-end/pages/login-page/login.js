@@ -83,8 +83,10 @@ const LoginScreen = () => {
     }, 2000);
   };
 
+  //exiting color of the login page 0E8388
+
   return (
-    <View style={{ flex: 1, backgroundColor: '#0E8388', padding: 50, alignItems: 'center' }}>
+    <View style={{ flex: 1, backgroundColor: '#116D6E', padding: 50, alignItems: 'center' }}>
       <Image source={LogoImg} style={{ width: '100%', height: 200, resizeMode: 'contain', marginBottom: 20 }} />
       <Text style={{ color: 'white', fontSize: 25, textAlign: 'center', marginBottom: 50,fontWeight: 'bold' }}>Welcome to the SaveNest</Text>
 

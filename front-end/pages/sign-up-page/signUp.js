@@ -39,7 +39,7 @@ const SignupScreen = () => {
       justifyContent: 'center',
       alignItems: 'center',
       flexDirection: 'column',
-      backgroundColor: '#F3F8FF',
+      backgroundColor: '#116D6E',       //F3F8FF
     }}>
       <Image source={logoImg} style={{
         width: 300,
@@ -50,7 +50,8 @@ const SignupScreen = () => {
       <Text style={{
         fontSize: 24,
         marginBottom: 16,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: 'white',
       }}>Hello! Register to get Started!</Text>
 
       <View>
@@ -58,11 +59,12 @@ const SignupScreen = () => {
           style={{
             height: 40,
             width: 300,
-            borderColor: '#9EC8B9',
+            borderColor: '#9EC8B9',//9EC8B9
             borderWidth: 1,
             marginBottom: 16,
             paddingLeft: 8,
-            borderRadius: 15
+            borderRadius: 15,
+            backgroundColor:'white'
           }}
           placeholder="Enter Username"
           value={email}
@@ -79,7 +81,8 @@ const SignupScreen = () => {
             borderWidth: 1,
             marginBottom: 16,
             paddingLeft: 8,
-            borderRadius: 15
+            borderRadius: 15,
+            backgroundColor:'white'
           }}
           placeholder="Enter Email"
           value={email}
@@ -96,7 +99,8 @@ const SignupScreen = () => {
             borderWidth: 1,
             marginBottom: 16,
             paddingLeft: 8,
-            borderRadius: 15
+            borderRadius: 15,
+            backgroundColor:'white'
           }}
           placeholder="Enter Password"
           secureTextEntry={!isPasswordShown}
@@ -124,7 +128,8 @@ const SignupScreen = () => {
             borderWidth: 1,
             marginBottom: 16,
             paddingLeft: 8,
-            borderRadius: 15
+            borderRadius: 15,
+            backgroundColor:'white'
           }}
           placeholder='Confirm Password'
           secureTextEntry={isPasswordShown}
@@ -171,7 +176,7 @@ const SignupScreen = () => {
 
       <TouchableOpacity
         style={{
-          backgroundColor: '#183D3D',
+          backgroundColor: '#FF9209', //#183D3D
           borderRadius: 15,
           paddingVertical: 10,
           paddingHorizontal: 15,

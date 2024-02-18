@@ -33,18 +33,21 @@ const styles = StyleSheet.create({
   slide: {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
-    backgroundColor:'#395B64'
+    backgroundColor:'#424769'
   },
   imageStyle: {
+    marginTop:30,
     height: PixelRatio.getPixelSizeForLayoutSize(135),
     width: '100%',
+    borderRadius:100,
+    borderWidth:70
     
   },
   wrapper: {
     justifyContent: 'center',
     alignItems: 'center',
     marginVertical: 30,
-    backgroundColor:'#395B64'
+    backgroundColor:'#424769'
   },
   header: {
     fontSize: 30,
