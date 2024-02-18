@@ -17,6 +17,8 @@ const SignupScreen = ({navigation}) => {
   const [isSelected, setSelection] = useState(false); // Corrected variable name
   const[isPasswordShown,setIsPasswordShown] = useState(false);
 
+
+
   // create a function to handle signup
   const handleSignup = () => {
     // Implement signup logic here, e.g., send data to a backend API
