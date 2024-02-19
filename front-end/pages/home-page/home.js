@@ -25,34 +25,7 @@ const HomeScreen = () => {
     // Handle More Options button press
     console.log('More Options button pressed');
   };
-
-  const Tab = createBottomTabNavigator();
-
-  const Home = () => (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home!</Text>
-    </View>
-  );
-  const UpdateBudget = () => (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>UpdateBudget!</Text>
-    </View>
-  );
-
-  const Settings = () => (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings!</Text>
-    </View>
-  );
-
-  const HomeTabNavigator = () => (
-    <Tab.Navigator>
-      <Tab.Screen name="HOME" component={Home} />
-      <Tab.Screen name="UPDATEBUDGET" component={UpdateBudget} />
-      <Tab.Screen name="SETTINGS" component={Settings} />
-    </Tab.Navigator>
-  );
-
+  
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>Welcome to My App</Text>
