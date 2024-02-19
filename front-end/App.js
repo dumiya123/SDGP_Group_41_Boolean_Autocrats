@@ -101,7 +101,6 @@
 
 // export default App;
 
-
 import React from "react";
 import AuthStackNavigator from "./components/AuthStackNavigator";
 import { NavigationContainer } from "@react-navigation/native";
