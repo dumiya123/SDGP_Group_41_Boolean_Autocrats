@@ -20,8 +20,6 @@ const Tab = createBottomTabNavigator();
 const BottomTabNavigator = () => {
   return (
     <Tab.Navigator>
-
-
       <Tab.Screen
         name="Home"
         component={HomeScreen}
@@ -65,14 +63,14 @@ const BottomTabNavigator = () => {
         }}
       />
 
-      <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}/>
+      {/* <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}/>
       <Tab.Screen name="Update Budget" component={UpdateBudget}options={{ headerShown: false }}/>
-      <Tab.Screen name="Settings" component={SettingsScreen}options={{ headerShown: false }} />
+      <Tab.Screen name="Settings" component={SettingsScreen}options={{ headerShown: false }} /> */}
 
 
-      <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}/>
+      {/* <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}/>
       <Tab.Screen name="Update Budget" component={UpdateBudget}options={{ headerShown: false }}/>
-      <Tab.Screen name="Settings" component={SettingsScreen}options={{ headerShown: false }} />
+      <Tab.Screen name="Settings" component={SettingsScreen}options={{ headerShown: false }} /> */}
 
     </Tab.Navigator>
   );
