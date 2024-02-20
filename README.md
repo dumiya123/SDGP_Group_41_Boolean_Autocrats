@@ -14,7 +14,6 @@
 >+ Sakith Dissanayaka                -20221409 <br>
 >+ Himan Welgama                     -20221109 <br>
 >+ Kavindu Yapa                      -20210673 <br>
-<br>
 
 ## Project Description
 
