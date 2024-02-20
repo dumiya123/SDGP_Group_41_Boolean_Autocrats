@@ -35,7 +35,8 @@ Through this application users can easily manage their budget efficently.
 - Future Price Prediction
 >The application conducts a comprehensive analysis of historical pricing data related to user-selected items. Employing advanced algorithms and data modeling techniques, it generates predictive insights. This functionality provides users with informed estimations of future price predictions for their selected items, enhancing their ability to make well-informed decisions based on anticipated changes in pricing trends.
 <br>
-### Use Case Diagram <br><br>
+
+## Use Case Diagram <br><br>
 
 ![sdgp diagram drawio](https://github.com/dumiya123/SaveNestImages/blob/master/SDGP-41_Usecase_Diagram.drawio_update.png) <br> <br>
 
