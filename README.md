@@ -72,17 +72,16 @@ Through this application users can easily manage their budget efficently.
 
 #### Database
 
-> 
-> 1.SQL(MySQL, PostgreSQL)
-> 
+> 1. SQL(MySQL, PostgreSQL)
+ 
 
 #### Libraries and machine learning frameworks
 
-> 1.Matplotlib -Data Visualization
-> 2. NumPy - Numerical Computing.
-> 3. Scikit-learn - For machine learning tasks
-> 4.ipynb - to access other jupyter notebooks.
-
+>1. Matplotlib -Data Visualization
+>2. NumPy -Numerical Computing
+>3. Scikit-learn -For the machine learning tasks<br>
+>4. ipynb - to access other jupyter notebooks.
+    
 ## Setup React Native Environment
 
 This guide outlines two approaches to setting up your React Native development environment:
