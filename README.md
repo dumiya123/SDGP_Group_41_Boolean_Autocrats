@@ -1,6 +1,7 @@
 # *“SaveNest”*
 ## *A Budget Planning application specifically created for Sri Lankan People*<br>
 ### @copyright SE-41 Team Boolean_Autocrats - Software Development Group Project- Informatics Institute of Technology affiliated with the University of Westminster, UK.
+<br>
 
 
 <img src="https://github.com/dumiya123/SaveNestImages/blob/master/11.png" alt="barkmeow" height="200" width="200">
@@ -8,7 +9,7 @@
 
 ###### TEAM MEMBERS
 
->+ Dumindu Induawara Gamage(TL)      -20221168  <br>
+>+ Dumindu Induwara Gamage(TL)      -20221168  <br>
 >+ Rajeen Balasooriya                -20220175  <br>
 >+ Savin Pathirana                   -20222009 <br>
 >+ Sakith Dissanayaka                -20221409 <br>
@@ -19,9 +20,9 @@
 
 ### Overview:
 
-Living in a country with economic problems makes it difficult to save money and manage daily expenses, as prices are constantly changing. This requires frequent adjustments to budgets, which can be time-consuming and discouraging. Many people are too busy to keep their budgets up to date, which leads to poor spending habits.People often lose sight of their financial priorities when they are spending money, which can lead to them taking out loans and other forms of debt. In summary, the following are the challenges of saving money in a country with economic problems.
+Living in a country with economic problems makes it difficult to save money and manage daily expenses, as prices are constantly changing. This requires frequent adjustments to budgets, which can be time-consuming and discouraging. Many people are too busy to keep their budgets up to date, which leads to poor spending habits. People often lose sight of their financial priorities when they are spending money, which can lead to them taking out loans and other forms of debt. In summary, the following are the challenges of saving money in a country with economic problems.
 SaveNest is a cutting-edge budget planning mobile application designed to empower users with efficient financial management, allowing them to achieve their financial goals and aspirations. In today's fast-paced lifestyle, managing finances can be challenging, and SaveNest aims to simplify this process by providing a user-friendly platform tailored for budget planning.
-Through this application users can easily manage their budget efficently.
+Through this application, users can easily manage their budget efficiently.
 
 
 ### Key Features
@@ -51,7 +52,7 @@ Through this application users can easily manage their budget efficently.
 
 #### IDEs and other Software <br>
 
-> 1. Jupyter Notebook ( If you already installed Anaconda, you don't need to install Jupyter Notebook seperately ) - For machine learning purposes
+> 1. Jupyter Notebook ( If you already installed Anaconda, you don't need to install Jupyter Notebook separately) - For machine learning purposes
 > 2. Android Studio - For Android app development.
 > 3. Visual Studio Code - For editing code.
 > 4. Pycharm - For programming with Python 
