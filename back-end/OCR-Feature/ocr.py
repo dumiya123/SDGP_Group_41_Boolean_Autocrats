@@ -19,11 +19,8 @@ with open("response1.json","w") as f:
     
 with open ("response1.json","r") as w:
     data = json.load (w)
-    
-#print (data['receipts'][0].keys())
 
 items = data['receipts'][0]['items']
-#print(items)
 
 print(f"Your purchase at {data['receipts'][0]['merchant_name']}")
 
