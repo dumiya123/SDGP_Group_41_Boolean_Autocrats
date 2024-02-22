@@ -31,6 +31,18 @@ const BottomTabNavigator = () => {
           tabBarLabel: '',
         }}
       />
+            <Tab.Screen
+        name="Update Budget"
+        component={UpdateBudget}
+        options={{
+          headerShown: false,
+          tabBarIcon: () => (
+            <Image source={require('../assets/updatebudget.png')} width={30} height={30} marginTop={16} />
+          ),
+          tabBarLabel: '',
+        }}
+      />
+
       <Tab.Screen
       name="Settings"
       component={SettingsScreen}
