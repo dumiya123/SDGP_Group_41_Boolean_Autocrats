@@ -36,12 +36,11 @@ const styles = StyleSheet.create({
     backgroundColor:'#424769'
   },
   imageStyle: {
-    marginTop:30,
+    marginTop:60,
     height: PixelRatio.getPixelSizeForLayoutSize(135),
     width: '100%',
-    borderRadius:100,
-    
-    
+    borderRadius:140,
+
   },
   wrapper: {
     justifyContent: 'center',
@@ -62,6 +61,8 @@ const styles = StyleSheet.create({
     color: 'white',
     paddingRight: 5,
     paddingLeft: 5,
+    paddingEnd: 5,
+    marginTop:8
   },
   buttonContainer: {
     marginTop: 20,
