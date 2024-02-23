@@ -26,18 +26,18 @@ const BottomTabNavigator = () => {
         options={{
           headerShown: false,
           tabBarIcon: () => (
-            <Image source={require('../assets/home.png')} width={40} height={40} marginTop={15} />
+            <Image source={require('../assets/home.png')} style={{width:30, height:30, marginTop:15}} />
           ),
           tabBarLabel: '',
         }}
       />
-            <Tab.Screen
+        <Tab.Screen
         name="Update Budget"
         component={UpdateBudget}
         options={{
           headerShown: false,
           tabBarIcon: () => (
-            <Image source={require('../assets/updatebudget.png')} width={30} height={30} marginTop={16} />
+            <Image source={require('../assets/updatebudget.png')}style={{width:50, height:50, marginTop:15}} />
           ),
           tabBarLabel: '',
         }}
@@ -49,7 +49,7 @@ const BottomTabNavigator = () => {
       options={{
         headerShown:false,
         tabBarIcon:() => (
-            <Image source={require('../assets/settings.png')} width={12} height={12} style={{marginTop:12,marginEnd:12,marginLeft:12,marginRight:12}}/>
+            <Image source={require('../assets/settings.png')}style={{width:35, height:35, marginTop:15}}/>
         ),
         tabBarLabel:'',
       }}

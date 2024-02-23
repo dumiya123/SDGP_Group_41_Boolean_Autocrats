@@ -1,3 +1,10 @@
+/**
+ * @fileOverview This is a Reusable component for the Bottom Navigation bar.
+ * @author Dumindu Gamage
+ * @version 1.0.0
+ * @description This file contains sample js code for the Bottom Navigation bar.
+ */
+
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, ActivityIndicator } from 'react-native';
 import { Ionicons } from "@expo/vector-icons";
@@ -154,6 +161,7 @@ const SignupScreen = () => {
         alignItems: 'center',
         justifyContent: 'flex-start',
         marginBottom: 1,
+        
       }}>
         <CheckBox
           checked={isSelected}
@@ -163,15 +171,17 @@ const SignupScreen = () => {
             marginLeft: -77,
             padding: 0,
             borderWidth: 0,
+           
           }}
           iconType="material"
           checkedIcon="check-box"
           uncheckedIcon="check-box-outline-blank"
           iconRight
           iconSize={10}
-          checkedColor='black'
+          checkedColor='red'
+          
         />
-        <Text>Agree to Terms And Conditions</Text>
+        <Text style={{color:'white'}}>Agree to Terms And Conditions</Text>
       </View>
 
       <TouchableOpacity
@@ -190,7 +200,7 @@ const SignupScreen = () => {
         </Text>
       </TouchableOpacity>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '55%', marginBottom: 0, marginTop: 30 }}>
-        <Text style={{ color: 'black', fontSize: 15 }}>Don't have an account?</Text>
+        <Text style={{ color: 'white', fontSize: 15 }}>Don't have an account?</Text>
         <TouchableOpacity onPress={() => navigation.navigate("LOG IN")}>
           <Text style={{ color: 'midnightblue', fontSize: 15,fontWeight: 'bold' }}>Sign in</Text>
         </TouchableOpacity>
