@@ -116,7 +116,7 @@ import BottomTabNavigator from "../front-end/components/Bottom_Navigator";
 const screens = [
   { name: "GET STARTED", component: GetStarted },
   { name: "LOG IN", component: LoginScreen },
-  { name: "SIGN IN", component: SignUpScreen },
+  { name: "SIGN UP", component: SignUpScreen },
   { name: "Verification Email", component: VerificationEmail },
   { name: "CODE", component: VerificationCodeScreen },
   { name: "CREATEPW", component: PasswordForm },
