@@ -67,7 +67,6 @@
 //       <Tab.Screen name="Update Budget" component={UpdateBudget}options={{ headerShown: false }}/>
 //       <Tab.Screen name="Settings" component={SettingsScreen}options={{ headerShown: false }} /> */}
 
-
 //       {/* <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}/>
 //       <Tab.Screen name="Update Budget" component={UpdateBudget}options={{ headerShown: false }}/>
 //       <Tab.Screen name="Settings" component={SettingsScreen}options={{ headerShown: false }} /> */}
@@ -85,7 +84,7 @@
 //       <Stack.Screen name="Verification Email" component={VerificationEmail} options={{ headerShown: false }} />
 //       <Stack.Screen name="CODE" component={VerificationCodeScreen} options={{ headerShown: false }} />
 //       <Stack.Screen name='CREATEPW' component={PasswordForm} options={{ headerShown: false }} />
-//       <Stack.Screen name='CONFIRMPW' component={ConfirmPasswordScreen} options={{ headerShown: false }} />  
+//       <Stack.Screen name='CONFIRMPW' component={ConfirmPasswordScreen} options={{ headerShown: false }} />
 //       <Stack.Screen name="HOMESCREEN" component={BottomTabNavigator} options={{ headerShown: false }} />
 //     </Stack.Navigator>
 //   );
@@ -104,7 +103,7 @@
 import React from "react";
 import AuthStackNavigator from "./components/AuthStackNavigator";
 import { NavigationContainer } from "@react-navigation/native";
-import GetStarted from '../front-end/pages/get-started-page/getStarted';
+import GetStarted from "../front-end/pages/get-started-page/getStarted";
 import LoginScreen from "../front-end/pages/login-page/login";
 import SignUpScreen from "../front-end/pages/sign-up-page/signUp";
 import VerificationEmail from "../front-end/pages/forget-password-pages/verificationEmail";
@@ -122,14 +121,14 @@ const screens = [
   { name: "CREATEPW", component: PasswordForm },
   { name: "CONFIRMPW", component: ConfirmPasswordScreen },
   { name: "CONFIRMPV", component: BottomTabNavigator },
-  {name:"HOMESCREEN" , component:BottomTabNavigator}
+  { name: "HOMESCREEN", component: BottomTabNavigator },
 ];
 
 const App = () => {
   // return <AuthStackNavigator screens={screens} />;
-  return(
+  return (
     <NavigationContainer>
-      <AuthStackNavigator screens={screens}/>
+      <AuthStackNavigator screens={screens} />
     </NavigationContainer>
   );
 };
