@@ -1,5 +1,6 @@
 let controllerUser = require('./controllers/userController');
 const verifyToken = require('./middleware/JWT');
+let controllerBudget = require('./controllers/budgetController');
 
 
 
@@ -16,6 +17,10 @@ router.get("/",function(req,res){
 router.route("/signup").post(controllerUser.signUp)
 router.route("/signIn").post(controllerUser.signIn)
 router.route("/res").post(verifyToken,controllerUser.testRoute);
+
+//routers for the budget endpoints
+router.route("/getBudget").get(verifyToken,controllerBudget.getBudgets);
+router.route("/createBudget").post(verifyToken,controllerBudget.createBudget);
 
 
 module.exports = router;

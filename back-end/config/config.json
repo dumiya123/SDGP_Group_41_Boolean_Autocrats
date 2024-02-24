@@ -2,6 +2,7 @@
   "development": {
     "username": "root",
     "database": "save_nest_db",
+    "password":"1234",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
