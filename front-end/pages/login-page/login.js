@@ -13,9 +13,11 @@ import InstagramIcon from "./login-images/instagram.png";
 import FacebookIcon from "./login-images/fb.png";
 import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import useLoginFunctions from "./useLoginFunctions";
+import { useNavigation } from '@react-navigation/native';
 
 const LoginScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigation = useNavigation();
 
   const {
     loading,

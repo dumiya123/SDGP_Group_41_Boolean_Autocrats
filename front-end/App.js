@@ -101,6 +101,7 @@
 // export default App;
 
 import React from "react";
+import { StatusBar } from "react-native";
 import AuthStackNavigator from "./components/AuthStackNavigator";
 import { NavigationContainer } from "@react-navigation/native";
 import GetStarted from "../front-end/pages/get-started-page/getStarted";
@@ -129,6 +130,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <AuthStackNavigator screens={screens} />
+      <StatusBar barStyle="dark-content" backgroundColor="white" />
     </NavigationContainer>
   );
 };
