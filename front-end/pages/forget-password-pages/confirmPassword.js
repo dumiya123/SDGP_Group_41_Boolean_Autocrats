@@ -26,7 +26,7 @@ const ConfirmPasswordScreen = () => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#F3F8FF', justifyContent: 'center', alignItems: 'center' }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: 'white', justifyContent: 'center', alignItems: 'center' }}>
       <View
         style={{
           backgroundColor: 'white',
