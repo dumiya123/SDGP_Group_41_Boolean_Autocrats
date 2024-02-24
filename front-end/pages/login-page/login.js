@@ -1,19 +1,22 @@
-import React, { useState, useEffect } from "react"; //author himan
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
   Image,
-  TextInput,
-  TouchableOpacity,
   ActivityIndicator,
+  TouchableOpacity,
+  Dimensions
 } from "react-native";
+import TextInputField from "../../components/TextInputField";
+import CustomButton from "../../components/CustomButton";
+import SocialMediaButton from "../../components/SocialMediaButton";
+import Divider from "../../components/Divider";
 import LogoImg from "./login-images/B2.png";
 import GoogleIcon from "./login-images/google.png";
 import InstagramIcon from "./login-images/instagram.png";
 import FacebookIcon from "./login-images/fb.png";
-import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import useLoginFunctions from "./useLoginFunctions";
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from "@react-navigation/native";
 
 const LoginScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -47,13 +50,11 @@ const LoginScreen = () => {
     return () => clearInterval(rotationInterval);
   }, [loading]);
 
-  //exiting color of the login page 0E8388
-
   return (
     <View
       style={{
         flex: 1,
-        backgroundColor: "#116D6E",
+        backgroundColor: "white",
         padding: 50,
         alignItems: "center",
       }}
@@ -69,7 +70,7 @@ const LoginScreen = () => {
       />
       <Text
         style={{
-          color: "white",
+          color: "black",
           fontSize: 25,
           textAlign: "center",
           marginBottom: 50,
@@ -79,184 +80,59 @@ const LoginScreen = () => {
         Welcome to the SaveNest
       </Text>
 
-      <View style={{ width: "100%", marginBottom: 20 }}>
-        <View style={{ position: "relative", marginBottom: 10 }}>
-          <MaterialIcons
-            name={"person-outline"}
-            size={26}
-            color={"gray"}
-            style={{ position: "absolute", top: 10, left: 10, zIndex: 1 }}
-          />
-          <TextInput
-            placeholder="User Name"
-            style={{
-              height: 40,
-              borderColor: "gray",
-              borderWidth: 1,
-              backgroundColor: "white",
-              padding: 10,
-              paddingLeft: 40,
-              borderRadius: 10,
-            }}
-            onChangeText={(text) => setUserName(text)}
-            value={userName}
-          />
-        </View>
+      <TextInputField
+        placeholder="User Name"
+        value={userName}
+        onChangeText={setUserName}
+      />
 
-        <View style={{ position: "relative", marginBottom: 10 }}>
-          <MaterialIcons
-            name={"lock-outline"}
-            size={26}
-            color={"gray"}
-            style={{ position: "absolute", top: 10, left: 10, zIndex: 1 }}
-          />
-          <TextInput
-            placeholder="Password"
-            secureTextEntry={!showPassword}
-            style={{
-              height: 40,
-              borderColor: "gray",
-              borderWidth: 1,
-              backgroundColor: "white",
-              padding: 10,
-              paddingLeft: 40,
-              borderRadius: 10,
-            }}
-            onChangeText={(text) => setPassword(text)}
-            value={password}
-          />
-          <TouchableOpacity
-            style={{ position: "absolute", top: 10, right: 10 }}
-            onPress={() => setShowPassword(!showPassword)}
-          >
-            <MaterialCommunityIcons
-              name={showPassword ? "eye-off-outline" : "eye-outline"}
-              size={24}
-              color="gray"
-            />
-          </TouchableOpacity>
-        </View>
+      <TextInputField
+        placeholder="Password"
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry={!showPassword}
+        showPassword={showPassword}
+        onTogglePassword={() => setShowPassword(!showPassword)}
+      />
 
-        <TouchableOpacity
-          onPress={() => navigation.navigate("Verification Email")}
-          style={{ alignItems: "flex-end", marginRight: 10 }}
-        >
-          <Text
-            style={{
-              color: "midnightblue",
-              fontSize: 15,
-              marginBottom: 10,
-              fontWeight: "bold",
-            }}
-          >
-            Forget your password?
-          </Text>
-        </TouchableOpacity>
+ 
 
-        <TouchableOpacity
-          // onPress={() => navigation.navigate("HOMESCREEN")}
-          onPress={handleLogin}
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: "#FF9209",
-            borderRadius: 20,
-            padding: 5,
-            marginTop: 15,
-            width: 200,
-            alignSelf: "center", // Center the button horizontally
-          }}
-        >
-          <Text
-            style={{
-              color: "white",
-              fontSize: 25,
-              textAlign: "center",
-              marginRight: 5,
-            }}
-          >
-            Login
-          </Text>
-          <MaterialCommunityIcons name="arrow-right" size={24} color="white" />
-        </TouchableOpacity>
-      </View>
+      <CustomButton
+        onPress={handleLogin}
+        text="Login"
+        icon="arrow-right"
+        buttonColor="#183D3D" 
+      />
 
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          marginVertical: 20,
-        }}
+<TouchableOpacity
+        onPress={() => navigation.navigate("Verification Email")}
+        style={{ alignItems: "flex-end", marginRight: 10 }}
       >
-        <View
+        <Text
           style={{
-            flex: 1,
-            height: 1,
-            backgroundColor: "black",
-            marginHorizontal: 10,
+            color: "rgb(93, 93, 93)",
+            fontSize: 14,
+            marginTop: 20,
+            paddingLeft:Dimensions.get('window').width-360
+        
           }}
-        />
-        <Text style={{ fontSize: 14, marginHorizontal: 10 }}>
-          Or sign up with
+        >
+          Forget your password?
         </Text>
-        <View
-          style={{
-            flex: 1,
-            height: 1,
-            backgroundColor: "black",
-            marginHorizontal: 10,
-          }}
-        />
-      </View>
+      </TouchableOpacity>
+
+      <Divider text="Or sign up with" />
+
       <View style={{ flexDirection: "row", justifyContent: "center" }}>
-        <TouchableOpacity
+        <SocialMediaButton
           onPress={handleFacebookSignIn}
-          style={{
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "flex-end",
-            flexDirection: "row",
-            height: 52,
-          }}
-        >
-          <Image
-            source={FacebookIcon}
-            style={{ width: 40, height: 40, marginRight: 2 }}
-          />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={handleGoogleSignIn}
-          style={{
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center",
-            flexDirection: "row",
-            height: 52,
-          }}
-        >
-          <Image
-            source={GoogleIcon}
-            style={{ width: 40, height: 40, marginRight: 2 }}
-          />
-        </TouchableOpacity>
-
-        <TouchableOpacity
+          source={FacebookIcon}
+        />
+        <SocialMediaButton onPress={handleGoogleSignIn} source={GoogleIcon} />
+        <SocialMediaButton
           onPress={handleInstagramSignIn}
-          style={{
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "flex-start",
-            flexDirection: "row",
-            height: 52,
-          }}
-        >
-          <Image
-            source={InstagramIcon}
-            style={{ width: 40, height: 40, marginRight: 2 }}
-          />
-        </TouchableOpacity>
+          source={InstagramIcon}
+        />
       </View>
 
       <View
@@ -268,7 +144,7 @@ const LoginScreen = () => {
           marginTop: 30,
         }}
       >
-        <Text style={{ color: "white", fontSize: 15 }}>
+        <Text style={{ color: "black", fontSize: 15}}>
           Don't have an account?
         </Text>
         <TouchableOpacity onPress={handleSignUpClick}>
@@ -288,4 +164,5 @@ const LoginScreen = () => {
     </View>
   );
 };
+
 export default LoginScreen;
