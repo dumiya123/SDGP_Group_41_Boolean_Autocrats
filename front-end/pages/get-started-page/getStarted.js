@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView, SafeAreaView } from 'react-native';
-import ImageBox from './imageBox'; 
+import ImageBox from '../../components/imageBox'; 
 import image1 from './get-started-images/image1.jpg';
 import image2 from './get-started-images/image2.jpg';
 import image3 from './get-started-images/image3.jpg';
@@ -12,7 +12,7 @@ const GetStarted = () => {
   const navigation = useNavigation();
   
   return (
-    <SafeAreaView style={{ flex: 1}}>
+    <SafeAreaView style={{ flex: 1,backgroundColor:'#F3F8FF'}}>
       <ScrollView
         style={{ flex: 1 }}
         horizontal={true}

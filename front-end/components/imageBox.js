@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, Dimensions, PixelRatio, TouchableOpacity } from 'react-native';
-import image5 from './get-started-images/image5.jpg';
+import image5 from '../pages/get-started-page/get-started-images/image5.jpg';
 import { useNavigation } from '@react-navigation/native';
+import GetStartedButton from '../components/button_1';
 
 const ImageBox = ({ imageSource, header, paragraph }) => {
   const navigation = useNavigation();
@@ -19,9 +20,13 @@ const ImageBox = ({ imageSource, header, paragraph }) => {
               navigation.navigate("LOG IN");
             }}
           >
-            <View style={styles.buttonContainer}>
-              <Text style={styles.buttonText}>Get Started</Text>
-            </View>
+             <GetStartedButton
+            onPress={() => {
+              // Handle 'Get Started' button press
+              navigation.navigate('LOG IN');
+            }}
+            prompt="Get Started"
+          />
           </TouchableOpacity>
         )}
       </View>
@@ -33,50 +38,46 @@ const styles = StyleSheet.create({
   slide: {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
-    backgroundColor:'#424769'
+    backgroundColor:'#F3F8FF'
   },
   imageStyle: {
-    marginTop:60,
-    height: PixelRatio.getPixelSizeForLayoutSize(135),
-    width: '100%',
-    borderRadius:140,
-
+    marginTop:Dimensions.get('window').height / 20,
+    marginLeft:Dimensions.get('window').width / 12,
+    height: PixelRatio.getPixelSizeForLayoutSize(Dimensions.get('window').height /6),
+    width: Dimensions.get('window').width /1.2,
+    borderRadius:140
   },
   wrapper: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginVertical: 30,
-    backgroundColor:'#424769'
+    marginVertical: Dimensions.get('window').height / 50,
+    backgroundColor: '#F3F8FF',
+    borderRadius: 10,
+    elevation: 3, // Android shadow
+    shadowColor: '#000', // iOS shadow
+    shadowOffset: { width: 0, height: 1},
+    shadowOpacity: 0.5,
+    shadowRadius: 8,
+
+    height: Dimensions.get('window').height / 3,
   },
   header: {
     fontSize: 30,
     fontWeight: 'bold',
     marginBottom: 20,
-    color: "#B4A5A5",
+    color: "#183D3D",
     textAlign: 'center',
   },
   paragraph: {
     fontSize: 18,
+    fontFamily: 'Helvetica',
     textAlign: 'center',
-    color: 'white',
+    color: 'black',
     paddingRight: 5,
     paddingLeft: 5,
     paddingEnd: 5,
     marginTop:8
-  },
-  buttonContainer: {
-    marginTop: 20,
-    backgroundColor: '#301B3F', 
-    borderRadius: 10, 
-    overflow: 'hidden',
-    padding: 15,
-  },
-  buttonText: {
-    color: 'white',
-    textAlign: 'center',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
+  }
 });
 
 export default ImageBox;
