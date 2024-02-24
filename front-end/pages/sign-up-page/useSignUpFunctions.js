@@ -10,7 +10,7 @@ const useSignUpFunctions = () => {
 
   //@todo update URL after hosting
   //Replace this with your ipAddress
-  const ipAddress = "192.158.175.8";
+  const ipAddress = "192.168.8.119";
 
   const handleSignup = async () => {
     setLoading(true);
@@ -36,6 +36,7 @@ const useSignUpFunctions = () => {
         console.error("Signup failed:", data.message);
       }
     } catch (error) {
+      console.error(`http://${ipAddress}:8080/user/signIn`);
       console.error("Error during signup", error);
     } finally {
       setLoading(false);
