@@ -8,7 +8,7 @@ const SettingsScreen = () => {
       <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 20, textAlign: 'center' }}>Settings</Text>
       <View style={{ backgroundColor: 'white', padding: 16, borderRadius: 10, marginTop: 20 }}>
         {/* Add your settings-related components/content here */}
-        <Text>Settings content goes here</Text>
+        <Text>Profile Goes here</Text>
       </View>
     </View>
   );
