@@ -111,7 +111,8 @@ import VerificationEmail from "../front-end/pages/forget-password-pages/verifica
 import VerificationCodeScreen from "../front-end/pages/forget-password-pages/verificationCode";
 import PasswordForm from "../front-end/pages/forget-password-pages/createPassword";
 import ConfirmPasswordScreen from "../front-end/pages/forget-password-pages/confirmPassword";
-import BottomTabNavigator from "../front-end/components/Bottom_Navigator";
+// import BottomTabNavigator from "../front-end/components/Bottom_Navigator";
+import testPage from "./pages/test-page/test";
 
 const screens = [
   { name: "GET STARTED", component: GetStarted },
@@ -121,8 +122,11 @@ const screens = [
   { name: "CODE", component: VerificationCodeScreen },
   { name: "CREATEPW", component: PasswordForm },
   { name: "CONFIRMPW", component: ConfirmPasswordScreen },
-  { name: "CONFIRMPV", component: BottomTabNavigator },
-  { name: "HOMESCREEN", component: BottomTabNavigator },
+  // { name: "CONFIRMPV", component: BottomTabNavigator },
+  // { name: "HOMESCREEN", component: BottomTabNavigator },
+  { name: "testPage", component: testPage },
+
+
 ];
 
 const App = () => {

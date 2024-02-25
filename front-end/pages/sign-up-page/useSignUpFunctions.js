@@ -10,7 +10,7 @@ const useSignUpFunctions = () => {
 
   //@todo update URL after hosting
   //Replace this with your ipAddress
-  const ipAddress = "192.168.8.126";
+  const ipAddress = "192.168.1.5";
 
   const handleSignup = async () => {
     setLoading(true);
