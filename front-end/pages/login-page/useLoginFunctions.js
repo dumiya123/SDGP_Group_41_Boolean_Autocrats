@@ -9,7 +9,7 @@ const useLoginFunctions = () => {
 
   //@todo update URL after hosting
   //Replace this with your ipAddress
-  const ipAddress = "192.168.8.126";
+  const ipAddress = "192.168.1.5";
 
   const handleGoogleSignIn = () => {
     setLoading(true);
@@ -65,7 +65,7 @@ const useLoginFunctions = () => {
 
       if (response.ok) {
         console.log("Login successful");
-        navigation.navigate("HOMESCREEN");
+        navigation.navigate("testPage");
       } else {
         console.error("Login failed:", data.message);
       }

@@ -45,7 +45,7 @@ const puppeteer = require('puppeteer');
     }
 
    
-    const keelsData = categoryData['keells_products'];
+    const keelsData = categoryData['fruits'];
     console.log(JSON.stringify(keelsData, null, 2));
 
     await browser.close();
