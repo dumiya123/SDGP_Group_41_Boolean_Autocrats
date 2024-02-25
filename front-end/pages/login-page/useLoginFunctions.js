@@ -65,7 +65,7 @@ const useLoginFunctions = () => {
 
       if (response.ok) {
         console.log("Login successful");
-        navigation.navigate("testPage");
+        navigation.navigate("PROFILE");//will navigate to profile
       } else {
         console.error("Login failed:", data.message);
       }
