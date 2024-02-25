@@ -1,4 +1,3 @@
-// AuthStackNavigator.js
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -13,6 +12,8 @@ import HomeScreen from '../pages/Profile/Home';
 import SettingsScreen from '../pages/Profile/Settings';
 import AddScreen from '../pages/Profile/Add';
 import ReportsScreen from '../pages/Profile/Reports';
+import ExpensesScreen from '../pages/Profile/Expenses';
+
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -75,10 +76,11 @@ const BottomTabNavigator = () => {
   //this is the bottom tab navigator which appears after the user logs in
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
+      <Tab.Screen name="Home" component={HomeScreen}  />
+      <Tab.Screen name="Expenses" component={ExpensesScreen} />
       <Tab.Screen name="Add" component={AddScreen} />
       <Tab.Screen name="Reports" component={ReportsScreen} />
+      <Tab.Screen name="Settings" component={SettingsScreen} />
     </Tab.Navigator>
   );
 };
