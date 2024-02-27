@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import theme from '../themes/themes';
 
 const button_1 = ({ onPress, prompt }) => {
   const navigation = useNavigation();
@@ -17,13 +18,13 @@ const button_1 = ({ onPress, prompt }) => {
 const styles = StyleSheet.create({
   buttonContainer: {
     marginTop: 20,
-    backgroundColor: '#183D3D',
+    backgroundColor:theme.colors.buttonSecond,//button secon have the dark green 
     borderRadius: 10,
     overflow: 'hidden',
     padding: 15,
   },
   buttonText: {
-    color: 'white',
+    color: theme.colors.primary,//primary color is the white color
     textAlign: 'center',
     fontSize: 18,
     fontWeight: 'bold',
