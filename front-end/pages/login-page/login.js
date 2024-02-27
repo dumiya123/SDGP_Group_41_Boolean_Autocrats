@@ -17,6 +17,7 @@ import InstagramIcon from "./login-images/instagram.png";
 import FacebookIcon from "./login-images/fb.png";
 import useLoginFunctions from "./useLoginFunctions";
 import { useNavigation } from "@react-navigation/native";
+import theme from "../../themes/themes";
 
 const LoginScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -101,7 +102,7 @@ const LoginScreen = () => {
         onPress={handleLogin}
         text="Login"
         icon="arrow-right"
-        buttonColor="#183D3D" 
+        buttonColor={theme.colors.buttonSecond} 
       />
 
 <TouchableOpacity
@@ -164,5 +165,7 @@ const LoginScreen = () => {
     </View>
   );
 };
+
+
 
 export default LoginScreen;

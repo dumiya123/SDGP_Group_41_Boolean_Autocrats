@@ -10,7 +10,7 @@ import PasswordForm from "../pages/forget-password-pages/createPassword";
 import ConfirmPasswordScreen from "../pages/forget-password-pages/confirmPassword";
 import HomeScreen from '../pages/Profile/Home';
 import SettingsScreen from '../pages/Profile/Settings';
-import AddScreen from '../pages/Profile/Add';
+import AddScreen from '../pages/Profile/Add/Add';
 import ReportsScreen from '../pages/Profile/Reports';
 import ExpensesScreen from '../pages/Profile/Expenses';
 
