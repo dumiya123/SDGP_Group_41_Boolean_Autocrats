@@ -12,7 +12,7 @@ import HomeScreen from '../pages/Profile/Home';
 import SettingsScreen from '../pages/Profile/Settings';
 import AddScreen from '../pages/Profile/Add/Add';
 import ReportsScreen from '../pages/Profile/Reports';
-import ExpensesScreen from '../pages/Profile/Expenses';
+import ExpensesScreen from '../pages/Profile/Expenses/Expenses';
 
 
 const Stack = createStackNavigator();
