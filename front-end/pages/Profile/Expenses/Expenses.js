@@ -5,9 +5,10 @@ import { Calendar } from "react-native-calendars";
 
 const Expenses = () => {
   return (
+    <ScrollView>
     <View>
-      <Text></Text>
-      <Text style={styles.header}>Expenses</Text>
+       
+       <Text style={styles.header}>Expenses</Text>
       <Text></Text>
       {/* Calendar Component */}
 
@@ -41,7 +42,13 @@ const Expenses = () => {
           </TouchableOpacity>
         </ScrollView>
       </View>
+
+        
+        
+      <Text></Text>
+      
     </View>
+    </ScrollView>
   );
 };
 
