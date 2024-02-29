@@ -1,42 +1,48 @@
 import React from "react";
-import { Text, View ,ScrollView} from "react-native";   
+import { Text, View, ScrollView, TouchableOpacity } from "react-native";
 import styles from "./ExpensesStyle";
+import { Calendar } from "react-native-calendars";
 
 const Expenses = () => {
-    return (
-        <View>
-            <Text></Text>
-            <Text style={styles.header}>Recent Transactions</Text>
-            <Text></Text>
-            <ScrollView>
-                <View style={styles.box_one}>
-                    <Text></Text>
-                    <Text style={styles.box_one_text}>Foods</Text>
-                    <Text style={styles.box_one_text}>Rs. 1500.00</Text>
-                    <Text></Text>
-                </View>
-                <Text></Text>
-                <View style={styles.box_two}>
-                    <Text></Text>
-                    <Text style={styles.box_two_text}>Medicine</Text>
-                    <Text style={styles.box_two_text}>Rs.3000.00</Text>
-                    <Text></Text>
+  return (
+    <View>
+      <Text></Text>
+      <Text style={styles.header}>Expenses</Text>
+      <Text></Text>
+      {/* Calendar Component */}
 
-                </View>
-                <View style={styles.box_three}>
-                    <Text></Text>
-                    <Text style={styles.box_three_text}></Text>
-                    <Text style={styles.box_three_text}></Text>
+      <Calendar style={styles.calender}></Calendar>
 
-                </View>
-
-            </ScrollView>
+      <View>
+        <Text></Text>
+        <Text> Your Status</Text>
+        <ScrollView horizontal={true} style={styles.scrollView}>
+          <TouchableOpacity
+            style={styles.balanceBox}
             
-            
+          >
+            <Text style={styles.balanceText}> Education</Text>
+            <Text style={styles.balanceAmount}>Rs.50,000.00</Text>
+          </TouchableOpacity>
 
-            
-        </View>
-    );
+          <TouchableOpacity style={styles.balanceBox}>
+            <Text style={styles.balanceText}>Groceries</Text>
+            <Text style={styles.balanceAmount}>Rs.50,000.00</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.balanceBox}>
+            <Text style={styles.balanceText}>Transport</Text>
+            <Text style={styles.balanceAmount}>Rs.50,000.00</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.balanceBox}>
+            <Text style={styles.balanceText}>Transport</Text>
+            <Text style={styles.balanceAmount}>Rs.50,000.00</Text>
+          </TouchableOpacity>
+        </ScrollView>
+      </View>
+    </View>
+  );
 };
 
 export default Expenses;

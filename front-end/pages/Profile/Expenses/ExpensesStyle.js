@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     {
         fontWeight:'bold',
         justifyContent:'center',
-        marginLeft:95,
+        marginLeft:150,
         fontSize:20
     },
 
@@ -41,7 +41,69 @@ const styles = StyleSheet.create({
         padding:10
 
 
-    }
+    },
+
+    calender:
+    {
+        height:350,
+        width:350,
+        marginLeft:20,
+        borderWidth:1,
+        borderRadius:30
+
+        
+    },
+
+    show_Salary_Expenses:
+    {
+        marginLeft:12,
+        
+
+    },
+
+    status:
+    {
+        marginLeft:25,
+    },
+
+    status_bar:
+    {
+        backgroundColor:'red',
+        marginLeft:12,
+        marginRight:30
+    },
+
+    scrollView: 
+    {
+        flexDirection: "row",
+        padding: 10,
+    },
+
+    balanceText: 
+    {
+        color: "black",
+        fontWeight: "bold",
+        fontSize: 18,
+        marginBottom: 10,
+        flexDirection: "row",
+
+    },
+
+    balanceAmount: 
+    {
+        color: "black",
+        fontWeight: "bold",
+        fontSize: 30,
+    },
+
+    balanceBox: {
+        borderRadius: 30,
+        backgroundColor: "rgba(173, 216, 230, 0.5)", //#183D3D
+        padding: 60,
+        marginBottom: 20,
+        marginRight: 12,
+        
+      },
 
 });
 
