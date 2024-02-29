@@ -8,11 +8,11 @@ import VerificationEmail from "../pages/forget-password-pages/verificationEmail"
 import VerificationCodeScreen from "../pages/forget-password-pages/verificationCode";
 import PasswordForm from "../pages/forget-password-pages/createPassword";
 import ConfirmPasswordScreen from "../pages/forget-password-pages/confirmPassword";
-import HomeScreen from '../pages/Profile/Home';
-import SettingsScreen from '../pages/Profile/Settings';
+import HomeScreen from '../pages/Profile/Home/Home';
+import SettingsScreen from '../pages/Profile/Settings/Settings';
 import AddScreen from '../pages/Profile/Add/Add';
-import ReportsScreen from '../pages/Profile/Reports';
-import ExpensesScreen from '../pages/Profile/Expenses';
+import ReportsScreen from '../pages/Profile/Reports/Reports';
+import ExpensesScreen from '../pages/Profile/Expenses/Expenses';
 
 
 const Stack = createStackNavigator();
