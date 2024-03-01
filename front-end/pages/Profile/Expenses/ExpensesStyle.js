@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         width:350,
         marginLeft:20,
         borderWidth:1,
-        borderRadius:30
+        borderRadius:60,
 
         
     },
@@ -96,14 +96,22 @@ const styles = StyleSheet.create({
         fontSize: 30,
     },
 
-    balanceBox: {
+    balanceBox: 
+    {
         borderRadius: 30,
         backgroundColor: "rgba(173, 216, 230, 0.5)", //#183D3D
         padding: 60,
         marginBottom: 20,
         marginRight: 12,
         
-      },
+    },
+
+    text:
+    {
+        fontWeight:'bold',
+        marginLeft:12,
+        fontSize:20
+    }
 
 });
 
