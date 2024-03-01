@@ -33,9 +33,7 @@ Through this application, users can easily manage their budget efficiently.
 > Many individuals often find it cumbersome and time-consuming to manually update their budget plans based on their expenses. Nevertheless, our application "Save Nest" streamlines this task by seamlessly integrating with APIs, leveraging advanced machine learning algorithms. This allows the application to automatically update spending information by extracting relevant data from photos of bills, providing users with a more efficient and user-friendly experience
 - Priority alerts
 >The application requires users to define their spending priorities when creating a budget plan. For instance, if a user designates education as their top priority, followed by clothing, the application will send an alert in the event that the user exceeds their usual spending limit on clothing. This alert serves as a reminder to the user about their more crucial financial commitments in the education category. Additionally, it includes a motivational quote, encouraging them to refrain from overspending on lower priority items.
-- Future Price Prediction
->The application conducts a comprehensive analysis of historical pricing data related to user-selected items. Employing advanced algorithms and data modeling techniques, it generates predictive insights. This functionality provides users with informed estimations of future price predictions for their selected items, enhancing their ability to make well-informed decisions based on anticipated changes in pricing trends.
-<br>
+
 
 ## Use Case Diagram <br><br>
 
