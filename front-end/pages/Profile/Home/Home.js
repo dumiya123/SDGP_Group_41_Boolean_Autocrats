@@ -1,18 +1,17 @@
-
 import React from "react";
-import { Text,View } from "react-native";
-
-
-
+import { View } from "react-native";
+import ExpenseTrackerCarousel from "./components/ExpenseTrackerCarousel/ExpenseTrackerCarousel";
+import DailyExpenseTrackerChart from "./components/DailyExpenseTrackerChart/DailyExpenseTrackerChart";
 
 const Home = () => {
-   View
-    return (
-        <View>
-            <Text>Home</Text>
-            
-        </View>
-    )
-}
-export default Home;
+  return (
+    <>
+      <View style={{ flex: 1 }}>
+        <ExpenseTrackerCarousel />
+        <DailyExpenseTrackerChart />
+      </View>
+    </>
+  );
+};
 
+export default Home;
