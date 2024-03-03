@@ -1,6 +1,7 @@
 let controllerUser = require('./controllers/userController');
 const verifyToken = require('./middleware/JWT');
 let controllerBudget = require('./controllers/budgetController');
+let controllScraper=require('./controllers/scraperController');
 
 
 
@@ -21,6 +22,10 @@ router.route("/res").post(verifyToken,controllerUser.testRoute);
 //routers for the budget endpoints
 router.route("/getBudget").get(verifyToken,controllerBudget.getBudgets);
 router.route("/createBudget").post(verifyToken,controllerBudget.createBudget);
+
+//routers for the scraping endpoint
+router.route("/scraper").get(verifyToken,controllScraper.scrapeDataKeels);
+router.route("/filter").post(verifyToken,controllScraper.filterCategory);
 
 
 module.exports = router;

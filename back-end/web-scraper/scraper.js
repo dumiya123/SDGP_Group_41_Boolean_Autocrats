@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 
-(async () => {
+async function scrapeData() {
     const browser = await puppeteer.launch({
         headless: false,
         defaultViewport: null,
@@ -8,12 +8,18 @@ const puppeteer = require('puppeteer');
 
     const page = await browser.newPage();
 
+   
     const categoryPageUrls = [
-       //can add more categories according to the need
-        { category: 'keells_products', url: 'https://www.keellssuper.com/showcaseint/items/keells_products' },
-        { category: 'fruits', url: 'https://www.keellssuper.com/product?cat=1&s=16' },
-
-        
+        { category: 'home', url: 'https://www.keellssuper.com/home' },
+        { category: 'vegetables', url: 'https://www.keellssuper.com/product?cat=1&s=16' },
+        { category: 'fruits', url: 'https://www.keellssuper.com/product?cat=1&s=6' },
+        { category: 'meat', url: 'https://www.keellssuper.com/product?cat=1&s=12' },
+        { category: 'fish', url: 'https://www.keellssuper.com/product?cat=1&s=4' },
+        { category: 'beverages', url: 'https://www.keellssuper.com/product?cat=1&s=2' },
+        { category: 'chilled', url: 'https://www.keellssuper.com/product?cat=1&s=3' },
+        { category: 'frozenfood', url: 'https://www.keellssuper.com/product?cat=1&s=5' },
+        { category: 'grocerry', url: 'https://www.keellssuper.com/product?cat=1&s=7' },
+        { category: 'frozenfood', url: 'https://www.keellssuper.com/product?cat=1&s=5' },
     ];
 
     const categoryData = {};
@@ -44,12 +50,10 @@ const puppeteer = require('puppeteer');
         categoryData[category] = data;
     }
 
-   
-    const keelsData = categoryData['fruits'];
-    console.log(JSON.stringify(keelsData, null, 2));
-
     await browser.close();
-})();
+
+    return categoryData;
+}
 
 // Function to scroll to the bottom of the page
 async function autoScroll(page) {
@@ -70,3 +74,5 @@ async function autoScroll(page) {
         });
     });
 }
+
+module.exports = scrapeData;
