@@ -14,6 +14,8 @@ import AddScreen from '../pages/Profile/Add/Add';
 import ReportsScreen from '../pages/Profile/Reports/Reports';
 import ExpensesScreen from '../pages/Profile/Expenses/Expenses';
 import { Ionicons } from "@expo/vector-icons";
+import ExploreFoodScreen from '../pages/Profile/Add/Explorer/ExplorerFood'
+import ExploreVegetablesScreen from '../pages/Profile/Add/Explorer/ExplorerVegetables/ExplorerVegetables'
 // import { color } from "react-native-tailwindcss";
 
 
@@ -70,6 +72,8 @@ const AuthStackNavigator = () => {
       <Stack.Screen name="CREATEPW" component={PasswordForm} options={{ headerShown: false }}/>
       <Stack.Screen name="CONFIRMPW" component={ConfirmPasswordScreen} options={{ headerShown: false }}/>
       <Stack.Screen name="PROFILE" component={BottomTabNavigator} options={{ headerShown: false }} />
+      <Stack.Screen name="FOODSCREEN" component={ExploreFoodScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="VEGSCREEN" component={ExploreVegetablesScreen} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 };

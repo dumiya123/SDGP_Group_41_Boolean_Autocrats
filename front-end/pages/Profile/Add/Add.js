@@ -1,8 +1,9 @@
 import React from "react";
 import { ScrollView, View } from "react-native";
 import CardComponent from "../../../components/CategoryCard/Card";
-
+import { useNavigation } from "@react-navigation/native";
 const Add = () => {
+  const navigation = useNavigation();
   // data for each card
   const card1Props = {
     image: require("./AddImages/foods.jpg"),
@@ -11,6 +12,7 @@ const Add = () => {
     offText: "Time to add your favorite food!",
     onClicked: () => {
       console.log("Buy now button clicked for Card 1!");
+      navigation.navigate('FOODSCREEN')
     },
   };
 

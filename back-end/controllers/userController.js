@@ -25,7 +25,7 @@ exports.signUp = function (req, res) {
     });
 };
 exports.signIn = async function (req, res) {
-  scrapeKeellsSuperData();
+  
 
   console.log('Received user data:', req.body);
 
