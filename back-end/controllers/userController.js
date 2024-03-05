@@ -1,10 +1,12 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { User } = require('../models');
+const scrapeKeellsSuperData = require('../web-scraper/scraper');
 
 
 exports.signUp = function (req, res) {
   console.log('Received user data:', req.body);
+  
 
   // Check if the username already exists
   const username = req.body.username;
@@ -23,6 +25,8 @@ exports.signUp = function (req, res) {
     });
 };
 exports.signIn = async function (req, res) {
+  
+
   console.log('Received user data:', req.body);
 
   try {
@@ -58,6 +62,7 @@ exports.signIn = async function (req, res) {
     res.status(200).send({
       id: user.id,
       username: user.username,
+      supermarketName: user.supermarketName,
       accessToken: token,
     });
   } catch (err) {
@@ -70,6 +75,7 @@ exports.signIn = async function (req, res) {
 function addUser(req, res) {
   const userName = req.body.username;
   const userEmail = req.body.email;
+  const userSupermarket = req.body.supermarketName;
   // Hashing the password using bcrypt
   const userPassword = bcrypt.hashSync(req.body.password, 8);
 
@@ -77,7 +83,8 @@ function addUser(req, res) {
   User.create({
     username: userName,
     email: userEmail,
-    password: userPassword
+    password: userPassword,
+    supermarketName: userSupermarket
   })
     .then(() => {
       res.send('Profile created successfully');
