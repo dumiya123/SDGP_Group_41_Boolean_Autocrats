@@ -3,7 +3,8 @@
     "username": "root",
     "database": "save_nest_db",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "password": "1234"
   },
   "test": {
     "username": "root",

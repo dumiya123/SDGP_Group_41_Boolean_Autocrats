@@ -14,6 +14,14 @@ import AddScreen from '../pages/Profile/Add/Add';
 import ReportsScreen from '../pages/Profile/Reports/Reports';
 import ExpensesScreen from '../pages/Profile/Expenses/Expenses';
 import { Ionicons } from "@expo/vector-icons";
+
+//navigate settings page
+import EditProfile from '../pages/Profile/Settings/SettingsScreens/EditProfile/editProfile';
+import PushNotifications from "../pages/Profile/Settings/SettingsScreens/PushNotifications/pushNotifications";
+import InviteFriends from "../pages/Profile/Settings/SettingsScreens/InviteFriends/inviteFriends";
+import LinkedAccount from "../pages/Profile/Settings/SettingsScreens/LinkedAccount/linkedAccount";
+import About from "../pages/Profile/Settings/SettingsScreens/About/about";
+import HelpAndSupport from "../pages/Profile/Settings/SettingsScreens/HelpAndSupport/helpAndSupport";
 // import { color } from "react-native-tailwindcss";
 
 
@@ -70,6 +78,15 @@ const AuthStackNavigator = () => {
       <Stack.Screen name="CREATEPW" component={PasswordForm} options={{ headerShown: false }}/>
       <Stack.Screen name="CONFIRMPW" component={ConfirmPasswordScreen} options={{ headerShown: false }}/>
       <Stack.Screen name="PROFILE" component={BottomTabNavigator} options={{ headerShown: false }} />
+      {/*navigate settings page*/}
+      <Stack.Screen name="EDIT PROFILE" component={EditProfile} options={{ headerShown: false }} />
+      <Stack.Screen name="PUSH NOTIFICATIONS" component={PushNotifications} options={{ headerShown: false }} />
+      <Stack.Screen name="INVITE FRIENDS" component={InviteFriends} options={{ headerShown: false }} />
+      <Stack.Screen name="LINKED ACCOUNT" component={LinkedAccount} options={{ headerShown: false }} />
+      <Stack.Screen name="ABOUT" component={About} options={{ headerShown: false }} />
+      <Stack.Screen name="HELP AND SUPPORT" component={HelpAndSupport} options={{ headerShown: false }} />
+
+
     </Stack.Navigator>
   );
 };
