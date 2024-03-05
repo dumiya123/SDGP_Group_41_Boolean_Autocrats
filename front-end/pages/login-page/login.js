@@ -5,7 +5,7 @@ import {
   Image,
   ActivityIndicator,
   TouchableOpacity,
-  Dimensions
+  Dimensions,
 } from "react-native";
 import TextInputField from "../../components/TextInputField";
 import CustomButton from "../../components/CustomButton";
@@ -96,16 +96,14 @@ const LoginScreen = () => {
         onTogglePassword={() => setShowPassword(!showPassword)}
       />
 
- 
-
       <CustomButton
         onPress={handleLogin}
         text="Login"
         icon="arrow-right"
-        buttonColor={theme.colors.buttonSecond} 
+        buttonColor={theme.colors.buttonSecond}
       />
 
-<TouchableOpacity
+      {/* <TouchableOpacity
         onPress={() => navigation.navigate("Verification Email")}
         style={{ alignItems: "flex-end", marginRight: 10 }}
       >
@@ -134,7 +132,7 @@ const LoginScreen = () => {
           onPress={handleInstagramSignIn}
           source={InstagramIcon}
         />
-      </View>
+      </View> */}
 
       <View
         style={{
@@ -145,7 +143,7 @@ const LoginScreen = () => {
           marginTop: 30,
         }}
       >
-        <Text style={{ color: "black", fontSize: 15}}>
+        <Text style={{ color: "black", fontSize: 15 }}>
           Don't have an account?
         </Text>
         <TouchableOpacity onPress={handleSignUpClick}>
@@ -165,7 +163,5 @@ const LoginScreen = () => {
     </View>
   );
 };
-
-
 
 export default LoginScreen;

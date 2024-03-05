@@ -1,7 +1,7 @@
 // ProductList.js
-import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, StyleSheet ,Platform} from 'react-native';
-import { fetchExplorer } from '../../pages/Profile/Add/Explorer/ExplorerFunctions';
+import React, { useState, useEffect } from "react";
+import { View, Text, FlatList, StyleSheet, Platform } from "react-native";
+import { fetchExplorer } from "../../pages/Profile/Add/Explorer/ExplorerFunctions";
 
 const PAGE_SIZE = 10;
 
@@ -34,7 +34,7 @@ const ProductList = ({ category }) => {
       setPage((prevPage) => prevPage + 1);
     } catch (error) {
       // Handle error if the API call fails
-      console.error('Error loading data:', error);
+      console.error("Error loading data:", error);
     }
   };
 
@@ -67,15 +67,15 @@ const styles = StyleSheet.create({
   },
   productCard: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     borderRadius: 8,
     margin: 8,
     padding: 16,
-    alignItems: 'center',
-    elevation: Platform.OS === 'android' ? 4 : 0, // Apply elevation only on Android
+    alignItems: "center",
+    elevation: Platform.OS === "android" ? 4 : 0, // Apply elevation only on Android
     ...Platform.select({
       ios: {
-        shadowColor: '#000',
+        shadowColor: "#000",
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.2,
         shadowRadius: 4,
@@ -83,19 +83,19 @@ const styles = StyleSheet.create({
     }),
   },
   productImage: {
-    width: '100%',
+    width: "100%",
     height: 150, // Placeholder height for the image
-    backgroundColor: '#f2f2f2', // Placeholder background color
+    backgroundColor: "#f2f2f2", // Placeholder background color
     marginBottom: 10,
   },
   productName: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 8,
   },
   productPrice: {
     fontSize: 14,
-    color: '#888',
+    color: "#888",
   },
 });
 

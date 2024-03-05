@@ -120,6 +120,7 @@ const SignupScreen = () => {
           value={password}
           onChangeText={(text) => setPassword(text)}
         />
+
         <TouchableOpacity
           style={{
             position: "absolute",
