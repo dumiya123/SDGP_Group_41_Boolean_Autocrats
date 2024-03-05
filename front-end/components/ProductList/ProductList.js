@@ -1,6 +1,6 @@
 // ProductList.js
 import React, { useState, useEffect } from "react";
-import { View, Text, FlatList, StyleSheet, Platform } from "react-native";
+import { View, Text, FlatList, StyleSheet, Platform ,Image} from "react-native";
 import { fetchExplorer } from "../../pages/Profile/Add/Explorer/ExplorerFunctions";
 
 const PAGE_SIZE = 10;
@@ -40,9 +40,8 @@ const ProductList = ({ category }) => {
 
   const renderProductCard = ({ item }) => (
     <View style={styles.productCard}>
-      {/* Assume you have an image component here */}
-      <View style={styles.productImage}></View>
-
+      <Image source={{ uri: item.image }} style={styles.productImage} />
+  
       <Text style={styles.productName}>{item.name}</Text>
       <Text style={styles.productPrice}>{item.price}</Text>
     </View>
