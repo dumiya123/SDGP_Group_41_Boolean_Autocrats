@@ -1,6 +1,6 @@
 // ProductList.js
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { View, Text, FlatList, StyleSheet ,Platform} from 'react-native';
 import { fetchExplorer } from '../../pages/Profile/Add/Explorer/ExplorerFunctions';
 
 const PAGE_SIZE = 10;
@@ -72,7 +72,15 @@ const styles = StyleSheet.create({
     margin: 8,
     padding: 16,
     alignItems: 'center',
-    elevation: 4,
+    elevation: Platform.OS === 'android' ? 4 : 0, // Apply elevation only on Android
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
+      },
+    }),
   },
   productImage: {
     width: '100%',
