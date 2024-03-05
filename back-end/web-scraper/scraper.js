@@ -30,19 +30,21 @@ async function scrapeData() {
 
         // calling the autoScroll function to scroll to the bottom of the page when needed
         await autoScroll(page);
-
         const data = await page.evaluate(() => {
             let productData = [];
             const productCards = document.querySelectorAll('.product-card-container');
-
+        
             for (const card of productCards) {
                 const productName = card.querySelector('.product-card-name').textContent;
                 const productPrice = card.querySelector('.product-card-final-price').textContent;
+                const productImage = card.querySelector('.product-card-image-container img').src;
 
-                const product = { name: productName, price: productPrice };
+                console.log(productImage);
+        
+                const product = { name: productName, price: productPrice, image: productImage };
                 productData.push(product);
             }
-
+        
             return productData;
         });
 
@@ -74,5 +76,7 @@ async function autoScroll(page) {
         });
     });
 }
+
+
 
 module.exports = scrapeData;
