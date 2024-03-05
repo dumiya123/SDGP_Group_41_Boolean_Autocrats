@@ -96,23 +96,7 @@ const LoginScreen = () => {
         onTogglePassword={() => setShowPassword(!showPassword)}
       />
 
-<TouchableOpacity
-        onPress={() => navigation.navigate("Verification Email")}
-        style={{ alignItems: "flex-end", marginRight: 10 }}
-      >
-        <Text
-          style={{
-            color: "rgb(93, 93, 93)",
-            fontSize: 14,
-           
-            left: 80,
-            paddingLeft:Dimensions.get('window').width-360
-        
-          }}
-        >
-          Forget your password?
-        </Text>
-      </TouchableOpacity>
+ 
 
       <CustomButton
         onPress={handleLogin}
@@ -121,11 +105,26 @@ const LoginScreen = () => {
         buttonColor={theme.colors.buttonSecond} 
       />
 
-
+<TouchableOpacity
+        onPress={() => navigation.navigate("Verification Email")}
+        style={{ alignItems: "flex-end", marginRight: 10 }}
+      >
+        <Text
+          style={{
+            color: "rgb(93, 93, 93)",
+            fontSize: 14,
+            marginTop: 20,
+            paddingLeft:Dimensions.get('window').width-360
+        
+          }}
+        >
+          Forget your password?
+        </Text>
+      </TouchableOpacity>
 
       <Divider text="Or sign up with" />
 
-      <View style={{ flexDirection: "row", justifyContent: "center", justifyContent: "space-between", paddingHorizontal: 50, }}>
+      <View style={{ flexDirection: "row", justifyContent: "center" }}>
         <SocialMediaButton
           onPress={handleFacebookSignIn}
           source={FacebookIcon}
@@ -142,8 +141,8 @@ const LoginScreen = () => {
           flexDirection: "row",
           justifyContent: "space-between",
           width: "70%",
-          marginTop: 10
-        
+          marginBottom: 0,
+          marginTop: 30,
         }}
       >
         <Text style={{ color: "black", fontSize: 15}}>

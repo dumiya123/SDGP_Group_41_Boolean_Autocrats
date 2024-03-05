@@ -4,8 +4,7 @@
     "database": "save_nest_db",
     "password":"rajeen123",
     "host": "127.0.0.1",
-    "dialect": "mysql",
-    "password": "1234"
+    "dialect": "mysql"
   },
   "test": {
     "username": "root",
