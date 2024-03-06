@@ -12,16 +12,34 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Budget.belongsTo(models.User, {
-        foreignKey: 'budgetId'
+        foreignKey: 'userId'
+      });
+
+      Budget.hasMany(models.SelectedVeg, {
+        foreignKey: 'budgetId',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
       });
     }
   }
   Budget.init({
+    budgetId: { 
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true, 
+    },
     budgetname: DataTypes.STRING,
     receiveAlerts: DataTypes.BOOLEAN,
-    totalAmount: DataTypes.DOUBLE,
+    totalAmount: {
+      type: DataTypes.DOUBLE,
+      allowNull: true
+    },
     remainingAmount: DataTypes.DOUBLE,
-    budgetId: DataTypes.INTEGER
+    userId: {
+      type: DataTypes.INTEGER,
+      foreignKey: true,
+      allowNull: false,
+    }
   }, {
     sequelize,
     modelName: 'Budget',

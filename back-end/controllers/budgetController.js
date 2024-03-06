@@ -1,4 +1,4 @@
-const { User, Budget } = require('../models');
+const { User, Budget,SelectedVeg } = require('../models');
 
 //TODO: BUDGET EDITING OF CONFIGURATIONS NEEDS TO BE DONE
 
@@ -8,7 +8,12 @@ async function getBudgets(req, res) {
         console.log('User:', req.user.id);
 
         const user = await User.findByPk(req.user.id, {
-            include: [Budget],
+            include: [
+                {
+                    model: Budget,
+                    include: [SelectedVeg], // Include SelectedVeg model through Budget association
+                },
+            ],
         });
 
         if (!user) {
@@ -36,7 +41,6 @@ async function getBudgets(req, res) {
         });
     }
 }
-
 //function to create budget
 async function createBudget(req, res) {
     try {
@@ -60,7 +64,7 @@ async function createBudget(req, res) {
             receiveAlerts: receiveAlerts,
             totalAmount: totalAmount,
             remainingAmount: remainingAmount,
-            budgetId: userId, // Set the userId to associate the budget with the user
+            userId: userId, // Set the userId to associate the budget with the user
         });
 
         return res.status(201).json({
