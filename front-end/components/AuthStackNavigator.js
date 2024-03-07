@@ -11,6 +11,8 @@ import ConfirmPasswordScreen from "../pages/forget-password-pages/confirmPasswor
 import HomeScreen from '../pages/Profile/Home/Home';
 import SettingsScreen from '../pages/Profile/Settings/Settings';
 import AddScreen from '../pages/Profile/Add/Add';
+import Config_Bufget from "../pages/Profile/configure_budget/config_budget";
+
 import ReportsScreen from '../pages/Profile/Reports/Reports';
 import ExpensesScreen from '../pages/Profile/Expenses/Expenses';
 import { Ionicons } from "@expo/vector-icons";
@@ -118,15 +120,30 @@ const BottomTabNavigator = () => {
         ),
       }}
        />
-      <Tab.Screen
-       name="Settings"
-       component={SettingsScreen}
+       <Tab.Screen 
+      name="Settings"
+       component={SettingsScreen} 
        options={{
         tabBarIcon: ({ color, size }) => (
           <Ionicons name="settings" color={color} size={size} />
         ),
       }}
-        />
+       />
+
+      
+       
+      <Tab.Screen
+       name="config"
+       component={Config_Bufget}
+       options={{
+        tabBarIcon: ({ color, size }) => (
+          <Ionicons name="person" color={color} size={size} />
+        ),
+      }}
+      />
+
+      
+
     </Tab.Navigator>
   );
 };

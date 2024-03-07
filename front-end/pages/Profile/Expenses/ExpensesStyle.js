@@ -69,9 +69,9 @@ const styles = StyleSheet.create({
     calender:
     {
         
-        height:350,
-        width:350,
-        marginLeft:20,
+        height:120,
+        width:360,
+        marginLeft:13,
         borderwidth:1,
         bordercolor: 'red',
         borderRadius:10,
@@ -154,6 +154,11 @@ const styles = StyleSheet.create({
         marginLeft:10,
         fontSize:20,
         fontWeight:'bold'
+    },
+
+    make_gap:
+    {
+        padding:110
     }
       
     

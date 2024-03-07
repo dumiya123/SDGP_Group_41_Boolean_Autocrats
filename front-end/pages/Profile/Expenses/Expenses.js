@@ -16,14 +16,16 @@ const Expenses = () => {
     <View>
     <Text></Text>
       <Text style={styles.header}>Expenses</Text>
-      <Text></Text>
+      
       {/* Calendar Component */}
 
       <Calendar style={styles.calender}></Calendar>
+      <Text></Text>
 
       <View>
-        <Text></Text>
-        <Text></Text>
+        
+        <Text style={styles.make_gap}></Text>
+     
         <Text style={styles.text}>Current Status</Text>
         <Text></Text>
         <ScrollView horizontal={true} style={styles.scrollView}>
