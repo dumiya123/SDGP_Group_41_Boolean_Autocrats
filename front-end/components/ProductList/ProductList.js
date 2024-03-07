@@ -18,18 +18,22 @@ const ProductList = ({ category }) => {
     try {
       // Fetch data from the API using the function and the provided category
       const newData = await fetchExplorer(category);
-
+  
+      console.log("New Data from API:", newData); // Log the fetched data
+  
       // Calculate the start index based on the current page and page size
       const startIndex = (page - 1) * PAGE_SIZE;
       // Calculate the end index
       const endIndex = startIndex + PAGE_SIZE;
-
+  
       // Slice the data to get the current page's worth of items
       const slicedData = newData.slice(startIndex, endIndex);
-
+  
+      console.log("Sliced Data for Current Page:", slicedData); // Log the sliced data
+  
       // Update the products state with the new data
       setProducts((prevProducts) => [...prevProducts, ...slicedData]);
-
+  
       // Increment the page for the next load
       setPage((prevPage) => prevPage + 1);
     } catch (error) {
@@ -37,6 +41,7 @@ const ProductList = ({ category }) => {
       console.error("Error loading data:", error);
     }
   };
+  
 
   const renderProductCard = ({ item }) => (
     <View style={styles.productCard}>

@@ -28,5 +28,7 @@ router.route("/createBudget").post(verifyToken,controllerBudget.createBudget);
 router.route("/scraper").get(verifyToken,controllScraper.scrapeDataKeels);
 router.route("/addVeg").post(verifyToken,selectedVegController.addVeg);
 
+router.route("/filterCategory").post(verifyToken,controllScraper.filterCategory);
+
 
 module.exports = router;

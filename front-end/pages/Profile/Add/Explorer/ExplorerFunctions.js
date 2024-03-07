@@ -3,8 +3,10 @@
 const ipAddress = "192.168.1.16";
 
 const fetchExplorer = async (category) => {
+  console.log("Fetching data for category:", category);
   try {
-    const response = await fetch(`http://${ipAddress}:8080/user/filter`, {
+    const response = await fetch(`http://${ipAddress}:8080/user/filterCategory`, {
+      
       method: "POST", // Specify the request method
       headers: {
         "Content-Type": "application/json",
@@ -18,6 +20,11 @@ const fetchExplorer = async (category) => {
     return data;
   } catch (error) {
     console.error("Error fetching data:", error);
+
+    // Log the raw response data
+    const rawResponse = await response.text();
+    console.error("Raw Response:", rawResponse);
+  
     throw error;
   }
 };
