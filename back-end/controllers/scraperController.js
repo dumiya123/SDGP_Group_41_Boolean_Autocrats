@@ -17,7 +17,10 @@ async function saveCategoryDataToFile(data) {
 async function loadCategoryDataFromFile() {
     try {
         const data = await fs.readFile(DATA_FILE_PATH, 'utf-8');
+        console.log('loading complete', data);
         return JSON.parse(data);
+        
+
     } catch (error) {
         console.error('Error loading category data:', error);
         return null;
