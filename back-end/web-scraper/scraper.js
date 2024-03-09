@@ -11,15 +11,15 @@ async function scrapeData() {
    
     const categoryPageUrls = [
         { category: 'home', url: 'https://www.keellssuper.com/home' },
-        { category: 'vegetables', url: 'https://www.keellssuper.com/product?cat=1&s=16' },
-        { category: 'fruits', url: 'https://www.keellssuper.com/product?cat=1&s=6' },
-        { category: 'meat', url: 'https://www.keellssuper.com/product?cat=1&s=12' },
-        { category: 'fish', url: 'https://www.keellssuper.com/product?cat=1&s=4' },
-        { category: 'beverages', url: 'https://www.keellssuper.com/product?cat=1&s=2' },
-        { category: 'chilled', url: 'https://www.keellssuper.com/product?cat=1&s=3' },
-        { category: 'frozenfood', url: 'https://www.keellssuper.com/product?cat=1&s=5' },
-        { category: 'grocerry', url: 'https://www.keellssuper.com/product?cat=1&s=7' },
-        { category: 'frozenfood', url: 'https://www.keellssuper.com/product?cat=1&s=5' },
+        // { category: 'vegetables', url: 'https://www.keellssuper.com/product?cat=1&s=16' },
+        // { category: 'fruits', url: 'https://www.keellssuper.com/product?cat=1&s=6' },
+        // { category: 'meat', url: 'https://www.keellssuper.com/product?cat=1&s=12' },
+        // { category: 'fish', url: 'https://www.keellssuper.com/product?cat=1&s=4' },
+        // { category: 'beverages', url: 'https://www.keellssuper.com/product?cat=1&s=2' },
+        // { category: 'chilled', url: 'https://www.keellssuper.com/product?cat=1&s=3' },
+        // { category: 'frozenfood', url: 'https://www.keellssuper.com/product?cat=1&s=5' },
+        // { category: 'grocerry', url: 'https://www.keellssuper.com/product?cat=1&s=7' },
+        // { category: 'frozenfood', url: 'https://www.keellssuper.com/product?cat=1&s=5' },
     ];
 
     const categoryData = {};
@@ -39,7 +39,7 @@ async function scrapeData() {
                 const productPrice = card.querySelector('.product-card-final-price').textContent;
                 const productImage = card.querySelector('.product-card-image-container img').src;
 
-                console.log(productImage);
+               
         
                 const product = { name: productName, price: productPrice, image: productImage };
                 productData.push(product);

@@ -3,6 +3,7 @@ const cors = require('cors');
 const cookieSession = require('cookie-parser');
 const routes=require('./routes');
 const db = require('./models');
+let controllScraper=require('./controllers/scraperController');
 
 const app = express();
 // Middlewares for the app
@@ -18,6 +19,7 @@ app.use("/user", routes);
 const port = 8080;
 db.sequelize.sync().then(() => {
   app.listen(port, () => {
-      console.log('Server is running on port 3000');
+      console.log('Server is running on port 8080');
+      controllScraper.scrapeDataKeels();
   });
 });

@@ -38,19 +38,20 @@ const styles = StyleSheet.create({
   slide: {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
-    backgroundColor:'#F3F8FF'
+    backgroundColor:'#F3F8FF',
+    
   },
   imageStyle: {
-    marginTop:Dimensions.get('window').height / 20,
+    marginTop: Dimensions.get('window').height / 20,
     marginLeft:Dimensions.get('window').width / 12,
-    height: PixelRatio.getPixelSizeForLayoutSize(Dimensions.get('window').height /6),
+    height: PixelRatio.getPixelSizeForLayoutSize(Dimensions.get('window').height /10),
     width: Dimensions.get('window').width /1.2,
-    borderRadius:140
+    borderRadius:140,
+    
   },
   wrapper: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginVertical: Dimensions.get('window').height / 50,
     backgroundColor: '#F3F8FF',
     borderRadius: 10,
     elevation: 3, // Android shadow
@@ -58,8 +59,10 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 1},
     shadowOpacity: 0.5,
     shadowRadius: 8,
-
     height: Dimensions.get('window').height / 3,
+    marginTop: Dimensions.get('window').height / 4.5
+
+    
   },
   header: {
     fontSize: 30,
