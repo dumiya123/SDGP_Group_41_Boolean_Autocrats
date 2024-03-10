@@ -16,6 +16,7 @@ const ProductList = ({ category }) => {
 
   const loadMoreData = async () => {
     try {
+      console.log(category);
       // Fetch data from the API using the function and the provided category
       const newData = await fetchExplorer(category);
   

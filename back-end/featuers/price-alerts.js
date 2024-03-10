@@ -17,6 +17,7 @@ async function priceAlert() {
             console.log('\n');
 
             const differences = diff(json1, json2);
+            
             console.log('Differences:', formatDifferences(differences, json1, json2));// in here this should send respnse to notification page
 
             //move updatedPrices to categoryData.json
