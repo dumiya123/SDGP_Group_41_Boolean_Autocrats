@@ -20,9 +20,11 @@ const UploadReceipt = () => {
   const [receiptData, setReceiptData] = useState(null);
   const [error, setError] = useState(null);
 
+  const categories = ["vegetables", "drinks", "fish"];
+
   useEffect(() => {
     if (pickerResponse) {
-      handleReceiptUpload(pickerResponse)
+      handleReceiptUpload(pickerResponse, categories)
         .then((data) => {
           setReceiptData(data);
           setReceiptVisible(true);
@@ -30,6 +32,7 @@ const UploadReceipt = () => {
         })
         .catch((error) => {
           setError("Something went wrong! Please try again");
+          console.log(error);
           setReceiptVisible(true);
         });
     }
@@ -67,9 +70,14 @@ const UploadReceipt = () => {
               <>
                 <Text style={styles.title}>{receiptData?.merchantName}</Text>
                 {receiptData?.items.map((item, index) => (
-                  <Text key={index} style={styles.itemText}>
-                    {item.description} : {item.amount}
-                  </Text>
+                  <View key={index}>
+                    <Text style={styles.itemText}>
+                      {item.description} : {item.amount}
+                    </Text>
+                    <Text style={styles.itemText}>
+                      Category: {item.category}
+                    </Text>
+                  </View>
                 ))}
                 <Text style={styles.subTitle}>
                   {"--------------------------------------------------"}

@@ -23,6 +23,7 @@
     "expo-image-picker": "~14.7.1",
     "expo-status-bar": "~1.11.1",
     "pexels": "^1.4.0",
+    "openai": "^4.28.4",
     "react": "18.2.0",
     "react-native": "0.73.4",
     "react-native-calendars": "^1.1304.0",
