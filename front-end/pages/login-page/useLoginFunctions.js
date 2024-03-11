@@ -9,7 +9,7 @@ const useLoginFunctions = () => {
 
   //@todo update URL after hosting
   //Replace this with your ipAddress
-  const ipAddress = "192.168.1.7";
+  const ipAddress = "10.31.11.18";
 
   const handleGoogleSignIn = () => {
     setLoading(true);
