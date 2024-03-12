@@ -12,24 +12,27 @@ module.exports = (sequelize) => {
     vegName: {
       type: DataTypes.STRING,
     },
-    price: {
+    quantity: {
+      type: DataTypes.INTEGER,
+    },
+    unitPrice: {
       type: DataTypes.FLOAT,
     },
-    imageSrc:{
+    totalPrice: {
+      type: DataTypes.FLOAT,
+    },
+    imageSrc: {
       type: DataTypes.STRING,
     },
     budgetId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Budgets', 
-        key: 'budgetId', 
+        model: 'Budgets',
+        key: 'budgetId',
       },
-      imgSrc:{
-        type: DataTypes.STRING,
-      },
-      onUpdate: 'CASCADE', 
-      onDelete: 'CASCADE', 
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
     },
   });
 
@@ -37,8 +40,8 @@ module.exports = (sequelize) => {
   SelectedVeg.associate = (models) => {
     SelectedVeg.belongsTo(models.Budget, {
       foreignKey: 'budgetId',
-      onDelete: 'CASCADE', 
-      onUpdate: 'CASCADE', 
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE',
     });
   };
 
