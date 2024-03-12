@@ -25,7 +25,7 @@ router.route("/getBudget").get(verifyToken,controllerBudget.getBudgets);
 router.route("/createBudget").post(verifyToken,controllerBudget.createBudget);
 
 //routers for the scraping endpoint
-
+//routes for selectedVeg end-points
 router.route("/addVeg").post(verifyToken,selectedVegController.addVeg);
 
 router.route("/filterCategory").post(verifyToken,controllScraper.filterCategory);
