@@ -35,6 +35,8 @@ Through this application, users can easily manage their budget efficiently.
 >The application requires users to define their spending priorities when creating a budget plan. For instance, if a user designates education as their top priority, followed by clothing, the application will send an alert in the event that the user exceeds their usual spending limit on clothing. This alert serves as a reminder to the user about their more crucial financial commitments in the education category. Additionally, it includes a motivational quote, encouraging them to refrain from overspending on lower priority items.
 -Future price predictions
 >Our application conducts a thorough examination of the historical pricing data associated with user-selected items. Using advanced algorithms and data modeling techniques, the application generates predictive insights, offering users informed estimations of future price predictions for their chosen items.
+- Future price predictions
+> Our application conducts a thorough examination of the historical pricing data associated with user-selected items. Using advanced algorithms and data modeling techniques, the application generates predictive insights, offering users informed estimations of future price predictions for their chosen items.
 
 ## Use Case Diagram <br><br>
 
