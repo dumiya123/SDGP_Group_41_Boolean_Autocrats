@@ -9,7 +9,7 @@ const useLoginFunctions = () => {
 
   //@todo update URL after hosting
   //Replace this with your ipAddress
-  const ipAddress = "192.168.1.7";
+  const ipAddress = "192.168.1.6";
 
   const handleGoogleSignIn = () => {
     setLoading(true);
@@ -56,13 +56,11 @@ const useLoginFunctions = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          username: userName,
+          username: userName.trim(),
           password: password,
         }),
       });
-
       const data = await response.json();
-
       if (response.ok) {
         console.log("Login successful");
         navigation.navigate("PROFILE"); //will navigate to profile
