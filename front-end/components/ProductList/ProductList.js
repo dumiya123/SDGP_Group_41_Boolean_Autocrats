@@ -8,18 +8,19 @@ import {
   Platform,
   Image,
   TouchableOpacity,
-  TextInputField,
+  TextInput,
 } from "react-native";
 import { fetchExplorer } from "../../pages/Profile/Add/Explorer/ExplorerFunctions";
 import Modal from "react-native-modal";
+import TextInputField from "../../components/TextInputField";
 
 const PAGE_SIZE = 10;
 
 const ProductList = ({ category }) => {
   const [page, setPage] = useState(1);
   const [products, setProducts] = useState([]);
-  const [modalVisible, setModalVisible] = useState(false);
-  const [quantity, setQuantity] = useState(false);
+  const [selectedItemIndex, setSelectedItemIndex] = useState(null);
+  const [quantity, setQuantity] = useState("");
 
   useEffect(() => {
     // Load initial data
@@ -55,36 +56,49 @@ const ProductList = ({ category }) => {
     }
   };
 
-  const renderProductCard = ({ item }) => (
+  const toggleModal = (index) => {
+    setSelectedItemIndex(index === selectedItemIndex ? null : index);
+  };
+
+  const renderProductCard = ({ item, index }) => (
     <View>
       <TouchableOpacity
         style={styles.productCard}
-        onPress={setModalVisible(true)}
+        onPress={() => toggleModal(index)}
       >
         <Image source={{ uri: item.image }} style={styles.productImage} />
         <Text style={styles.productName}>{item.name}</Text>
         <Text style={styles.productPrice}>{item.price}</Text>
       </TouchableOpacity>
       <Modal
-        isVisible={modalVisible}
-        onBackdropPress={() => setModalVisible(false)}
-        onBackButtonPress={() => setModalVisible(false)}
+        isVisible={selectedItemIndex === index}
+        onBackdropPress={() => setSelectedItemIndex(null)}
+        onBackButtonPress={() => setSelectedItemIndex(null)}
         backdropOpacity={0.5}
       >
         <View style={styles.modalContent}>
-          <Image source={{ uri: item.image }} style={styles.productImage} />
+          <View>
+            <Image source={{ uri: item.image }} style={styles.productImage} />
+          </View>
           <Text style={styles.title}>{item.name}</Text>
-          <Text style={styles.title}>{item.price}</Text>
-          <TextInputField
+          <Text style={styles.modalText}>{`Unit Price: ${item.price}`}</Text>
+          <TextInput
             placeholder="Quantity"
-            value={quantity}
-            onChangeText={setQuantity}
+            value={quantity.toString()}
+            onChangeText={(text) => setQuantity(text)}
+            style={styles.input}
           />
-          <Text style={styles.title}>{`Total: ${item.price * quantity}`}</Text>
+          {quantity !== "" && (
+            <Text style={styles.modalText}>{`Total: Rs.${
+              (parseFloat(item.price.replace(/\D/g, "")) *
+                parseFloat(quantity)) /
+              100
+            }/=`}</Text>
+          )}
           <TouchableOpacity
             style={styles.button}
             onPress={() => {
-              setModalVisible(false);
+              setSelectedItemIndex(null);
             }}
           >
             <View style={styles.contentWrapper}>
@@ -93,7 +107,7 @@ const ProductList = ({ category }) => {
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              setModalVisible(false);
+              setSelectedItemIndex(null);
             }}
           >
             <Text style={styles.closeButton}>Close</Text>
@@ -156,15 +170,37 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     color: "black",
     fontSize: 25,
+    marginBottom: 30,
+    fontWeight: "700",
+  },
+  input: {
+    borderColor: "gray",
+    borderWidth: 1,
+    backgroundColor: "white",
+    padding: 2,
+    paddingLeft: 25,
+    borderRadius: 10,
+    width: 100,
+    alignSelf: "center",
+    marginBottom: 30,
+  },
+  modalText: {
+    alignSelf: "center",
+    color: "black",
+    fontSize: 22,
+    marginBottom: 30,
     fontWeight: "700",
   },
   modalContent: {
     flex: 1,
     alignSelf: "center",
     backgroundColor: "white",
-    marginTop: 30,
+    marginTop: 0,
     justifyContent: "center",
     padding: 15,
+    borderRadius: 10,
+    width: 300,
+    height: 200,
   },
   closeButton: {
     marginTop: 20,
