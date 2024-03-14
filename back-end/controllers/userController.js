@@ -1,17 +1,14 @@
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const { User } = require('../models');
-
-
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const { User } = require("../models");
 
 exports.signUp = function (req, res) {
-  console.log('Received user data:', req.body);
-  
+  console.log("Received user data:", req.body);
 
   // Check if the username already exists
   const username = req.body.username;
   User.findOne({ where: { username: username } })
-    .then(user => {
+    .then((user) => {
       if (user) {
         res.send({ message: "Username already exists" });
       } else {
@@ -19,25 +16,23 @@ exports.signUp = function (req, res) {
         addUser(req, res);
       }
     })
-    .catch(err => {
-      console.error('Error during signup:', err);
+    .catch((err) => {
+      console.error("Error during signup:", err);
       res.status(500).send({ message: "Internal server error" });
     });
 };
 exports.signIn = async function (req, res) {
-  
-
-  console.log('Received user data:', req.body);
+  console.log("Received user data:", req.body);
 
   try {
     const { username, password } = req.body;
 
     const user = await User.findOne({
-      where: { username: username }
+      where: { username: username },
     });
 
     if (!user) {
-      return res.status(404).send({ message: 'User Not found.' });
+      return res.status(404).send({ message: "User Not found." });
     }
 
     // Use bcrypt.compare to compare the provided password with the stored hashed password
@@ -46,18 +41,16 @@ exports.signIn = async function (req, res) {
     if (!passwordIsValid) {
       return res.status(401).send({
         accessToken: null,
-        message: 'Invalid Password!',
+        message: "Invalid Password!",
       });
     }
 
     // Sign a JWT token with the user's ID
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET || '1234', {
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET || "1234", {
       expiresIn: 86400, // 24 hours
     });
 
-    res.cookie('token', token, { httpOnly: true });
-
-    
+    res.cookie("token", token, { httpOnly: true });
 
     res.status(200).send({
       id: user.id,
@@ -66,8 +59,8 @@ exports.signIn = async function (req, res) {
       accessToken: token,
     });
   } catch (err) {
-    console.error('Error:', err);
-    res.status(500).send({ message: 'Internal Server Error' });
+    console.error("Error:", err);
+    res.status(500).send({ message: "Internal Server Error" });
   }
 };
 
@@ -84,21 +77,17 @@ function addUser(req, res) {
     username: userName,
     email: userEmail,
     password: userPassword,
-    supermarketName: userSupermarket
+    supermarketName: userSupermarket,
   })
     .then(() => {
-      res.send('Profile created successfully');
+      res.send("Profile created successfully");
     })
     .catch((err) => {
-      res.status(400).send('Error: ' + err);
+      res.status(400).send("Error: " + err);
     });
 }
 
-
 exports.testRoute = function (req, res, next) {
-
-  console.log('Test route reached');
-  res.status(200).json({ message: 'Test route successful' });
-  
-  
+  console.log("Test route reached");
+  res.status(200).json({ message: "Test route successful" });
 };
