@@ -18,8 +18,7 @@ async function scrapeData() {
         { category: 'beverages', url: 'https://www.keellssuper.com/product?cat=1&s=2' },
         { category: 'chilled', url: 'https://www.keellssuper.com/product?cat=1&s=3' },
         { category: 'frozenfood', url: 'https://www.keellssuper.com/product?cat=1&s=5' },
-        { category: 'grocerry', url: 'https://www.keellssuper.com/product?cat=1&s=7' },
-        { category: 'frozenfood', url: 'https://www.keellssuper.com/product?cat=1&s=5' },
+        
     ];
 
     const categoryData = {};

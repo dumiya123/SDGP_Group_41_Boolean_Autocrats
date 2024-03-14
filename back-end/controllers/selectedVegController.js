@@ -1,4 +1,4 @@
-const { SelectedVeg, Budget } = require('../models');
+const { SelectedVeg, Budget } = require("../models");
 
 const selectedVegController = {
   addVeg: async (req, res) => {
@@ -16,7 +16,7 @@ const selectedVegController = {
       });
 
       if (!userBudget) {
-        return res.status(404).json({ message: 'User budget not found.' });
+        return res.status(404).json({ message: "User budget not found." });
       }
 
       // Check if a selected vegetable with the given vegName already exists
@@ -54,7 +54,7 @@ const selectedVegController = {
       return res.status(201).json(newSelectedVeg);
     } catch (error) {
       console.error(error);
-      return res.status(500).json({ message: 'Internal Server Error' });
+      return res.status(500).json({ message: "Internal Server Error" });
     }
   },
 };
