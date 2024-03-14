@@ -4,7 +4,7 @@
 <br>
 
 
-<img src="https://github.com/dumiya123/SaveNestImages/blob/master/11.png" alt="barkmeow" height="200" width="200">
+<img src="https://github.com/dumiya123/SaveNestImages/blob/master/11.png" alt="Savenest" height="200" width="200">
 
 
 ###### TEAM MEMBERS
@@ -28,12 +28,19 @@ Through this application, users can easily manage their budget efficiently.
 ### Key Features
 
 - Real-time price alerts
+
 >The application empowers users to select a merchant with an active online store where they regularly purchase goods. When the price of an item changes on the merchant's website, the application promptly sends a notification to the user, alerting them of the increase and suggesting that they adjust their budget plans accordingly, taking into account the fluctuating economic landscape of the country.
+
 - Updating the spending by just getting a photo
+
 > Many individuals often find it cumbersome and time-consuming to manually update their budget plans based on their expenses. Nevertheless, our application "Save Nest" streamlines this task by seamlessly integrating with APIs, leveraging advanced machine learning algorithms. This allows the application to automatically update spending information by extracting relevant data from photos of bills, providing users with a more efficient and user-friendly experience
-- Priority alerts
+
+- Priority Alerts
+
 >The application requires users to define their spending priorities when creating a budget plan. For instance, if a user designates education as their top priority, followed by clothing, the application will send an alert in the event that the user exceeds their usual spending limit on clothing. This alert serves as a reminder to the user about their more crucial financial commitments in the education category. Additionally, it includes a motivational quote, encouraging them to refrain from overspending on lower priority items.
 
+- Future price predictions
+> Our application conducts a thorough examination of the historical pricing data associated with user-selected items. Using advanced algorithms and data modeling techniques, the application generates predictive insights, offering users informed estimations of future price predictions for their chosen items.
 
 ## Use Case Diagram <br><br>
 

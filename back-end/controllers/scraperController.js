@@ -1,64 +1,72 @@
-const fs = require('fs').promises;
+// scraperController.js
+const cron = require('node-cron');
 const scrapeData = require('../web-scraper/scraper');
+const deepEqual = require('deep-equal');
+const dataUtility = require('../helperFunctions/utilityData');
+const priceAlert = require('../featuers/price-alerts');
+const fs = require('fs');
 
-let categoryData = null;
 let isScraping = false;
 
 const DATA_FILE_PATH = 'categoryData.json';
+const TEST_DATA_FILE_PATH = 'categoryDataTest.json';
 
-async function saveCategoryDataToFile(data) {
-    try {
-        await fs.writeFile(DATA_FILE_PATH, JSON.stringify(data));
-    } catch (error) {
-        console.error('Error saving category data:', error);
-    }
-}
-
-async function loadCategoryDataFromFile() {
-    try {
-        const data = await fs.readFile(DATA_FILE_PATH, 'utf-8');
-        return JSON.parse(data);
-    } catch (error) {
-        console.error('Error loading category data:', error);
-        return null;
-    }
-}
-
-async function scrapeDataKeels(req, res) {
+async function scrapeDataKeels() {
     try {
         if (!isScraping) {
             isScraping = true;
 
-            // Call your scraping function
-            categoryData = await scrapeData();
+            const scrapedData = await scrapeData();
 
-            // Save scraped data to a file
-            await saveCategoryDataToFile(categoryData);
+            await createTestDataFile(TEST_DATA_FILE_PATH);
+
+            const existingData = await dataUtility.loadDataFromFile(DATA_FILE_PATH);
+
+            if (!existingData) {
+                await dataUtility.saveDataToFile(scrapedData, DATA_FILE_PATH);
+                console.log('Scraped data written to categoryData.json');
+            } else {
+                await dataUtility.saveDataToFile(scrapedData, TEST_DATA_FILE_PATH);
+                console.log('Scraped data written to categoryDataTest.json');
+                
+
+               
+            }
+            
 
             isScraping = false;
-            res.json(categoryData);
+            priceAlert();
+            console.log('Scraping completed successfully.');
         } else {
-            res.status(400).json({ error: 'Scraping is already in progress' });
+            console.log('Scraping is already in progress.');
         }
     } catch (error) {
         isScraping = false;
         console.error('Error during scraping:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
     }
 }
 
+cron.schedule('*/10 * * * *', async () => {
+    await scrapeDataKeels();
+});
+
 async function filterCategory(req, res) {
     try {
-        // Wait until scraping is complete
-        while (isScraping) {
-            await new Promise(resolve => setTimeout(resolve, 100));
-        }
-
         // Load category data from file
-        categoryData = await loadCategoryDataFromFile();
+        const categoryData = await dataUtility.loadDataFromFile(DATA_FILE_PATH);
+
+        if (!categoryData) {
+            while (isScraping) {
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+        }
+        // Wait until scraping is complete
+        
+
+        
 
         if (categoryData) {
-            let category = req.body.category;
+            const category = req.body.category;
             if (category && categoryData[category]) {
                 res.json(categoryData[category]);
             } else {
@@ -73,4 +81,19 @@ async function filterCategory(req, res) {
     }
 }
 
-module.exports = { scrapeDataKeels, filterCategory };
+async function createTestDataFile(filePath) {
+    try {
+        // Check if the test data file already exists
+        await fs.promises.access(filePath, fs.constants.F_OK);
+    } catch (error) {
+        // Create the test data file if it doesn't exist
+        if (error.code === 'ENOENT') {
+            await saveDataToFile({}, filePath);
+            console.log(`Created ${filePath}`);
+        } else {
+            console.error('Error checking existence of test data file:', error);
+        }
+    }
+}
+
+module.exports = { scrapeDataKeels,filterCategory };
