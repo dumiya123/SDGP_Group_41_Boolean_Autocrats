@@ -1,20 +1,26 @@
 // ExplorerVegetablesFunctions.js
 
+
 const ipAddress = "192.168.8.119";
+
+const ipAddress = "192.168.1.6";
+
 
 const fetchExplorer = async (category) => {
   console.log("Fetching data for category:", category);
   try {
-    const response = await fetch(`http://${ipAddress}:8080/user/filterCategory`, {
-      
-      method: "POST", // Specify the request method
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        category: category,
-      }),
-    });
+    const response = await fetch(
+      `http://${ipAddress}:8080/user/filterCategory`,
+      {
+        method: "POST", // Specify the request method
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          category: category,
+        }),
+      }
+    );
 
     const data = await response.json();
     return data;
@@ -24,7 +30,7 @@ const fetchExplorer = async (category) => {
     // Log the raw response data
     const rawResponse = await response.text();
     console.error("Raw Response:", rawResponse);
-  
+
     throw error;
   }
 };

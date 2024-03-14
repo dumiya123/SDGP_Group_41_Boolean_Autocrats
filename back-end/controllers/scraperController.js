@@ -28,12 +28,14 @@ async function scrapeDataKeels() {
             } else {
                 await dataUtility.saveDataToFile(scrapedData, TEST_DATA_FILE_PATH);
                 console.log('Scraped data written to categoryDataTest.json');
-                priceAlert();
+                
 
                
             }
+            
 
             isScraping = false;
+            priceAlert();
             console.log('Scraping completed successfully.');
         } else {
             console.log('Scraping is already in progress.');
@@ -44,19 +46,24 @@ async function scrapeDataKeels() {
     }
 }
 
-cron.schedule('*/8 * * * *', async () => {
+cron.schedule('*/10 * * * *', async () => {
     await scrapeDataKeels();
 });
 
 async function filterCategory(req, res) {
     try {
-        // Wait until scraping is complete
-        while (isScraping) {
-            await new Promise(resolve => setTimeout(resolve, 100));
-        }
-
         // Load category data from file
         const categoryData = await dataUtility.loadDataFromFile(DATA_FILE_PATH);
+
+        if (!categoryData) {
+            while (isScraping) {
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+        }
+        // Wait until scraping is complete
+        
+
+        
 
         if (categoryData) {
             const category = req.body.category;
