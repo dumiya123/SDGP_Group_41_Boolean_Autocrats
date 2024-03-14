@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 
+// Developed by Dumindu Gamage
 
 const styles = StyleSheet.create({
 
