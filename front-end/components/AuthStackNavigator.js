@@ -16,8 +16,7 @@ import ExpensesScreen from "../pages/Profile/Expenses/Expenses";
 import { Ionicons } from "@expo/vector-icons";
 import ExploreFoodScreen from "../pages/Profile/Add/Explorer/ExplorerFood";
 import ExploreVegetablesScreen from "../pages/Profile/Add/Explorer/ExplorerVegetables/ExplorerVegetables";
-import ConfigureBudgetScreen from "../pages/Profile/configure_budget/Budget_config";
-import FeatherIcon from "react-native-feather";
+
 
 // import { color } from "react-native-tailwindcss";
 
@@ -168,15 +167,7 @@ const BottomTabNavigator = () => {
         }}
       />
 
-      <Tab.Screen
-        name="ConfigBudget"
-        component={ConfigureBudgetScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="settings" color={color} size={size} />
-          ),
-        }}
-      />
+
     </Tab.Navigator>
   );
 };
