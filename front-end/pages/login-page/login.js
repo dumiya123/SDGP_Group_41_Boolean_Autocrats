@@ -18,8 +18,7 @@ import FacebookIcon from "./login-images/fb.png";
 import useLoginFunctions from "./useLoginFunctions";
 import { useNavigation } from "@react-navigation/native";
 import theme from "../../themes/themes";
-import PasswordInput from '../../components/Text&PasswordInputField/passwordInput'; // Import the PasswordInput component
-import ForgetPasswordLink from "../../components/SettingsComponents/forgetpPwBtn"; // Import the ForgetPasswordLink component
+
 const LoginScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigation = useNavigation();
@@ -56,7 +55,7 @@ const LoginScreen = () => {
     <View
       style={{
         flex: 1,
-        backgroundColor: '#F3F8FF',
+        backgroundColor: "white",
         padding: 50,
         alignItems: "center",
       }}
@@ -86,17 +85,15 @@ const LoginScreen = () => {
         placeholder="User Name"
         value={userName}
         onChangeText={setUserName}
-        iconName="person"
       />
 
-      <PasswordInput
+      <TextInputField
         placeholder="Password"
         value={password}
         onChangeText={setPassword}
         secureTextEntry={!showPassword}
         showPassword={showPassword}
         onTogglePassword={() => setShowPassword(!showPassword)}
-        iconName="lock"
       />
 
       <CustomButton
@@ -121,22 +118,21 @@ const LoginScreen = () => {
         >
           Forget your password?
         </Text>
-      </TouchableOpacity> */}
-      <ForgetPasswordLink title={"Forget your password?"} style={{colour: 'midnghtblue'}}/>
+      </TouchableOpacity>
+
       <Divider text="Or sign up with" />
 
-      <View style={{ flexDirection: "row", justifyContent: "center",paddingHorizontal: 50 }}>
+      <View style={{ flexDirection: "row", justifyContent: "center" }}>
         <SocialMediaButton
           onPress={handleFacebookSignIn}
           source={FacebookIcon}
-          
         />
         <SocialMediaButton onPress={handleGoogleSignIn} source={GoogleIcon} />
         <SocialMediaButton
           onPress={handleInstagramSignIn}
           source={InstagramIcon}
         />
-      </View>
+      </View> */}
 
       <View
         style={{
@@ -144,7 +140,7 @@ const LoginScreen = () => {
           justifyContent: "space-between",
           width: "70%",
           marginBottom: 0,
-          marginTop: 20,
+          marginTop: 30,
         }}
       >
         <Text style={{ color: "black", fontSize: 15 }}>
@@ -160,7 +156,7 @@ const LoginScreen = () => {
       </View>
 
       {loading && (
-        <View style={{ position: "absolute", top: "52%", alignSelf: "center"}}>
+        <View style={{ position: "absolute", top: "52%", alignSelf: "center" }}>
           <ActivityIndicator size="large" color="midnightblue" />
         </View>
       )}
