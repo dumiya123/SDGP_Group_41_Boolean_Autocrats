@@ -61,12 +61,12 @@ const ProductList = ({ category }) => {
   };
 
   const renderProductCard = ({ item, index }) => (
-    <View>
-      <TouchableOpacity
-        style={styles.productCard}
-        onPress={() => toggleModal(index)}
-      >
-        <Image source={{ uri: item.image }} style={styles.productImage} />
+    <View style={styles.productCard}>
+      <TouchableOpacity onPress={() => toggleModal(index)}>
+        <View>
+          <Image source={{ uri: item.image }} style={styles.productImage} />
+        </View>
+
         <Text style={styles.productName}>{item.name}</Text>
         <Text style={styles.productPrice}>{item.price}</Text>
       </TouchableOpacity>
@@ -78,7 +78,7 @@ const ProductList = ({ category }) => {
       >
         <View style={styles.modalContent}>
           <View>
-            <Image source={{ uri: item.image }} style={styles.productImage} />
+            <Image source={{ uri: item.image }} style={styles.modalImage} />
           </View>
           <Text style={styles.title}>{item.name}</Text>
           <Text style={styles.modalText}>{`Unit Price: ${item.price}`}</Text>
@@ -153,9 +153,18 @@ const styles = StyleSheet.create({
   },
   productImage: {
     width: "100%",
-    height: 150, // Placeholder height for the image
+    height: 100, // Placeholder height for the image
     backgroundColor: "#f2f2f2", // Placeholder background color
     marginBottom: 10,
+    objectFit: "fill",
+  },
+  modalImage: {
+    width: "50%",
+    height: 100, // Placeholder height for the image
+    backgroundColor: "#f2f2f2", // Placeholder background color
+    marginBottom: 10,
+    alignSelf: "center",
+    objectFit: "fill",
   },
   productName: {
     fontSize: 16,
@@ -200,7 +209,7 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 10,
     width: 300,
-    height: 200,
+    maxHeight: 500,
   },
   closeButton: {
     marginTop: 20,
