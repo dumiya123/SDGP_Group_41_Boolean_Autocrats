@@ -1,7 +1,12 @@
-import React from 'react';//author himan
-import { View, TextInput, TouchableOpacity, ActivityIndicator, Text, Image, Alert, SafeAreaView } from 'react-native';
+import React from 'react';
+import { View,ActivityIndicator, Image, Alert, SafeAreaView, StyleSheet, ScrollView } from 'react-native';
 import forgetPwImg from './forget-password-images/forgetPw.png';
 import { useNavigation } from '@react-navigation/native';
+import SubtitleComponent from "../../components/SettingsComponents/Subtittle"; // Import the SubtitleComponent
+import SectionTitle from '../../components/SettingsComponents/SectionTitle';
+import TextInputField from '../../components/TextInputField'; // Import the TextInputField component
+import SetButton from '../../components/SetButtons/setButton';
+
 
 const ForgotPasswordScreen = () => {
     const navigation = useNavigation();
@@ -47,60 +52,85 @@ const ForgotPasswordScreen = () => {
     };
 
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: '#F3F8FF', justifyContent: 'center', padding: 16 }}>
-            <Image source={forgetPwImg} style={{ width: 200, height: 200, alignSelf: 'center', marginTop: 50 }} />
-            <Text style={{ fontSize: 20, textAlign: 'center', color: 'black', marginBottom: 16, fontWeight: 'bold' }}>
-                Forgot your password?
-            </Text>
-            <Text style={{ fontSize: 14, textAlign: 'center', color: 'gray', marginBottom: 16, marginHorizontal: 40 }}>
-                To reset your password, enter your registered email address or mobile number below.
-            </Text>
-
-            <View style={{ justifyContent: 'center', padding: 16 }}>
-                <TextInput
-                    style={{ height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 26, paddingLeft: 8, borderRadius: 10 }}
-                    placeholder="Enter your email"
-                    onChangeText={(text) => setEmail(text)}
-                    value={email}
-                />
-            </View>
-            {loading && (
-                <View style={{ position: 'absolute', top: '50%', alignSelf: 'center' }}>
-                    <ActivityIndicator size="large" color="midnightblue" />
+        <SafeAreaView style={styles.container}>
+            <ScrollView Style={styles.scrollViewContent}>
+                <Image source={forgetPwImg} style={styles.image} />
+                <SectionTitle title={"Forgot your password?"} style={styles.sectionTitle}/>
+                <SubtitleComponent title={"To reset your password, enter your registered email address or mobile number below."} 
+                    style={styles.subtitle} />
+                <View style={styles.inputContainer}>
+                    <TextInputField
+                        placeholder="Enter your email"
+                        value={email}
+                        onChangeText={(text) => setEmail(text)}
+                        iconName="email"
+                    />
                 </View>
-            )}
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 100 }}>
-                <View style={{ marginTop: 60 }}>
-                    <TouchableOpacity
-                         onPress={() => navigation.navigate('CODE')}
-                        
-                        style={{
-                            backgroundColor: '#183D3D',
-                            borderRadius: 15,
-                            width: 150,
-                            paddingVertical: 10,
-                            alignItems: 'center',
-                            marginBottom: 8,
-                        }}>
-                        <Text style={{ color: 'white', fontWeight: 'bold' }}>Send OTP</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
+                {loading && (
+                    <View style={styles.loading}>
+                        <ActivityIndicator size="large" color="midnightblue" />
+                    </View>
+                )}
+                <View style={styles.btnContainer}>
+                    <SetButton
+                        onPress={() => navigation.navigate('Verify Code')}
+                        title="Send OTP"
+                 
+                    />
+                    <SetButton
                         onPress={handleBackToLogin}
-                   
-                        style={{
-                            width: 150,
-                            paddingVertical: 10,
-                            alignItems: 'center',
-                            marginBottom: 2,
-                        }}>
-                        <Text style={{ color: 'black', fontSize: 16, fontWeight: 'bold' }}>Back to Login</Text>
-                    </TouchableOpacity>
+                        title="Back to Login"
+                        backgroundColor="transparent"
+                        textColor={'black'}
+                        marginTop={20}
+                    
+                    />
                 </View>
-
-            </View>
+            </ScrollView>
         </SafeAreaView>
     );
 };
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#F3F8FF',
+    },
+    scrollViewContent: {
+        flexGrow: 1,
+        justifyContent: 'center',
+        padding: 16,
+    },
+    image: {
+        width: 200,
+        height: 200,
+        alignSelf: 'center',
+        marginTop: 50,
+    },
+    sectionTitle: {
+        fontSize: 18,
+        textAlign: 'center',
+    },
+    subtitle: {
+        fontSize: 14,
+        textAlign: 'center',
+        padding: 20,
+        color: 'gray',
+    },
+    inputContainer: {
+        justifyContent: 'center',
+        padding: 16,
+    },
+    loading: {
+        position: 'absolute',
+        top: '50%',
+        alignSelf: 'center',
+    },
+    btnContainer: {
+        justifyContent: 'center',
+        marginTop: 70,
+    },
+ 
+});
 
 export default ForgotPasswordScreen;

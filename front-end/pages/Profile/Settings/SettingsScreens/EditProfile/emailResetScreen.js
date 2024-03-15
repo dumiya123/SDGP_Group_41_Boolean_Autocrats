@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import { View, Text, Image, SafeAreaView, StyleSheet, ScrollView } from 'react-native';
-import ResetImg from './forget-password-images/reset.png';
+import { View,Image, SafeAreaView,ScrollView, StyleSheet } from 'react-native';
+import ResetImg from '../../../../forget-password-pages/forget-password-images/reset.png';
 import { useNavigation } from '@react-navigation/native';
-import SubtitleComponent from "../../components/SettingsComponents/Subtittle";
-import SectionTitle from "../../components/SettingsComponents/SectionTitle";
-import SetButton from "../../components/SetButtons/setButton";
+import SubtitleComponent from "../../../../../components/SettingsComponents/Subtittle";
+import SectionTitle from "../../../../../components/SettingsComponents/SectionTitle";
+import SetButton from "../../../../../components/SetButtons/setButton";
 
-const ConfirmPasswordScreen = () => {
+
+const EmailResetScreen = () => {
   const navigation = useNavigation();
   const [loading, setLoading] = useState(false);
 
   const handleConfirm = () => {
+
     navigation.navigate('Home');
   };
   
@@ -19,8 +21,8 @@ const ConfirmPasswordScreen = () => {
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <View style={styles.card}>
           <Image source={ResetImg} style={styles.image} />
-          <SectionTitle title={"Username changed"} style={styles.sectionTitle} />
-          <SubtitleComponent title="Your Username has been changed Successfully!" style={styles.subtitle} />
+          <SectionTitle title={"Email changed"} style={styles.sectionTitle} />
+          <SubtitleComponent title="Your email has been changed Successfully!" style={styles.subtitle} />
           <SetButton
             onPress={handleConfirm}
             title="Confirm"
@@ -73,7 +75,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
   },
-  
 });
 
-export default ConfirmPasswordScreen;
+export default EmailResetScreen;
