@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import { View, Text, Image, SafeAreaView, StyleSheet, ScrollView } from 'react-native';
-import ResetImg from './forget-password-images/reset.png';
+import { View, Text, Image, SafeAreaView,ScrollView, StyleSheet } from 'react-native';
+import ResetImg from '../../../../forget-password-pages/forget-password-images/reset.png';
 import { useNavigation } from '@react-navigation/native';
-import SubtitleComponent from "../../components/SettingsComponents/Subtittle";
-import SectionTitle from "../../components/SettingsComponents/SectionTitle";
-import SetButton from "../../components/SetButtons/setButton";
+import SubtitleComponent from "../../../../../components/SettingsComponents/Subtittle"; // Import the SubtitleComponent
+import SectionTitle from "../../../../../components/SettingsComponents/SectionTitle";
+import SetButton from "../../../../../components/SetButtons/setButton"; // Import the SetButton component
 
-const ConfirmPasswordScreen = () => {
+
+const EmailResetScreen = () => {
   const navigation = useNavigation();
   const [loading, setLoading] = useState(false);
 
   const handleConfirm = () => {
+    // Handle username press
     navigation.navigate('Home');
   };
   
@@ -76,4 +78,4 @@ const styles = StyleSheet.create({
   
 });
 
-export default ConfirmPasswordScreen;
+export default EmailResetScreen;

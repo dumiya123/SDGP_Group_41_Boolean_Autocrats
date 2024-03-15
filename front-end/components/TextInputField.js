@@ -3,16 +3,17 @@ import React from 'react';
 import { View, TextInput, TouchableOpacity, StyleSheet,Dimensions } from 'react-native';
 import { MaterialIcons, MaterialCommunityIcons } from "@expo/vector-icons";
 
-const TextInputField = ({ placeholder, value, onChangeText, secureTextEntry, showPassword, onTogglePassword }) => {
+const TextInputField = ({ placeholder, value, onChangeText, secureTextEntry, showPassword, onTogglePassword ,iconName}) => {
   return (
     <View style={styles.inputContainer}>
-      <MaterialIcons name={"person-outline"} size={26} color={"gray"} style={styles.icon} />
+       <MaterialIcons name={iconName} size={26} color={"gray"} style={styles.icon} />
       <TextInput
         placeholder={placeholder}
         style={styles.input}
         onChangeText={onChangeText}
         value={value}
         secureTextEntry={secureTextEntry}
+  
       />
       {secureTextEntry && (
         <TouchableOpacity style={styles.iconContainer} onPress={onTogglePassword}>
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
     height: Dimensions.get("window").height / 18,
     borderColor: "gray",
     borderWidth: 1,
-    backgroundColor: "white",
+    backgroundColor: '#F3F8FF',
     padding: 10,
     paddingLeft: 40,
     borderRadius: 10,
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     position: "absolute",
-    top: 10,
+    top: 8,
     left: 10,
     zIndex: 1,
   },
