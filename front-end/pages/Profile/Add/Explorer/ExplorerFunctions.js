@@ -1,10 +1,6 @@
 // ExplorerVegetablesFunctions.js
 
-
-const ipAddress = "192.168.8.119";
-
-const ipAddress = "192.168.1.6";
-
+const ipAddress = "192.168.1.4";
 
 const fetchExplorer = async (category) => {
   console.log("Fetching data for category:", category);
