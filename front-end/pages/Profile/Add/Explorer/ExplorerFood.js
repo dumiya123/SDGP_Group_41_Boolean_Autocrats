@@ -18,6 +18,8 @@ const FoodItems = () => {
     },
   };
 
+  
+
   const cardPropsArray = [
     card1Props,
 
