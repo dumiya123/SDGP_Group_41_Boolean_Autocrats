@@ -12,7 +12,6 @@ import {
 } from "react-native";
 import { fetchExplorer } from "../../pages/Profile/Add/Explorer/ExplorerFunctions";
 import Modal from "react-native-modal";
-import TextInputField from "../../components/TextInputField";
 
 const PAGE_SIZE = 10;
 
@@ -61,7 +60,7 @@ const ProductList = ({ category }) => {
   };
 
   const renderProductCard = ({ item, index }) => (
-    <View style={styles.productCard}>
+    <View style={styles.productCard} testID="product-card">
       <TouchableOpacity onPress={() => toggleModal(index)}>
         <View>
           <Image source={{ uri: item.image }} style={styles.productImage} />
@@ -126,6 +125,7 @@ const ProductList = ({ category }) => {
       contentContainerStyle={styles.productList}
       onEndReached={loadMoreData}
       onEndReachedThreshold={0.1}
+      testID="flatList"
     />
   );
 };

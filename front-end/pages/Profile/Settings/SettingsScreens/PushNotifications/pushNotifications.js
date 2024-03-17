@@ -1,7 +1,7 @@
-import React from 'react';
-import { View, StyleSheet,ScrollView } from 'react-native';
-import NotificationSwitch from '../../../../../components/NotificationSwitch/Switch';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React from "react";
+import { View, StyleSheet, ScrollView } from "react-native";
+import NotificationSwitch from "../../../../../components/NotificationSwitch/Switch";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const PushNotificationButton = () => {
   const handleNotificationToggle = (notificationIndex, isEnabled) => {
@@ -15,14 +15,34 @@ const PushNotificationButton = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
-        <View style={styles.sectionTitleContainer}>
-        </View>
+        <View style={styles.sectionTitleContainer}></View>
         <View style={styles.notificationContainer}>
-          <NotificationSwitch label="Notifications 1" onToggle={(isEnabled) => handleNotificationToggle(1, isEnabled)} />
-          <NotificationSwitch label="Notifications 2" onToggle={(isEnabled) => handleNotificationToggle(2, isEnabled)} />
-          <NotificationSwitch label="Notifications 3" onToggle={(isEnabled) => handleNotificationToggle(3, isEnabled)} />
-          <NotificationSwitch label="Notifications 4" onToggle={(isEnabled) => handleNotificationToggle(4, isEnabled)} />
-          <NotificationSwitch label="Notifications 5" isLast onToggle={(isEnabled) => handleNotificationToggle(5, isEnabled)} />
+          <NotificationSwitch
+            label="Notifications 1"
+            testID="notification-switch-1"
+            onToggle={(isEnabled) => handleNotificationToggle(1, isEnabled)}
+          />
+          <NotificationSwitch
+            label="Notifications 2"
+            testID="notification-switch-2"
+            onToggle={(isEnabled) => handleNotificationToggle(2, isEnabled)}
+          />
+          <NotificationSwitch
+            label="Notifications 3"
+            testID="notification-switch-3"
+            onToggle={(isEnabled) => handleNotificationToggle(3, isEnabled)}
+          />
+          <NotificationSwitch
+            label="Notifications 4"
+            testID="notification-switch-4"
+            onToggle={(isEnabled) => handleNotificationToggle(4, isEnabled)}
+          />
+          <NotificationSwitch
+            label="Notifications 5"
+            testID="notification-switch-5"
+            isLast
+            onToggle={(isEnabled) => handleNotificationToggle(5, isEnabled)}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -32,7 +52,7 @@ const PushNotificationButton = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F3F8FF',
+    backgroundColor: "#F3F8FF",
   },
   scrollViewContent: {
     flexGrow: 1,
@@ -43,9 +63,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   sectionTitle: {
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   notificationContainer: {
     marginTop: 20,

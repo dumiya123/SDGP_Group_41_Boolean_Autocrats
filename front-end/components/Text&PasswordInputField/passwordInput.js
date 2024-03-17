@@ -1,6 +1,12 @@
-import React, { useState } from 'react';
-import { TextInput, TouchableOpacity, View, StyleSheet, Dimensions } from 'react-native';
-import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
+import React, { useState } from "react";
+import {
+  TextInput,
+  TouchableOpacity,
+  View,
+  StyleSheet,
+  Dimensions,
+} from "react-native";
+import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 
 const PasswordInput = ({ value, onChangeText, placeholder }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -18,9 +24,10 @@ const PasswordInput = ({ value, onChangeText, placeholder }) => {
       <TouchableOpacity
         onPress={() => setShowPassword(!showPassword)}
         style={styles.iconContainer}
+        testID="eye-icon"
       >
         <MaterialCommunityIcons
-          name={showPassword ? 'eye-off-outline' : 'eye-outline'}
+          name={showPassword ? "eye-off-outline" : "eye-outline"}
           size={24}
           color="gray"
         />
@@ -31,26 +38,25 @@ const PasswordInput = ({ value, onChangeText, placeholder }) => {
 
 const styles = StyleSheet.create({
   container: {
-    position: 'relative',
-    
+    position: "relative",
   },
   input: {
     height: Dimensions.get("window").height / 18,
     borderColor: "gray",
     borderWidth: 1,
-    backgroundColor: '#F3F8FF',
+    backgroundColor: "#F3F8FF",
     padding: 10,
     paddingLeft: 40,
     borderRadius: 10,
     width: Dimensions.get("window").width - 40,
   },
   iconContainer: {
-    position: 'absolute',
+    position: "absolute",
     right: 10,
     top: 10,
   },
   icon: {
-    position: 'absolute',
+    position: "absolute",
     left: 10,
     top: 7,
     zIndex: 1,
