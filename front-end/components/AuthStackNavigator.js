@@ -37,9 +37,7 @@ import DeleteAccountScreen from "../pages/Profile/Settings/SettingsScreens/EditP
 import NotificationScreen from "../pages/NotificationScreen/NotificationScreen";
 import ContactUs from "../pages/Profile/Settings/SettingsScreens/HelpAndSupport/Contactus";
 
-import TransportScreen from "../pages/Profile/Add/Transports/transports";
-
-
+import Transports from "../pages/Profile/Add/Transports/transports";
 import { useNavigation } from '@react-navigation/native';
 
 // import { color } from "react-native-tailwindcss";
@@ -95,8 +93,7 @@ const AuthStackNavigator = () => {
       <Stack.Screen name="FOODSCREEN" component={ExploreFoodScreen} options={{ headerShown: false}}/>
       <Stack.Screen name="VEGSCREEN" component={ExploreVegetablesScreen} options={{ headerShown: false}}/>
 
-      <Stack.Screen name="Transport Screen" component={TransportScreen} options={{ headerShown: false}}/>
-
+      <Stack.Screen name="Transports" component={Transports} options={{ headerShown: false}}/>
 
       {/*navigate settings page*/}
       <Stack.Screen name="Profile Settings" component={EditProfile} options={{ headerShown: true, headerBackTitleVisible: false}} />
@@ -277,3 +274,6 @@ const UserProfile = ({ profilePictureUrl = 'https://via.placeholder.com/150', us
 
 
 export default AuthStackNavigator;
+
+
+

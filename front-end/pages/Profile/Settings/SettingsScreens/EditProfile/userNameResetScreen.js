@@ -6,7 +6,7 @@ import SubtitleComponent from "../../../../../components/SettingsComponents/Subt
 import SectionTitle from "../../../../../components/SettingsComponents/SectionTitle";
 import SetButton from "../../../../../components/SetButtons/setButton"; // Import the SetButton component
 
-const EmailResetScreen = () => {
+const UsernameResetScreen = () => {
   const navigation = useNavigation();
 
   const handleConfirm = () => {
@@ -75,5 +75,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default EmailResetScreen;
+export default UsernameResetScreen;
 
