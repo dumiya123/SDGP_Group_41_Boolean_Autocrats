@@ -14,7 +14,7 @@ const TEST_DATA_FILE_PATH = "categoryDataTest.json";
 async function scrapeDataKeels() {
   let timeoutId; // Variable to hold the timeout ID
   const TIMEOUT_DURATION = 600000; // Timeout duration in milliseconds (10 minutes)
-  const NAVIGATION_TIMEOUT = 6000000; // Navigation timeout in milliseconds (30 seconds)
+  const NAVIGATION_TIMEOUT = 60000; // New navigation timeout in milliseconds (60 seconds)
 
   const requiredCategories = [
     "home",
@@ -37,7 +37,7 @@ async function scrapeDataKeels() {
         throw new Error("Scraping process timed out.");
       }, TIMEOUT_DURATION);
 
-      // Scrape data with navigation timeout option
+      // Scrape data with increased navigation timeout
       let scrapedData = await scrapeData({
         navigationTimeout: NAVIGATION_TIMEOUT,
       });
@@ -86,6 +86,7 @@ async function scrapeDataKeels() {
     isScraping = false;
   }
 }
+
 
 cron.schedule("*/10 * * * *", async () => {
   await scrapeDataKeels();

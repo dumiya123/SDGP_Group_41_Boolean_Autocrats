@@ -30,5 +30,9 @@ router.route("/addVeg").post(verifyToken,selectedVegController.addVeg);
 
 router.route("/filterCategory").post(verifyToken,controllScraper.filterCategory);
 
+router.route("/profile").get(verifyToken,controllerUser.getUserData);
+router.route("/editProfile").post(verifyToken,controllerUser.changeUserData)
+
+
 
 module.exports = router;

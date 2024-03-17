@@ -1,5 +1,4 @@
 // ProductList.js
-
 import React, { useState, useEffect } from "react";
 import {
   View,
@@ -11,32 +10,17 @@ import {
   TouchableOpacity,
   TextInput,
 } from "react-native";
-import Modal from "react-native-modal";
 import { fetchExplorer } from "../../pages/Profile/Add/Explorer/ExplorerFunctions";
-import * as ProductListFunctions from "./ProductListFunctions";
+import Modal from "react-native-modal";
+import TextInputField from "../../components/TextInputField";
+
 const PAGE_SIZE = 10;
-const ipAddress = "192.168.1.9";
+
 const ProductList = ({ category }) => {
   const [page, setPage] = useState(1);
   const [products, setProducts] = useState([]);
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
   const [quantity, setQuantity] = useState("");
-
-  // Function to get the name of the handleConfirm function based on the category
-  const getHandleConfirmFunctionName = (category) => {
-    switch (category) {
-      case "vegetables":
-        return "handleConfirmVegetables";
-      case "meat":
-        return "handleConfirmMeat";
-      // Add more cases for other categories if needed
-      default:
-        throw new Error("Unknown category");
-    }
-  };
-
-  const handleConfirm =
-    ProductListFunctions[getHandleConfirmFunctionName(category)];
 
   useEffect(() => {
     // Load initial data
@@ -45,8 +29,11 @@ const ProductList = ({ category }) => {
 
   const loadMoreData = async () => {
     try {
+      console.log(category);
       // Fetch data from the API using the function and the provided category
       const newData = await fetchExplorer(category);
+
+      console.log("New Data from API:", newData); // Log the fetched data
 
       // Calculate the start index based on the current page and page size
       const startIndex = (page - 1) * PAGE_SIZE;
@@ -55,6 +42,8 @@ const ProductList = ({ category }) => {
 
       // Slice the data to get the current page's worth of items
       const slicedData = newData.slice(startIndex, endIndex);
+
+      console.log("Sliced Data for Current Page:", slicedData); // Log the sliced data
 
       // Update the products state with the new data
       setProducts((prevProducts) => [...prevProducts, ...slicedData]);
@@ -108,7 +97,9 @@ const ProductList = ({ category }) => {
           )}
           <TouchableOpacity
             style={styles.button}
-            onPress={() => handleConfirm(item, quantity)} // Call handleConfirm with the item
+            onPress={() => {
+              setSelectedItemIndex(null);
+            }}
           >
             <View style={styles.contentWrapper}>
               <Text style={styles.buttonText}>{"Confirm"}</Text>

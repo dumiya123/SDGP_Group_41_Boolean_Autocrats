@@ -19,10 +19,11 @@ const Add = () => {
   const card2Props = {
     image: require("./AddImages/fish.jpg"),
     date: "2024-03-01",
-    off: "FISH",
+    off: "Transports",
     offText: "Time to add your favorite fish!",
     onClicked: () => {
       console.log("Buy now button clicked for Card 2!");
+      navigation.navigate('Transports')
     },
   };
 

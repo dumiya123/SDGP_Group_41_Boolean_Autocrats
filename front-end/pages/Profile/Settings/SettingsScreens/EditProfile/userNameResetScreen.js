@@ -1,26 +1,26 @@
-import React, { useState } from 'react';
-import { View, Text, Image, SafeAreaView, StyleSheet, ScrollView } from 'react-native';
-import ResetImg from './forget-password-images/reset.png';
+import React from 'react';
+import { View, Text, Image, SafeAreaView, ScrollView, StyleSheet } from 'react-native';
+import ResetImg from '../../../../forget-password-pages/forget-password-images/reset.png';
 import { useNavigation } from '@react-navigation/native';
-import SubtitleComponent from "../../components/SettingsComponents/Subtittle";
-import SectionTitle from "../../components/SettingsComponents/SectionTitle";
-import SetButton from "../../components/SetButtons/setButton";
+import SubtitleComponent from "../../../../../components/SettingsComponents/Subtittle"; // Import the SubtitleComponent
+import SectionTitle from "../../../../../components/SettingsComponents/SectionTitle";
+import SetButton from "../../../../../components/SetButtons/setButton"; // Import the SetButton component
 
-const ConfirmPasswordScreen = () => {
+const UsernameResetScreen = () => {
   const navigation = useNavigation();
 
-
   const handleConfirm = () => {
+    // Handle confirmation press, navigate to the home screen or any other screen as needed
     navigation.navigate('Home');
   };
-  
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <View style={styles.card}>
           <Image source={ResetImg} style={styles.image} />
-          <SectionTitle title={"Password has been changed"} style={styles.sectionTitle} />
-          <SubtitleComponent title="Your password has been changed Successfully!" style={styles.subtitle} />
+          <SectionTitle title={"Username changed"} style={styles.sectionTitle} />
+          <SubtitleComponent title="Your Username has been changed Successfully!" style={styles.subtitle} />
           <SetButton
             onPress={handleConfirm}
             title="Confirm"
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
   },
-  
 });
 
-export default ConfirmPasswordScreen;
+export default UsernameResetScreen;
+
