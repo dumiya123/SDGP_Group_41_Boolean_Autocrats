@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, Switch } from 'react-native';
+import React, { useState } from "react";
+import { View, Text, StyleSheet, Switch } from "react-native";
 
 const NotificationSwitch = ({ label, isLast }) => {
   const [isEnabled, setIsEnabled] = useState(false);
 
   const toggleSwitch = () => {
-    setIsEnabled(previousState => {
+    setIsEnabled((previousState) => {
       const newState = !previousState;
       if (newState) {
         console.log(`Switch for "${label}" is enabled`);
@@ -25,6 +25,7 @@ const NotificationSwitch = ({ label, isLast }) => {
         ios_backgroundColor="#3e3e3e"
         onValueChange={toggleSwitch}
         value={isEnabled}
+        testID="switch"
       />
     </View>
   );
@@ -32,20 +33,20 @@ const NotificationSwitch = ({ label, isLast }) => {
 
 const styles = StyleSheet.create({
   switchContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
     paddingHorizontal: 20,
     paddingVertical: 40,
     borderBottomWidth: 1,
-    borderBottomColor: '#eee',
+    borderBottomColor: "#eee",
   },
   noBorder: {
     borderBottomWidth: 0,
   },
   label: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });
 

@@ -29,7 +29,12 @@ const ExpenseTrackingCard = (props) => {
       <TouchableOpacity onPress={onPress}>
         <View style={styles.topContainer}>
           <View style={styles.iconContainer}>
-            <Ionicons name={topIconName} color="#FFFFFF" size={40} />
+            <Ionicons
+              name={topIconName}
+              color="#FFFFFF"
+              size={40}
+              testID="topIcon"
+            />
           </View>
           <Text style={styles.titleText}>{expenseType}</Text>
         </View>

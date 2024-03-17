@@ -53,17 +53,28 @@ const ImageUploader = (props) => {
       onBackButtonPress={handlebackButtonPress}
       isVisible={showModal}
       onBackdropPress={handleCloseModal}
+      testID="modal"
       style={{ justifyContent: "flex-end", margin: 0 }}
     >
       <SafeAreaView style={styles.mainWrapper}>
         <View style={styles.iconContainer}>
           <TouchableOpacity onPress={chooseImageFromGallery}>
-            <Ionicons name="image-outline" color="#FFFFFF" size={40} />
+            <Ionicons
+              name="image-outline"
+              color="#FFFFFF"
+              size={40}
+              testID="gallery-icon"
+            />
           </TouchableOpacity>
         </View>
         <View style={styles.iconContainer}>
           <TouchableOpacity onPress={openCamera}>
-            <Ionicons name="camera-outline" color="#FFFFFF" size={40} />
+            <Ionicons
+              name="camera-outline"
+              color="#FFFFFF"
+              size={40}
+              testID="camera-icon"
+            />
           </TouchableOpacity>
         </View>
       </SafeAreaView>
