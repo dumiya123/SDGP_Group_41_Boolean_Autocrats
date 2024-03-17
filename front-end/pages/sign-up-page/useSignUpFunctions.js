@@ -21,8 +21,8 @@ const useSignUpFunctions = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          username: userName,
-          email: email,
+          username: userName.trim(),
+          email: email.trim(),
           password: password,
         }),
       });
