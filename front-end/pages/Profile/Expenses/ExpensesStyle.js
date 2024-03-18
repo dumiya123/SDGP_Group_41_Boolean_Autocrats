@@ -142,6 +142,60 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
   },
+
+  // Style for the expenses data container
+  expensesDataContainer: {
+    marginTop: 20,
+    marginLeft: 12,
+    marginRight: 12,
+    alignSelf: "center",
+    backgroundColor: "rgb(197, 235, 170)", // Set background color of the expenses data container
+    borderRadius: 20, // Add border radius for rounded corners
+    shadowColor: "#183D3D", // Add shadow properties
+    shadowOffset: {
+      width: 10,
+      height: 10,
+    },
+    shadowOpacity: 0.7,
+    shadowRadius: 3.84,
+    elevation: 5, // for Android
+    width: Dimensions.get("window").width - 50, // Make the width same as the calendar
+    padding: 20, // Add padding to center the content
+  },
+
+  // Style for the expenses data title
+  expensesDataTitle: {
+    fontWeight: "bold",
+    fontSize: 18,
+    alignSelf: "center",
+    marginBottom: 10, // Add margin bottom for spacing
+  },
+
+  // Style for the expense card
+  expenseCard: {
+    flexDirection: "row",
+    justifyContent: "space-between", // Align text components horizontally
+    marginBottom: 10, // Add margin bottom for spacing
+  },
+
+  // Style for the expense description
+  expenseDescription: {
+    fontSize: 16,
+  },
+
+  // Style for the expense amount
+  expenseAmount: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+
+  // Style for the total expenses
+  totalExpenses: {
+    fontWeight: "bold",
+    fontSize: 16,
+    marginTop: 10, // Add margin top for spacing
+    alignSelf: "center", // Align to the right
+  },
 });
 
 export default styles;
