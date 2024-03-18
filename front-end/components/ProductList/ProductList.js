@@ -21,14 +21,12 @@ const ProductList = ({ category }) => {
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
   const [quantity, setQuantity] = useState("");
 
-  // Function to get the name of the handleConfirm function based on the category
   const getHandleConfirmFunctionName = (category) => {
     switch (category) {
       case "vegetables":
         return "handleConfirmVegetables";
       case "fish":
         return "handleConfirmFish";
-      // Add more cases for other categories if needed
       default:
         throw new Error("Unknown category");
     }
@@ -38,35 +36,22 @@ const ProductList = ({ category }) => {
     ProductListFunctions[getHandleConfirmFunctionName(category)];
 
   useEffect(() => {
-    // Load initial data
     loadMoreData();
-  }, [category]); // Reload when the category changes
+  }, [category]);
 
   const loadMoreData = async () => {
     try {
-      console.log(category);
-      // Fetch data from the API using the function and the provided category
-      const newData = await ProductListFunctions.fetchExplorer(category);
+      const newData = await fetchExplorer(category);
 
-      console.log("New Data from API:", newData); // Log the fetched data
-
-      // Calculate the start index based on the current page and page size
       const startIndex = (page - 1) * PAGE_SIZE;
-      // Calculate the end index
       const endIndex = startIndex + PAGE_SIZE;
 
-      // Slice the data to get the current page's worth of items
       const slicedData = newData.slice(startIndex, endIndex);
 
-      console.log("Sliced Data for Current Page:", slicedData); // Log the sliced data
-
-      // Update the products state with the new data
       setProducts((prevProducts) => [...prevProducts, ...slicedData]);
 
-      // Increment the page for the next load
       setPage((prevPage) => prevPage + 1);
     } catch (error) {
-      // Handle error if the API call fails
       console.error("Error loading data:", error);
     }
   };
@@ -113,6 +98,7 @@ const ProductList = ({ category }) => {
           <TouchableOpacity
             style={styles.button}
             onPress={() => {
+              handleConfirm(item, quantity);
               setSelectedItemIndex(null);
             }}
           >
@@ -157,7 +143,7 @@ const styles = StyleSheet.create({
     margin: 8,
     padding: 16,
     alignItems: "center",
-    elevation: Platform.OS === "android" ? 4 : 0, // Apply elevation only on Android
+    elevation: Platform.OS === "android" ? 4 : 0,
     ...Platform.select({
       ios: {
         shadowColor: "#000",
@@ -169,15 +155,15 @@ const styles = StyleSheet.create({
   },
   productImage: {
     width: "100%",
-    height: 100, // Placeholder height for the image
-    backgroundColor: "#f2f2f2", // Placeholder background color
+    height: 100,
+    backgroundColor: "#f2f2f2",
     marginBottom: 10,
     objectFit: "fill",
   },
   modalImage: {
     width: "50%",
-    height: 100, // Placeholder height for the image
-    backgroundColor: "#f2f2f2", // Placeholder background color
+    height: 100,
+    backgroundColor: "#f2f2f2",
     marginBottom: 10,
     alignSelf: "center",
     objectFit: "fill",
