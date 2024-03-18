@@ -4,6 +4,7 @@ let controllerBudget = require("./controllers/budgetController");
 let controllScraper = require("./controllers/scraperController");
 let selectedVegController = require("./controllers/selectedVegController");
 let selectedFishController = require("./controllers/selectedFishController");
+let expensesTotalController = require("./controllers/expensesTotalController");
 
 let router = require("express").Router();
 
@@ -35,5 +36,8 @@ router
 
 router.route("/profile").get(verifyToken, controllerUser.getUserData);
 router.route("/editProfile").post(verifyToken, controllerUser.changeUserData);
+router
+  .route("/calenderExpenses")
+  .post(verifyToken, expensesTotalController.getExpensesForDate);
 
 module.exports = router;
