@@ -10,14 +10,9 @@ const useEditProfileFunctions = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    // Fetch user data from backend when component mounts
-    fetchUserData();
-  }, []);
-
   const fetchUserData = async () => {
     try {
-      const response = await fetch(`http://${ipAddress}:8080/user/profile`); 
+      const response = await fetch(`http://${ipAddress}:8080/user/profile`);
       if (!response.ok) {
         throw new Error('Failed to fetch user data');
       }
@@ -30,6 +25,11 @@ const useEditProfileFunctions = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    // Fetch user data from backend when component mounts
+    fetchUserData();
+  }, []);
 
   const updateUserProfile = async (data) => {
     try {
@@ -102,6 +102,7 @@ const useEditProfileFunctions = () => {
     handleDeleteAccountPress,
     saveUsername,
     saveEmail,
+    fetchUserData, // Expose fetchUserData function
   };
 };
 

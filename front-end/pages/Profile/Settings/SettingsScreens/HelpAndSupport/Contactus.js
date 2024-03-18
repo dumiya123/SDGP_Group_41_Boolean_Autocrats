@@ -1,12 +1,12 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet, Linking } from 'react-native';
 import MemberInfo from '../../../../../components/MemberInfo//memberInfo';
 import SectionTitle from "../../../../../components/SettingsComponents/SectionTitle";
-import Copyright from '../../../../../components/CopyrightIcon/Copyright'; 
+import Copyright from '../../../../../components/CopyrightIcon/Copyright';
 
 const ContactUs = () => {
   const openEmailApp = (emailAddress) => {
-    // Implement your logic to open the email app
+    Linking.openURL(`mailto:${emailAddress}`);
   };
 
   return (

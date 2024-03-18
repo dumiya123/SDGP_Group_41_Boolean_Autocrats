@@ -40,6 +40,9 @@ import ContactUs from "../pages/Profile/Settings/SettingsScreens/HelpAndSupport/
 import Transports from "../pages/Profile/Add/Transports/transports";
 import { useNavigation } from '@react-navigation/native';
 
+import NotificationButton from './NotificationButton/notificationButton';
+import UserProfile from './UserProfile/UserProfile'; // Import the UserProfile component from the new file
+
 // import { color } from "react-native-tailwindcss";
 
 const Stack = createStackNavigator();
@@ -93,7 +96,7 @@ const AuthStackNavigator = () => {
       <Stack.Screen name="FOODSCREEN" component={ExploreFoodScreen} options={{ headerShown: false}}/>
       <Stack.Screen name="VEGSCREEN" component={ExploreVegetablesScreen} options={{ headerShown: false}}/>
 
-      <Stack.Screen name="Transports" component={Transports} options={{ headerShown: false}}/>
+      <Stack.Screen name="Transports" component={Transports} options={{ headerShown: true, headerBackTitleVisible: false}}/>
 
       {/*navigate settings page*/}
       <Stack.Screen name="Profile Settings" component={EditProfile} options={{ headerShown: true, headerBackTitleVisible: false}} />
@@ -134,11 +137,11 @@ const BottomTabNavigator = () => {
       options={{
         tabBarIcon: ({ color, size }) => (
           <Ionicons name="home" color={color} size={size} />
-          
-          
-        ), headerRight: () => <NotificationButton/>,headerLeft: ()=> <UserProfile/>
-       
+        ),
+        headerRight: () => <NotificationButton />,
+        headerLeft: () => <UserProfile />
       }}
+      
       />
       <Tab.Screen
         name="Expenses"
@@ -179,99 +182,6 @@ const BottomTabNavigator = () => {
     </Tab.Navigator>
   );
 };
-
-//notification view
-
-const NotificationButton = () => {
-  const navigation = useNavigation();
-  const handleNotificationPress = () => { 
-    navigation.navigate('Notifications');
-  };
-
-  return (
-    <Ionicons name="notifications" size={30} color="white" style={{ marginRight: 20 }} onPress={handleNotificationPress}/>
-  );
-};
-
-
-
-
-// profile view
-
-const UserProfile = ({ profilePictureUrl = 'https://via.placeholder.com/150', userName = 'Himan Welgama', userEmail = "himanwelgama@gmail.com" }) => {
-  const navigation = useNavigation();
-  const [isVisible, setIsVisible] = useState(false);
-  const slideAnim = useState(new Animated.Value(-1000))[0]; // Start from off-screen left
-
-  const handleUserProfilePress = () => {
-    setIsVisible(true);
-    // Animate slide in
-    Animated.timing(slideAnim, {
-      toValue: 0, // Slide to the left edge
-      duration: 300, // Adjust as needed
-      useNativeDriver: true,
-    }).start();
-  };
-
-  const handleCloseModal = () => {
-    // Animate slide out
-    Animated.timing(slideAnim, {
-      toValue: -1000, // Slide back off-screen left
-      duration: 200, // Adjust as needed
-      useNativeDriver: true,
-    }).start(() => setIsVisible(false));
-  };
-
-  return (
-    <SafeAreaView>
-      <Ionicons
-        name="person-circle-outline"
-        size={35}
-        color="white"
-        style={{ marginLeft: 20 }}
-        onPress={handleUserProfilePress}
-      />
-
-      <Modal
-        visible={isVisible}
-        transparent={true}
-        animationType="slide"
-      >
-        <View
-          style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0,1.0)', justifyContent: 'center', marginRight: '30%' }}
-        >
-          <Animated.View
-            style={{
-              transform: [{ translateX: slideAnim }],
-              backgroundColor: '#FFF',
-              padding: 20,
-              height: '100%',
-            }}
-          >
-            <TouchableOpacity
-              style={{ position: 'absolute', top: 20, right: 20, zIndex: 1}}
-              onPress={handleCloseModal}
-            >
-              <Ionicons name="chevron-back" size={40} color="#2d3436"  />
-            </TouchableOpacity>
-            {/* Profile Picture */}
-            <View style={{ alignItems: 'left', backgroundColor: '', padding: 10,marginTop: 40}}>
-           <Image
-            style={{ width: 180, height: 180, borderRadius: 100 }} // Adjust border radius to half of width and height to create a circle
-            source={{ uri: profilePictureUrl }}
-           />
-            </View>
-            {/* User Name */}
-            <Text style={{ textAlign: 'left', fontSize: 30, marginTop: 30 }}>{userName}</Text>
-            {/* Email */}
-            <Text style={{ textAlign: 'left', fontSize: 18, color: 'gray', marginTop: 5 }}>{userEmail}</Text>
-          </Animated.View>
-        </View>
-      </Modal>
-    </SafeAreaView>
-  );
-};
-
 
 export default AuthStackNavigator;
 

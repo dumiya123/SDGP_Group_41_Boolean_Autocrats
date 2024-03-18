@@ -1,10 +1,10 @@
 import React from "react";
-import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
+import { TouchableOpacity, View, Text, StyleSheet, style } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-const SettingsItem = ({ onPress, title, isLast, iconName, showAngleRight = true, rightIcon }) => {
+const SettingsItem = ({ onPress, title, isLast, iconName, showAngleRight = true, disableRightIcon }) => {
   const iconColor = (title === "Delete Account" || title === "Logout") ? "red" : "black";
-  const textColor = title === "Delete Account" || title === "Logout" ? "red" : "black";
+  const textColor = (title === "Delete Account" || title === "Logout") ? "red" : "black";
   const isTouchable = !(title === "Username" || title === "E-mail");
 
   const renderContent = () => {
@@ -23,12 +23,12 @@ const SettingsItem = ({ onPress, title, isLast, iconName, showAngleRight = true,
       style={[
         styles.settingItem,
         { borderBottomColor: isLast ? "transparent" : "#7F7F7F", borderBottomWidth: isLast ? 0 : 1 },
+        disableRightIcon
       ]}
-      onPress={isTouchable ? onPress : desable}
+      onPress={isTouchable ? onPress : disable}
     >
       {renderContent()}
-      {rightIcon && <View style={styles.rightIconContainer}>{rightIcon}</View>}
-      {showAngleRight && <Icon name="angle-right" size={20} color="#7F7F7F" style={styles.nextPageIcon} />}
+      {!disableRightIcon && <Icon name="angle-right" size={20} color="#7F7F7F" style={styles.nextPageIcon} />}
     </TouchableOpacity>
   );
 };
@@ -61,9 +61,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   icon: {
-    marginRight: 10,
-  },
-  rightIconContainer: {
     marginRight: 10,
   },
   nextPageIcon: {
