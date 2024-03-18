@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Budget extends Model {
     /**
@@ -12,37 +10,53 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Budget.belongsTo(models.User, {
-        foreignKey: 'userId'
+        foreignKey: "userId",
       });
 
       Budget.hasMany(models.SelectedVeg, {
-        foreignKey: 'budgetId',
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
+        foreignKey: "budgetId",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+      });
+
+      Budget.hasMany(models.SelectedFish, {
+        foreignKey: "budgetId",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+      });
+
+      Budget.hasMany(models.ExpensesTotal, {
+        // Define one-to-many relationship with ExpensesTotal
+        foreignKey: "budgetId",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       });
     }
   }
-  Budget.init({
-    budgetId: { 
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true, 
+  Budget.init(
+    {
+      budgetId: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+      },
+      budgetname: DataTypes.STRING,
+      receiveAlerts: DataTypes.BOOLEAN,
+      totalAmount: {
+        type: DataTypes.DOUBLE,
+        allowNull: true,
+      },
+      remainingAmount: DataTypes.DOUBLE,
+      userId: {
+        type: DataTypes.INTEGER,
+        foreignKey: true,
+        allowNull: false,
+      },
     },
-    budgetname: DataTypes.STRING,
-    receiveAlerts: DataTypes.BOOLEAN,
-    totalAmount: {
-      type: DataTypes.DOUBLE,
-      allowNull: true
-    },
-    remainingAmount: DataTypes.DOUBLE,
-    userId: {
-      type: DataTypes.INTEGER,
-      foreignKey: true,
-      allowNull: false,
+    {
+      sequelize,
+      modelName: "Budget",
     }
-  }, {
-    sequelize,
-    modelName: 'Budget',
-  });
+  );
   return Budget;
 };

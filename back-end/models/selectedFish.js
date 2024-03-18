@@ -2,14 +2,14 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  const SelectedVeg = sequelize.define("SelectedVeg", {
-    vegId: {
+  const SelectedFish = sequelize.define("SelectedFish", {
+    fishId: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    vegName: {
+    fishName: {
       type: DataTypes.STRING,
     },
     quantity: {
@@ -18,14 +18,16 @@ module.exports = (sequelize) => {
     unitPrice: {
       type: DataTypes.FLOAT,
     },
-    totalPrice: {
-      type: DataTypes.FLOAT,
-    },
 
-    //this is cahnged from imgSrc to spendedAmount which is a float
     spendedAmount: {
       type: DataTypes.FLOAT,
       defaultValue: 0,
+    },
+    totalPrice: {
+      type: DataTypes.FLOAT,
+    },
+    imageSrc: {
+      type: DataTypes.STRING,
     },
     budgetId: {
       type: DataTypes.INTEGER,
@@ -40,13 +42,13 @@ module.exports = (sequelize) => {
   });
 
   // Define associations if needed
-  SelectedVeg.associate = (models) => {
-    SelectedVeg.belongsTo(models.Budget, {
+  SelectedFish.associate = (models) => {
+    SelectedFish.belongsTo(models.Budget, {
       foreignKey: "budgetId",
       onDelete: "CASCADE",
       onUpdate: "CASCADE",
     });
   };
 
-  return SelectedVeg;
+  return SelectedFish;
 };
