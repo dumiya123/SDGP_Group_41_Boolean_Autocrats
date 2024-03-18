@@ -5,64 +5,64 @@ import { useNavigation } from "@react-navigation/native";
 const Add = () => {
   const navigation = useNavigation();
   // data for each card
-  const card1Props = {
-    image: require("./AddImages/foods.jpg"),
+  const cardFoodProps = {
+    image: require("./AddImages/illustrations/food.jpg"),
     date: "2024-02-28",
     off: "FOOD",
     offText: "Time to add your favorite food!",
     onClicked: () => {
       console.log("Buy now button clicked for Card 1!");
-      navigation.navigate('FOODSCREEN')
+      navigation.navigate("FOODSCREEN");
     },
   };
 
-  const card2Props = {
-    image: require("./AddImages/fish.jpg"),
+  const cardPharmacyProps = {
+    image: require("./AddImages/illustrations/pharmacy.avif"),
     date: "2024-03-01",
-    off: "Transports",
-    offText: "Time to add your favorite fish!",
+    off: "PHARMACY",
+    offText: "Time to add your pharmaceuticals!",
     onClicked: () => {
       console.log("Buy now button clicked for Card 2!");
-      navigation.navigate('Transports')
+      navigation.navigate("Transports");
     },
   };
 
-  const card3Props = {
-    image: require("./AddImages/vegetables.jpg"),
+  const cardTransportProps = {
+    image: require("./AddImages/illustrations/transport.jpg"),
     date: "2024-03-02",
-    off: "VEGETABLES",
-    offText: "Time to add your favorite vegetables!",
+    off: "TRANSPORT",
+    offText: "Time to plan your journeys!",
     onClicked: () => {
       console.log("Buy now button clicked for Card 3!");
     },
   };
 
-  const card4Props = {
-    image: require("./AddImages/fruits.jpg"),
+  const cardEntertainmentProps = {
+    image: require("./AddImages/illustrations/entertainment.jpg"),
     date: "2024-03-03",
-    off: "15% OFF",
-    offText: "Time to add your favorite fruit!",
+    off: "Entertainment",
+    offText: "Lets make fun plans!",
     onClicked: () => {
       console.log("Buy now button clicked for Card 4!");
     },
   };
 
-  const card5Props = {
-    image: require("./AddImages/meat.jpeg"),
+  const cardOtherProps = {
+    image: require("./AddImages/illustrations/education.jpg"),
     date: "2024-03-04",
-    off: "40% OFF",
-    offText: "Time to add your favorite meat!",
+    off: "EDUCATION",
+    offText: "Time to prepare for emergencys!",
     onClicked: () => {
       console.log("Buy now button clicked for Card 5!");
     },
   };
 
   const cardPropsArray = [
-    card1Props,
-    card2Props,
-    card3Props,
-    card4Props,
-    card5Props,
+    cardFoodProps,
+    cardTransportProps,
+    cardPharmacyProps,
+    cardEntertainmentProps,
+    cardOtherProps,
   ];
 
   return (

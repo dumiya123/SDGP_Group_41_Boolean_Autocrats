@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import { fetchExplorer } from "../../pages/Profile/Add/Explorer/ExplorerFunctions";
 import Modal from "react-native-modal";
-
+import * as ProductListFunctions from "./ProductListFunctions";
 const PAGE_SIZE = 10;
 
 const ProductList = ({ category }) => {
@@ -20,6 +20,22 @@ const ProductList = ({ category }) => {
   const [products, setProducts] = useState([]);
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
   const [quantity, setQuantity] = useState("");
+
+  // Function to get the name of the handleConfirm function based on the category
+  const getHandleConfirmFunctionName = (category) => {
+    switch (category) {
+      case "vegetables":
+        return "handleConfirmVegetables";
+      case "fish":
+        return "handleConfirmFish";
+      // Add more cases for other categories if needed
+      default:
+        throw new Error("Unknown category");
+    }
+  };
+
+  const handleConfirm =
+    ProductListFunctions[getHandleConfirmFunctionName(category)];
 
   useEffect(() => {
     // Load initial data
@@ -30,7 +46,7 @@ const ProductList = ({ category }) => {
     try {
       console.log(category);
       // Fetch data from the API using the function and the provided category
-      const newData = await fetchExplorer(category);
+      const newData = await ProductListFunctions.fetchExplorer(category);
 
       console.log("New Data from API:", newData); // Log the fetched data
 
