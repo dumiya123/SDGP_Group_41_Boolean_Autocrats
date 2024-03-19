@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { useState, useEffect } from "react";
+import { useNavigation } from "@react-navigation/native";
 
-const ipAddress = "192.168.8.126"; // Move ipAddress outside of the component
+const ipAddress = "192.168.1.9"; // Move ipAddress outside of the component
 
 const useEditProfileFunctions = () => {
   const navigation = useNavigation();
@@ -14,14 +14,14 @@ const useEditProfileFunctions = () => {
     try {
       const response = await fetch(`http://${ipAddress}:8080/user/profile`);
       if (!response.ok) {
-        throw new Error('Failed to fetch user data');
+        throw new Error("Failed to fetch user data");
       }
       const userData = await response.json();
       setUsername(userData.username);
       setEmail(userData.email);
       setLoading(false);
     } catch (error) {
-      console.error('Error fetching user data:', error);
+      console.error("Error fetching user data:", error);
       setLoading(false);
     }
   };
@@ -34,17 +34,17 @@ const useEditProfileFunctions = () => {
   const updateUserProfile = async (data) => {
     try {
       const response = await fetch(`http://${ipAddress}:8080/user/profile`, {
-        method: 'PUT',
+        method: "PUT",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
       if (!response.ok) {
-        throw new Error('Failed to update user profile');
+        throw new Error("Failed to update user profile");
       }
     } catch (error) {
-      console.error('Error updating user profile:', error);
+      console.error("Error updating user profile:", error);
     }
   };
 
@@ -53,7 +53,7 @@ const useEditProfileFunctions = () => {
       await updateUserProfile({ username: newUsername });
       setUsername(newUsername);
     } catch (error) {
-      console.error('Error saving username:', error);
+      console.error("Error saving username:", error);
     }
   };
 
@@ -62,7 +62,7 @@ const useEditProfileFunctions = () => {
       await updateUserProfile({ email: newEmail });
       setEmail(newEmail);
     } catch (error) {
-      console.error('Error saving email:', error);
+      console.error("Error saving email:", error);
     }
   };
 
@@ -73,22 +73,22 @@ const useEditProfileFunctions = () => {
 
   const handleUsernamePress = () => {
     // Handle username press
-    navigation.navigate('Username');
+    navigation.navigate("Username");
   };
-  
+
   const handleEmailPress = () => {
     // Handle email press
-    navigation.navigate('E-mail');
+    navigation.navigate("E-mail");
   };
-  
+
   const handlePasswordPress = () => {
     // Handle password press
-    navigation.navigate('Change Password');
+    navigation.navigate("Change Password");
   };
 
   const handleDeleteAccountPress = () => {
     // Handle delete account press
-    navigation.navigate('DELETE ACCOUNT');
+    navigation.navigate("DELETE ACCOUNT");
   };
 
   return {

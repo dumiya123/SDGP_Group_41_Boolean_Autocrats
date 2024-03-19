@@ -1,6 +1,14 @@
 import React from "react";
-import{ useState } from 'react';
-import { Modal, View,Text,TouchableOpacity,Animated,SafeAreaView, Image } from 'react-native';
+import { useState } from "react";
+import {
+  Modal,
+  View,
+  Text,
+  TouchableOpacity,
+  Animated,
+  SafeAreaView,
+  Image,
+} from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import GetStarted from "../pages/get-started-page/getStarted";
@@ -20,7 +28,7 @@ import ExploreFoodScreen from "../pages/Profile/Add/Explorer/ExplorerFood";
 import ExploreVegetablesScreen from "../pages/Profile/Add/Explorer/ExplorerVegetables/ExplorerVegetables";
 
 //navigate settings page
-import EditProfile from '../pages/Profile/Settings/SettingsScreens/EditProfile/editProfile';
+import EditProfile from "../pages/Profile/Settings/SettingsScreens/EditProfile/editProfile";
 import PushNotifications from "../pages/Profile/Settings/SettingsScreens/PushNotifications/pushNotifications";
 import InviteFriends from "../pages/Profile/Settings/SettingsScreens/InviteFriends/inviteFriends";
 import About from "../pages/Profile/Settings/SettingsScreens/About/about";
@@ -47,43 +55,6 @@ import ChatBotScreen from './ChatBotScreen/chatBotScreen'; // Import the UserPro
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-
-/* 
-
-AuthStackNavigator is for the authentication flow. It includes the following screens:
-
-- GetStarted
-- LoginScreen
-- SignUpScreen
-- VerificationEmail
-- VerificationCodeScreen
-- createPasswordScreen
-- confirmPasswordScreen
-
-When the user logs in sucessfully, the user is navigated to the BottomTabNavigator which includes the following screens:
-
-- HomeScreen
-- SettingsScreen
-- AddScreen
-- ReportsScreen
-
-Name of the bottom tab navigator is set to "PROFILE" 
-
-This name is used in the useLoginFunctions.js to navigate to the bottom tab navigator after the user logs in successfully.
-
-        ----"
-        from useLoginFunctions.js:
-
-        if (response.ok) {
-                console.log("Login successful");
-                navigation.navigate("PROFILE");//will navigate to bottomtabnavigator(name is set to profile) which includes the following screens: Home, Settings, Add, Reports
-              }
-              
-              ""-------
-
-
-
-*/
 
 const AuthStackNavigator = () => {
   return (
@@ -125,10 +96,7 @@ const AuthStackNavigator = () => {
   );
 };
 
-
-
 const BottomTabNavigator = () => {
-  //this is the bottom tab navigator which appears after the user logs in
   return (
     <Tab.Navigator>
       <Tab.Screen 
@@ -149,41 +117,38 @@ const BottomTabNavigator = () => {
         options={{
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="cash" color={color} size={size} />
-          )
-        }} 
-        />
+          ),
+        }}
+      />
       <Tab.Screen
         name="Add"
         component={AddScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="add" color={color} size={size} />
-          )
-        }} 
-        />
-      <Tab.Screen 
-      name="Reports"
-       component={ReportsScreen} 
-       options={{
-        tabBarIcon: ({ color, size }) => (
-          <Ionicons name="document-text" color={color} size={size} />
-        )
-      }}
-       />
+          ),
+        }}
+      />
       <Tab.Screen
-       name="Settings"
-       component={SettingsScreen}
-       options={{
-        tabBarIcon: ({ color, size }) => (
-          <Ionicons name="settings" color={color} size={size} />
-        )
-      }}
-        />
+        name="Reports"
+        component={ReportsScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="document-text" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Settings"
+        component={SettingsScreen}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="settings" color={color} size={size} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 };
 
 export default AuthStackNavigator;
-
-
-

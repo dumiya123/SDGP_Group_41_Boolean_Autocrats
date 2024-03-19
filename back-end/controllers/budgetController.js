@@ -1,4 +1,12 @@
-const { User, Budget, SelectedVeg } = require("../models");
+const {
+  User,
+  Budget,
+  SelectedVeg,
+  SelectedFish,
+  ExpensesTotal,
+} = require("../models");
+let selectedVegController = require("./selectedVegController");
+let selectedFishController = require("./selectedFishController");
 
 //TODO: BUDGET EDITING OF CONFIGURATIONS NEEDS TO BE DONE
 
@@ -11,7 +19,8 @@ async function getBudgets(req, res) {
       include: [
         {
           model: Budget,
-          include: [SelectedVeg], // Include SelectedVeg model through Budget association
+          include: [SelectedVeg, SelectedFish, ExpensesTotal],
+          // Include SelectedVeg model through Budget association
         },
       ],
     });
@@ -41,6 +50,59 @@ async function getBudgets(req, res) {
     });
   }
 }
+
+async function updateBudget(req, res) {
+  try {
+    const userId = req.user.id;
+
+    // Find the user's budget
+    const userBudget = await Budget.findOne({
+      where: { userId },
+    });
+
+    if (!userBudget) {
+      return res.status(404).json({ message: "User budget not found." });
+    }
+
+    // Getting the products from the request
+    const vegetables = req.body.Vegetables;
+    const fish = req.body.Fish;
+
+    let VegMessages = [];
+    let FishMessages = [];
+
+    console.log("Vegetables:", vegetables);
+    console.log("Fish:", fish);
+
+    // Update the vegetables by using the updateVeg function in selectedVegController
+    if (!vegetables || vegetables.length === 0) {
+      return res.status(400).json({ message: "No vegetable data provided." });
+    } else {
+      VegMessages = await selectedVegController.updateVeg(
+        vegetables,
+        userBudget
+      );
+    }
+
+    // Update the fish by using the updateFish function in selectedFishController
+    if (!fish || fish.length === 0) {
+      return res.status(400).json({ message: "No fish data provided." });
+    } else {
+      FishMessages = await selectedFishController.updateFish(fish, userBudget);
+    }
+
+    // Send a success response after all updates are completed
+    return res.status(200).json({
+      message: "Budget updated successfully",
+      VegMessages,
+      FishMessages,
+    });
+  } catch (error) {
+    console.error("Error in updateBudget:", error);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+}
+
 //function to create budget
 async function createBudget(req, res) {
   try {
@@ -82,4 +144,5 @@ async function createBudget(req, res) {
 module.exports = {
   getBudgets,
   createBudget,
+  updateBudget,
 };

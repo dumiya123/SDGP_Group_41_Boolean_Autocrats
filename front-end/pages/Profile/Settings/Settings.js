@@ -1,29 +1,58 @@
 import React from "react";
-import { View,ScrollView, StyleSheet } from "react-native";
+import { View, ScrollView, StyleSheet } from "react-native";
 import SettingsItem from "../../../components/SettingsComponents/SettingsItem";
 import SectionTitle from "../../../components/SettingsComponents/SectionTitle";
 import useSettingsFunctions from "./SettingsFunctions";
-import Copyright from '../../../components/CopyrightIcon/Copyright'; 
+import Copyright from "../../../components/CopyrightIcon/Copyright";
 
 const Settings = () => {
-  const SettingsFunctions = useSettingsFunctions(); 
+  const SettingsFunctions = useSettingsFunctions();
   return (
     <ScrollView style={styles.container}>
       <View style={styles.section}>
-        
         <SectionTitle title="Settings and privacy" />
-        <SettingsItem onPress={SettingsFunctions.handleEditProfile} title="Profile" iconName="edit" />
-        <SettingsItem onPress={SettingsFunctions.handlePushNotifications} title="Push Notifications" iconName="bell" isLast />
- 
+        <SettingsItem
+          onPress={SettingsFunctions.handleEditProfile}
+          title="Profile"
+          iconName="edit"
+        />
+        <SettingsItem
+          onPress={SettingsFunctions.handlePushNotifications}
+          title="Push Notifications"
+          iconName="bell"
+          isLast
+        />
+
         <SectionTitle title="Other" />
-        <SettingsItem onPress={SettingsFunctions.handleInviteFriends} title="Invite Friends" iconName="user-plus" isLast />
+        <SettingsItem
+          onPress={SettingsFunctions.handleInviteFriends}
+          title="Invite Friends"
+          iconName="user-plus"
+          isLast
+        />
 
         <SectionTitle title="Support & About" />
-        <SettingsItem onPress={SettingsFunctions.handleAbout} title="About" iconName="info-circle" />
-        <SettingsItem onPress={SettingsFunctions.handleHelpAndSupport} title="Help & Support" iconName="question-circle" isLast />
+        <SettingsItem
+          onPress={SettingsFunctions.handleAbout}
+          title="About"
+          iconName="info-circle"
+        />
+        <SettingsItem
+          onPress={SettingsFunctions.handleHelpAndSupport}
+          title="Help & Support"
+          iconName="question-circle"
+          isLast
+        />
 
-        <SectionTitle title={"Logout"}/>
-        <SettingsItem onPress={SettingsFunctions.handleLogout} title="Logout" iconName="sign-out" isLast showAngleRight={false} />
+        <SectionTitle title={"Logout"} />
+        <SettingsItem
+          onPress={SettingsFunctions.handleLogout}
+          testID="logout-button"
+          title="Logout"
+          iconName="sign-out"
+          isLast
+          showAngleRight={false}
+        />
       </View>
 
       <Copyright text="SaveNest" />
@@ -34,12 +63,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 20,
-    backgroundColor: '#F3F8FF',
+    backgroundColor: "#F3F8FF",
   },
   section: {
     width: "100%",
   },
-   settingItem: {
+  settingItem: {
     backgroundColor: "rgba(223, 230, 233,0.5)",
     padding: 10,
     borderRadius: 10,

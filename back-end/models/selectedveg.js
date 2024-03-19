@@ -1,8 +1,8 @@
-'use strict';
-const { DataTypes } = require('sequelize');
+"use strict";
+const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  const SelectedVeg = sequelize.define('SelectedVeg', {
+  const SelectedVeg = sequelize.define("SelectedVeg", {
     vegId: {
       allowNull: false,
       autoIncrement: true,
@@ -21,27 +21,30 @@ module.exports = (sequelize) => {
     totalPrice: {
       type: DataTypes.FLOAT,
     },
-    imageSrc: {
-      type: DataTypes.STRING,
+
+    //this is cahnged from imgSrc to spendedAmount which is a float
+    spendedAmount: {
+      type: DataTypes.FLOAT,
+      defaultValue: 0,
     },
     budgetId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Budgets',
-        key: 'budgetId',
+        model: "Budgets",
+        key: "budgetId",
       },
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE',
+      onUpdate: "CASCADE",
+      onDelete: "CASCADE",
     },
   });
 
   // Define associations if needed
   SelectedVeg.associate = (models) => {
     SelectedVeg.belongsTo(models.Budget, {
-      foreignKey: 'budgetId',
-      onDelete: 'CASCADE',
-      onUpdate: 'CASCADE',
+      foreignKey: "budgetId",
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE",
     });
   };
 

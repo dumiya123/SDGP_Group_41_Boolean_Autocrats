@@ -26,16 +26,16 @@ export const handleConfirmVegetables = async (item, quantity) => {
   }
 };
 
-export const handleConfirmMeat = async (item, quantity) => {
+export const handleConfirmFish = async (item, quantity) => {
   try {
-    const endpoint = "addMeat"; // Assuming you have an endpoint for meat
+    const endpoint = "addFish";
     const response = await fetch(`http://${ipAddress}:8080/user/${endpoint}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        meatName: item.name, // Assuming meat specific parameters
+        fishName: item.name, // Assuming meat specific parameters
         price: item.price,
         imgSrc: item.image,
         quantity: parseInt(quantity),
@@ -48,6 +48,37 @@ export const handleConfirmMeat = async (item, quantity) => {
     return data;
   } catch (error) {
     console.error(`Error adding product to meat:`, error);
+    throw error;
+  }
+};
+
+// ExplorerFunctions.js
+
+export const fetchExplorer = async (category) => {
+  console.log("Fetching data for category:", category);
+  try {
+    const response = await fetch(
+      `http://${ipAddress}:8080/user/filterCategory`,
+      {
+        method: "POST", // Specify the request method
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          category: category,
+        }),
+      }
+    );
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+
+    // Log the raw response data
+    const rawResponse = await response.text();
+    console.error("Raw Response:", rawResponse);
+
     throw error;
   }
 };

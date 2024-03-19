@@ -109,7 +109,6 @@ function testRoute(req, res, next) {
   res.status(200).json({ message: "Test route successful" });
 }
 
-
 async function changeUserData(req, res) {
   try {
     const userId = req.user.id; // Assuming the authenticated user's ID is available in the request
@@ -149,8 +148,6 @@ async function changeUserData(req, res) {
     res.status(500).send({ message: "Internal server error" });
   }
 }
-
-
 
 // Exporting each function separately
 module.exports.signUp = signUp;
