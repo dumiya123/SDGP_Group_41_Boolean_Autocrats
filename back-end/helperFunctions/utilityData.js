@@ -2,15 +2,11 @@ const fs = require("fs").promises;
 
 async function loadDataFromFile(filePath) {
   try {
-    const data = await fs.readFile(filePath, "utf-8");
+    const data = await fs.readFile(filePath, "utf8");
     return JSON.parse(data);
   } catch (error) {
-    if (error.code === "ENOENT") {
-      return null;
-    }
-
     console.error(`Error loading data from ${filePath}:`, error);
-    return null;
+    throw error; // Re-throw the error to handle it at the caller level
   }
 }
 

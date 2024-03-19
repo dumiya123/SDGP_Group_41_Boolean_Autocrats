@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { User } = require("../models");
+let selectedVegController = require("./selectedVegController");
 
 function signUp(req, res) {
   console.log("Received user data:", req.body);
