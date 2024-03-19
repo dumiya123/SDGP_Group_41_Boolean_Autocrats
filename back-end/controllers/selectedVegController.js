@@ -1,9 +1,11 @@
 const { SelectedVeg, Budget } = require("../models");
 let expensesTotalController = require("./expensesTotalController");
 
+
 // Define the addVeg function using async syntax
 const addVeg = async (req, res) => {
   try {
+    
     const { vegName, price, imgSrc, quantity, unitPrice } = req.body;
 
     const userId = req.user.id;

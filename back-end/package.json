@@ -20,6 +20,6 @@
     "mysql2": "^3.9.1",
     "node-cron": "^3.0.3",
     "puppeteer": "^22.4.0",
-    "sequelize": "^6.37.0"
+    "sequelize": "^6.37.1"
   }
 }
