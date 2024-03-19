@@ -1,11 +1,9 @@
 const { SelectedVeg, Budget } = require("../models");
 let expensesTotalController = require("./expensesTotalController");
 
-
 // Define the addVeg function using async syntax
 const addVeg = async (req, res) => {
   try {
-    
     const { vegName, price, imgSrc, quantity, unitPrice } = req.body;
 
     const userId = req.user.id;
@@ -121,6 +119,27 @@ const updateVeg = async (vegetables, userBudget) => {
     return { error: "Internal Server Error" };
   }
 };
+const getBudgetIdsByVegName = async function (vegName) {
+  try {
+    // Query the selectedVeg table based on the given vegetable name
+    const selectedVegetables = await SelectedVeg.findAll({
+      where: { vegName: vegName },
+    });
+
+    console.log(selectedVegetables); // Verify that selectedVegetables contains the expected data
+
+    // Extract the budgetId from each selected vegetable and return an array of budgetIds
+    const userIds = selectedVegetables.map(
+      (selectedVeg) => selectedVeg.dataValues.budgetId
+    );
+    console.log("uid", userIds); // Verify that budgetIds contains the expected data
+
+    return userIds;
+  } catch (error) {
+    console.error("Error while fetching budget IDs:", error);
+    throw new Error("Failed to fetch budget IDs");
+  }
+};
 
 // Export the addVeg and updateVeg functions
-module.exports = { addVeg, updateVeg };
+module.exports = { addVeg, updateVeg, getBudgetIdsByVegName };

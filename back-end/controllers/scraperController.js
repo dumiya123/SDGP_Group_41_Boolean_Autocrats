@@ -64,9 +64,8 @@ async function scrapeDataKeels() {
         await dataUtility.saveDataToFile(scrapedData, DATA_FILE_PATH);
         console.log("Scraped data written to categoryData.json");
       } else {
-        createTestDataFile(TEST_DATA_FILE_PATH);
         await dataUtility.saveDataToFile(scrapedData, TEST_DATA_FILE_PATH);
-        priceAlert();
+        priceAlert(DATA_FILE_PATH, TEST_DATA_FILE_PATH);
         console.log("Scraped data written to categoryDataTest.json");
       }
 
@@ -86,7 +85,6 @@ async function scrapeDataKeels() {
     isScraping = false;
   }
 }
-
 
 cron.schedule("*/10 * * * *", async () => {
   await scrapeDataKeels();
@@ -119,21 +117,6 @@ async function filterCategory(req, res) {
   } catch (error) {
     console.error("Error during filtering category:", error);
     res.status(500).json({ error: "Internal Server Error" });
-  }
-}
-
-async function createTestDataFile(filePath) {
-  try {
-    // Check if the test data file already exists
-    await fs.promises.access(filePath, fs.constants.F_OK);
-  } catch (error) {
-    // Create the test data file if it doesn't exist
-    if (error.code === "ENOENT") {
-      await dataUtility.saveDataToFile({}, filePath);
-      console.log(`Created ${filePath}`);
-    } else {
-      console.error("Error checking existence of test data file:", error);
-    }
   }
 }
 

@@ -116,4 +116,26 @@ const updateFish = async (fishes, userBudget) => {
   }
 };
 
-module.exports = { addFish, updateFish };
+const getBudgetIdsByFishName = async function (fishName) {
+  try {
+    // Query the SelectedFish table based on the given fish name
+    const selectedFishes = await SelectedFish.findAll({
+      where: { fishName: fishName },
+    });
+
+    console.log(selectedFishes); // Verify that selectedFishes contains the expected data
+
+    // Extract the budgetId from each selected fish and return an array of budgetIds
+    const budgetIds = selectedFishes.map(
+      (selectedFish) => selectedFish.dataValues.budgetId
+    );
+    console.log("budgetIds", budgetIds); // Verify that budgetIds contains the expected data
+
+    return budgetIds;
+  } catch (error) {
+    console.error("Error while fetching budget IDs:", error);
+    throw new Error("Failed to fetch budget IDs");
+  }
+};
+
+module.exports = { addFish, updateFish, getBudgetIdsByFishName };

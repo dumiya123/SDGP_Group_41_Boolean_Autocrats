@@ -1,16 +1,13 @@
 const { Notification, User } = require("../models");
 
 // Function to create notification
-async function CreateNotification(notificationContent,req) {
+async function CreateNotification(userId, notificationContent) {
   try {
-    // Get the user ID from the request object
-    const userId = req.user.id; // Assuming the user ID is available in the request object
-
     // Create notification in the Notification table
     const notification = await Notification.create({
       userId: userId,
       readStatus: 0, // Assuming false is represented by 0
-      notificationContent: notificationContent
+      notificationContent: notificationContent,
     });
 
     // Return the created notification
@@ -23,9 +20,5 @@ async function CreateNotification(notificationContent,req) {
 }
 
 module.exports = {
-  CreateNotification
+  CreateNotification,
 };
-
-
-
-
