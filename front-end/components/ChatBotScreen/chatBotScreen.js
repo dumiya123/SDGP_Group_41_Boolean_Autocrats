@@ -4,10 +4,10 @@ import { SafeAreaView, View, Text, TouchableOpacity, Animated, Modal, Image, Sty
 import { Ionicons } from '@expo/vector-icons'; // Importing Ionicons for the close icon
 import LottieView from 'lottie-react-native'; // Importing LottieView for rendering Lottie animations
 import useEditProfileFunctions from '../../pages/Profile/Settings/SettingsScreens/EditProfile/editProfileFunctions';
-import ChatBot from '../../components/ChatBot/chatBot';
+import ChatBot from '../ChatBot/chatBot';
 
-// Define UserProfile component
-const UserProfile = () => {
+
+const ChatBotScreen = () => {
   const { username, email, loading, fetchUserData } = useEditProfileFunctions();
   const [isVisible, setIsVisible] = useState(false); 
   const [forceUpdate, setForceUpdate] = useState(false); // Dummy state for force re-render
@@ -19,7 +19,7 @@ const UserProfile = () => {
   }, [fetchUserData, forceUpdate]);
 
   // Function to handle user profile press
-  const handleUserProfilePress = () => {
+  const handlechatBotPress = () => {
     setIsVisible(true);
     // Animate slide in
     Animated.timing(slideAnim, {
@@ -42,7 +42,7 @@ const UserProfile = () => {
   return (
     <SafeAreaView>
       {/* Replace the Ionicons component with the Lottie animation */}
-      <TouchableOpacity onPress={handleUserProfilePress}>
+      <TouchableOpacity onPress={handlechatBotPress}>
         <LottieView
           source={require('../../animations/robot.json')}
           style={{ width: 35, height: 35, marginLeft: 20 }}
@@ -89,4 +89,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default UserProfile;
+export default ChatBotScreen;

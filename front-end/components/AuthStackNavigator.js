@@ -41,7 +41,7 @@ import Transports from "../pages/Profile/Add/Transports/transports";
 import { useNavigation } from '@react-navigation/native';
 
 import NotificationButton from './NotificationButton/notificationButton';
-import UserProfile from './UserProfile/UserProfile'; // Import the UserProfile component from the new file
+import ChatBotScreen from './ChatBotScreen/chatBotScreen'; // Import the UserProfile component from the new file
 
 // import { color } from "react-native-tailwindcss";
 
@@ -139,7 +139,7 @@ const BottomTabNavigator = () => {
           <Ionicons name="home" color={color} size={size} />
         ),
         headerRight: () => <NotificationButton />,
-        headerLeft: () => <UserProfile />
+        headerLeft: () => <ChatBotScreen/>
       }}
       
       />
