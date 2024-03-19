@@ -7,6 +7,12 @@ module.exports = (sequelize, DataTypes) => {
       User.hasOne(models.Budget, {
         foreignKey: "userId",
       });
+
+      // Establish one-to-many relationship with Notification
+      User.hasMany(models.Notification, {
+        foreignKey: "userId",
+        as: "notifications" // Alias for the association
+      });
     }
   }
 
@@ -38,3 +44,4 @@ module.exports = (sequelize, DataTypes) => {
 
   return User;
 };
+
