@@ -1,114 +1,86 @@
-import React from "react";
-import { Text, View, ScrollView, TouchableOpacity,ImageBackground,Image,Button } from "react-native";
+import React, { useState } from "react";
+import { Text, View, ScrollView, TouchableOpacity, Alert } from "react-native";
 import styles from "./ExpensesStyle";
 import { Calendar } from "react-native-calendars";
 
-const image_one =require('../Expenses/Expenses_Images/salary.png')
-const image_two =require('../Expenses/Expenses_Images/expenses.png')
-const image_three=require('../Expenses/Expenses_Images/education.png')
-const image_four=require('../Expenses/Expenses_Images/health_care.png')
-const image_five=require('../Expenses/Expenses_Images/groceries.png')
-
-
 const Expenses = () => {
+  const [selectedDate, setSelectedDate] = useState(""); // State variable to hold the selected date
+  const [expensesData, setExpensesData] = useState(null); // State variable to hold expenses data
+  const ipAddress = "192.168.1.9"; // Variable for IP address
+
+  const onDateSelect = async (date) => {
+    setSelectedDate(date.dateString); // Update the selected date
+
+    try {
+      const response = await fetch(
+        `http://${ipAddress}:8080/user/calenderExpenses`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ date: date.dateString }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+
+      const data = await response.json();
+      setExpensesData(data);
+    } catch (error) {
+      Alert.alert("Error", "Failed to fetch expenses data");
+    }
+  };
+
   return (
     <ScrollView>
-    <View>
-    <Text></Text>
-      <Text style={styles.header}>Expenses</Text>
-      <Text></Text>
-      {/* Calendar Component */}
-
-      <Calendar style={styles.calender}></Calendar>
-
       <View>
         <Text></Text>
+        <Text style={styles.header}>Pick a date to see your expenses!</Text>
         <Text></Text>
-        <Text style={styles.text}>Current Status</Text>
-        <Text></Text>
-        <ScrollView horizontal={true} style={styles.scrollView}>
+        {/* Calendar Component */}
+        <View style={styles.calenderContainer}>
+          <Calendar
+            style={styles.calender}
+            onDayPress={onDateSelect} // Handle date selection
+            markedDates={{ [selectedDate]: { selected: true } }} // Highlight the selected date
+          />
+        </View>
 
-        <ImageBackground source={image_one} style={styles.image}>  
-            <TouchableOpacity style={styles.balanceBox}>
-            <Text style={styles.balanceText}>Total Salary</Text>
-            <Text></Text>
-            <Text></Text>
-            <Text style={styles.balanceAmount}>Rs.50,000.00</Text>
-            
+        <Text style={styles.selectedDateContainer}>
+          <Text>SELECTED DATE</Text>
+          <Text> </Text>
+          <Text> </Text>
+          <Text> </Text>
+          <Text> </Text>
+          <Text> </Text>
+          <Text style={styles.selectedDate}>
+            {selectedDate ? selectedDate : ""}
+          </Text>
+        </Text>
 
-
-            </TouchableOpacity>
-          </ImageBackground>
-
-        <ImageBackground source={image_two} style={styles.image}>
-          <TouchableOpacity style={styles.balanceBox}>
-          <Text style={styles.balanceText}>Total Expenses</Text>
-          <Text></Text>
-          <Text></Text>
-          <Text style={styles.balanceAmount}>Rs.50,000.00</Text>
-
-          </TouchableOpacity>
-          
-          
-          
-        </ImageBackground>  
-        </ScrollView>
-        <Text></Text>
-        
-        <ScrollView style={styles.scrollView}>
-        <Text style={styles.expenses}>Recent Expenses</Text>
-        <Text></Text>
-          
-          
-          <ImageBackground source={image_three} style={styles.image}>
-            <TouchableOpacity style={styles.balanceBox}>
-            <Text style={styles.balanceText}>Education</Text>
-            <Text></Text>
-            <Text style={styles.balanceAmount}>Rs.10,000.00</Text>
-            <Text></Text>
-
-            </TouchableOpacity>
-
-          </ImageBackground>
-          <Text></Text>
-
-          <ImageBackground source={image_four} style={styles.image}>
-            <TouchableOpacity style={styles.balanceBox}>
-            <Text style={styles.balanceText}>Health Care</Text>
-            <Text></Text>
-            <Text style={styles.balanceAmount}>Rs.3000.00</Text>
-            <Text></Text>
-
-            </TouchableOpacity>
-
-          </ImageBackground>
-          <Text></Text>
-
-          <ImageBackground source={image_five} style={styles.image}>
-            <TouchableOpacity style={styles.balanceBox}>
-            <Text style={styles.balanceText}>Groceries</Text>
-            <Text></Text>
-            <Text style={styles.balanceAmount}>Rs.3,000.00</Text>
-            <Text></Text>
-
-            </TouchableOpacity>
-
-          </ImageBackground>
-
-
-
-          <Text></Text>
-
-
-
-        </ScrollView>
+        {/* Display expenses data */}
+        {expensesData && (
+          <View style={styles.expensesDataContainer}>
+            <Text style={styles.expensesDataTitle}>
+              {expensesData.description}
+            </Text>
+            {expensesData.expensesDetails.map((expense, index) => (
+              <View key={index} style={styles.expenseCard}>
+                <Text style={styles.expenseDescription}>
+                  {expense.description}
+                </Text>
+                <Text style={styles.expenseAmount}>{expense.amount}</Text>
+              </View>
+            ))}
+            <Text style={styles.totalExpenses}>
+              Total Expenses: {expensesData.totalExpenses}
+            </Text>
+          </View>
+        )}
       </View>
-
-        
-        
-      <Text></Text>
-      
-    </View>
     </ScrollView>
   );
 };

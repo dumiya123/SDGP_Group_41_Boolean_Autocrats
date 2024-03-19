@@ -6,9 +6,8 @@ const theme = {
     text: "rgb(96, 114, 116)",
     border: "yellow",
     notification: "rgb(255, 69, 58)",
-    buttonFirst:"#7B8C74",
-    buttonSecond:"#183D3D"
-    
+    buttonFirst: "#7B8C74",
+    buttonSecond: "#183D3D",
   },
 };
 

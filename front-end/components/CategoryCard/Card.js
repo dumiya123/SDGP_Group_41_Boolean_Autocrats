@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     elevation: 2,
     shadowColor: "#777",
-    shadowOpacity: 0.16,
+    shadowOpacity: 0,
     shadowRadius: 20,
     overflow: "hidden",
     shadowOffset: {

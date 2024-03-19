@@ -225,7 +225,7 @@ const SignupScreen = () => {
         <Text style={{ color: "black", fontSize: 15 }}>
           Already have an account?
         </Text>
-        <TouchableOpacity onPress={onLoginClick}>
+        <TouchableOpacity testID="login" onPress={onLoginClick}>
           <Text
             style={{ color: "midnightblue", fontSize: 15, fontWeight: "bold" }}
           >
