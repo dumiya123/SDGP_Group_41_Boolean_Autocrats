@@ -14,7 +14,7 @@ import forgetPwImg from "../../../../../pages/forget-password-pages/forget-passw
 import SubtitleComponent from "../../../../../components/SettingsComponents/Subtittle";
 import TextInputField from "../../../../../components/TextInputField";
 
-const ipAddress = "192.168.1.9";
+const ipAddress = "192.168.8.119";
 
 const UserEmailChange = () => {
   const navigation = useNavigation();

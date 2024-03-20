@@ -137,8 +137,6 @@ function getChangedProducts(differences, json1, json2) {
   return changedItems;
 }
 
-const DATA_FILE_PATH = "../categoryData.json";
-const TEST_DATA_FILE_PATH = "../categoryDataTest.json";
-priceAlert(DATA_FILE_PATH, TEST_DATA_FILE_PATH);
+
 
 module.exports = priceAlert;

@@ -7,6 +7,7 @@ let selectedFishController = require("./controllers/selectedFishController");
 let expensesTotalController = require("./controllers/expensesTotalController");
 let selectedMeatController = require("./controllers/selectedMeatController");
 let selectedBeveragesController = require("./controllers/selectedBeveragesController");
+let selectedFrozenFoodController=require("./controllers/selectedFrozenFoodController");
 
 let router = require("express").Router();
 
@@ -35,7 +36,7 @@ router.route("/addMeat").post(verifyToken, selectedMeatController.addMeat);
 router
   .route("/addBeverages")
   .post(verifyToken, selectedBeveragesController.addBeverage);
-
+router.route("/addFrozenFood").post(verifyToken, selectedFrozenFoodController.addSelectedFrozenFood);
 router
   .route("/filterCategory")
   .post(verifyToken, controllScraper.filterCategory);
