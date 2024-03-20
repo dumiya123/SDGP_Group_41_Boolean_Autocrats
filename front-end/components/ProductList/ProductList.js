@@ -27,6 +27,10 @@ const ProductList = ({ category }) => {
         return "handleConfirmVegetables";
       case "fish":
         return "handleConfirmFish";
+      case "meat":
+        return "handleConfirmMeat";
+      case "beverages":
+        return "handleConfirmBeverages";
       default:
         throw new Error("Unknown category");
     }

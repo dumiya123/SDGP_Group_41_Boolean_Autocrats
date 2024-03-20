@@ -35,7 +35,58 @@ export const handleConfirmFish = async (item, quantity) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        fishName: item.name, // Assuming meat specific parameters
+        fishName: item.name,
+        price: item.price,
+        imgSrc: item.image,
+        quantity: parseInt(quantity),
+        unitPrice: parseFloat(item.price.replace(/\D/g, "")) / 100,
+      }),
+    });
+
+    const data = await response.json();
+    console.log(`Response from ${endpoint} endpoint:`, data);
+    return data;
+  } catch (error) {
+    console.error(`Error adding product to fish:`, error);
+    throw error;
+  }
+};
+export const handleConfirmBeverages = async (item, quantity) => {
+  try {
+    const endpoint = "addBeverages";
+    const response = await fetch(`http://${ipAddress}:8080/user/${endpoint}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        beverageName: item.name,
+        price: item.price,
+        imgSrc: item.image,
+        quantity: parseInt(quantity),
+        unitPrice: parseFloat(item.price.replace(/\D/g, "")) / 100,
+      }),
+    });
+
+    const data = await response.json();
+    console.log(`Response from ${endpoint} endpoint:`, data);
+    return data;
+  } catch (error) {
+    console.error(`Error adding product to beverages:`, error);
+    throw error;
+  }
+};
+
+export const handleConfirmMeat = async (item, quantity) => {
+  try {
+    const endpoint = "addMeat";
+    const response = await fetch(`http://${ipAddress}:8080/user/${endpoint}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        meatName: item.name, // Ensure correct property name
         price: item.price,
         imgSrc: item.image,
         quantity: parseInt(quantity),

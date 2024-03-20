@@ -3,7 +3,9 @@ const dataUtility = require("../helperFunctions/utilityData");
 const { diff } = require("deep-object-diff");
 let selectedVegController = require("../controllers/selectedVegController");
 let selectedFishController = require("../controllers/selectedFishController");
+let selectedBeveragesController = require("../controllers/selectedBeveragesController");
 let notificationController = require("../controllers/notificationController");
+let selectedMeatController = require("../controllers/selectedMeatController");
 
 async function priceAlert(DATA_FILE_PATH, TEST_DATA_FILE_PATH) {
   try {
@@ -27,6 +29,10 @@ async function priceAlert(DATA_FILE_PATH, TEST_DATA_FILE_PATH) {
           await handleVegetableChange(product, json2);
         } else if (product.category === "fish") {
           await handleFishChange(product, json2);
+        } else if (product.category === "meat") {
+          await handleMeatChange(product, json2);
+        } else if (product.category === "beverages") {
+          await handleBeveragesChange(product, json2);
         }
       }
     }
@@ -36,7 +42,7 @@ async function priceAlert(DATA_FILE_PATH, TEST_DATA_FILE_PATH) {
 }
 
 async function handleVegetableChange(product, json2) {
-  const userIds = await selectedVegController.getBudgetIdsByVegName(
+  const userIds = await selectedMeatController.getBudgetIdsByMeatName(
     product.productName
   );
 
@@ -45,6 +51,22 @@ async function handleVegetableChange(product, json2) {
 
 async function handleFishChange(product, json2) {
   const userIds = await selectedFishController.getBudgetIdsByFishName(
+    product.productName
+  );
+
+  await sendNotificationsDb(userIds, product, json2);
+}
+
+async function handleMeatChange(product, json2) {
+  const userIds = await selectedBeveragesController.getBudgetIdsByBeverageName(
+    product.productName
+  );
+
+  await sendNotificationsDb(userIds, product, json2);
+}
+
+async function handleBeveragesChange(product, json2) {
+  const userIds = await selectedBeveragesController.getBudgetIdsByBeverageName(
     product.productName
   );
 
