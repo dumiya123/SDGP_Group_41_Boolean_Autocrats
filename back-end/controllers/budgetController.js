@@ -3,6 +3,7 @@ const {
   Budget,
   SelectedVeg,
   SelectedFish,
+  SelectedMeat,
   ExpensesTotal,
 } = require("../models");
 let selectedVegController = require("./selectedVegController");
@@ -19,7 +20,7 @@ async function getBudgets(req, res) {
       include: [
         {
           model: Budget,
-          include: [SelectedVeg, SelectedFish, ExpensesTotal],
+          include: [SelectedVeg, SelectedFish, SelectedMeat, ExpensesTotal],
           // Include SelectedVeg model through Budget association
         },
       ],
@@ -67,9 +68,11 @@ async function updateBudget(req, res) {
     // Getting the products from the request
     const vegetables = req.body.Vegetables;
     const fish = req.body.Fish;
+    const meat = req.body.Meat;
 
     let VegMessages = [];
     let FishMessages = [];
+    let MeatMessages = [];
 
     console.log("Vegetables:", vegetables);
     console.log("Fish:", fish);
@@ -89,6 +92,12 @@ async function updateBudget(req, res) {
       return res.status(400).json({ message: "No fish data provided." });
     } else {
       FishMessages = await selectedFishController.updateFish(fish, userBudget);
+    }
+
+    if (!meat || meat.length === 0) {
+      return res.status(400).json({ message: "No meat data provided." });
+    } else {
+      MeatMessages = await selectedMeatController.updateMeat(meat, userBudget);
     }
 
     // Send a success response after all updates are completed

@@ -25,6 +25,18 @@ module.exports = (sequelize, DataTypes) => {
         onUpdate: "CASCADE",
       });
 
+      Budget.hasMany(models.SelectedMeat, {
+        foreignKey: "budgetId",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+      });
+
+      Budget.hasMany(models.SelectedBeverage, {
+        foreignKey: "budgetId",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+      });
+
       Budget.hasMany(models.ExpensesTotal, {
         // Define one-to-many relationship with ExpensesTotal
         foreignKey: "budgetId",

@@ -5,6 +5,8 @@ let controllScraper = require("./controllers/scraperController");
 let selectedVegController = require("./controllers/selectedVegController");
 let selectedFishController = require("./controllers/selectedFishController");
 let expensesTotalController = require("./controllers/expensesTotalController");
+let selectedMeatController = require("./controllers/selectedMeatController");
+let selectedBeveragesController = require("./controllers/selectedBeveragesController");
 
 let router = require("express").Router();
 
@@ -29,6 +31,10 @@ router.route("/updateBudget").post(verifyToken, controllerBudget.updateBudget);
 //routes for selected Items(tables crud) end-points
 router.route("/addVeg").post(verifyToken, selectedVegController.addVeg);
 router.route("/addFish").post(verifyToken, selectedFishController.addFish);
+router.route("/addMeat").post(verifyToken, selectedMeatController.addMeat);
+router
+  .route("/addBeverages")
+  .post(verifyToken, selectedBeveragesController.addBeverage);
 
 router
   .route("/filterCategory")
@@ -40,5 +46,4 @@ router
   .route("/calenderExpenses")
   .post(verifyToken, expensesTotalController.getExpensesForDate);
 
-  
 module.exports = router;
