@@ -78,11 +78,11 @@ const updateMeat = async (meats, userBudget) => {
       if (selectedMeat) {
         // If the meat already exists in the user's budget, update the spent amount
         const newSpentAmount =
-          selectedMeat.spendedAmount + parseFloat(totalPrice);
+          selectedMeat.spentAmount + parseFloat(totalPrice);
 
         // Update the selected meat's spent amount
         if (selectedMeat.totalPrice - newSpentAmount >= 0) {
-          await selectedMeat.update({ spendedAmount: newSpentAmount });
+          await selectedMeat.update({ spentAmount: newSpentAmount });
 
           // If meat is successfully processed, add a success message
           messages.push(

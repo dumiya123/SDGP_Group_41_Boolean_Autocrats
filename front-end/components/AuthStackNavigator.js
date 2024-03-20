@@ -29,6 +29,7 @@ import ExploreFishScreen from "../pages/Profile/Add/Explorer/ExplorerFish/Explor
 import ExploreVegetablesScreen from "../pages/Profile/Add/Explorer/ExplorerVegetables/ExplorerVegetables";
 import ExplorerMeatScreen from "../pages/Profile/Add/Explorer/ExplorerMeat/ExplorerMeats";
 import ExplorerBeveragesScreen from "../pages/Profile/Add/Explorer/ExplorerBeverages/ExplorerBeverages";
+import ExplorerFrozenFoodScreen from "../pages/Profile/Add/Explorer/ExplorerFrozen/ExplorerFrozenFood";
 
 //navigate settings page
 import EditProfile from "../pages/Profile/Settings/SettingsScreens/EditProfile/editProfile";
@@ -106,6 +107,11 @@ const AuthStackNavigator = () => {
       <Stack.Screen
         name="BEVERAGESSCREEN"
         component={ExplorerBeveragesScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="FROZEN FOODSCREEN"
+        component={ExplorerFrozenFoodScreen}
         options={{ headerShown: false }}
       />
 

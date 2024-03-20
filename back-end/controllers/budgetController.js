@@ -10,6 +10,9 @@ const {
 } = require("../models");
 let selectedVegController = require("./selectedVegController");
 let selectedFishController = require("./selectedFishController");
+let selectedBeveragesController = require("./selectedBeveragesController");
+let selectedFrozenFoodController = require("./selectedFrozenFoodController");
+let selectedMeatController = require("./selectedMeatController");
 
 //TODO: BUDGET EDITING OF CONFIGURATIONS NEEDS TO BE DONE
 
@@ -75,38 +78,51 @@ async function updateBudget(req, res) {
     }
 
     // Getting the products from the request
-    const vegetables = req.body.Vegetables;
-    const fish = req.body.Fish;
-    const meat = req.body.Meat;
+    const vegetables = req.body.Vegetables || [];
+    const fish = req.body.Fish || [];
+    const meat = req.body.Meat || [];
+    const beverages = req.body.Beverages || [];
+    const frozenfood = req.body.FrozenFood || [];
 
     let VegMessages = [];
     let FishMessages = [];
     let MeatMessages = [];
+    let FrozenFoodMessages = [];
+    let BeveragesMessages = [];
 
-    console.log("Vegetables:", vegetables);
-    console.log("Fish:", fish);
-
-    // Update the vegetables by using the updateVeg function in selectedVegController
-    if (!vegetables || vegetables.length === 0) {
-      return res.status(400).json({ message: "No vegetable data provided." });
-    } else {
+    // Update the vegetables if provided
+    if (vegetables.length > 0) {
       VegMessages = await selectedVegController.updateVeg(
         vegetables,
         userBudget
       );
     }
 
-    // Update the fish by using the updateFish function in selectedFishController
-    if (!fish || fish.length === 0) {
-      return res.status(400).json({ message: "No fish data provided." });
-    } else {
+    // Update the fish if provided
+    if (fish.length > 0) {
       FishMessages = await selectedFishController.updateFish(fish, userBudget);
     }
 
-    if (!meat || meat.length === 0) {
-      return res.status(400).json({ message: "No meat data provided." });
-    } else {
+    // Update the meat if provided
+    if (meat.length > 0) {
       MeatMessages = await selectedMeatController.updateMeat(meat, userBudget);
+    }
+
+    // Update the beverages if provided
+    if (beverages.length > 0) {
+      BeveragesMessages = await selectedBeveragesController.updateBeverage(
+        beverages,
+        userBudget
+      );
+    }
+
+    // Update the frozen food if provided
+    if (frozenfood.length > 0) {
+      FrozenFoodMessages =
+        await selectedFrozenFoodController.updateSelectedFrozenFood(
+          frozenfood,
+          userBudget
+        );
     }
 
     // Send a success response after all updates are completed
@@ -114,6 +130,9 @@ async function updateBudget(req, res) {
       message: "Budget updated successfully",
       VegMessages,
       FishMessages,
+      MeatMessages,
+      BeveragesMessages,
+      FrozenFoodMessages,
     });
   } catch (error) {
     console.error("Error in updateBudget:", error);
