@@ -78,11 +78,11 @@ const updateBeverage = async (beverages, userBudget) => {
       if (selectedBeverage) {
         // If the beverage already exists in the user's budget, update the spent amount
         const newSpentAmount =
-          selectedBeverage.spendedAmount + parseFloat(totalPrice);
+          selectedBeverage.spentAmount + parseFloat(totalPrice);
 
         // Update the selected beverage's spent amount
         if (selectedBeverage.totalPrice - newSpentAmount >= 0) {
-          await selectedBeverage.update({ spendedAmount: newSpentAmount });
+          await selectedBeverage.update({ spentAmount: newSpentAmount });
 
           // If beverage is successfully processed, add a success message
           messages.push(
