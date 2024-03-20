@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from stock import predict_stock_price
 from flask_cors import CORS
 import matplotlib
-matplotlib.use('Agg')  # Add this line to prevent threading issues with Matplotlib
+matplotlib.use('Agg')  
 
 app = Flask(__name__)
 CORS(app)
@@ -17,7 +17,7 @@ def predict():
     try:
         prediction, plot_path = predict_stock_price(symbol)
         return jsonify({
-            'prediction': prediction.tolist(),  # Convert numpy array to list
+            'prediction': prediction.tolist(),  
             'plot_path': plot_path
         })
     except Exception as e:
