@@ -10,11 +10,13 @@ from keras.layers import Dense, Dropout, LSTM
 
 def predict_stock_price(company):
 
+    #load data
     start = dt.datetime(2012,1,1)
     end = dt.datetime(2024,3,1)
 
     data = yf.download(company, start , end)
 
+    #prepare data
     scaler = MinMaxScaler(feature_range=(0,1))
     scaled_data = scaler.fit_transform(data['Close'].values.reshape(-1,1))
 
@@ -30,6 +32,7 @@ def predict_stock_price(company):
     x_train, y_train = np.array(x_train), np.array(y_train)
     x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1], 1))
 
+    #build the model
     model = Sequential()
 
     model.add(LSTM(units=50, return_sequences=True, input_shape=(x_train.shape[1], 1)))
