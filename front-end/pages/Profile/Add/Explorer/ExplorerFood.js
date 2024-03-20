@@ -20,38 +20,47 @@ const FoodItems = () => {
         const selectedFishes = data.data.Budget.SelectedFishes || [];
         const selectedMeats = data.data.Budget.SelectedMeats || [];
         const selectedBeverages = data.data.Budget.SelectedBeverages || [];
+        const selectedFrozenFood = data.data.Budget.SelectedBeverages || [];
 
         // Calculate total price and total spent for vegetables
-        let totalPriceVeg = 0;
-        let totalSpentVeg = 0;
-        selectedVegs.forEach((veg) => {
-          totalPriceVeg += veg.totalPrice;
-          totalSpentVeg += veg.spendedAmount;
-        });
+        let totalPriceVeg = selectedVegs.reduce(
+          (acc, veg) => acc + veg.totalPrice,
+          0
+        );
+        let totalSpentVeg = selectedVegs.reduce(
+          (acc, veg) => acc + veg.spendedAmount,
+          0
+        );
 
         // Calculate total price and total spent for fishes
-        let totalPriceFish = 0;
-        let totalSpentFish = 0;
-        selectedFishes.forEach((fish) => {
-          totalPriceFish += fish.totalPrice;
-          totalSpentFish += fish.spendedAmount;
-        });
+        let totalPriceFish = selectedFishes.reduce(
+          (acc, fish) => acc + fish.totalPrice,
+          0
+        );
+        let totalSpentFish = selectedFishes.reduce(
+          (acc, fish) => acc + fish.spendedAmount,
+          0
+        );
 
         // Calculate total price and total spent for meat
-        let totalPriceMeat = 0;
-        let totalSpentMeat = 0;
-        selectedMeats.forEach((meat) => {
-          totalPriceMeat += meat.totalPrice;
-          totalSpentMeat += meat.spendedAmount;
-        });
+        let totalPriceMeat = selectedMeats.reduce(
+          (acc, meat) => acc + meat.totalPrice,
+          0
+        );
+        let totalSpentMeat = selectedMeats.reduce(
+          (acc, meat) => acc + meat.spentAmount,
+          0
+        );
 
         // Calculate total price and total spent for beverages
-        let totalPriceBeverages = 0;
-        let totalSpentBeverages = 0;
-        selectedBeverages.forEach((beverage) => {
-          totalPriceBeverages += beverage.totalPrice;
-          totalSpentBeverages += beverage.spendedAmount;
-        });
+        let totalPriceBeverages = selectedBeverages.reduce(
+          (acc, beverage) => acc + beverage.totalPrice,
+          0
+        );
+        let totalSpentBeverages = selectedBeverages.reduce(
+          (acc, beverage) => acc + beverage.spentAmount,
+          0
+        );
 
         // Set category data
         setCategoryData([

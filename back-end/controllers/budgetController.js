@@ -4,6 +4,7 @@ const {
   SelectedVeg,
   SelectedFish,
   SelectedMeat,
+  SelectedBeverage,
   ExpensesTotal,
 } = require("../models");
 let selectedVegController = require("./selectedVegController");
@@ -20,7 +21,13 @@ async function getBudgets(req, res) {
       include: [
         {
           model: Budget,
-          include: [SelectedVeg, SelectedFish, SelectedMeat, ExpensesTotal],
+          include: [
+            SelectedVeg,
+            SelectedFish,
+            SelectedMeat,
+            ExpensesTotal,
+            SelectedBeverage,
+          ],
           // Include SelectedVeg model through Budget association
         },
       ],
