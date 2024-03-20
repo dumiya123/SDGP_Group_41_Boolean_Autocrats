@@ -6,7 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 const FoodItems = () => {
   const navigation = useNavigation();
   const [categoryData, setCategoryData] = useState([]);
-  const ipAddress = "192.168.1.9"; // IP address of the API server
+  const ipAddress = "192.168.8.119"; // IP address of the API server
 
   useEffect(() => {
     const fetchData = async () => {

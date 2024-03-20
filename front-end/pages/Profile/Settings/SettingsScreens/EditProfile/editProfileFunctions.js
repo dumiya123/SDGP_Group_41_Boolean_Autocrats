@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 
-const ipAddress = "192.168.1.9"; // Move ipAddress outside of the component
+const ipAddress = "192.168.8.119"; // Move ipAddress outside of the component
 
 const useEditProfileFunctions = () => {
   const navigation = useNavigation();
