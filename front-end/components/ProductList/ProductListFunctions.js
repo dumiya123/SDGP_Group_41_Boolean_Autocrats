@@ -16,7 +16,6 @@ export const handleConfirmVegetables = async (item, quantity) => {
         unitPrice: parseFloat(item.price.replace(/\D/g, "")) / 100, // Assuming unit price is stored as rupees (convert to decimal)
       }),
     });
-    
 
     const data = await response.json();
     console.log(`Response from ${endpoint} endpoint:`, data);
@@ -26,7 +25,6 @@ export const handleConfirmVegetables = async (item, quantity) => {
     throw error;
   }
 };
-
 
 export const handleConfirmFish = async (item, quantity) => {
   try {
@@ -69,7 +67,6 @@ export const handleConfirmBeverages = async (item, quantity) => {
         unitPrice: parseFloat(item.price.replace(/\D/g, "")) / 100,
       }),
     });
-    
 
     const data = await response.json();
     console.log(`Response from ${endpoint} endpoint:`, data);
@@ -121,7 +118,6 @@ export const handleConfirmMeat = async (item, quantity) => {
         unitPrice: parseFloat(item.price.replace(/\D/g, "")) / 100,
       }),
     });
-
 
     const data = await response.json();
     console.log(`Response from ${endpoint} endpoint:`, data);
