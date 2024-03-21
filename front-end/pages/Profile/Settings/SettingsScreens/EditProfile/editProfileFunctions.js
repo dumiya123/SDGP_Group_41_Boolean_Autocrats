@@ -83,7 +83,7 @@ const useEditProfileFunctions = () => {
 
   const handlePasswordPress = () => {
     // Handle password press
-    navigation.navigate("Change Password");
+    navigation.navigate('Create Password');
   };
 
   const handleDeleteAccountPress = () => {

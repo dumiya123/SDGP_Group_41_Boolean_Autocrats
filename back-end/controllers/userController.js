@@ -153,6 +153,7 @@ async function changeUserData(req, res) {
   }
 }
 
+
 // Exporting each function separately
 module.exports.signUp = signUp;
 module.exports.signIn = signIn;
