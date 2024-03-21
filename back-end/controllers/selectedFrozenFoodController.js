@@ -79,10 +79,9 @@ const updateSelectedFrozenFood = async (foods, userBudget) => {
         // If the food already exists in the user's budget, update the spent amount
         const newSpentAmount = frozenFood.spentAmount + parseFloat(totalPrice);
 
-
         // Update the frozen food's spent amount
         if (frozenFood.totalPrice - newSpentAmount >= 0) {
-          await frozenFood.update({ spendedAmount: newSpentAmount });
+          await frozenFood.update({ spentAmount: newSpentAmount });
 
           // If food is successfully processed, add a success message
           messages.push(
@@ -138,4 +137,8 @@ const getBudgetIdsByFoodName = async function (foodName) {
   }
 };
 
-module.exports = { addSelectedFrozenFood, updateSelectedFrozenFood, getBudgetIdsByFoodName };
+module.exports = {
+  addSelectedFrozenFood,
+  updateSelectedFrozenFood,
+  getBudgetIdsByFoodName,
+};

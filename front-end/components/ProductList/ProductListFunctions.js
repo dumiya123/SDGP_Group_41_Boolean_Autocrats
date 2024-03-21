@@ -1,4 +1,4 @@
-const ipAddress = "192.168.8.119";
+const ipAddress = "192.168.1.9";
 
 export const handleConfirmVegetables = async (item, quantity) => {
   try {
@@ -74,6 +74,31 @@ export const handleConfirmBeverages = async (item, quantity) => {
     return data;
   } catch (error) {
     console.error(`Error adding product to beverages:`, error);
+    throw error;
+  }
+};
+export const handleConfirmFrozenFood = async (item, quantity) => {
+  try {
+    const endpoint = "addFrozenFood";
+    const response = await fetch(`http://${ipAddress}:8080/user/${endpoint}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        foodName: item.name,
+        price: item.price,
+        imgSrc: item.image,
+        quantity: parseInt(quantity),
+        unitPrice: parseFloat(item.price.replace(/\D/g, "")) / 100,
+      }),
+    });
+
+    const data = await response.json();
+    console.log(`Response from ${endpoint} endpoint:`, data);
+    return data;
+  } catch (error) {
+    console.error(`Error adding product to frozen food:`, error);
     throw error;
   }
 };

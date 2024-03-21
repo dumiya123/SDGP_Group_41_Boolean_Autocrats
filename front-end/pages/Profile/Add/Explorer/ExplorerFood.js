@@ -6,7 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 const FoodItems = () => {
   const navigation = useNavigation();
   const [categoryData, setCategoryData] = useState([]);
-  const ipAddress = "192.168.8.119"; // IP address of the API server
+  const ipAddress = "192.168.1.9"; // IP address of the API server
 
   useEffect(() => {
     const fetchData = async () => {
@@ -62,6 +62,16 @@ const FoodItems = () => {
           0
         );
 
+        // Calculate total price and total spent for frozen food
+        let totalPriceFrozenFood = selectedFrozenFood.reduce(
+          (acc, food) => acc + food.totalPrice,
+          0
+        );
+        let totalSpentFrozenFood = selectedFrozenFood.reduce(
+          (acc, food) => acc + food.spentAmount,
+          0
+        );
+
         // Set category data
         setCategoryData([
           {
@@ -101,9 +111,12 @@ const FoodItems = () => {
           // Add Frozen Food category
           {
             category: "FROZEN FOOD",
-            totalSpent: 0, // Set initial total spent to 0
-            totalPrice: 0, // Set initial total price to 0
-            percentage: 0, // Set initial percentage to 0
+            totalSpent: totalSpentFrozenFood, // Set initial total spent to 0
+            totalPrice: totalPriceFrozenFood, // Set initial total price to 0
+            percentage:
+              totalPriceFrozenFood !== 0
+                ? (totalSpentFrozenFood / totalPriceFrozenFood) * 100
+                : 0, // Set initial percentage to 0
           },
         ]);
       } catch (error) {
@@ -115,6 +128,7 @@ const FoodItems = () => {
   }, []);
 
   const navigateToCategoryScreen = (category) => {
+    console.log(`${category.toUpperCase()}SCREEN`);
     navigation.navigate(`${category.toUpperCase()}SCREEN`);
   };
 
