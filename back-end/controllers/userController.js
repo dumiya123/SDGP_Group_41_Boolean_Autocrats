@@ -138,6 +138,9 @@ async function changeUserData(req, res) {
     }
     if (req.body.supermarketName) {
       user.supermarketName = req.body.supermarketName;
+
+    }if (req.body.newPassword) {
+      user.password = bcrypt.hashSync(req.body.newPassword, 8);
     }
 
     // Save the updated user object to the database
@@ -149,6 +152,7 @@ async function changeUserData(req, res) {
     res.status(500).send({ message: "Internal server error" });
   }
 }
+
 
 // Exporting each function separately
 module.exports.signUp = signUp;
