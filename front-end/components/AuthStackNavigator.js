@@ -40,7 +40,7 @@ import HelpAndSupport from "../pages/Profile/Settings/SettingsScreens/HelpAndSup
 
 import UserNamechange from "../pages/Profile/Settings/SettingsScreens/EditProfile/Username";
 import UserEmailchange from "../pages/Profile/Settings/SettingsScreens/EditProfile/userEmail";
-import UserPasswordchange from "../pages/forget-password-pages/passwordChange";
+
 import DeleteAccount from "../pages/Profile/Settings/SettingsScreens/EditProfile/deleteAccount";
 
 import UserNameResetScreen from "../pages/Profile/Settings/SettingsScreens/EditProfile/userNameResetScreen";
@@ -136,11 +136,6 @@ const AuthStackNavigator = () => {
       <Stack.Screen
         name="E-mail"
         component={UserEmailchange}
-        options={{ headerShown: true, headerBackTitleVisible: false }}
-      />
-      <Stack.Screen
-        name="Change Password"
-        component={UserPasswordchange}
         options={{ headerShown: true, headerBackTitleVisible: false }}
       />
       <Stack.Screen

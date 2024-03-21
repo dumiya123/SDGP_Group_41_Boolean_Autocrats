@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { View, Image, SafeAreaView, StyleSheet, ScrollView, Alert } from 'react-native';
 import PasswordInput from '../../components/Text&PasswordInputField/passwordInput';
@@ -8,41 +7,46 @@ import SetButton from "../../components/SetButtons/setButton";
 import SectionTitle from "../../components/SettingsComponents/SectionTitle";
 import SubtitleComponent from "../../components/SettingsComponents/Subtittle";
 
+const ipAddress = "172.20.10.2";
+
 const PasswordForm = () => {
   const navigation = useNavigation();
+  const [password, setPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleCreate = async () => {
-    // try {
-    //   // Check if passwords match
-    //   if (newPassword !== confirmPassword) {
-    //     Alert.alert('Passwords Do Not Match', 'Please make sure the passwords match.');
-    //     return;
-    //   }
-
-    //   // Make API call to backend to set new password
-    //   const response = await fetch('YOUR_BACKEND_ENDPOINT', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({ newPassword }),
-    //   });
-
-    //   if (response.ok) {
-    //     // Navigate to confirmation screen or perform any other action
+    try {
+      // Check if passwords match
+      if (newPassword !== confirmPassword) {
+        Alert.alert('Error', 'Passwords do not match');
+        return;
+      }
+  
+      // Make API call to backend to set new password
+      const response = await fetch(`http://${ipAddress}:8080/user/editProfile`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({password: password, newPassword: newPassword }), // Pass previous and new passwords in request body
+      });
+  
+      if (response.ok) {
+        // Password changed successfully
         navigation.navigate('Confirm Password');
-    //   } else {
-    //     // Handle error response from backend
-    //     Alert.alert('Error', 'Failed to set new password. Please try again later.');
-    //   }
-    // } catch (error) {
-    //   console.error('Error:', error);
-    //   // Handle other errors gracefully
-    //   Alert.alert('Error', 'An error occurred. Please try again later.');
-    // }
+      } else {
+        // Handle error response from backend
+        const errorMessage = await response.text();
+        Alert.alert('Error', errorMessage || 'Failed to set new password. Please try again later.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      // Handle other errors gracefully
+      Alert.alert('Error', 'An error occurred. Please try again later.');
+    }
   };
+ 
 
   return (
     <SafeAreaView style={styles.container}>
@@ -54,9 +58,19 @@ const PasswordForm = () => {
 
           <View style={styles.input}>
             <PasswordInput
+              value={password}
+              onChangeText={setPassword}
+              placeholder="Password"
+              secureTextEntry={true}
+            />
+          </View>
+
+          <View style={styles.input}>
+            <PasswordInput
               value={newPassword}
               onChangeText={setNewPassword}
               placeholder="New Password"
+              secureTextEntry={true}
             />
           </View>
 
@@ -65,6 +79,7 @@ const PasswordForm = () => {
               value={confirmPassword}
               onChangeText={setConfirmPassword}
               placeholder="Confirm Password"
+              secureTextEntry={true}
             />
           </View>
         </View>
@@ -106,7 +121,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   btn: {
-    marginTop: 60,
+    marginTop: 10,
   }
 });
 
