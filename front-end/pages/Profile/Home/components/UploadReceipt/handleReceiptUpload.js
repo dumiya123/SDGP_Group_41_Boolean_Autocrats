@@ -1,6 +1,6 @@
 import { OpenAI } from "openai";
 
-const OPENAI_API_KEY = "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";
+const OPENAI_API_KEY = "";
 // Set your OpenAI API key here
 const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
 
