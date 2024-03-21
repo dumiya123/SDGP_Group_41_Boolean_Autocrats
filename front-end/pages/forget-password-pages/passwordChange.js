@@ -13,30 +13,30 @@ const UserPasswordchange = () => {
   const [password, setPassword] = useState('');
 
   const handleButtonPress = async () => {
-    // try {
-    //   // Make API call to backend to verify existing password
-    //   const response = await fetch('YOUR_BACKEND_ENDPOINT', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({ password }),
-    //   });
+    try {
+      // Make API call to backend to verify existing password
+      const response = await fetch('YOUR_BACKEND_ENDPOINT', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ password }),
+      });
 
-    //   const data = await response.json();
+      const data = await response.json();
 
-    //   if (response.ok && data.passwordCorrect) {
+      if (response.ok && data.passwordCorrect) {
     //     // Navigate to create password screen if password is correct
         navigation.navigate('Create Password');
-    //   } else {
-    //     // Show error message if password is incorrect
-    //     Alert.alert('Incorrect Password', 'Please enter the correct previous password.');
-    //   }
-    // } catch (error) {
-    //   console.error('Error:', error);
-    //   // Handle error gracefully
-    //   Alert.alert('Error', 'An error occurred. Please try again later.');
-    // }
+      } else {
+        // Show error message if password is incorrect
+        Alert.alert('Incorrect Password', 'Please enter the correct previous password.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      // Handle error gracefully
+      Alert.alert('Error', 'An error occurred. Please try again later.');
+    }
   };
 
   return (
