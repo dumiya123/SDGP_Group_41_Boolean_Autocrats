@@ -27,6 +27,7 @@ export const handleConfirmVegetables = async (item, quantity) => {
   }
 };
 
+
 export const handleConfirmFish = async (item, quantity) => {
   try {
     const endpoint = "addFish";
@@ -68,6 +69,7 @@ export const handleConfirmBeverages = async (item, quantity) => {
         unitPrice: parseFloat(item.price.replace(/\D/g, "")) / 100,
       }),
     });
+    
 
     const data = await response.json();
     console.log(`Response from ${endpoint} endpoint:`, data);
@@ -119,6 +121,7 @@ export const handleConfirmMeat = async (item, quantity) => {
         unitPrice: parseFloat(item.price.replace(/\D/g, "")) / 100,
       }),
     });
+
 
     const data = await response.json();
     console.log(`Response from ${endpoint} endpoint:`, data);
