@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import IP_ADDRESS from "../../config";
 
 const useSignUpFunctions = () => {
   const navigation = useNavigation();

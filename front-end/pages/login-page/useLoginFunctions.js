@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import IP_ADDRESS from "../../config";
 
 const useLoginFunctions = () => {
   const navigation = useNavigation();
@@ -88,6 +87,7 @@ const useLoginFunctions = () => {
         }
       }
     } catch (error) {
+      console.error(`http://${ipAddress}:8080/user/signIn`);
       console.error("Error during login:", error);
     } finally {
       setLoading(false);

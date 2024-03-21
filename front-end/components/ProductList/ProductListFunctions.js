@@ -3,7 +3,7 @@ const ipAddress = "192.168.1.10";
 export const handleConfirmVegetables = async (item, quantity) => {
   try {
     const endpoint = "addVeg";
-    const response = await fetch(`http://${ipAddress}/user/${endpoint}`, {
+    const response = await fetch(`http://${ipAddress}:8080/user/${endpoint}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
