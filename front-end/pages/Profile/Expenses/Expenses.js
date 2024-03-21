@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { Text, View, ScrollView, TouchableOpacity, Alert } from "react-native";
 import styles from "./ExpensesStyle";
 import { Calendar } from "react-native-calendars";
+import IP_ADDRESS from "../../../config";
 
 const Expenses = () => {
   const [selectedDate, setSelectedDate] = useState(""); // State variable to hold the selected date
   const [expensesData, setExpensesData] = useState(null); // State variable to hold expenses data
 
   const ipAddress = "192.168.1.10"; // Variable for IP address
-
 
   const onDateSelect = async (date) => {
     setSelectedDate(date.dateString); // Update the selected date

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
+import IP_ADDRESS from "../../config";
 
 const useSignUpFunctions = () => {
   const navigation = useNavigation();
@@ -12,7 +13,6 @@ const useSignUpFunctions = () => {
   //Replace this with your ipAddress
 
   const ipAddress = "192.168.1.10";
-
 
   const handleSignup = async () => {
     setLoading(true);

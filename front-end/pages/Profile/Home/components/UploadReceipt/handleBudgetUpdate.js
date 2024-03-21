@@ -1,6 +1,8 @@
+const ipAddress = "192.168.1.10"; // Variable for IP address
+
 export const handleBudgetUpdate = async (receiptDetails) => {
   try {
-    const response = await fetch(`http://192.168.1.10:8080/user/updateBudget`, {
+    const response = await fetch(`http://${ipAddress}:8080/user/updateBudget`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
