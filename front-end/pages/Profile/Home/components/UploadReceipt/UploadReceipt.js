@@ -10,6 +10,7 @@ import {
 import ImageUploader from "../../../../../components/ImageUploader/ImageUploader";
 import handleReceiptUpload from "./handleReceiptUpload";
 import Modal from "react-native-modal";
+import { handleBudgetUpdate } from "./handleBudgetUpdate";
 
 const screenWidth = Dimensions.get("window").width;
 
@@ -19,8 +20,61 @@ const UploadReceipt = () => {
   const [receiptVisible, setReceiptVisible] = useState(false);
   const [receiptData, setReceiptData] = useState(null);
   const [error, setError] = useState(null);
+  const [inputData, setinputData] = useState(null);
 
-  const categories = ["vegetables", "drinks", "fish"];
+  const categories = [
+    "Vegetables",
+    "Fruits",
+    "Meat",
+    "Fish",
+    "Beverages",
+    "Frozen foods",
+  ];
+
+  const formatReceiptData = (items) => {
+    return items.reduce((acc, item) => {
+      if (
+        !["Gross Amount", "Net Amount", "Total", "Cash"].includes(
+          item.description
+        )
+      ) {
+        const category =
+          item.category.charAt(0).toUpperCase() + item.category.slice(1);
+        let itemName;
+        switch (category) {
+          case "Frozen foods":
+            itemName = "foodName";
+            break;
+          case "Meat":
+            itemName = "meatName";
+            break;
+          case "Beverages":
+            itemName = "beverageName";
+            break;
+          case "Vegetables":
+            itemName = "vegName";
+            break;
+          case "Fish":
+            itemName = "fishName";
+            break;
+          case "Fruits":
+            itemName = "fruitName";
+            break;
+          default:
+            itemName = "itemName";
+        }
+        if (!acc[category]) {
+          acc[category] = [];
+        }
+        acc[category].push({
+          [itemName]: item.description.split(": ")[1],
+          totalPrice: item.amount,
+        });
+      }
+      setinputData(acc);
+      return acc;
+    }, {});
+  };
 
   useEffect(() => {
     if (pickerResponse) {
@@ -69,32 +123,27 @@ const UploadReceipt = () => {
             ) : (
               <>
                 <Text style={styles.title}>{receiptData?.merchantName}</Text>
-                {receiptData?.items.map((item, index) => (
-                  <View key={index}>
-                    <Text style={styles.itemText}>
-                      {item.description} : {item.amount}
-                    </Text>
-                    <Text style={styles.itemText}>
-                      Category: {item.category}
-                    </Text>
-                  </View>
-                ))}
-                <Text style={styles.subTitle}>
-                  {"--------------------------------------------------"}
-                </Text>
-                <Text style={styles.subTitle}>
-                  Subtotal: {receiptData?.subTotal}
-                </Text>
-                <Text style={styles.subTitle}>Tax: {receiptData?.tax}</Text>
-                <Text style={styles.totalText}>
-                  Total: {receiptData?.total}
-                </Text>
+                {receiptData &&
+                  Object.entries(formatReceiptData(receiptData.items)).map(
+                    ([category, items], index) => (
+                      <View key={index}>
+                        <Text style={styles.subTitle}>{category}</Text>
+                        {items.map((item, i) => (
+                          <Text key={i} style={styles.itemText}>
+                            {item[`${category.toLowerCase()}Name`]} :{" "}
+                            {item.totalPrice}
+                          </Text>
+                        ))}
+                      </View>
+                    )
+                  )}
                 <TouchableOpacity
                   style={styles.button}
                   onPress={() => {
                     setReceiptVisible(false);
                     setPickerResponse(null);
                     setImagePickModalVisible(false);
+                    handleBudgetUpdate(inputData);
                   }}
                 >
                   <View style={styles.contentWrapper}>
