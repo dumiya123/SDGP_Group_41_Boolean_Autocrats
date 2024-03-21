@@ -138,6 +138,9 @@ async function changeUserData(req, res) {
     }
     if (req.body.supermarketName) {
       user.supermarketName = req.body.supermarketName;
+
+    }if (req.body.newPassword) {
+      user.password = bcrypt.hashSync(req.body.newPassword, 8);
     }
 
     // Save the updated user object to the database
