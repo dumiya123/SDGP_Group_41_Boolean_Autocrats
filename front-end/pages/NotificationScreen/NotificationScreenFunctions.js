@@ -1,4 +1,6 @@
-const ipAddress = "192.168.8.126";
+
+const ipAddress = "192.168.1.10";
+
 
 // Function to fetch notificationshttp://localhost:8080/user/getNotification
 const fetchNotifications = async () => {
