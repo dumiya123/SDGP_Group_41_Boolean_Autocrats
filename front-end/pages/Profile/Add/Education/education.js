@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet, ImageBackground } from 'react-native';
 import AddItemForm from '../../../../components/AddToCategory/addToCategory';
 
-class TransportScreen extends Component {
+class EducationScreen extends Component {
   handleFormSubmit = (formData) => {
     // Handle form submission data here
     console.log('Form data submitted:', formData);
@@ -11,12 +11,12 @@ class TransportScreen extends Component {
   render() {
     return (
       <ImageBackground
-        source={require('../../Add/AddImages/illustrations/Transports.jpg')}
+        source={require('../../Add/AddImages/illustrations/edu.jpg')}
         style={styles.background}
       >
         <View style={styles.container}>
           <AddItemForm
-            categoryName="Transport"
+            categoryName="Education"
             onSubmit={this.handleFormSubmit}
           />
         </View>
@@ -38,4 +38,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TransportScreen;
+export default EducationScreen;
