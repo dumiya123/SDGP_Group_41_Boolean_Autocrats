@@ -18,7 +18,7 @@ const DeleteAccount = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          // Include any additional headers as needed
+      
         },
         body: JSON.stringify({
           password: password,
