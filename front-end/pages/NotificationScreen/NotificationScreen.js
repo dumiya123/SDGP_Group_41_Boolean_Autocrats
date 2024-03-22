@@ -1,15 +1,14 @@
-
 import React, { useState, useEffect } from "react";
 import { View, Text, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import NotificationBox from "../../components/NotificationBox/NotificationBox";
-import fetchNotifications from "../NotificationScreen/NotificationScreenFunctions";
+import { fetchNotificationsAndUpdate } from "../NotificationScreen/NotificationScreenFunctions";
 
 const NotificationScreen = () => {
   const [notificationsData, setNotificationsData] = useState([]);
 
   useEffect(() => {
-    fetchNotifications()
+    fetchNotificationsAndUpdate()
       .then((data) => {
         // Save the fetched data into the notificationsData array
         setNotificationsData(data);
@@ -31,7 +30,6 @@ const NotificationScreen = () => {
         </View>
       </View>
     </ScrollView>
-
   );
 };
 

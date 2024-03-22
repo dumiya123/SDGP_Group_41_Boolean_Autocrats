@@ -55,4 +55,8 @@ router
   .route("/getNotification")
   .get(verifyToken, notificationController.getNotification);
 
+router
+  .route("/getNotificationAndUpdate")
+  .get(verifyToken, notificationController.getNotificationAndUpdate);
+
 module.exports = router;

@@ -42,7 +42,7 @@ async function priceAlert(DATA_FILE_PATH, TEST_DATA_FILE_PATH) {
 }
 
 async function handleVegetableChange(product, json2) {
-  const userIds = await selectedMeatController.getBudgetIdsByMeatName(
+  const userIds = await selectedVegController.getBudgetIdsByVegName(
     product.productName
   );
 
@@ -137,6 +137,6 @@ function getChangedProducts(differences, json1, json2) {
   return changedItems;
 }
 
-
+priceAlert("../CategoryData.json", "../CategoryDataTest.json");
 
 module.exports = priceAlert;

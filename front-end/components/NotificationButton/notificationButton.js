@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import fetchNotifications from "../../pages/NotificationScreen/NotificationScreenFunctions";
+import { fetchNotifications } from "../../pages/NotificationScreen/NotificationScreenFunctions";
 
 const NotificationButton = () => {
   const navigation = useNavigation();
