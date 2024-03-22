@@ -46,6 +46,7 @@ router
 
 router.route("/profile").get(verifyToken, controllerUser.getUserData);
 router.route("/editProfile").post(verifyToken, controllerUser.changeUserData);
+router.route("/deleteUserData").post(verifyToken, controllerUser.DeleteUserData);
 router
   .route("/calenderExpenses")
   .post(verifyToken, expensesTotalController.getExpensesForDate);

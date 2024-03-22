@@ -141,6 +141,39 @@ async function changeUserData(req, res) {
 
     }if (req.body.newPassword) {
       user.password = bcrypt.hashSync(req.body.newPassword, 8);
+
+    }
+    // Save the updated user object to the database
+    await user.save();
+
+    res.status(200).send({ message: "User data updated successfully", user });
+  } catch (error) {
+    console.error("Error during changeUserData:", error);
+    res.status(500).send({ message: "Internal server error" });
+  }
+}
+async function DeleteUserData(req, res) {
+  try {
+    const userId = req.user.id; // Assuming the authenticated user's ID is available in the request
+    const { password } = req.body;
+
+    // Fetch the user from the database
+    const user = await User.findOne({ where: { id: userId } });
+
+    if (!user) {
+      return res.status(404).send({ message: "User not found" });
+    }
+
+    // Check if the provided password matches the user's password
+    const passwordIsValid = await bcrypt.compare(password, user.password);
+
+    if (!passwordIsValid) {
+      return res.status(401).send({ message: "Invalid password" });
+    }
+    if (req.body.password) {
+      // Delete the user account
+      await user.destroy();
+      return res.status(200).send({ message: "User account deleted successfully" });
     }
 
     // Save the updated user object to the database
@@ -160,3 +193,4 @@ module.exports.signIn = signIn;
 module.exports.testRoute = testRoute;
 module.exports.getUserData = getUserData;
 module.exports.changeUserData = changeUserData;
+module.exports.DeleteUserData = DeleteUserData;
