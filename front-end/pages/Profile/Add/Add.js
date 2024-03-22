@@ -17,13 +17,13 @@ const Add = () => {
   };
 
   const cardPharmacyProps = {
-    image: require("./AddImages/illustrations/pharmacy.avif"),
+    image: require("./AddImages/illustrations/pharmacy.jpg"),
     date: "2024-03-01",
     off: "PHARMACY",
     offText: "Time to add your pharmaceuticals!",
     onClicked: () => {
       console.log("Buy now button clicked for Card 2!");
-      navigation.navigate("Transports");
+      navigation.navigate("Pharmacy");
     },
   };
 
@@ -34,16 +34,18 @@ const Add = () => {
     offText: "Time to plan your journeys!",
     onClicked: () => {
       console.log("Buy now button clicked for Card 3!");
+      navigation.navigate("Transports");
     },
   };
 
   const cardEntertainmentProps = {
     image: require("./AddImages/illustrations/entertainment.jpg"),
     date: "2024-03-03",
-    off: "Entertainment",
+    off: "ENTERTAINMENT",
     offText: "Lets make fun plans!",
     onClicked: () => {
       console.log("Buy now button clicked for Card 4!");
+      navigation.navigate("Entertainment");
     },
   };
 
@@ -54,6 +56,7 @@ const Add = () => {
     offText: "Time to prepare for emergencys!",
     onClicked: () => {
       console.log("Buy now button clicked for Card 5!");
+      navigation.navigate("Education");
     },
   };
 

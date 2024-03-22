@@ -6,7 +6,9 @@ import { Calendar } from "react-native-calendars";
 const Expenses = () => {
   const [selectedDate, setSelectedDate] = useState(""); // State variable to hold the selected date
   const [expensesData, setExpensesData] = useState(null); // State variable to hold expenses data
+
   const ipAddress = "192.168.1.10"; // Variable for IP address
+
 
   const onDateSelect = async (date) => {
     setSelectedDate(date.dateString); // Update the selected date

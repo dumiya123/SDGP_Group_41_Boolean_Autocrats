@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import AppStartedScreen from "../pages/AppStartedScreen/appStartedScreen";
 import GetStarted from "../pages/get-started-page/getStarted";
 import LoginScreen from "../pages/login-page/login";
 import SignUpScreen from "../pages/sign-up-page/signUp";
@@ -50,6 +51,11 @@ import NotificationScreen from "../pages/NotificationScreen/NotificationScreen";
 import ContactUs from "../pages/Profile/Settings/SettingsScreens/HelpAndSupport/Contactus";
 
 import Transports from "../pages/Profile/Add/Transports/transports";
+import Pharmacy from "../pages/Profile/Add/Pharmacy/pharmacy";
+import Entertainment from "../pages/Profile/Add/Entertainment/entertainment";
+import Education from "../pages/Profile/Add/Education/education";
+//Entertainment, Education
+
 import { useNavigation } from "@react-navigation/native";
 
 import NotificationButton from "./NotificationButton/notificationButton";
@@ -63,6 +69,11 @@ const Tab = createBottomTabNavigator();
 const AuthStackNavigator = () => {
   return (
     <Stack.Navigator>
+         <Stack.Screen
+        name="Started Screen"
+        component={AppStartedScreen}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen
         name="GET STARTED"
         component={GetStarted}
@@ -120,7 +131,21 @@ const AuthStackNavigator = () => {
         component={Transports}
         options={{ headerShown: true, headerBackTitleVisible: false }}
       />
-
+      <Stack.Screen
+        name="Pharmacy"
+        component={Pharmacy}
+        options={{ headerShown: true, headerBackTitleVisible: false }}
+      />
+       <Stack.Screen
+        name="Entertainment"
+        component={Entertainment}
+        options={{ headerShown: true, headerBackTitleVisible: false }}
+      />
+       <Stack.Screen
+        name="Education"
+        component={Education}
+        options={{ headerShown: true, headerBackTitleVisible: false }}
+      />
       {/*navigate settings page*/}
       <Stack.Screen
         name="Profile Settings"
