@@ -1,10 +1,13 @@
 import React from "react";
-import { Text } from "react-native";   
+import { Text, View } from "react-native";
+import StockPredictionCard from "../../../components/StockPredictionCard/StockPredictionCard";
 
 const Reports = () => {
-    return (
-        <Text>Reports</Text>
-    );
+  return (
+    <View>
+      <StockPredictionCard />
+    </View>
+  );
 };
 
 export default Reports;
