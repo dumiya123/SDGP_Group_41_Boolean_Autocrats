@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import AppStartedScreen from "../pages/AppStartedScreen/appStartedScreen";
 import GetStarted from "../pages/get-started-page/getStarted";
 import LoginScreen from "../pages/login-page/login";
 import SignUpScreen from "../pages/sign-up-page/signUp";
@@ -63,6 +64,11 @@ const Tab = createBottomTabNavigator();
 const AuthStackNavigator = () => {
   return (
     <Stack.Navigator>
+         <Stack.Screen
+        name="Started Screen"
+        component={AppStartedScreen}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen
         name="GET STARTED"
         component={GetStarted}
