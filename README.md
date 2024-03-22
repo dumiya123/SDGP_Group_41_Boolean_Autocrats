@@ -26,7 +26,7 @@ Through this application, users can easily manage their budget efficiently.
 
 ### Functionality Diagram 
 
-<img src="https://github.com/dumiya123/SaveNestImages/blob/master/11.png" alt="Savenest" height="200" width="200">
+<img src="https://github.com/dumiya123/SDGP_Group_41_Boolean_Autocrats/blob/main/README-images/Functionality_Diagram.jpg" alt="Savenest" height="400" width="800">
 
 ### Key Features
 
