@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Team</title>
+    <link rel="stylesheet" href="team.css"/>
+  </head>
+  <body>
+    <section class="slider-container">
+      <div class="slider-images">
+        <div class="slider-img">
+          <img src="media/1.png"/>
+          <h1>Dumindu</h1>
+          <div class="details">
+            <h2>Dumindu</h2>
+            <p>About</p>
+          </div>
+        </div>
+        <div class="slider-img">
+          <img src="media/1.png"/>
+          <h1>Rajeen</h1>
+          <div class="details">
+            <h2>Rajeen</h2>
+            <p>About</p>
+          </div>
+        </div>
+        <div class="slider-img">
+          <img src="media/1.png"/>
+          <h1>Savin</h1>
+          <div class="details">
+            <h2>Savin</h2>
+            <p>About</p>
+          </div>
+        </div>
+        <div class="slider-img active">
+          <img src="media/1.png"/>
+          <h1>kavindu</h1>
+          <div class="details">
+            <h2>kavindu</h2>
+            <p>About</p>
+          </div>
+        </div>
+        <div class="slider-img">
+          <img src="media/1.png"/>
+          <h1>Sakith</h1>
+          <div class="details">
+            <h2>Sakith</h2>
+            <p>About</p>
+          </div>
+        </div>
+        <div class="slider-img">
+          <img src="media/1.png"/>
+          <h1>Himan</h1>
+          <div class="details">
+            <h2>Himan</h2>
+            <p>About</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="js/jQuery.js"></script>
+    <script>
+      jQuery(document).ready(function ($) {
+        $(".slider-img").on("click", function () {
+          $(".slider-img").removeClass("active");
+          $(this).addClass("active");
+        });
+      });
+    </script>
+  </body>
+</html>
