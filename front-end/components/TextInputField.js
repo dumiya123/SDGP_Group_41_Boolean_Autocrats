@@ -15,7 +15,7 @@ const TextInputField = ({ placeholder, value, onChangeText, secureTextEntry, sho
         secureTextEntry={secureTextEntry}
   
       />
-      {secureTextEntry && (
+      {/* {secureTextEntry && (
         <TouchableOpacity style={styles.iconContainer} onPress={onTogglePassword}>
           <MaterialCommunityIcons
             name={showPassword ? "eye-off-outline" : "eye-outline"}
@@ -23,7 +23,7 @@ const TextInputField = ({ placeholder, value, onChangeText, secureTextEntry, sho
             color="gray"
           />
         </TouchableOpacity>
-      )}
+      )} */}
     </View>
   );
 };

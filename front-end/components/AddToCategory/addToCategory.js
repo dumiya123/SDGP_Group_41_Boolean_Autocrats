@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     marginBottom: 80,
     color: 'black',
     textAlign: 'center',
-    marginTop: 90,
+    marginTop: 0,
     paddingHorizontal: 20,
   },
   input: {
