@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { View, Text, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -30,6 +31,7 @@ const NotificationScreen = () => {
         </View>
       </View>
     </ScrollView>
+
   );
 };
 
