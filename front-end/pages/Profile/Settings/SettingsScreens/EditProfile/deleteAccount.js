@@ -7,64 +7,41 @@ import { useNavigation } from '@react-navigation/native';
 import forgetPwImg from '../../../../../pages/forget-password-pages/forget-password-images/lock.png';
 import SubtitleComponent from "../../../../../components/SettingsComponents/Subtittle";
 
+const ipAddress = "192.168.8.126";
 const DeleteAccount = () => {
   const navigation = useNavigation();
   const [password, setPassword] = useState('');
 
   const handleDeleteAccount = async () => {
     try {
-      // Verify existing user's password with the backend
-      const passwordVerified = await verifyPassword(password);
+      const response = await fetch( `http://${ipAddress}:8080/user/deleteUserData`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // Include any additional headers as needed
+        },
+        body: JSON.stringify({
+          password: password,
+        }),
+      });
 
-      if (passwordVerified) {
-        // If password is verified, proceed to delete the account
-        const accountDeleted = await deleteAccount();
+      const data = await response.json();
 
-        if (accountDeleted) {
-          // Navigate to confirmation screen or perform any other action
-          navigation.navigate('Account Deleted Confirmation');
-        } else {
-          // Handle case where account deletion failed
-          Alert.alert('Error', 'Failed to delete account. Please try again.');
-        }
+      if (response.ok) {
+        // Account deletion successful
+        Alert.alert('Success', 'Your account has been deleted successfully.');
+        // You may navigate to a different screen after successful deletion
+        navigation.navigate('Account Deleted Confirmation');
       } else {
-        // Handle case where password verification failed
-        Alert.alert('Invalid Password', 'The entered password is incorrect. Please try again.');
+        // Handle errors from the server
+        Alert.alert('Error', data.message);
       }
     } catch (error) {
-      console.error('Error:', error);
-      // Handle other errors if necessary
-      Alert.alert('Error', 'An error occurred. Please try again later.');
+      console.error('Error deleting account:', error);
+      Alert.alert('Error', 'An error occurred while deleting your account. Please try again later.');
     }
   };
-
-  const verifyPassword = async (password) => {
-    // Implement logic to verify password with backend
-    // Example:
-    // const response = await fetch('VERIFY_PASSWORD_ENDPOINT', {
-    //   method: 'POST',
-    //   body: JSON.stringify({ password }),
-    // });
-    // const data = await response.json();
-    // return data.passwordVerified;
-
-    // For demonstration purposes, assuming password verification is successful
-    return true;
-  };
-
-  const deleteAccount = async () => {
-    // Implement logic to delete account with backend
-    // Example:
-    // const response = await fetch('DELETE_ACCOUNT_ENDPOINT', {
-    //   method: 'DELETE',
-    // });
-    // const data = await response.json();
-    // return data.accountDeleted;
-
-    // For demonstration purposes, assuming account deletion is successful
-    return true;
-  };
-
+ 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView Style={styles.scrollViewContent}>
