@@ -24,6 +24,9 @@ Living in a country with economic problems makes it difficult to save money and 
 SaveNest is a cutting-edge budget planning mobile application designed to empower users with efficient financial management, allowing them to achieve their financial goals and aspirations. In today's fast-paced lifestyle, managing finances can be challenging, and SaveNest aims to simplify this process by providing a user-friendly platform tailored for budget planning.
 Through this application, users can easily manage their budget efficiently.
 
+### Functionality Diagram 
+
+<img src="https://github.com/dumiya123/SaveNestImages/blob/master/11.png" alt="Savenest" height="200" width="200">
 
 ### Key Features
 
