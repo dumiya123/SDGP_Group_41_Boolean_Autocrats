@@ -1,0 +1,110 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head>
+        <meta charset="UTF-8"> 
+        <title>Feedback Form</title> 
+        <link rel="stylesheet" href="commentscss.css"> 
+    </head>
+    <body>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="commentsheet"> 
+          <form id="Feedback" method="post" action="mailto:savinpathirana@gmail.com">  <!-- form with the action that will send a mail when the submit button is clicked -->
+            <label>
+              How satisfied were you with our website today?
+              <br>
+              Choose from a scale of 0 to 10,where 0 is extremely dissatisfied and 10 is extremely satisfied.
+              <br>
+              <br>
+            </label>
+            <div class="ratingbar"> <!-- a class for the rating section that will get the user rating -->
+              <label for="rating0">0<br>
+              <input type="radio" name="rating" id="rating0" value="0">
+              </label>
+              <label for="rating1">1<br>
+              <input type="radio" name="rating" id="rating1" value="1">
+              </label>
+              <label for="rating2">2<br>
+              <input type="radio" name="rating" id="rating2" value="2">
+              </label>
+              <label for="rating3">3<br>
+              <input type="radio" name="rating" id="rating3" value="3">
+              </label>
+              <label for="rating4">4<br>
+              <input type="radio" name="rating" id="rating4" value="4">
+              </label>
+              <label for="rating5">5<br>
+              <input type="radio" name="rating" id="rating5" value="5">
+              </label>
+              <label for="rating6">6<br>
+              <input type="radio" name="rating" id="rating6" value="6">
+              </label>
+              <label for="rating7">7<br>
+              <input type="radio" name="rating" id="rating7" value="7">
+              </label>
+              <label for="rating8">8<br>
+              <input type="radio" name="rating" id="rating8" value="8">
+              </label>
+              <label for="rating9">9<br>
+              <input type="radio" name="rating" id="rating9" value="9">
+              </label>
+              <label for="rating10">10<br>
+              <input type="radio" name="rating" id="rating10" value="10">
+              </label>
+            </div>
+            <label>
+              Please could you tell us your reasons for giving this rating?
+            </label>
+            <br>
+            <textarea id="reasontext" name="reason" rows="5" cols="50" required></textarea> <!-- a textarea that will ask the user for the reason for his/her rating -->
+            <br>
+            <br>
+            <div class="dropdown">
+              <label>How did you want to complete this task today? (optional)</label> <!-- 1st dropdown select -->
+              <br>
+              <select id="drop" name="methodused"> 
+                <option value="" disabled selected>--Please select--</option>
+                <option value="Phone">Phone</option>
+                <option value="Website">Website</option> 
+                <option value="Webchat">Webchat</option>
+                <option value="Social Media">Social Media</option>
+                <option value="Email">Email</option>
+              </select> 
+              <br>
+              <br>
+              <label>If you had to do this task again.How would you prefer to do it? (optional)</label> <!--dropdown select -->
+              <br>
+              <select id="dropnext" name="methodnext">
+                <option value="" disabled selected>--Please select--</option>
+                <option value="Phone">Phone</option>
+                <option value="Website">Website</option> 
+                <option value="Webchat">Webchat</option>
+                <option value="Social Media">Social Media</option>
+                <option value="Email">Email</option>
+              </select> 
+            </div>
+            <br>
+            <button type="submit" value="Submit">Submit</button> <!-- submit button -->
+            <button type="reset"  value="Reset">Reset</button> <!-- reset button -->
+          </form>
+        </div>
+        
+        <script> /* check whether the user has selected a rating if selecter then will show the thank you alert */
+          const formcheck = document.querySelector("#Feedback");
+          
+          formcheck.addEventListener("submit", function (event){
+            const ratingbarcheck = document.querySelector('input[name="rating"]:checked');
+            
+            if(!ratingbarcheck){
+              alert("Please select a rating.");
+              event.preventDefault();
+            }
+            else{
+              alert("Thankyou for your Submission.")
+            }
+          });
+        </script>
+    </body>
+</html>

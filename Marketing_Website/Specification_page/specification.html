@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>Specification</title>
+        <link rel="stylesheet" href="specs.css">
+    </head>
+    <body>
+        <div class="main">
+            <nav>
+                <div class="logo">
+                    <img src="#">
+                </div>
+                <div class="#">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Home</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="information">
+                <div class="overlay"></div>
+                <img src="Media/mobile.png" class="mobile">
+                <div id="circle">
+                    <div class="feature one">
+                        <img src="Media/bill.png">
+                        <div>
+                            <h1>Bills for update</h1>
+                            <p>Upload a photograph of your bill<br> Update your budget</p>
+                        </div>
+                    </div>
+                    <div class="feature two">
+                        <img src="Media/alert.png">
+                        <div>
+                            <h1>Alerts System</h1>
+                            <p>Expect real time alerts <br> about your budget</p>
+                        </div>
+                    </div>
+                    <div class="feature three">
+                        <img src="Media/price_alerts.png">
+                        <div>
+                            <h1>Price Alerts</h1>
+                            <p>Select your favourite supermarket <br> Receive price update alerts</p>
+                        </div>
+                    </div>
+                    <div class="feature four">
+                        <img src="Media/customer_service.png">
+                        <div>
+                            <h1>Customer Service</h1>
+                            <p>24h we are there for you</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <img src="Media/arrow.png" id="upBtn">
+                <h3>Features</h3>
+                <img src="Media/arrow.png" id="downBtn"> 
+            </div>
+        </div>
+
+        <script>
+            var circle = document.getElementById("circle");
+            var upBtn = document.getElementById("upBtn");
+            var downBtn = document.getElementById("downBtn");
+
+            var rotateValue = circle.style.transform;
+            var rotateSum;
+
+
+            upBtn.onclick = function(){
+                rotateSum = rotateValue + "rotate(-90deg)";
+                circle.style.transform = rotateSum;
+                rotateValue = rotateSum;
+            }
+
+            downBtn.onclick = function(){
+                rotateSum = rotateValue + "rotate(90deg)";
+                circle.style.transform = rotateSum;
+                rotateValue = rotateSum;
+            }
+
+        </script>
+
+    </body>
+</html>
