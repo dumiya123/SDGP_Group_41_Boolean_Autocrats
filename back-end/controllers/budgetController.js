@@ -83,6 +83,7 @@ async function updateBudget(req, res) {
     const meat = req.body.Meat || [];
     const beverages = req.body.Beverages || [];
     const frozenfood = req.body.FrozenFood || [];
+    //const transport=req.body.Transport || [];
 
     let VegMessages = [];
     let FishMessages = [];
