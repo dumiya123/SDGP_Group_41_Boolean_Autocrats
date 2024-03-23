@@ -2,31 +2,32 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  const SelectedEducation = sequelize.define("SelectedEducation", {
-    resourceId: {
+  const SelectedMedicine = sequelize.define("SelectedMedicine", {
+    medicineId: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    resourceName: {
+    medicineDescription: {
       type: DataTypes.STRING,
     },
-    subject: {
-      type: DataTypes.STRING,
+    // quantity: {
+    //   type: DataTypes.INTEGER,
+    // },
+    // unitPrice: {
+    //   type: DataTypes.FLOAT,
+    // },
+    spentAmount: {
+      type: DataTypes.FLOAT,
+      defaultValue: 0,
     },
-    topic: {
-      type: DataTypes.STRING,
+    totalPrice: {
+      type: DataTypes.FLOAT,
     },
-    description: {
-      type: DataTypes.TEXT,
-    },
-    link: {
-      type: DataTypes.STRING,
-    },
-    imageSrc: {
-      type: DataTypes.STRING,
-    },
+    // imageSrc: {
+    //   type: DataTypes.STRING,
+    // },
     budgetId: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -40,13 +41,13 @@ module.exports = (sequelize) => {
   });
 
   // Define associations if needed
-  SelectedEducation.associate = (models) => {
-    SelectedEducation.belongsTo(models.Budget, {
+  SelectedMedicine.associate = (models) => {
+    SelectedMedicine.belongsTo(models.Budget, {
       foreignKey: "budgetId",
       onDelete: "CASCADE",
       onUpdate: "CASCADE",
     });
   };
 
-  return SelectedEducation;
+  return SelectedMedicine;
 };

@@ -1,4 +1,4 @@
-const ipAddress = "192.168.1.10";
+const ipAddress = "192.168.1.3";
 
 export const sendBudgetDataToBackend = async (
   income,
