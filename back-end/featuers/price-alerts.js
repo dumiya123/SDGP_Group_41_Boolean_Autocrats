@@ -159,6 +159,6 @@ function getChangedProducts(differences, json1, json2) {
   return changedItems;
 }
 
-priceAlert("../CategoryData.json", "../CategoryDataTest.json");
+// priceAlert("../CategoryData.json", "../CategoryDataTest.json");
 
 module.exports = priceAlert;
