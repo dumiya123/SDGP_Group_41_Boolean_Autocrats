@@ -380,6 +380,51 @@
                       "If you wish to remove a budget, go to the user section in the settings. You'll find an option labeled 'Delete Budget' to assist you.",
                       "To delete a budget, access the user section in the settings. There, you'll see an option to delete the budget."
                     ]
+      },
+      {
+        "tag": "account_details",
+        "patterns": [
+                      "how do i change my username",
+                      "Can I change my account information",
+                      "how do i change my email",
+                      "How do I update my contact details?",
+                      "How do I change my username?",
+                      "Can I update my username?",
+                      "How do I modify my account information?",
+                      "How can I change my account details?",
+                      "Can I change my personal information?",
+                      "How do I edit my account information?",
+                      "Can I change my profile details?",
+                      "How do I update my user profile?",
+                      "Is it possible to change my username?",
+                      "How do I alter my account settings?",
+                      "Can I update my account information?",
+                      "How do I change my email address?",
+                      "Is there a way to update my email?",
+                      "Can I modify my email address?",
+                      "How do I change my contact details?",
+                      "Can I update my contact information?",
+                      "How do I edit my email?",
+                      "How can I change my email?",
+                      "Is it possible to update my contact information?",
+                      "How do I change my personal details?",
+                      "Can I modify my account settings?",
+                      "How do I update my user information?",
+                      "Is there a way to change my account details?",
+                      "How can I edit my account settings?"
+                    ],
+        "responses": [  
+                      "If you wish to update your account information, simply navigate to the user section within the settings.",
+                      "To modify your account details, go to the user section located in the settings.",
+                      "For changing your account information, head over to the user section in the settings.",
+                      "To update your account information, access the user section within the settings menu.",
+                      "If you need to edit your account details, visit the user section available in the settings.",
+                      "For altering your account information, navigate to the user section within the settings.",
+                      "To adjust your account information, go to the user section found in the settings.",
+                      "If you want to change your account details, access the user section in the settings.",
+                      "To update your account information, simply go to the user section within the settings.",
+                      "For modifying your account details, navigate to the user section located in the settings."
+                    ]
       }
   
 
