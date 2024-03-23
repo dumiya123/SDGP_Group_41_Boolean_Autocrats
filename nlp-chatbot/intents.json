@@ -858,7 +858,92 @@
                       "To customize your notifications, access the settings menu and select 'Push Notifications'. From there, you can tailor your notification settings as per your liking.",
                       "For customizing your notifications, navigate to the settings menu and select 'Push Notifications'. You can then adjust your notification preferences according to your needs."
                     ]
+      },
+      {
+        "tag": "investment_options",
+        "patterns": [
+                      "Are there investment options available in the app?",
+                      "Do you provide investment opportunities?",
+                      "Can I use the app for investment purposes?",
+                      "Do you offer investment tools or services?",
+                      "Are there investment functionalities in the app?",
+                      "Can I explore investment opportunities within the app?",
+                      "Is there a way to monitor investment performance?",
+                      "Are there resources for investment research in the app?",
+                      "Does the app offer tools for investment analysis?",
+                      "Are there investment advisors or services available?",
+                      "Does the app provide information on investment strategies?",
+                      "Do you offer advice on investment decisions?",
+                      "Are there features for monitoring investment returns?",
+                      "Does the app offer resources for beginner investors?",
+                      "Are there investment calculators or tools available?",
+                      "Do you provide recommendations for investment opportunities?"
+                    ],
+        "responses": [ 
+                      "At the moment, the app doesn't offer features for investing directly within it. However, there is a stock price prediction feature available for those interested in stocks and crypto. We're also planning to introduce new features in the future that will enable you to import your portfolio and manage your investments through the app.",
+                      "Currently, the app doesn't have functionality for investing directly within it. Nonetheless, there's a stock price prediction feature for users interested in stocks and crypto. Additionally, we have plans to introduce new features in the future, including the ability to import your portfolio and manage investments through the app.",
+                      "As of now, the app doesn't include features for investing directly within it. Nevertheless, there's a stock price prediction feature for users interested in stocks and crypto. We're also looking ahead to implement new features that will allow you to import your portfolio and manage investments through the app.",
+                      "Presently, there aren't any features for investing within the app itself. However, there's a stock price prediction feature available for users interested in stocks and crypto. Moreover, we have plans to introduce new features in the future that will enable you to import your portfolio and manage investments directly through the app.",
+                      "Currently, there are no features for investing directly within the app. Nonetheless, there's a stock price prediction feature for users interested in stocks and crypto. We're also working on introducing new features in the future that will enable you to import your portfolio and manage investments through the app.",
+                      "At this time, the app doesn't provide features for investing directly within it. However, there's a stock price prediction feature for users interested in stocks and crypto. Furthermore, we have plans to introduce new features in the future that will allow you to import your portfolio and manage investments through the app.",
+                      "As of now, the app doesn't offer features for investing directly within it. Nevertheless, there's a stock price prediction feature available for users interested in stocks and crypto. Additionally, we're planning to implement new features in the future that will enable you to import your portfolio and manage investments through the app.",
+                      "Currently, there are no features within the app for investing directly. However, there's a stock price prediction feature for users interested in stocks and crypto. Moreover, we're planning to introduce new features in the future that will allow you to import your portfolio and manage investments through the app.",
+                      "At the moment, the app doesn't include features for investing directly within it. Nonetheless, there's a stock price prediction feature for users interested in stocks and crypto. We're also planning to introduce new features in the future that will enable you to import your portfolio and manage investments through the app.",
+                      "Presently, the app doesn't offer functionality for investing directly within it. However, there's a stock price prediction feature available for users interested in stocks and crypto. Furthermore, we have plans to introduce new features in the future that will allow you to import your portfolio and manage investments through the app."
+                    ]
+      },
+      {
+        "tag": "customer_support_hours",
+        "patterns": [
+                      "When is your customer support team available?",
+                      "Can you provide information on your customer support hours?",
+                      "What are the hours of operation for customer support?",
+                      "What are your support team's working hours?",
+                      "When can I reach your customer service team?",
+                      "Are there specific times when I can contact customer support?",
+                      "Can you tell me when I can get assistance from customer support?",
+                      "What are the hours that customer service is available?",
+                      "When is your support team reachable?",
+                      "What are the support hours for your app?",
+                      "Is there a particular time when I can reach out for support?",
+                      "Can you specify the hours when I can contact customer service?",
+                      "When are your support representatives on duty?",
+                      "What hours can I expect customer support to be available?",
+                      "When can I expect a response from your customer service team?",
+                      "Are there specific times when I should contact customer support?",
+                      "Can you provide the schedule for your customer support availability?",
+                      "What are the operating hours for your support department?",
+                      "When is the best time to contact your support team?",
+                      "Can you inform me of the hours when I can receive assistance?",
+                      "What times during the day can I reach out for help?",
+                      "When are your support agents online?",
+                      "Are there specific hours when I should expect a response from support?",
+                      "Can you tell me when customer support is staffed?",
+                      "When is your help desk available for assistance?",
+                      "What are the hours when I can expect support to respond?",
+                      "Is there a time frame when customer support is active?",
+                      "When can I expect a reply from your support team?",
+                      "Are there specific hours when I should avoid contacting customer support?",
+                      "Can you provide the hours when I can expect support assistance?",
+                      "When should I expect to receive help from your support team?",
+                      "What times are your support agents available to assist?",
+                      "Is there a preferred time to contact customer support?",
+                      "Can you give me the hours when support is operational?"
+                    ],
+        "responses": [
+                      "You can reach me anytime, day or night, as I'm available 24/7. Rest assured, our customer services team commits to responding to your message within 16 hours.",
+                      "I'm here for you around the clock, 24/7. You can expect a response from our customer services team within 16 hours of sending your message.",
+                      "You have access to assistance from me 24/7. Our customer services team guarantees a response to your message within 16 hours.",
+                      "You can count on me to be available 24/7 for your inquiries. Our customer services team ensures that your message will receive a reply within 16 hours.",
+                      "I'm at your service 24/7, ensuring support whenever you need it. Our customer services team pledges to respond to your message within 16 hours.",
+                      "You're welcome to reach out to me anytime, as I'm here for you 24/7. Expect a response from our customer services team within 16 hours of your message.",
+                      "Feel free to contact me anytime, day or night, as I'm available 24/7. Our customer services team commits to replying to your message within 16 hours.",
+                      "I'm here to assist you 24/7, so don't hesitate to reach out. Our customer services team ensures that your message will receive a response within 16 hours.",
+                      "You can reach out to me anytime, as I'm available 24/7. Our customer services team is dedicated to replying to your message within 16 hours.",
+                      "Rest assured, I'm here for you 24/7. Our customer services team guarantees to reply to your message within 16 hours."
+                    ]
       }
+      
   
 
     ]
