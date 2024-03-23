@@ -58,11 +58,11 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      budgetName: DataTypes.STRING, // Renamed from budgetname
-      monthlyIncome: DataTypes.DOUBLE, // Added monthly income field
-      amountForBudget: DataTypes.DOUBLE, // Added amount for budget field
-      spentBudget: DataTypes.DOUBLE, // Added spent budget field
-      receiveAlerts: DataTypes.BOOLEAN, // Added receive alerts field
+      budgetName: DataTypes.STRING,
+      monthlyIncome: DataTypes.DOUBLE,
+      amountForBudget: DataTypes.DOUBLE,
+      spentBudget: DataTypes.DOUBLE,
+      receiveAlerts: DataTypes.BOOLEAN,
       userId: {
         type: DataTypes.INTEGER,
         foreignKey: true,
