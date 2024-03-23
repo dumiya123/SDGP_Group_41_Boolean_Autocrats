@@ -58,13 +58,11 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      budgetname: DataTypes.STRING,
+      budgetName: DataTypes.STRING,
+      monthlyIncome: DataTypes.DOUBLE,
+      amountForBudget: DataTypes.DOUBLE,
+      spentBudget: DataTypes.DOUBLE,
       receiveAlerts: DataTypes.BOOLEAN,
-      totalAmount: {
-        type: DataTypes.DOUBLE,
-        allowNull: true,
-      },
-      remainingAmount: DataTypes.DOUBLE,
       userId: {
         type: DataTypes.INTEGER,
         foreignKey: true,
