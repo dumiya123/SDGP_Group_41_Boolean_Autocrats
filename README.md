@@ -20,7 +20,7 @@
 
 ### Overview:
 
-Living in a country with economic problems makes it difficult to save money and manage daily expenses, as prices are constantly changing.This requires frequent adjustments to budgets, which can be time-consuming and discouraging. Many people are too busy to keep their budgets up to date, which leads to poor spending habits.People often lose sight of their financial priorities when they are spending money, which can lead to them taking out loans and other forms of debt. In summary, the following are the challenges of saving money in a country with economic problems.SaveNest is a cutting-edge budget planning mobile application designed to empower users with efficient financial management, allowing them to achieve their financial goals and aspirations. In today's fast-paced lifestyle, managing finances can be challenging, and SaveNest aims to simplify this process by providing a user-friendly platform tailored for budget planning.Through this application, users can easily manage their budget efficiently.
+Living in a country with economic problems makes it difficult to save money and manage daily expenses, as prices are constantly changing. This requires frequent adjustments to budgets, which can be time-consuming and discouraging. Many people are too busy to keep their budgets up to date, which leads to poor spending habits. People often lose sight of their financial priorities when they are spending money, which can lead to them taking out loans and other forms of debt. In summary, the following are the challenges of saving money in a country with economic problems. SaveNest is a cutting-edge budget planning mobile application designed to empower users with efficient financial management, allowing them to achieve their financial goals and aspirations. In today's fast-paced lifestyle, managing finances can be challenging, and SaveNest aims to simplify this process by providing a user-friendly platform tailored for budget planning.Through this application, users can easily manage their budget efficiently.
 
 
 
@@ -137,7 +137,7 @@ This guide outlines two approaches to setting up your React Native development e
 
 ## Contributing
 
-Contributions are welcome! Please follow our [contribution guidelines](CONTRIBUTING.md) to get started.
+Contributions are welcome! Please follow our [contribution guidelines](CONTRIBUTORS.md) to get started.
 
 ## License
 
