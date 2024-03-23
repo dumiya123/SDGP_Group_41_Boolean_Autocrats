@@ -224,7 +224,54 @@
                         "For password reset, simply go to settings, access your profile, find the password section, and follow the steps provided. If you need any further assistance, we're here to help!",
                         "To reset your password, go to settings, then your profile, find the password section, and follow the instructions provided. Should you need any further assistance, don't hesitate to ask!"
                       ]
+      },
+      {
+        "tag": "contacting_team",
+        "patterns": [
+                      "how to contact your team?",
+                      "How can I reach your team?",
+                      "What's the best way to get in touch with your team?",
+                      "I need to contact your team. How do I do that?",
+                      "Can you provide information on contacting your team?",
+                      "How do I connect with your team?",
+                      "I have a question. How do I contact support?",
+                      "What are the contact options for your team?",
+                      "Is there a way to speak with a member of your team?",
+                      "How do I get assistance from your team?",
+                      "How do I reach out to your customer support?",
+                      "What's the process for reaching your team?",
+                      "I want to talk to someone from your team. How do I do that?",
+                      "Can you provide me with the contact details for your team?",
+                      "I need help. How do I contact support?",
+                      "What channels are available to contact your team?",
+                      "How do I initiate contact with your team?",
+                      "What are the available methods to contact your team?",
+                      "I'm having an issue. How do I contact your team for help?",
+                      "How do I get in touch with your support team?",
+                      "I need assistance. How can I reach out to your team?",
+                      "What's the procedure for contacting your team?",
+                      "I want to speak with someone regarding an issue. How do I reach out?",
+                      "Can you provide guidance on contacting your team?",
+                      "I have a query. How do I contact your team?",
+                      "How do I get support from your team?",
+                      "What's the quickest way to contact your team?",
+                      "How do I access support from your team?",
+                      "I need to talk to someone about a problem. How do I contact your team?"
+                    ],
+        "responses":[
+                    "If you need to reach out to our team, you can find our contact information on our website and app under the 'About Us' section, or feel free to reach us via email or phone.",
+                    "To get in touch with our team, you can refer to the 'About Us' section on our website or in the app, where you'll find our contact details. Alternatively, you can reach us via email or phone.",
+                    "Should you wish to contact our team, you can find our contact details on our website, under the 'About Us' section, or within the app. You can also reach us via email or phone.",
+                    "For any inquiries or assistance, you can contact our team through the email and phone numbers provided on our website and in the 'About Us' section of the app.",
+                    "To get in touch with our team, simply visit our website and check out the 'About Us' section for our contact information, or you can find it within the app. You can also reach us by email or phone.",
+                    "If you need assistance or have any questions, don't hesitate to contact our team. You can find our contact details on our website under the 'About Us' section or within the app. Alternatively, you can reach us via email or phone.",
+                    "To reach our team, you can refer to the contact information provided on our website's 'About Us' section or within the app. You can also reach us via email or phone for any inquiries or assistance.",
+                    "For any queries or assistance, you can reach out to our team through the contact details provided on our website under the 'About Us' section or within the app. You can also contact us via email or phone.",
+                    "Should you need to get in touch with our team, you can find our contact information on our website's 'About Us' section or in the app. Feel free to reach out to us via email or phone for any assistance.",
+                    "If you require assistance or wish to contact our team, you can find our contact information on our website's 'About Us' section or within the app. You can also reach us via email or phone."
+                  ]
       }
+  
 
     ]
 }
