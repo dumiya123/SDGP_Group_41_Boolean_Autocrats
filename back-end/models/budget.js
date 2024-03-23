@@ -49,6 +49,25 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
       });
+
+      Budget.hasMany(models.SelectedTransport, {
+        // Define one-to-many relationship with ExpensesTotal
+        foreignKey: "budgetId",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+      });
+      Budget.hasMany(models.SelectedMedicine, {
+        // Define one-to-many relationship with ExpensesTotal
+        foreignKey: "budgetId",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+      });
+      Budget.hasMany(models.SelectedEducation, {
+        // Define one-to-many relationship with ExpensesTotal
+        foreignKey: "budgetId",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+      });
     }
   }
   Budget.init(

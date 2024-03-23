@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, StyleSheet, ImageBackground } from "react-native";
 import AddItemForm from "../../../../components/AddToCategory/addToCategory";
 import { addTransport } from "../Transports/transportFunctions";
@@ -8,6 +8,55 @@ const TransportScreen = () => {
     totalPrice: "",
     transportDescription: "",
   });
+  const [categoryData, setCategoryData] = useState({
+    totalPrice: 0,
+    remainingAmount: 0,
+    percentage: 0,
+  });
+
+  const ipAddress = "192.168.1.3";
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`http://${ipAddress}:8080/user/getBudget`);
+        const data = await response.json();
+
+        // Extract relevant data for the transport category from API response
+        const selectedTransport = data.data.Budget.SelectedTransports || [];
+
+        console.log("Selected Transport:", selectedTransport);
+
+        let totalPrice = 0;
+        let totalSpent = 0;
+
+        // Calculate total price and total spent for the transport category
+        selectedTransport.forEach((transport) => {
+          totalPrice += transport.totalPrice || 0;
+          totalSpent += transport.spentAmount || 0;
+        });
+
+        let remainingAmount = totalPrice - totalSpent;
+        let percentage = 0;
+
+        // Calculate percentage if remaining amount is higher than 0
+        if (remainingAmount > 0) {
+          percentage = (remainingAmount / totalPrice) * 100;
+        }
+
+        // Set category data for the transport category
+        setCategoryData({
+          totalPrice: totalPrice,
+          remainingAmount: remainingAmount,
+          percentage: percentage,
+        });
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleFormSubmit = async () => {
     try {
@@ -39,6 +88,13 @@ const TransportScreen = () => {
           categoryName="Transport"
           onSubmit={handleFormSubmit}
           onChange={handleChange}
+          totalAmount={categoryData.totalPrice}
+          remainingAmount={
+            isNaN(categoryData.remainingAmount)
+              ? 0
+              : categoryData.remainingAmount
+          }
+          percentage={categoryData.percentage.toFixed(2)}
         />
       </View>
     </ImageBackground>
@@ -48,7 +104,7 @@ const TransportScreen = () => {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    resizeMode: "cover", // or 'stretch' or 'contain'
+    resizeMode: "cover",
     justifyContent: "center",
   },
   container: {

@@ -31,7 +31,13 @@ class AddItemForm extends Component {
   };
 
   render() {
-    const { categoryName, backgroundImage } = this.props;
+    const {
+      categoryName,
+      backgroundImage,
+      totalAmount,
+      remainingAmount,
+      percentage,
+    } = this.props;
     const { name, amount } = this.state;
 
     return (
@@ -48,7 +54,10 @@ class AddItemForm extends Component {
               </Text>
               <TextInput
                 value={name}
-                onChangeText={(name) => this.setState({ name })}
+                onChangeText={(name) => {
+                  this.setState({ name });
+                  this.props.onChange("name", name); // Call the onChange prop with the updated name
+                }}
                 style={styles.input}
                 placeholder="Enter Name of the product/service"
                 placeholderTextColor="white"
@@ -56,7 +65,10 @@ class AddItemForm extends Component {
               />
               <TextInput
                 value={amount}
-                onChangeText={(amount) => this.setState({ amount })}
+                onChangeText={(amount) => {
+                  this.setState({ amount });
+                  this.props.onChange("amount", amount); // Call the onChange prop with the updated amount
+                }}
                 style={styles.input}
                 placeholder="Enter the amount for the month"
                 keyboardType="numeric"
@@ -70,15 +82,15 @@ class AddItemForm extends Component {
               </Text>
               <View style={styles.row}>
                 <Text style={styles.label}>TOTAL AMOUNT:</Text>
-                <Text style={styles.value}>$0</Text>
+                <Text style={styles.value}>RS:{totalAmount}</Text>
               </View>
               <View style={styles.row}>
                 <Text style={styles.label}>REMAINING AMOUNT:</Text>
-                <Text style={styles.value}>$0</Text>
+                <Text style={styles.value}>RS:{remainingAmount}</Text>
               </View>
               <View style={styles.row}>
                 <Text style={styles.label}>PERCENTAGE:</Text>
-                <Text style={styles.value}>0%</Text>
+                <Text style={styles.value}>{percentage}%</Text>
               </View>
             </View>
             <TouchableOpacity
