@@ -47,7 +47,7 @@ Through this application, users can easily manage their budget efficiently.
 
 ## Use Case Diagram <br><br>
 
-<img src="https://github.com/dumiya123/SDGP_Group_41_Boolean_Autocrats/blob/main/README-images/Use_Case_Diagram.jpg" alt="Savenest" height="1000" width="700">
+<img src="https://github.com/dumiya123/SDGP_Group_41_Boolean_Autocrats/blob/main/README-images/Use_Case_Diagram.jpg" alt="Savenest" height="1000" width="800">
 
 ### Used Technologies and Softwares
 
