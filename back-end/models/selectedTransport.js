@@ -12,12 +12,12 @@ module.exports = (sequelize) => {
     transportDescription: {
       type: DataTypes.STRING,
     },
-    quantity: {
-      type: DataTypes.INTEGER,
-    },
-    unitPrice: {
-      type: DataTypes.FLOAT,
-    },
+    // quantity: {
+    //   type: DataTypes.INTEGER,
+    // },
+    // unitPrice: {
+    //   type: DataTypes.FLOAT,
+    // },
     spentAmount: {
       type: DataTypes.FLOAT,
       defaultValue: 0,
@@ -25,9 +25,9 @@ module.exports = (sequelize) => {
     totalPrice: {
       type: DataTypes.FLOAT,
     },
-    imageSrc: {
-      type: DataTypes.STRING,
-    },
+    // imageSrc: {
+    //   type: DataTypes.STRING,
+    // },
     budgetId: {
       type: DataTypes.INTEGER,
       allowNull: false,
