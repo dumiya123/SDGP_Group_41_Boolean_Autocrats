@@ -31,6 +31,7 @@ import ExploreVegetablesScreen from "../pages/Profile/Add/Explorer/ExplorerVeget
 import ExplorerMeatScreen from "../pages/Profile/Add/Explorer/ExplorerMeat/ExplorerMeats";
 import ExplorerBeveragesScreen from "../pages/Profile/Add/Explorer/ExplorerBeverages/ExplorerBeverages";
 import ExplorerFrozenFoodScreen from "../pages/Profile/Add/Explorer/ExplorerFrozen/ExplorerFrozenFood";
+import budgetConfigurations from "../pages/Profile/configure_budget/Budget_config";
 
 //navigate settings page
 import EditProfile from "../pages/Profile/Settings/SettingsScreens/EditProfile/editProfile";
@@ -54,6 +55,7 @@ import Transports from "../pages/Profile/Add/Transports/transports";
 import Pharmacy from "../pages/Profile/Add/Pharmacy/pharmacy";
 import Entertainment from "../pages/Profile/Add/Entertainment/entertainment";
 import Education from "../pages/Profile/Add/Education/education";
+
 //Entertainment, Education
 
 import { useNavigation } from "@react-navigation/native";
@@ -69,7 +71,7 @@ const Tab = createBottomTabNavigator();
 const AuthStackNavigator = () => {
   return (
     <Stack.Navigator>
-         <Stack.Screen
+      <Stack.Screen
         name="Started Screen"
         component={AppStartedScreen}
         options={{ headerShown: false }}
@@ -127,6 +129,12 @@ const AuthStackNavigator = () => {
       />
 
       <Stack.Screen
+        name="NO BUDGET PAGE"
+        component={budgetConfigurations}
+        options={{ headerShown: false }}
+      />
+
+      <Stack.Screen
         name="Transports"
         component={Transports}
         options={{ headerShown: true, headerBackTitleVisible: false }}
@@ -136,12 +144,12 @@ const AuthStackNavigator = () => {
         component={Pharmacy}
         options={{ headerShown: true, headerBackTitleVisible: false }}
       />
-       <Stack.Screen
+      <Stack.Screen
         name="Entertainment"
         component={Entertainment}
         options={{ headerShown: true, headerBackTitleVisible: false }}
       />
-       <Stack.Screen
+      <Stack.Screen
         name="Education"
         component={Education}
         options={{ headerShown: true, headerBackTitleVisible: false }}

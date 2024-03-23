@@ -10,9 +10,7 @@ const useLoginFunctions = () => {
   //@todo update URL after hosting
   //Replace this with your ipAddress
 
-
   const ipAddress = "192.168.1.10";
-
 
   const handleGoogleSignIn = () => {
     setLoading(true);
@@ -66,9 +64,27 @@ const useLoginFunctions = () => {
       const data = await response.json();
       if (response.ok) {
         console.log("Login successful");
-        navigation.navigate("PROFILE"); //will navigate to profile
-      } else {
-        console.error("Login failed:", data.message);
+
+        // Fetch the budget for the user
+        const budgetResponse = await fetch(
+          `http://${ipAddress}:8080/user/getBudget`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const budgetData = await budgetResponse.json();
+
+        // Check if the user has a budget
+        if (budgetData.data.user.Budget === null) {
+          // If the user has no budget, navigate to a different page
+          navigation.navigate("NO BUDGET PAGE");
+        } else {
+          // If the user has a budget, navigate to the profile
+          navigation.navigate("PROFILE");
+        }
       }
     } catch (error) {
       console.error(`http://${ipAddress}:8080/user/signIn`);
