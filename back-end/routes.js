@@ -9,6 +9,7 @@ let selectedMeatController = require("./controllers/selectedMeatController");
 let selectedBeveragesController = require("./controllers/selectedBeveragesController");
 let selectedFrozenFoodController = require("./controllers/selectedFrozenFoodController");
 let notificationController = require("./controllers/notificationController");
+let selectedTransportController = require("./controllers/selectedTransportController");
 
 let router = require("express").Router();
 
@@ -46,7 +47,9 @@ router
 
 router.route("/profile").get(verifyToken, controllerUser.getUserData);
 router.route("/editProfile").post(verifyToken, controllerUser.changeUserData);
-router.route("/deleteUserData").post(verifyToken, controllerUser.DeleteUserData);
+router
+  .route("/deleteUserData")
+  .post(verifyToken, controllerUser.DeleteUserData);
 router
   .route("/calenderExpenses")
   .post(verifyToken, expensesTotalController.getExpensesForDate);
@@ -58,5 +61,9 @@ router
 router
   .route("/getNotificationAndUpdate")
   .get(verifyToken, notificationController.getNotificationAndUpdate);
+
+router
+  .route("/addTransport")
+  .post(verifyToken, selectedTransportController.addTransport);
 
 module.exports = router;
