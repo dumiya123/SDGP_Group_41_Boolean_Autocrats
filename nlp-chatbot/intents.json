@@ -1,0 +1,52 @@
+{
+    "intents": [
+      {
+        "tag": "greeting",
+        "patterns": [
+                      "Hello", 
+                      "Hi",
+                      "Hey",
+                      "Good day",
+                      "Greetings",
+                      "What's up?",
+                      "Yo",
+                      "Hi there",
+                      "Good morning",
+                      "Good afternoon",
+                      "What's up",
+                      "Howdy",
+                      "Hiya",
+                      "Hey there",
+                      "Hello there",
+                      "Hi, can I get some help?",
+                      "Hello, may I ask a question?",
+                      "Hi, I need assistance",
+                      "Hey, could you help me?",
+                      "Hello, I have a query",
+                      "Hi, is anyone there?",
+                      "Hey, is this support?"
+                    ],
+        "responses": [
+                      "Hello!",
+                      "Hi there!",
+                      "Hey! How can I assist you?",
+                      "Hey",
+                      "Hey, what's up?",
+                      "Hi! How can I be of service?",
+                      "Greetings! How may I assist you today?",
+                      "Hello there!","Hi! What can I do for you?",
+                      "Hey! Need any help?",
+                      "Welcome! How can I help you today?",
+                      "Hello, how may I be of assistance?",
+                      "Hey there! What can I do to assist you?",
+                      "Greetings! How may I help you?",
+                      "Hi! How can I support you?",
+                      "Hey! What brings you here?",
+                      "Hello! How may I assist you?",
+                      "Hi there! How can I be of service?",
+                      "Hey! How can I assist you today?",
+                      "Hello! What can I help you with?"
+                      ]
+      }
+    ]
+}
