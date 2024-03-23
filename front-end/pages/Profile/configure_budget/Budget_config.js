@@ -12,20 +12,27 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
+
 import styles from "./BudgetConfigStyle";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { ScrollView } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
+import { sendBudgetDataToBackend } from "./configBudgetFunctions";
 
 const BudgetConfigurationScreen = () => {
-  // State variables to store budget details
+  const navigation = useNavigation();
   const [income, setIncome] = useState("");
   const [expenses, setExpenses] = useState("");
-  // State variable to store the selected item
   const [isAlertEnabled, setIsAlertEnabled] = useState(false);
 
-  // Function to handle saving the budget configuration
-  const saveBudgetConfiguration = () => {
-    console.log("Saving Budget Configuration:", { income, expenses });
+  const saveBudgetConfiguration = async () => {
+    try {
+      await sendBudgetDataToBackend(income, isAlertEnabled, expenses); // Call the function with necessary parameters
+      navigation.navigate("PROFILE"); // Navigate to the Home screen after saving the budget configuration
+      console.log("Budget configuration saved successfully");
+    } catch (error) {
+      console.error("Error saving budget configuration:", error);
+      // Handle error, e.g., display error message to user
+    }
   };
 
   return (
@@ -85,7 +92,10 @@ const BudgetConfigurationScreen = () => {
           <Text></Text>
 
           {/* Button to save budget configuration */}
-          <TouchableOpacity style={styles.save_config_button}>
+          <TouchableOpacity
+            style={styles.save_config_button}
+            onPress={saveBudgetConfiguration}
+          >
             <View style={styles.buttonContent}>
               <Icon
                 name="save"

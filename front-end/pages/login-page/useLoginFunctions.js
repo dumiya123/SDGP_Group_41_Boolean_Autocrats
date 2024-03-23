@@ -75,15 +75,17 @@ const useLoginFunctions = () => {
             },
           }
         );
+
+        // Fetch the budget for the user
         const budgetData = await budgetResponse.json();
 
         // Check if the user has a budget
-        if (budgetData.data.user.Budget === null) {
-          // If the user has no budget, navigate to a different page
-          navigation.navigate("NO BUDGET PAGE");
-        } else {
+        if (budgetData.data.Budget) {
           // If the user has a budget, navigate to the profile
           navigation.navigate("PROFILE");
+        } else {
+          // If the user has no budget, navigate to a different page
+          navigation.navigate("NO BUDGET PAGE");
         }
       }
     } catch (error) {
