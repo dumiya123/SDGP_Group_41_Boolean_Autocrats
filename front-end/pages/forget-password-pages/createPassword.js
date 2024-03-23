@@ -14,9 +14,7 @@ import SetButton from "../../components/SetButtons/setButton";
 import SectionTitle from "../../components/SettingsComponents/SectionTitle";
 import SubtitleComponent from "../../components/SettingsComponents/Subtittle";
 
-
-const ipAddress = "192.168.8.126";
-
+const ipAddress = "192.168.1.3";
 
 const PasswordForm = () => {
   const navigation = useNavigation();

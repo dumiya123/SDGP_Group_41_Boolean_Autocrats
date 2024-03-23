@@ -7,7 +7,7 @@ const FoodItems = () => {
   const navigation = useNavigation();
   const [categoryData, setCategoryData] = useState([]);
 
-  const ipAddress = "192.168.8.126";
+  const ipAddress = "192.168.1.3";
 
   useEffect(() => {
     const fetchData = async () => {
