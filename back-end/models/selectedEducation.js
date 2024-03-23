@@ -3,30 +3,31 @@ const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
   const SelectedEducation = sequelize.define("SelectedEducation", {
-    resourceId: {
+    educationId: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    resourceName: {
+    educationDescription: {
       type: DataTypes.STRING,
     },
-    subject: {
-      type: DataTypes.STRING,
+    // quantity: {
+    //   type: DataTypes.INTEGER,
+    // },
+    // unitPrice: {
+    //   type: DataTypes.FLOAT,
+    // },
+    spentAmount: {
+      type: DataTypes.FLOAT,
+      defaultValue: 0,
     },
-    topic: {
-      type: DataTypes.STRING,
+    totalPrice: {
+      type: DataTypes.FLOAT,
     },
-    description: {
-      type: DataTypes.TEXT,
-    },
-    link: {
-      type: DataTypes.STRING,
-    },
-    imageSrc: {
-      type: DataTypes.STRING,
-    },
+    // imageSrc: {
+    //   type: DataTypes.STRING,
+    // },
     budgetId: {
       type: DataTypes.INTEGER,
       allowNull: false,
