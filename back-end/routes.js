@@ -11,6 +11,7 @@ let selectedFrozenFoodController = require("./controllers/selectedFrozenFoodCont
 let notificationController = require("./controllers/notificationController");
 let selectedTransportController = require("./controllers/selectedTransportController");
 let selectedMedicineController = require("./controllers/selectedMedicineController");
+let selectedEducationController = require("./controllers/selectedEducationController");
 
 let router = require("express").Router();
 
@@ -70,5 +71,9 @@ router
 router
   .route("/addMedicine")
   .post(verifyToken, selectedMedicineController.addMedicine);
+
+router
+  .route("/addEducation")
+  .post(verifyToken, selectedEducationController.addEducation);
 
 module.exports = router;
