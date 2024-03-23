@@ -1335,9 +1335,30 @@
                       "Weekly surveys will be conducted, and your participation in these surveys could grant you the chance to sign up for our beta testing programs for upcoming updates.",
                       "We'll have a survey every week, and participating in these surveys might give you the opportunity to enroll in our beta testing programs for future updates."
                     ]
-      }
-      
-  
-
+      },{
+        "tag": "fallback",
+        "patterns": [
+                      "tell me a joke",
+                      "What is your name",
+                      "Who made you",
+                      "I like you",
+                      "What are you?",
+                      "I love you",
+                      "I hate you",
+                      "make me laugh",
+                      "make me cry"],
+        "responses": [
+                      "Apologies! I'm a chat bot specifically created to address user inquiries about the application. Due to my design, I'm unable to respond to questions like this.",
+                      "I'm sorry! As a chat bot designed to assist users with inquiries related to the application, I'm unable to answer questions of this nature.",
+                      "My apologies! I'm here to answer questions users may have about the application. Unfortunately, I'm not equipped to respond to questions like this.",
+                      "Sorry about that! My purpose is to provide assistance with questions related to the application. Therefore, I'm unable to address inquiries of this nature.",
+                      "I apologize! My primary function is to respond to user queries regarding the application. Consequently, I'm unable to provide answers to questions like this.",
+                      "Sorry for any inconvenience! I'm designed to help users with questions related to the application. Unfortunately, I'm not capable of answering questions like this.",
+                      "Apologies for the inconvenience! My role is to assist users with inquiries concerning the application. Hence, I'm unable to address questions like this.",
+                      "I'm sorry, but my function is to respond to user queries about the application. Therefore, I'm unable to provide answers to questions of this nature.",
+                      "I apologize, but my purpose is to assist users with questions related to the application. As such, I'm not equipped to respond to inquiries like this.",
+                      "Sorry, I'm designed to answer questions users may have about the application. Consequently, I'm unable to address questions of this nature."
+                    ]
+        }
     ]
 }
