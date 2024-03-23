@@ -20,7 +20,7 @@
 
 ### Overview:
 
-<p style="text-align: justify;">Living in a country with economic problems makes it difficult to save money and manage daily expenses, as prices are constantly changing. This requires frequent adjustments to budgets, which can be time-consuming and discouraging. Many people are too busy to keep their budgets up to date, which leads to poor spending habits.People often lose sight of their financial priorities when they are spending money, which can lead to them taking out loans and other forms of debt. In summary, the following are the challenges of saving money in a country with economic problems.SaveNest is a cutting-edge budget planning mobile application designed to empower users with efficient financial management, allowing them to achieve their financial goals and aspirations. In today's fast-paced lifestyle, managing finances can be challenging, and SaveNest aims to simplify this process by providing a user-friendly platform tailored for budget planning.Through this application, users can easily manage their budget efficiently.</p>
+Living in a country with economic problems makes it difficult to save money and manage daily expenses, as prices are constantly changing.This requires frequent adjustments to budgets, which can be time-consuming and discouraging. Many people are too busy to keep their budgets up to date, which leads to poor spending habits.People often lose sight of their financial priorities when they are spending money, which can lead to them taking out loans and other forms of debt. In summary, the following are the challenges of saving money in a country with economic problems.SaveNest is a cutting-edge budget planning mobile application designed to empower users with efficient financial management, allowing them to achieve their financial goals and aspirations. In today's fast-paced lifestyle, managing finances can be challenging, and SaveNest aims to simplify this process by providing a user-friendly platform tailored for budget planning.Through this application, users can easily manage their budget efficiently.
 
 
 
@@ -53,7 +53,7 @@
 
 #### Languages<br>
 
-> 1. Python (V3.12.1) - For Machine Learning and Image processing purposes.
+> 1. Python (V3.12.1) - For Machine Learning purposes.
 > 2. JavaScript (ECMAScript 2023) - Backend (for accuracy reflecting the current official version)
 > 3. React-Native - For Mobile application development
 > 4. Java (V16) - For Mobile application development
@@ -78,6 +78,9 @@
 > 2. Google Accounts Authentication API - For sign in with Google account
 > 3. Twitter API - For sign in with Twitter account
 > 4. REST API - The REST API lets you interact with Parse Server from anything that can send an HTTP request.
+> 5. Yahoo Finance API - This API is used to get data related to stocks for the machine learning algorithm.
+> 6. Asprise API - This API is used for the OCR function.
+
 
 #### Database
 
