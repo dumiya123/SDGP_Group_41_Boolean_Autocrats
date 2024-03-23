@@ -179,6 +179,51 @@
                         "Track your financial progress effortlessly with Save Nest, the ultimate solution for managing income, expenses, and savings.",
                         "Save Nest streamlines financial management tasks, offering insights into your income, expenses, and savings."
                       ]
+      },
+      {
+        "tag": "password_reset",
+        "patterns": [
+                      "how do i change my password?",
+                      "How can I update my password?",
+                      "I forgot my password. How do I reset it?",
+                      "What's the process for changing my password?",
+                      "Can you guide me on changing my password?",
+                      "Where do I go to change my password?",
+                      "How do I set a new password?",
+                      "Is there a way to modify my password?",
+                      "I need to change my password. What should I do?",
+                      "I want to update my password. How can I do that?",
+                      "How do I edit my password?",
+                      "What steps do I take to change my password?",
+                      "Could you help me with resetting my password?",
+                      "Where can I find the option to change my password?",
+                      "What's the procedure for changing my account password?",
+                      "Can you assist me in changing my password?",
+                      "I need to change my login password. How do I proceed?",
+                      "How do I access the password change feature?",
+                      "I'm looking to change my password. Any guidance?",
+                      "What's the method for changing my account password?",
+                      "How do I update my login credentials?",
+                      "What's the protocol for updating my password?",
+                      "Do you have instructions for changing passwords?",
+                      "Can you provide steps for changing my password?",
+                      "I want to change my password. Where do I start?",
+                      "How do I modify my login password?",
+                      "What's the best way to change my password?",
+                      "Where can I find the option to reset my password?"
+                    ],
+         "responses": [
+                        "To initiate a password reset, navigate to your settings, access your profile, locate the password section, and follow the provided instructions. Don't hesitate to reach out if you require any additional help!",
+                        "For resetting your password, simply head over to settings, proceed to your profile, locate the password option, and then follow the steps outlined there. If you encounter any issues, feel free to ask for assistance!",
+                        "To reset your password, go to settings, then access your profile, find the password option, and proceed according to the instructions provided. If you have any questions or need further support, don't hesitate to reach out!",
+                        "If you need to reset your password, go to settings, navigate to your profile, locate the password section, and follow the instructions provided. Feel free to ask if you require any additional assistance!",
+                        "To reset your password, simply access settings, then proceed to your profile, locate the password option, and follow the instructions provided there. Should you require further assistance, don't hesitate to ask!",
+                        "For password reset, head to settings, then your profile, locate the password section, and follow the steps provided. If you need more help, don't hesitate to ask!",
+                        "To reset your password, go to settings, access your profile, find the password option, and follow the steps provided there. If you require any further assistance, feel free to reach out!",
+                        "If you're looking to reset your password, navigate to settings, access your profile, locate the password section, and follow the instructions provided there. If you need additional support, just let us know!",
+                        "For password reset, simply go to settings, access your profile, find the password section, and follow the steps provided. If you need any further assistance, we're here to help!",
+                        "To reset your password, go to settings, then your profile, find the password section, and follow the instructions provided. Should you need any further assistance, don't hesitate to ask!"
+                      ]
       }
 
     ]
