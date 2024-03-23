@@ -151,6 +151,34 @@
                       "No trouble at all!",
                       "I'm here whenever you need!"
                     ]
+      },
+      {
+        "tag": "savenest_app_do",
+        "patterns": [
+                      "What does savenest do?",
+                      "What is this app for?",
+                      "What can I do with this app?",
+                      "What is the purpose of this app?",
+                      "What problems does this app solve?",
+                      "What benefits does this app offer?",
+                      "How can this app assist me?",
+                      "How does this app improve my life?",
+                      "What can I expect from using this app?",
+                      "What kind of data does this app manage?",
+                      "What is the primary goal of this app?"
+                    ],
+        "responses": [
+                        "Save Nest provides comprehensive finance management tools to help you track your income, expenses, and savings effectively.",
+                        "Managing your finances is made easy with Save Nest, an application dedicated to tracking income, expenses, and savings.",
+                        "Take control of your finances with Save Nest, a user-friendly app that assists in managing income, expenses, and savings.",
+                        "With Save Nest, you can effortlessly monitor your finances, including income, expenses, and savings.",
+                        "Stay on top of your financial health with Save Nest, an intuitive application designed to manage your income, expenses, and savings.",
+                        "Save Nest simplifies financial management by allowing you to track your income, expenses, and savings in one convenient place.",
+                        "Optimize your financial planning with Save Nest, a powerful tool for managing income, expenses, and savings.",
+                        "Save Nest empowers you to efficiently manage your finances, ensuring you stay on track with your income, expenses, and savings.",
+                        "Track your financial progress effortlessly with Save Nest, the ultimate solution for managing income, expenses, and savings.",
+                        "Save Nest streamlines financial management tasks, offering insights into your income, expenses, and savings."
+                      ]
       }
 
     ]
