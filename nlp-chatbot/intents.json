@@ -1035,6 +1035,90 @@
                       "To track your spending habits, visit the reports section of the app.",
                       "By going to the reports section of the app, you can easily observe your spending habits."
                     ]
+      },
+      {
+        "tag": "exceeding_budget",
+        "patterns": [
+                      "Can I receive alerts if I exceed my budget?",
+                      "Is it possible to get alerts when I exceed my budget?",
+                      "Can the app notify me if I go over my budget?",
+                      "Can I receive notifications if my spending exceeds the budget?",
+                      "Is there a feature to alert me when I go beyond my budget?",
+                      "Can I get warnings if I overspend my budget?",
+                      "Are there options for receiving alerts if I exceed my spending limit?",
+                      "How can I receive alerts for exceeding my budget?",
+                      "Is there a way for the app to notify me if I exceed my budget?",
+                      "Can the app warn me when my spending exceeds the budget?",
+                      "Are there options to receive notifications for surpassing budget thresholds?",
+                      "Is there a feature to monitor and notify me of budget overruns?",
+                      "Can I receive warnings if I exceed my budget?",
+                      "Are there settings for receiving notifications about exceeding budget targets?",
+                      "Is there a way to receive alerts when my spending exceeds the budget?",
+                      "Can I receive notifications when I go over my allocated budget?",
+                      "Can I receive notifications for budget breaches?"
+                    ],
+        "responses": [
+                      "Enabling the alerts feature will result in the app sending you real-time notifications whenever you exceed your budget allocation.",
+                      "By activating the alerts feature, the app will send you immediate notifications if you surpass your allocated budget.",
+                      "When you activate the alerts feature, the app will promptly notify you in real-time if you exceed your set budget.",
+                      "Once you enable the alerts feature, expect to receive real-time notifications from the app whenever you exceed your budget allocation.",
+                      "By turning on the alerts feature, the app will send you instant notifications whenever you go over your budget.",
+                      "Enabling the alerts feature ensures that the app sends you real-time notifications whenever you exceed your allocated budget.",
+                      "When you enable the alerts feature, the app will send you real-time notifications whenever you exceed your budget limit.",
+                      "Activating the alerts feature will prompt the app to send you real-time notifications whenever you exceed your allocated budget.",
+                      "If you enable the alerts feature, the app will send you immediate notifications whenever you exceed your budget allocation.",
+                      "When the alerts feature is turned on, the app will send you real-time notifications if you exceed your allocated budget."
+                    ]
+      },
+      {
+        "tag": "account_deletion",
+        "patterns":  [
+                        "How do I close my account?",
+                        "Can you guide me on closing my account?",
+                        "How do I terminate my account?",
+                        "Is there a process for closing my account?",
+                        "Can you explain how to deactivate my account?",
+                        "What steps do I take to close my account?",
+                        "How can I cancel my account?",
+                        "Is it possible to close my account permanently?",
+                        "How do I end my membership?",
+                        "What is the procedure for account closure?",
+                        "Can you assist me in closing my account?",
+                        "How do I remove my account from the system?",
+                        "Is there a way to disable my account?",
+                        "Can you provide instructions for account closure?",
+                        "What are the steps for account termination?",
+                        "How can I close my profile?",
+                        "Is there an option to delete my account?",
+                        "Can you show me how to close my user account?",
+                        "How do I permanently shut down my account?",
+                        "Is there a way to cancel my membership?",
+                        "Can I deactivate my account myself?",
+                        "How do I unregister from the service?",
+                        "What do I need to do to close my account?",
+                        "Is there a way to remove my account from the platform?",
+                        "Can you explain the process of account deactivation?",
+                        "How can I withdraw from the platform?",
+                        "What are the requirements for closing my account?",
+                        "Can I cancel my account online?",
+                        "Is it possible to close my account via the app?",
+                        "How do I cease my account access?",
+                        "What is the policy for closing accounts?",
+                        "Can you provide details on account closure?",
+                        "How do I initiate the account closure process?"
+                      ],
+        "responses": [
+                      "To delete your account, navigate to the settings, then proceed to the profile section. Select the last option within the profile section. The app will prompt you to enter your username and password. Upon verifying your credentials, you'll be able to delete the account.",
+                      "If you wish to delete your account, go to settings, then access the profile section. Choose the final option listed in the profile section. You'll then be required to input your username and password for verification. Once confirmed, you can proceed to delete the account.",
+                      "For account deletion, access settings, then go to the profile section. From there, select the last option available. Next, you'll be prompted to provide your username and password. After successful verification, you can proceed to delete the account.",
+                      "To delete your account, simply navigate to settings, then proceed to the profile section. Choose the last option provided within the profile section. The app will request your username and password for authentication. Upon successful verification, you can proceed to delete the account.",
+                      "If you want to delete your account, head to settings, then go to the profile section. Select the last option available in the profile section. You'll then be prompted to enter your username and password. After confirming your credentials, you can proceed to delete the account.",
+                      "For deleting your account, go to settings, then access the profile section. Choose the final option listed within the profile section. You'll be prompted to input your username and password for verification purposes. After successful verification, you can delete the account.",
+                      "To delete your account, access settings, then proceed to the profile section. Select the last option provided in the profile section. The app will then prompt you to enter your username and password. Upon successful verification, you can proceed with deleting the account.",
+                      "If you wish to delete your account, navigate to settings, then go to the profile section. Choose the last option available within the profile section. You'll be required to provide your username and password for verification. Once verified, you can proceed to delete the account.",
+                      "For deleting the account, go to settings, then access the profile section. Select the last option available in the profile section. You'll then need to input your username and password for authentication. After successful verification, you can delete the account.",
+                      "To delete your account, access settings, then proceed to the profile section. Choose the last option provided within the profile section. The app will ask for your username and password. Upon verification, you can proceed to delete the account."
+                    ]
       }
       
   
