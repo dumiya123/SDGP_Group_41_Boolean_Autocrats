@@ -270,6 +270,116 @@
                     "Should you need to get in touch with our team, you can find our contact information on our website's 'About Us' section or in the app. Feel free to reach out to us via email or phone for any assistance.",
                     "If you require assistance or wish to contact our team, you can find our contact information on our website's 'About Us' section or within the app. You can also reach us via email or phone."
                   ]
+      },
+      {
+        "tag": "budget_creating",
+        "patterns": [
+                    "how to create a budget",
+                    "Can you guide me on creating a budget?",
+                    "I need help with budget creation. How do I start?",
+                    "What's the process for making a budget?",
+                    "How do I begin creating a budget?",
+                    "Can you provide instructions on budget creation?",
+                    "Where do I start with creating a budget?",
+                    "I want to learn how to create a budget. How can I do that?",
+                    "Is there a step-by-step guide for creating a budget?",
+                    "How can I set up a budget?",
+                    "I'm looking for advice on budget creation. What should I do?",
+                    "How do I draft a budget?",
+                    "What are the steps involved in budget creation?",
+                    "Can you help me with budget planning?"
+                  ],
+        "responses": [
+                      "Upon your initial sign-in to the application, you'll be prompted to create a budget. If you haven't created one yet, you'll also be prompted to do so when you navigate to the add section.",
+                      "When you first log in to the app, you'll be asked to set up a budget. If you haven't done so already, you'll receive a prompt to create a budget when you access the add section.",
+                      "When you sign in for the first time, the app will prompt you to establish a budget. If you haven't done this yet, you'll be reminded to create a budget when you visit the add section.",
+                      "During your initial login to the application, you'll be requested to set up a budget. In case you haven't done this yet, you'll receive a prompt to create a budget upon entering the add section.",
+                      "Upon your initial login to the app, you'll be guided to create a budget. If you haven't completed this step, you'll be reminded to do so when you enter the add section.",
+                      "When you first access the app, you'll be guided through the process of setting up a budget. If you haven't done this yet, you'll be reminded to create a budget when you enter the add section.",
+                      "During your first login to the application, you'll be prompted to create a budget. If you haven't completed this step, you'll receive a reminder to create a budget when you visit the add section.",
+                      "Upon your initial sign-in to the app, you'll be instructed to create a budget. If you haven't done so yet, you'll receive a reminder to create a budget when you navigate to the add section.",
+                      "When you first sign in to the application, you'll be asked to establish a budget. If you haven't completed this step, you'll be reminded to create a budget when you access the add section.",
+                      "During your initial sign-in to the app, you'll be prompted to create a budget. If you haven't done this yet, you'll receive a prompt to create a budget when you visit the add section."
+                    ]
+      },
+      {
+        "tag": "update_budget",
+        "patterns": [
+                      "how to update my budget",
+                      "Can you guide me on updating my budget?",
+                      "I need help with budget updates. How do I proceed?",
+                      "What's the process for updating my budget?",
+                      "How do I begin updating my budget?",
+                      "Can you provide instructions on budget updates?",
+                      "Where do I start with updating my budget?",
+                      "I want to learn how to update my budget. How can I do that?",
+                      "Is there a step-by-step guide for budget updates?",
+                      "How can I modify my budget?",
+                      "I'm looking for advice on budget updates. What should I do?",
+                      "How do I adjust my budget?",
+                      "What are the steps involved in updating a budget?",
+                      "What's the best approach for updating my budget?",
+                      "Can you help me with updating my budget?",
+                      "How do I refine my budget?",
+                      "I'm unsure how to start updating my budget. Can you assist?",
+                      "How do I track changes to my budget?",
+                      "Do you have any templates or examples for budget updates?",
+                      "I want to learn more about updating my budget. Where should I begin?",
+                      "Can you provide guidance on creating a personalized budget update?",
+                      "How do I allocate funds effectively in an updated budget?"
+                    ],
+        "responses": [
+                      "To update your budget manually, you can navigate to the 'Add' section in the application and select the items you wish to include. Alternatively, you can utilize our automatic feature, which employs OCR technology to update the budget automatically based on a photo of the receipt.",
+                      "For manual budget updates, simply access the 'Add' section in the app and choose the items you'd like to add. Alternatively, you can take advantage of our automatic feature, which utilizes OCR technology to update the budget from a photo of the receipt.",
+                      "If you prefer manual budget updates, you can do so by going to the 'Add' section within the application and selecting the items you want to include. Alternatively, you can opt for our automatic feature, which uses OCR technology to update the budget automatically from a receipt photo.",
+                      "To manually update your budget, navigate to the 'Add' section in the application and select the desired items. Alternatively, you can opt for our automatic feature, which employs OCR technology to update the budget based on a photo of the receipt.",
+                      "For manual budget updates, head to the 'Add' section in the application and choose the items you'd like to add to your budget. Alternatively, you can utilize our automatic feature, powered by OCR technology, to update the budget from a photo of the receipt.",
+                      "If you want to update your budget manually, access the 'Add' section in the application and select the items you want to include. Alternatively, you can utilize our automatic feature, which leverages OCR technology to update the budget automatically from a photo of the receipt.",
+                      "To manually update your budget, navigate to the 'Add' section in the app and select the items you'd like to add. Alternatively, you can take advantage of our automatic feature, which uses OCR technology to update the budget based on a photo of the receipt.",
+                      "For manual budget updates, simply go to the 'Add' section in the application and choose the items you wish to include in your budget. Alternatively, you can use our automatic feature, powered by OCR technology, to update the budget from a photo of the receipt.",
+                      "If you prefer manual budget updates, you can access the 'Add' section in the application and select the items you want to include. Alternatively, you can opt for our automatic feature, which utilizes OCR technology to update the budget automatically from a photo of the receipt.",
+                      "To update your budget manually, you can go to the 'Add' section in the app and select the items you want to include. Alternatively, our automatic feature, which uses OCR technology, can update the budget from a photo of the receipt."
+                    ]
+      },
+      {
+        "tag": "delete_budget",
+        "patterns": [
+                      "how do i delete my budget",
+                      "Can you guide me on deleting my budget?",
+                      "I need help with budget deletion. How do I proceed?",
+                      "What's the process for deleting my budget?",
+                      "How do I begin deleting my budget?",
+                      "Can you provide instructions on budget deletion?",
+                      "Where do I start with deleting my budget?",
+                      "I want to learn how to delete my budget. How can I do that?",
+                      "Is there a step-by-step guide for budget deletion?",
+                      "How can I remove my budget?",
+                      "I'm looking for advice on budget deletion. What should I do?",
+                      "How do I get rid of my budget?",
+                      "What are the steps involved in deleting a budget?",
+                      "What's the best approach for deleting my budget?",
+                      "Can you help me with deleting my budget?",
+                      "How do I erase my budget?",
+                      "I'm interested in deleting my budget. What are the basics?",
+                      "I'm unsure how to start deleting my budget. Can you assist?",
+                      "What are the key components of successfully deleting a budget?",
+                      "How do I confirm the deletion of my budget?",
+                      "Do you have any templates or examples for budget deletion?",
+                      "I want to learn more about deleting my budget. Where should I begin?",
+                      "Can you provide guidance on deleting a personalized budget?"
+                    ],
+        "responses": [
+                      "To remove a budget, navigate to the user section within the settings. There, you'll find an option labeled 'Delete Budget'.",
+                      "If you wish to delete a budget, simply access the user section located in the settings. You'll then see an option specifically for deleting budgets.",
+                      "To eliminate a budget, head to the user section in the settings. Look for the option labeled 'Delete Budget' to proceed.",
+                      "If you want to delete a budget, go to the user section in the settings. From there, you'll find an option to delete the budget.",
+                      "To delete a budget, access the user section in the settings. You'll see an option named 'Delete Budget' to help you remove it.",
+                      "If you need to remove a budget, navigate to the user section within the settings. There, you'll find an option to delete the budget.",
+                      "To delete a budget, go to the user section located in the settings. Look for the option titled 'Delete Budget' to proceed.",
+                      "To eliminate a budget, simply access the user section within the settings. You'll then see an option specifically for deleting budgets.",
+                      "If you wish to remove a budget, go to the user section in the settings. You'll find an option labeled 'Delete Budget' to assist you.",
+                      "To delete a budget, access the user section in the settings. There, you'll see an option to delete the budget."
+                    ]
       }
   
 
