@@ -4,7 +4,7 @@
 <br>
 
 
-<img src="https://github.com/dumiya123/SDGP_Group_41_Boolean_Autocrats/blob/main/README-images/SaveNest_Logo.jpg" alt="Savenest" height="200" width="200">
+<img src="https://github.com/dumiya123/SDGP_Group_41_Boolean_Autocrats/blob/main/README-images/SaveNest_Logo.png" alt="Savenest" height="200" width="200">
 
 
 ###### TEAM MEMBERS
