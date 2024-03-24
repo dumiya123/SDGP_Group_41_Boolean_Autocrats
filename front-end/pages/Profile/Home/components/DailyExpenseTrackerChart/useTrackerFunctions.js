@@ -1,4 +1,4 @@
-const ipAddress = "192.168.1.6";
+const ipAddress = "192.168.1.3";
 import { useState } from "react";
 
 const useTrackerFunctions = () => {
@@ -19,6 +19,8 @@ const useTrackerFunctions = () => {
         }
       );
 
+      console.log(response, "this");
+
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -30,12 +32,26 @@ const useTrackerFunctions = () => {
       const amountArray = expensesDetails.map((expense) => expense.amount);
       console.log(amountArray, "sas");
 
+      // Create an array with 10 zeros
+      let arrayToAdded = Array(10).fill("0");
+
+      console.log(reversedAmountArray, "reverse");
+
+      if (amountArray.length !== 0) {
+        // Replace zeros in arrayToAdded with elements from reversedAmountArray
+        amountArray.forEach((amount, index) => {
+          arrayToAdded[index] = amount;
+        });
+      }
+      console.log(arrayToAdded, "arrayToAdded");
+      // Reverse the amountArray
+      let reversedAmountArray = arrayToAdded.reverse();
       // Construct WeeklyExpenseData object
       const WeeklyExpenseData = {
-        labels: ["1", "2", "3", "4", "5"],
+        labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
         datasets: [
           {
-            data: amountArray,
+            data: reversedAmountArray,
           },
         ],
         legend: ["Daily Expenses for the past 10 days"],

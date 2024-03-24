@@ -1,24 +1,36 @@
-import { Dimensions, StyleSheet, View, Text } from "react-native";
+import React, { useState, useEffect } from "react";
+import {
+  Dimensions,
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import { chartConfig } from "./config";
-import { useState, useEffect } from "react";
 import useTrackerFunctions from "./useTrackerFunctions";
 
 const screenWidth = Dimensions.get("window").width;
 
 const DailyExpenseTrackerChart = () => {
   const [chartParentWidth, setChartParentWidth] = useState(0);
-
+  const [refreshing, setRefreshing] = useState(false);
   const { getAmountArrayFromExpenses, weeklyExpenseData } =
     useTrackerFunctions();
 
   useEffect(() => {
     console.log(weeklyExpenseData);
-    if (Object.keys(weeklyExpenseData).length === 0) {
-      console.log("dfdf");
+    if (Object.keys(weeklyExpenseData).length === 0 && !refreshing) {
+      console.log("Fetching data...");
       getAmountArrayFromExpenses();
     }
-  }, [weeklyExpenseData]);
+  }, [weeklyExpenseData, refreshing]);
+
+  const handleRefresh = () => {
+    setRefreshing(true);
+    getAmountArrayFromExpenses();
+    setRefreshing(false);
+  };
 
   return (
     <View
@@ -27,28 +39,56 @@ const DailyExpenseTrackerChart = () => {
         setChartParentWidth(nativeEvent.layout.width)
       }
     >
-      <Text style={styles.titleText}>{"Daily Exenses"}</Text>
-      <LineChart
-        data={weeklyExpenseData}
-        width={chartParentWidth - 20}
-        height={220}
-        chartConfig={chartConfig}
-        bezier
-        style={{
-          borderRadius: 30,
-        }}
-      />
+      <Text style={styles.titleText}>{"Daily Expenses"}</Text>
+      {Object.keys(weeklyExpenseData).length !== 0 && (
+        <>
+          <Text style={styles.titleText}>{"Daily Expenses"}</Text>
+          {weeklyExpenseData.datasets[0].data[
+            weeklyExpenseData.datasets[0].data.length - 1
+          ] !== "0" ? (
+            <LineChart
+              data={weeklyExpenseData}
+              width={chartParentWidth - 20}
+              height={220}
+              chartConfig={chartConfig}
+              bezier
+              style={{
+                borderRadius: 30,
+              }}
+            />
+          ) : (
+            <Text style={styles.titleText}>{"No Expense History"}</Text>
+          )}
+        </>
+      )}
+      {/* {Object.keys(weeklyExpenseData).length !== 0 ? (
+        <LineChart
+          data={weeklyExpenseData}
+          width={chartParentWidth - 20}
+          height={220}
+          chartConfig={chartConfig}
+          bezier
+          style={{
+            borderRadius: 30,
+          }}
+        />
+      ) : (
+        <Text style={styles.titleText}>{"No Expense History"}</Text>
+      )} */}
+      <TouchableOpacity style={styles.button} onPress={() => handleRefresh()}>
+        <View style={styles.contentWrapper}>
+          <Text style={styles.buttonText}>{"Refresh Data"}</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
+    flex: 1,
     justifyContent: "center",
-    alignSelf: "flex-start",
     alignItems: "center",
-    height: 350,
     margin: 10,
     backgroundColor: "#CCD3CA",
     paddingHorizontal: 10,
@@ -60,8 +100,24 @@ const styles = StyleSheet.create({
     color: "#092635",
     fontSize: 30,
     fontWeight: "900",
-    alignSelf: "flex-start",
     marginBottom: 15,
+  },
+  button: {
+    backgroundColor: "green",
+    width: 200,
+    borderRadius: 10,
+    alignSelf: "center",
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  buttonText: {
+    flex: 1,
+    alignSelf: "center",
+    color: "white",
+    fontSize: 18,
+    fontWeight: "600",
+    marginTop: 11,
   },
 });
 
