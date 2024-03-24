@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Text, View, ScrollView, TouchableOpacity, Alert } from "react-native";
 import styles from "./ExpensesStyle";
 import { Calendar } from "react-native-calendars";
+import IP_ADDRESS from "../../../config";
 
 const Expenses = () => {
   const [selectedDate, setSelectedDate] = useState(""); // State variable to hold the selected date

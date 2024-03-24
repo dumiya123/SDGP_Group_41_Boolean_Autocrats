@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
+import IP_ADDRESS from "../../config";
 
 const useSignUpFunctions = () => {
   const navigation = useNavigation();
@@ -24,7 +25,7 @@ const useSignUpFunctions = () => {
         body: JSON.stringify({
           username: userName.trim(),
           email: email.trim(),
-          password: password,
+          password: password.trim(),
         }),
       });
 

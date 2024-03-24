@@ -1,15 +1,18 @@
+const ipAddress = "192.168.1.6"; // Variable for IP address
+
 export const handleBudgetUpdate = async (receiptDetails) => {
+  console.log("efe", receiptDetails);
   try {
-    const response = await fetch(`http://192.168.1.10:8080/user/updateBudget`, {
+    const response = await fetch(`http://${ipAddress}:8080/user/updateBudget`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: receiptDetails,
+      body: JSON.stringify(receiptDetails),
     });
     const data = await response.json();
     if (response.ok) {
-      console.log("Update successful");
+      console.log(data);
     } else {
       console.error("Update failed:", data.message);
     }

@@ -1,6 +1,6 @@
 import { OpenAI } from "openai";
 
-const OPENAI_API_KEY = "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";
+const OPENAI_API_KEY = "";
 // Set your OpenAI API key here
 const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
 
@@ -30,24 +30,22 @@ async function handleReceiptUpload(imageUri, categories) {
     console.log(responseJson);
 
     const items = responseJson.receipts[0].items;
-    const merchantName = responseJson.receipts[0].merchant_name;
-    const subTotal = responseJson.receipts[0].subtotal;
-    const tax = responseJson.receipts[0].tax;
-    const total = responseJson.receipts[0].total;
 
-    if (responseJson) {
+    if (items) {
       // Call ChatGPT to categorize items
       const itemCategories = await Promise.all(
         items.map(async (item) => {
           const prompt = `Categorize "${
             item.description
-          }" into one of the following categories: ${categories.join(", ")}`;
-          console.log(prompt);
+          }" into one of the following categories: ${categories.join(
+            ", "
+          )} only give the category as response. do not give any other response. if no category matches return "other", there might be some spelling mistakes in the items, for example carrot can be carpot, guess the most suitable name`;
+          console.log("ff", prompt);
           const response = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
             messages: [
               {
-                role: "system",
+                role: "user",
                 content: prompt,
               },
             ],
@@ -55,8 +53,8 @@ async function handleReceiptUpload(imageUri, categories) {
             n: 1,
             temperature: 0.7,
           });
-          console.log(response);
-          return response[0].text.trim();
+          console.log(response.choices[0].message.content);
+          return response.choices[0].message.content.trim();
         })
       );
       return {
@@ -64,10 +62,6 @@ async function handleReceiptUpload(imageUri, categories) {
           ...item,
           category: itemCategories[index],
         })),
-        merchantName,
-        subTotal,
-        tax,
-        total,
       };
     }
   } catch (error) {
