@@ -1,5 +1,5 @@
 # *“SaveNest”*
-## *A Streamlined Finance Management Mobile Application: Accessible for Finance Enthusiasts *<br>
+## *A Streamlined Finance Management Mobile Application: Accessible for Finance Enthusiasts*<br>
 ### @copyright SE-41 Team Boolean_Autocrats - Software Development Group Project- Informatics Institute of Technology affiliated with the University of Westminster, UK.
 <br>
 
