@@ -146,3 +146,5 @@ def predict_stock_price(company):
     
     return prediction, image_url
 
+predict_stock_price("NFLX")
+
