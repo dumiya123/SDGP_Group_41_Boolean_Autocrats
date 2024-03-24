@@ -56,6 +56,8 @@ import Pharmacy from "../pages/Profile/Add/Pharmacy/pharmacy";
 import Entertainment from "../pages/Profile/Add/Entertainment/entertainment";
 import Education from "../pages/Profile/Add/Education/education";
 
+import ManuallyUpdateBudget from "../pages/Profile/Home/components/ManualyUpdateBudget/manuallyUpdateDropDown"
+
 //Entertainment, Education
 
 import { useNavigation } from "@react-navigation/native";
@@ -132,6 +134,12 @@ const AuthStackNavigator = () => {
         name="NO BUDGET PAGE"
         component={budgetConfigurations}
         options={{ headerShown: false }}
+      />
+      
+      <Stack.Screen
+        name="Update Expenses"
+        component={ManuallyUpdateBudget}
+        options={{ headerShown: true, headerBackTitleVisible: false  }}
       />
 
       <Stack.Screen
