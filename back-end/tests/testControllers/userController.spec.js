@@ -23,12 +23,11 @@ jest.mock("../../models", () => {
 });
 
 describe("User Controller", () => {
-  // Test case for signUp function
-  describe("signUp", () => {
-    beforeEach(() => {
-      jest.resetModules();
-    });
+  beforeEach(() => {
+    jest.resetModules();
+  });
 
+  describe("signUp", () => {
     it("should create a new user", async () => {
       const req = {
         body: {
@@ -65,7 +64,67 @@ describe("User Controller", () => {
 
       expect(res.send).toHaveBeenCalledWith(expectedResponse);
     });
-  });
 
-  // Other test cases for other functions in the controller can be added similarly
+    it("should create a new user if the username does not already exist", async () => {
+      const req = {
+        body: {
+          username: "newuser",
+          email: "newuser@example.com",
+          password: "password123",
+        },
+      };
+      const res = {
+        send: jest.fn(),
+      };
+
+      const mockUser = null; // User does not exist
+
+      User.findOne = jest.fn().mockResolvedValue(mockUser);
+      User.create = jest.fn().mockResolvedValue(null);
+
+      const expectedResponse = "Profile created successfully";
+
+      await userController.signUp(req, res);
+
+      expect(User.findOne).toHaveBeenCalledWith({
+        where: { username: "newuser" },
+      });
+      expect(User.create).toHaveBeenCalledWith({
+        username: "newuser",
+        email: "newuser@example.com",
+        password: expect.any(String), // Ensure it's a hashed password
+      });
+      expect(res.send).toHaveBeenCalledWith(expectedResponse);
+    });
+
+    it("should return 'Username already exists' if the username already exists", async () => {
+      const req = {
+        body: {
+          username: "existinguser",
+          email: "existinguser@example.com",
+          password: "password123",
+        },
+      };
+      const res = {
+        send: jest.fn(),
+      };
+
+      const mockUser = {
+        username: "existinguser",
+        email: "existinguser@example.com",
+        password: bcrypt.hashSync("password123", 8), // Hashed password
+      };
+
+      User.findOne = jest.fn().mockResolvedValue(mockUser);
+
+      const expectedResponse = { message: "Username already exists" };
+
+      await userController.signUp(req, res);
+
+      expect(User.findOne).toHaveBeenCalledWith({
+        where: { username: "existinguser" },
+      });
+      expect(res.send).toHaveBeenCalledWith(expectedResponse);
+    });
+  });
 });
