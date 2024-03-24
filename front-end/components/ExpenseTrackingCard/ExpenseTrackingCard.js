@@ -38,7 +38,7 @@ const ExpenseTrackingCard = (props) => {
         <View style={styles.bottomContainer}>
           <View style={styles.amountContainer}>
             <Ionicons name="wallet" color="#FFFFFF" size={15} />
-            <Text style={styles.amountText}>{`Rs. ${setBudget}`}</Text>
+            <Text style={styles.amountText}>{`$ ${setBudget}`}</Text>
           </View>
           <View style={styles.amountContainer}>
             <Ionicons
@@ -47,7 +47,7 @@ const ExpenseTrackingCard = (props) => {
               size={15}
             />
             <Text style={[styles.amountText, { color: spentAmountTextColor }]}>
-              {`Rs. ${spentAmount}`}
+              {`$ ${spentAmount}`}
             </Text>
           </View>
         </View>
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 15,
     flexDirection: "column",
-    width: 180,
+    width: 175,
     height: 150,
     padding: 10,
     shadowColor: "black",

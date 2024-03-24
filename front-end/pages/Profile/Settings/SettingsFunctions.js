@@ -1,39 +1,30 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation } from '@react-navigation/native';
 
 const useSettingsFunctions = () => {
   const navigation = useNavigation();
 
-  const handleLogout = async () => {
-    try {
-      // Clear authentication tokens from AsyncStorage
-      await AsyncStorage.removeItem("accessToken");
-
-      // Navigate to the login screen
-      navigation.navigate("LOG IN");
-    } catch (error) {
-      console.error("Error clearing tokens:", error);
-    }
+  const handleLogout = () => {
+    console.log("User logged out");
   };
 
   const handleEditProfile = () => {
-    navigation.navigate("Profile Settings");
+    navigation.navigate('Profile Settings');
   };
-
   const handlePushNotifications = () => {
-    navigation.navigate("Push Notifications");
+    navigation.navigate('Push Notifications');
   };
 
   const handleInviteFriends = () => {
-    navigation.navigate("Invite Friends");
+    navigation.navigate('Invite Friends');
   };
 
+
   const handleAbout = () => {
-    navigation.navigate("About Us");
+    navigation.navigate('About Us');
   };
 
   const handleHelpAndSupport = () => {
-    navigation.navigate("Help & Support");
+    navigation.navigate('Help & Support');
   };
 
   return {

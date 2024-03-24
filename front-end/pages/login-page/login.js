@@ -13,7 +13,7 @@ import SocialMediaButton from "../../components/SocialMediaButton";
 import Divider from "../../components/Divider";
 import LogoImg from "./login-images/B2.png";
 import GoogleIcon from "./login-images/google.png";
-import TwitterIcon from "./login-images/twitterIcon.png";
+import InstagramIcon from "./login-images/instagram.png";
 import FacebookIcon from "./login-images/fb.png";
 import useLoginFunctions from "./useLoginFunctions";
 import { useNavigation } from "@react-navigation/native";
@@ -33,7 +33,7 @@ const LoginScreen = () => {
     setLoading,
     handleGoogleSignIn,
     handleFacebookSignIn,
-    handleTwitterSignIn,
+    handleInstagramSignIn,
     handleLogin,
     handleSignUpClick,
   } = useLoginFunctions();
@@ -105,6 +105,23 @@ const LoginScreen = () => {
         icon="arrow-right"
         buttonColor={theme.colors.buttonSecond}
       />
+
+      {/* <TouchableOpacity
+        onPress={() => navigation.navigate("Verification Email")}
+        style={{ alignItems: "flex-end", marginRight: 10 }}
+      >
+        <Text
+          style={{
+            color: "rgb(93, 93, 93)",
+            fontSize: 14,
+            marginTop: 20,
+            paddingLeft:Dimensions.get('window').width-360
+        
+          }}
+        >
+          Forget your password?
+        </Text>
+      </TouchableOpacity> */}
       <ForgetPasswordLink title={"Forget your password?"} style={{colour: 'midnghtblue'}}/>
       <Divider text="Or sign up with" />
 
@@ -114,13 +131,10 @@ const LoginScreen = () => {
           source={FacebookIcon}
           
         />
-        <SocialMediaButton 
-        onPress={handleGoogleSignIn} 
-        source={GoogleIcon} 
-        />
+        <SocialMediaButton onPress={handleGoogleSignIn} source={GoogleIcon} />
         <SocialMediaButton
-          onPress={handleTwitterSignIn}
-          source={TwitterIcon}
+          onPress={handleInstagramSignIn}
+          source={InstagramIcon}
         />
       </View>
 
