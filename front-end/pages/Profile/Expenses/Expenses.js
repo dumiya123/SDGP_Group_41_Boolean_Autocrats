@@ -8,14 +8,14 @@ const Expenses = () => {
   const [selectedDate, setSelectedDate] = useState(""); // State variable to hold the selected date
   const [expensesData, setExpensesData] = useState(null); // State variable to hold expenses data
 
-  const ipAddress = "192.168.1.10"; // Variable for IP address
+  const ipAddress = "192.168.1.6"; // Variable for IP address
 
   const onDateSelect = async (date) => {
     setSelectedDate(date.dateString); // Update the selected date
 
     try {
       const response = await fetch(
-        `http://192.168.1.2:8080/user/calenderExpenses`,
+        `http://${ipAddress}:8080/user/calenderExpenses`,
         {
           method: "POST",
           headers: {
