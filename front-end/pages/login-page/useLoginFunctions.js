@@ -11,7 +11,7 @@ const useLoginFunctions = () => {
   //@todo update URL after hosting
   //Replace this with your ipAddress
 
-  const ipAddress = "192.168.1.10";
+  const ipAddress = "192.168.8.126";
 
   const handleGoogleSignIn = () => {
     setLoading(true);
@@ -76,15 +76,17 @@ const useLoginFunctions = () => {
             },
           }
         );
+
+        // Fetch the budget for the user
         const budgetData = await budgetResponse.json();
 
         // Check if the user has a budget
-        if (budgetData.data.user.Budget === null) {
-          // If the user has no budget, navigate to a different page
-          navigation.navigate("NO BUDGET PAGE");
-        } else {
+        if (budgetData.data.Budget) {
           // If the user has a budget, navigate to the profile
           navigation.navigate("PROFILE");
+        } else {
+          // If the user has no budget, navigate to a different page
+          navigation.navigate("NO BUDGET PAGE");
         }
       }
     } catch (error) {

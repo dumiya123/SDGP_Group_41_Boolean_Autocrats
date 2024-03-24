@@ -49,6 +49,25 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
       });
+
+      Budget.hasMany(models.SelectedTransport, {
+        // Define one-to-many relationship with ExpensesTotal
+        foreignKey: "budgetId",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+      });
+      Budget.hasMany(models.SelectedMedicine, {
+        // Define one-to-many relationship with ExpensesTotal
+        foreignKey: "budgetId",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+      });
+      Budget.hasMany(models.SelectedEducation, {
+        // Define one-to-many relationship with ExpensesTotal
+        foreignKey: "budgetId",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+      });
     }
   }
   Budget.init(
@@ -58,13 +77,11 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      budgetname: DataTypes.STRING,
+      budgetName: DataTypes.STRING,
+      monthlyIncome: DataTypes.DOUBLE,
+      amountForBudget: DataTypes.DOUBLE,
+      spentBudget: DataTypes.DOUBLE,
       receiveAlerts: DataTypes.BOOLEAN,
-      totalAmount: {
-        type: DataTypes.DOUBLE,
-        allowNull: true,
-      },
-      remainingAmount: DataTypes.DOUBLE,
       userId: {
         type: DataTypes.INTEGER,
         foreignKey: true,

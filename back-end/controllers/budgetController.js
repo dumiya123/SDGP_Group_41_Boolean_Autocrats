@@ -6,6 +6,7 @@ const {
   SelectedMeat,
   SelectedBeverage,
   SelectedFrozenFood,
+  SelectedTransport,
   ExpensesTotal,
 } = require("../models");
 let selectedVegController = require("./selectedVegController");
@@ -31,6 +32,9 @@ async function getBudgets(req, res) {
             SelectedMeat,
             ExpensesTotal,
             SelectedBeverage,
+            SelectedTransport,
+            // SelectedEducation,
+            // SelectedMedicine,
             SelectedFrozenFood,
           ],
           // Include SelectedVeg model through Budget association
@@ -83,6 +87,7 @@ async function updateBudget(req, res) {
     const meat = req.body.Meat || [];
     const beverages = req.body.Beverages || [];
     const frozenfood = req.body.FrozenFood || [];
+    //const transport=req.body.Transport || [];
 
     let VegMessages = [];
     let FishMessages = [];
@@ -155,15 +160,21 @@ async function createBudget(req, res) {
     }
 
     // Extract the necessary data from req.body
-    const { budgetname, receiveAlerts, totalAmount, remainingAmount } =
-      req.body;
+    const {
+      budgetname,
+      receiveAlerts,
+      amountForBudget,
+      spentBudget,
+      monthlyIncome,
+    } = req.body;
 
     // Create the budget associated with the user
     const budget = await Budget.create({
-      budgetname: budgetname,
+      budgetName: budgetname,
       receiveAlerts: receiveAlerts,
-      totalAmount: totalAmount,
-      remainingAmount: remainingAmount,
+      amountForBudget: amountForBudget,
+      spentBudget: spentBudget,
+      monthlyIncome: monthlyIncome,
       userId: userId, // Set the userId to associate the budget with the user
     });
 

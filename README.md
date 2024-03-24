@@ -1,5 +1,5 @@
 # *“SaveNest”*
-## *A Budget Planning application specifically created for Sri Lankan People*<br>
+## *A Streamlined Finance Management Mobile Application: Accessible for Anyone *<br>
 ### @copyright SE-41 Team Boolean_Autocrats - Software Development Group Project- Informatics Institute of Technology affiliated with the University of Westminster, UK.
 <br>
 
@@ -9,20 +9,20 @@
 
 ###### TEAM MEMBERS
 
->+ Dumindu Induwara Gamage(TL)      -20221168  <br>
->+ Rajeen Balasooriya                -20220175  <br>
+>+ Dumindu Induwara Gamage(TL)       -20221168 <br>
+>+ Rajeen Balasooriya                -20220175 <br>
 >+ Savin Pathirana                   -20222009 <br>
 >+ Sakith Dissanayaka                -20221409 <br>
 >+ Himan Welgama                     -20221109 <br>
->+ Kavindu Yapa                      -20210673 <br>
+>+ Kavindu Hasaranga Yapa            -20210673 <br>
 
 ## Project Description
 
 ### Overview:
 
-Living in a country with economic problems makes it difficult to save money and manage daily expenses, as prices are constantly changing. This requires frequent adjustments to budgets, which can be time-consuming and discouraging. Many people are too busy to keep their budgets up to date, which leads to poor spending habits. People often lose sight of their financial priorities when they are spending money, which can lead to them taking out loans and other forms of debt. In summary, the following are the challenges of saving money in a country with economic problems.
-SaveNest is a cutting-edge budget planning mobile application designed to empower users with efficient financial management, allowing them to achieve their financial goals and aspirations. In today's fast-paced lifestyle, managing finances can be challenging, and SaveNest aims to simplify this process by providing a user-friendly platform tailored for budget planning.
-Through this application, users can easily manage their budget efficiently.
+Living in a country with economic problems makes it difficult to save money and manage daily expenses, as prices are constantly changing. This requires frequent adjustments to budgets, which can be time-consuming and discouraging. Many people are too busy to keep their budgets up to date, which leads to poor spending habits. People often lose sight of their financial priorities when they are spending money, which can lead to them taking out loans and other forms of debt. In summary, the following are the challenges of saving money in a country with economic problems. SaveNest is a cutting-edge budget planning mobile application designed to empower users with efficient financial management, allowing them to achieve their financial goals and aspirations. In today's fast-paced lifestyle, managing finances can be challenging, and SaveNest aims to simplify this process by providing a user-friendly platform tailored for budget planning.Through this application, users can easily manage their budget efficiently.
+
+
 
 ### Functionality Diagram<br><br>
 
@@ -47,13 +47,13 @@ Through this application, users can easily manage their budget efficiently.
 
 ## Use Case Diagram <br><br>
 
-<img src="https://github.com/dumiya123/SDGP_Group_41_Boolean_Autocrats/blob/main/README-images/Use_Case_Diagram.jpg" alt="Savenest" height="800" width="700">
+<img src="https://github.com/dumiya123/SDGP_Group_41_Boolean_Autocrats/blob/main/README-images/Use_Case_Diagram.jpg" alt="Savenest" height="1000" width="800">
 
 ### Used Technologies and Softwares
 
 #### Languages<br>
 
-> 1. Python (V3.12.1) - For Machine Learning and Image processing purposes.
+> 1. Python (V3.12.1) - For Machine Learning purposes.
 > 2. JavaScript (ECMAScript 2023) - Backend (for accuracy reflecting the current official version)
 > 3. React-Native - For Mobile application development
 > 4. Java (V16) - For Mobile application development
@@ -78,6 +78,9 @@ Through this application, users can easily manage their budget efficiently.
 > 2. Google Accounts Authentication API - For sign in with Google account
 > 3. Twitter API - For sign in with Twitter account
 > 4. REST API - The REST API lets you interact with Parse Server from anything that can send an HTTP request.
+> 5. Yahoo Finance API - This API is used to get data related to stocks for the machine learning algorithm.
+> 6. Asprise API - This API is used for the OCR function.
+
 
 #### Database
 
@@ -134,7 +137,7 @@ This guide outlines two approaches to setting up your React Native development e
 
 ## Contributing
 
-Contributions are welcome! Please follow our [contribution guidelines](CONTRIBUTING.md) to get started.
+Contributions are welcome! Please follow our [contribution guidelines](CONTRIBUTORS.md) to get started.
 
 ## License
 
