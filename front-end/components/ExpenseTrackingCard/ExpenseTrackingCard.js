@@ -1,12 +1,7 @@
 import React from "react";
-import {
-  View,
-  Text,
-  ImageBackground,
-  StyleSheet,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
 
 const ExpenseTrackingCard = (props) => {
   const { expenseType, topIconName, setBudget, spentAmount, onPress } = props;
@@ -22,12 +17,14 @@ const ExpenseTrackingCard = (props) => {
   }
 
   return (
-    <ImageBackground
-      source={require("./abstract-gradient-neon-lights.jpg")}
-      style={styles.card}
-    >
-      <TouchableOpacity onPress={onPress}>
-        <View style={styles.topContainer}>
+    <TouchableOpacity onPress={onPress}>
+      <LinearGradient
+        colors={["black", "#1B5E20", "#66BB6A"]}
+        style={styles.card}
+        start={{ x: 0, y: 1 }}
+        end={{ x: 1, y: 0 }}
+      >
+        <View style={styles.container}>
           <View style={styles.iconContainer}>
             <Ionicons
               name={topIconName}
@@ -54,8 +51,8 @@ const ExpenseTrackingCard = (props) => {
             </Text>
           </View>
         </View>
-      </TouchableOpacity>
-    </ImageBackground>
+      </LinearGradient>
+    </TouchableOpacity>
   );
 };
 
@@ -64,7 +61,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 15,
     flexDirection: "column",
-    width: 150,
+    width: 175,
     height: 150,
     padding: 10,
     shadowColor: "black",
@@ -76,29 +73,24 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     overflow: "hidden",
   },
-  topContainer: {
-    flex: 3,
-    flexDirection: "column",
+  container: {
+    flex: 1,
+    flexDirection: "row",
     alignItems: "center",
     marginTop: 18,
   },
-  iconContainer: {
-    alignSelf: "center",
-  },
+
   bottomContainer: {
     flex: 1,
-    alignSelf: "center",
+    alignSelf: "stretch",
     alignItems: "center",
     flexDirection: "row",
-    marginBottom: 10,
-    marginLeft: 28,
-    marginRight: 10,
+    justifyContent: "space-between",
     paddingHorizontal: 10,
   },
   amountContainer: {
-    alignSelf: "center",
-    alignItems: "center",
     flexDirection: "row",
+    alignItems: "center",
     marginVertical: 3,
   },
   titleText: {
@@ -106,9 +98,9 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 20,
     fontWeight: "900",
+    marginLeft: 15,
   },
   amountText: {
-    flex: 1,
     color: "#FFFFFF",
     fontSize: 14,
     fontWeight: "700",

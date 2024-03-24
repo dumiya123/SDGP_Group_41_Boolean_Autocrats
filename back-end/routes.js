@@ -76,4 +76,8 @@ router
   .route("/addEducation")
   .post(verifyToken, selectedEducationController.addEducation);
 
+router
+  .route("/getExpensesForDateRange")
+  .get(verifyToken, expensesTotalController.getExpensesForDateRange);
+
 module.exports = router;
