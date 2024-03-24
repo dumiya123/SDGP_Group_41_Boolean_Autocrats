@@ -35,7 +35,6 @@ import budgetConfigurations from "../pages/Profile/configure_budget/Budget_confi
 
 //navigate settings page
 import EditProfile from "../pages/Profile/Settings/SettingsScreens/EditProfile/editProfile";
-import PushNotifications from "../pages/Profile/Settings/SettingsScreens/PushNotifications/pushNotifications";
 import InviteFriends from "../pages/Profile/Settings/SettingsScreens/InviteFriends/inviteFriends";
 import About from "../pages/Profile/Settings/SettingsScreens/About/about";
 import HelpAndSupport from "../pages/Profile/Settings/SettingsScreens/HelpAndSupport/helpAndSupport";
@@ -55,6 +54,8 @@ import Transports from "../pages/Profile/Add/Transports/transports";
 import Pharmacy from "../pages/Profile/Add/Pharmacy/pharmacy";
 import Entertainment from "../pages/Profile/Add/Entertainment/entertainment";
 import Education from "../pages/Profile/Add/Education/education";
+
+import ManuallyUpdateBudget from "../pages/Profile/Home/components/ManualyUpdateBudget/manuallyUpdateDropDown"
 
 //Entertainment, Education
 
@@ -98,9 +99,9 @@ const AuthStackNavigator = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="FOODSCREEN"
+        name="Foods"
         component={ExploreFoodScreen}
-        options={{ headerShown: false }}
+        options={{ headerShown: true, headerBackTitleVisible: false   }}
       />
       <Stack.Screen
         name="VEGETABLESSCREEN"
@@ -132,6 +133,12 @@ const AuthStackNavigator = () => {
         name="NO BUDGET PAGE"
         component={budgetConfigurations}
         options={{ headerShown: false }}
+      />
+      
+      <Stack.Screen
+        name="Update Expenses"
+        component={ManuallyUpdateBudget}
+        options={{ headerShown: true, headerBackTitleVisible: false  }}
       />
 
       <Stack.Screen
@@ -210,12 +217,6 @@ const AuthStackNavigator = () => {
         name="Confirm Password"
         component={ConfirmPasswordScreen}
         options={{ headerShown: false }}
-      />
-
-      <Stack.Screen
-        name="Push Notifications"
-        component={PushNotifications}
-        options={{ headerShown: true, headerBackTitleVisible: false }}
       />
       <Stack.Screen
         name="Invite Friends"

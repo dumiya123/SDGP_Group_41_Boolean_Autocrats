@@ -1,12 +1,17 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { View, StyleSheet, Text, ScrollView, Dimensions } from "react-native";
 import ExpenseTrackingCard from "./../../../../../components/ExpenseTrackingCard/ExpenseTrackingCard";
-import { mockCardProps } from "./mockCardProps";
+import useCarouselData, { mockCardProps } from "./useCarouselData";
 
 const screenWidth = Dimensions.get("window").width;
 
 const ExpenseTrackerCarousel = () => {
   const carouselRef = useRef(null);
+
+  const { getExpenseData, carouselData } = useCarouselData();
+  useEffect(() => {
+    getExpenseData();
+  });
 
   return (
     <View style={styles.container}>
@@ -21,7 +26,7 @@ const ExpenseTrackerCarousel = () => {
         ref={carouselRef}
         contentContainerStyle={styles.scrollViewContent}
       >
-        {mockCardProps.map((item, index) => (
+        {carouselData.map((item, index) => (
           <View style={styles.item} key={index}>
             <ExpenseTrackingCard {...item} />
           </View>
@@ -57,7 +62,7 @@ const styles = StyleSheet.create({
   },
   item: {
     alignSelf: "center",
-    width: 180,
+    width: 200,
   },
 });
 

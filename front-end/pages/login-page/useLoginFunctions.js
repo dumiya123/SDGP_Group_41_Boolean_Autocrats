@@ -11,7 +11,7 @@ const useLoginFunctions = () => {
   //@todo update URL after hosting
   //Replace this with your ipAddress
 
-  const ipAddress = "192.168.8.126";
+  const ipAddress = "192.168.1.13";
 
   const handleGoogleSignIn = () => {
     setLoading(true);
@@ -29,10 +29,10 @@ const useLoginFunctions = () => {
     }, 2000);
   };
 
-  const handleInstagramSignIn = () => {
+  const handleTwitterSignIn = () => {
     setLoading(true);
     setTimeout(() => {
-      console.log("Instagram sign-in completed");
+      console.log("Twitter sign-in completed");
       setLoading(false);
     }, 2000);
   };
@@ -113,7 +113,7 @@ const useLoginFunctions = () => {
     setLoading,
     handleGoogleSignIn,
     handleFacebookSignIn,
-    handleInstagramSignIn,
+    handleTwitterSignIn,
     handleSignUpClick,
     handleTextClick,
     handleLogin,

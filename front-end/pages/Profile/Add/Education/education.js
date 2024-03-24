@@ -14,7 +14,7 @@ const EducationScreen = () => {
     percentage: 0,
   });
 
-  const ipAddress = "192.168.8.126";
+  const ipAddress = "192.168.1.13";
 
   useEffect(() => {
     const fetchData = async () => {
