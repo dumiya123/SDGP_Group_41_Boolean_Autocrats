@@ -1,12 +1,29 @@
 import { Dimensions, StyleSheet, View, Text } from "react-native";
 import { LineChart } from "react-native-chart-kit";
-import { chartConfig, WeeklyExpenseData } from "./config";
-import { useState } from "react";
+import { chartConfig } from "./config";
+import { useState, useEffect } from "react";
+import { getAmountArrayFromExpenses } from "./trackerFunctions";
 
 const screenWidth = Dimensions.get("window").width;
 
 const DailyExpenseTrackerChart = () => {
   const [chartParentWidth, setChartParentWidth] = useState(0);
+  const [weeklyExpenseData, setWeeklyExpenseData] = useState({});
+  useEffect(() => {
+    console.log("useEffect hook is running...");
+
+    const fetchWeeklyExpenseData = async () => {
+      try {
+        const data = await getAmountArrayFromExpenses();
+        console.log(data, "data");
+        setWeeklyExpenseData(data); // Extracting data array from the datasets object
+      } catch (error) {
+        console.error("Error fetching weekly expense data:", error);
+      }
+    };
+
+    fetchWeeklyExpenseData();
+  }, []);
 
   return (
     <View
@@ -17,7 +34,7 @@ const DailyExpenseTrackerChart = () => {
     >
       <Text style={styles.titleText}>{"Daily Expenses"}</Text>
       <LineChart
-        data={WeeklyExpenseData}
+        data={weeklyExpenseData}
         width={chartParentWidth - 20}
         height={220}
         chartConfig={chartConfig}
