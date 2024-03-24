@@ -42,7 +42,6 @@ const DailyExpenseTrackerChart = () => {
       <Text style={styles.titleText}>{"Daily Expenses"}</Text>
       {Object.keys(weeklyExpenseData).length !== 0 && (
         <>
-          <Text style={styles.titleText}>{"Daily Expenses"}</Text>
           {weeklyExpenseData.datasets[0].data[
             weeklyExpenseData.datasets[0].data.length - 1
           ] !== "0" ? (
@@ -61,20 +60,7 @@ const DailyExpenseTrackerChart = () => {
           )}
         </>
       )}
-      {/* {Object.keys(weeklyExpenseData).length !== 0 ? (
-        <LineChart
-          data={weeklyExpenseData}
-          width={chartParentWidth - 20}
-          height={220}
-          chartConfig={chartConfig}
-          bezier
-          style={{
-            borderRadius: 30,
-          }}
-        />
-      ) : (
-        <Text style={styles.titleText}>{"No Expense History"}</Text>
-      )} */}
+
       <TouchableOpacity style={styles.button} onPress={() => handleRefresh()}>
         <View style={styles.contentWrapper}>
           <Text style={styles.buttonText}>{"Refresh Data"}</Text>
@@ -90,34 +76,53 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     margin: 10,
-    backgroundColor: "#CCD3CA",
+    backgroundColor: "#F1F3F4",
     paddingHorizontal: 10,
     paddingBottom: 20,
     borderRadius: 10,
     width: screenWidth - 20,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   titleText: {
-    color: "#092635",
-    fontSize: 30,
-    fontWeight: "900",
+    color: "#46523C",
+    marginTop: 10,
+    fontFamily: "Helvetica",
+    fontSize: 20,
+    fontWeight: "700",
     marginBottom: 15,
   },
   button: {
     backgroundColor: "green",
-    width: 200,
+    width: 150,
     borderRadius: 10,
     alignSelf: "center",
-    height: 50,
+    height: 25,
     alignItems: "center",
     justifyContent: "center",
+    marginTop: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   buttonText: {
     flex: 1,
     alignSelf: "center",
     color: "white",
-    fontSize: 18,
+    fontSize: 12,
     fontWeight: "600",
-    marginTop: 11,
+    marginTop: 5,
   },
 });
 
