@@ -85,13 +85,6 @@ const styles = StyleSheet.create({
     paddingTop: 180,
     padding: 20,
   },
-  heading: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginBottom: 20,
-    textAlign: "center",
-    color: "#fff", // Make text color white for better visibility
-  },
   inputContainer: {
     marginBottom: 40,
   },
@@ -127,10 +120,9 @@ const styles = StyleSheet.create({
   submitButton: {
     backgroundColor: "green",
     borderRadius: 15,
-    padding: 10, // Decreased padding
+    padding: 10,
     alignItems: "center",
-    alignSelf: "center", // Align to center horizontally
-    width: 200, // Set a fixed width
+    alignSelf: "center",
   },
   submitButtonText: {
     color: "white",
