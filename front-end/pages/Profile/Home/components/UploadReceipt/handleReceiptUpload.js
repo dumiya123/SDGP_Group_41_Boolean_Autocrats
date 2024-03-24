@@ -29,14 +29,9 @@ async function handleReceiptUpload(imageUri, categories) {
     const responseJson = await response.json();
     console.log(responseJson);
 
-    const items = [{ description: "carrot", amount: "200" }];
-    // const items = responseJson.receipts[0].items;
-    const merchantName = responseJson.receipts[0].merchant_name;
-    const subTotal = responseJson.receipts[0].subtotal;
-    const tax = responseJson.receipts[0].tax;
-    const total = responseJson.receipts[0].total;
+    const items = responseJson.receipts[0].items;
 
-    if (responseJson) {
+    if (items) {
       // Call ChatGPT to categorize items
       const itemCategories = await Promise.all(
         items.map(async (item) => {
@@ -44,7 +39,7 @@ async function handleReceiptUpload(imageUri, categories) {
             item.description
           }" into one of the following categories: ${categories.join(
             ", "
-          )} only give the category as response. do not give any other response. if no category matches return "other"`;
+          )} only give the category as response. do not give any other response. if no category matches return "other", there might be some spelling mistakes in the items, for example carrot can be carpot, guess the most suitable name`;
           console.log("ff", prompt);
           const response = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
@@ -67,10 +62,6 @@ async function handleReceiptUpload(imageUri, categories) {
           ...item,
           category: itemCategories[index],
         })),
-        merchantName,
-        subTotal,
-        tax,
-        total,
       };
     }
   } catch (error) {
