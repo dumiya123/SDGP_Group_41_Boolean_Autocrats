@@ -100,9 +100,9 @@ const AuthStackNavigator = () => {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="FOODSCREEN"
+        name="Foods"
         component={ExploreFoodScreen}
-        options={{ headerShown: false }}
+        options={{ headerShown: true, headerBackTitleVisible: false   }}
       />
       <Stack.Screen
         name="VEGETABLESSCREEN"

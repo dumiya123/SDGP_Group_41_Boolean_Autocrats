@@ -12,7 +12,7 @@ const Add = () => {
     offText: "Time to add your favorite food!",
     onClicked: () => {
       console.log("Buy now button clicked for Card 1!");
-      navigation.navigate("FOODSCREEN");
+      navigation.navigate("Foods");
     },
   };
 
