@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Save Nest</title>
+    <link rel="icon" type="image/x-icon" href="media/Logo.png"> 
+    <link rel="stylesheet" href="team.css"/>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+
+
+    <nav id = top>
+      <img src="media/Logo.png" class="logo">
+      <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="about_us.html">About Us</a></li>
+          <li><a href="specification.html">Specification</a></li>
+          <li><a href="Our_team.html">Our Team</a></li>
+          <li><a href="commentform.html">Feedback</a></li>
+      </ul>
+    </nav>
+
+
+  
+    <section class="slider-container">
+      <div class="slider-images">
+        <div class="slider-img active">
+          <img src="media/dumindu.jpg"/>
+          <h1>Dumindu</h1>
+          <div class="details">
+            <h2>Dumindu Gamage</h2>
+            <p>Team Leader<br> I'm a software engineering student at University of Westminster who is passionate about making open-source, more accessible softwares and web applications.</p>
+          </div>
+        </div>
+        <div class="slider-img">
+          <img src="media/rajeen.jpg"/>
+          <h1>Rajeen</h1>
+          <div class="details">
+            <h2>Rajeen Balasooriya</h2>
+            <p>Backend Dev<br> Backend developer enthusiast at Westminster University, adept at crafting scalable solutions and optimizing server-side functionality for seamless user experiences.</p>
+          </div>
+        </div>
+        <div class="slider-img">
+          <img src="media/savin.jpg"/>
+          <h1>Savin</h1>
+          <div class="details">
+            <h2>Savin Pathirana</h2>
+            <p>ML Dev<br> I'm a Westminster University software engineering student passionate about using machine learning to make open-source software and web apps more accessible. I aim to innovate and empower diverse communities through technology."</p>
+          </div>
+        </div>
+        <div class="slider-img">
+          <img src="media/kavindu.jpg"/>
+          <h1>kavindu</h1>
+          <div class="details">
+            <h2>kavindu Yapa</h2>
+            <p>Backend Dev<br> I'm a Westminster University undergraduate passionate about backend development, dedicated to building robust and efficient server-side solutions for impactful software projects</p>
+          </div>
+        </div>
+        <div class="slider-img">
+          <img src="media/sakith.jpg"/>
+          <h1>Sakith</h1>
+          <div class="details">
+            <h2>Sakith Dissanayaka</h2>
+            <p>Web Dev<br> Aspiring software engineering student at Westminster University, dedicated to innovation and problem-solving in the tech industry. Passionate about software development. </p>
+          </div>
+        </div>
+        <div class="slider-img">
+          <img src="media/himan.jpg"/>
+          <h1>Himan</h1>
+          <div class="details">
+            <h2>Himan Welgama</h2>
+            <p>Fullstack Dev<br> I am a second-year software engineering undergraduate student with a foundational understanding of HTML, CSS, 
+              JavaScript, React Native, Java and OPP concepts.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="js/jQuery.js"></script>
+    <script>
+      jQuery(document).ready(function ($) {
+        $(".slider-img").on("click", function () {
+          $(".slider-img").removeClass("active");
+          $(this).addClass("active");
+        });
+      });
+    </script>
+
+
+    <footer> <!-- footer -->
+      <div class="footer">
+        <p>&copy; 2023 Save Nest</p> 
+        <nav id = bot>
+          <a href="about.html">About</a> | <!-- links to the about page -->
+          <a href="contact.html">Contact</a> |  <!-- links to the contact page -->
+          <a href="privacy.html">Privacy Policy</a> |  <!-- links to privacy policy page -->
+          <a href="terms.html">Terms of Service</a>  <!-- links to terms of service page -->
+        </nav>
+      </div>
+      <div class="socialicons"> <!-- social media icons -->
+        <a href="https://www.facebook.com"> <!-- links to facebook -->
+          <img src="media/facebook.png" alt="facebook">
+        </a>
+        <a href="https://twitter.com"> <!-- links to twitter -->
+          <img src="media/twitter.png" alt="twitter">
+        </a>
+        <a href="https://www.instagram.com"> <!-- links to instagram -->
+          <img src="media/instagram.png" alt="instagram">
+        </a>
+      </div>
+      <div class="backtotop"> <!-- back to top function -->
+        <a href="#">
+            <img src="media/arrowhead-up.png" alt="back to top">
+        </a>
+      </div>
+      
+    </footer>
+  </body>
+</html>
