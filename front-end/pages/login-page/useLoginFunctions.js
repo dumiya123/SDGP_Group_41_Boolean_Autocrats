@@ -29,10 +29,10 @@ const useLoginFunctions = () => {
     }, 2000);
   };
 
-  const handleTwitterSignIn = () => {
+  const handleInstagramSignIn = () => {
     setLoading(true);
     setTimeout(() => {
-      console.log("Twitter sign-in completed");
+      console.log("Instagram sign-in completed");
       setLoading(false);
     }, 2000);
   };
@@ -113,7 +113,7 @@ const useLoginFunctions = () => {
     setLoading,
     handleGoogleSignIn,
     handleFacebookSignIn,
-    handleTwitterSignIn,
+    handleInstagramSignIn,
     handleSignUpClick,
     handleTextClick,
     handleLogin,

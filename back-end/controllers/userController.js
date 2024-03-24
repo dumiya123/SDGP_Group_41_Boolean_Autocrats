@@ -3,24 +3,24 @@ const jwt = require("jsonwebtoken");
 const { User } = require("../models");
 let selectedVegController = require("./selectedVegController");
 
-function signUp(req, res) {
+async function signUp(req, res) {
   console.log("Received user data:", req.body);
 
   // Check if the username already exists
   const username = req.body.username;
-  User.findOne({ where: { username: username } })
-    .then((user) => {
-      if (user) {
-        res.send({ message: "Username already exists" });
-      } else {
-        // If the username does not exist, add the new user
-        addUser(req, res);
-      }
-    })
-    .catch((err) => {
-      console.error("Error during signup:", err);
-      res.status(500).send({ message: "Internal server error" });
-    });
+  const user = await User.findOne({ where: { username: username } });
+
+  try {
+    if (user) {
+      res.send({ message: "Username already exists" });
+    } else {
+      // If the username does not exist, add the new user
+      addUser(req, res);
+    }
+  } catch (err) {
+    console.error("Error during signup:", err);
+    res.status(500).send({ message: "Internal server error" });
+  }
 }
 
 async function signIn(req, res) {
@@ -138,10 +138,9 @@ async function changeUserData(req, res) {
     }
     if (req.body.supermarketName) {
       user.supermarketName = req.body.supermarketName;
-
-    }if (req.body.newPassword) {
+    }
+    if (req.body.newPassword) {
       user.password = bcrypt.hashSync(req.body.newPassword, 8);
-
     }
     // Save the updated user object to the database
     await user.save();
@@ -173,7 +172,9 @@ async function DeleteUserData(req, res) {
     if (req.body.password) {
       // Delete the user account
       await user.destroy();
-      return res.status(200).send({ message: "User account deleted successfully" });
+      return res
+        .status(200)
+        .send({ message: "User account deleted successfully" });
     }
 
     // Save the updated user object to the database
@@ -185,7 +186,6 @@ async function DeleteUserData(req, res) {
     res.status(500).send({ message: "Internal server error" });
   }
 }
-
 
 // Exporting each function separately
 module.exports.signUp = signUp;
