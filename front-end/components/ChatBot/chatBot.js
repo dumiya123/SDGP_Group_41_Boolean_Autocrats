@@ -1,42 +1,69 @@
-import React, { useState, useRef } from 'react';
-import { View, Text, TextInput, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import LottieView from 'lottie-react-native';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import React, { useState, useRef } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
+import LottieView from "lottie-react-native";
+import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 
-import ChatBotAnimation from '../../animations/chatBotAnimation.json';
+import ChatBotAnimation from "../../animations/chatBotAnimation.json";
 
 const ChatBot = () => {
   const [messages, setMessages] = useState([]);
-  const [inputMessage, setInputMessage] = useState('');
+  const [inputMessage, setInputMessage] = useState("");
   const scrollViewRef = useRef();
   const [showAnimation, setShowAnimation] = useState(true);
 
   const handleSendMessage = () => {
-    if (inputMessage.trim() !== '') {
-      setMessages(prevMessages => [
+    if (inputMessage.trim() !== "") {
+      // Add user message to state
+      setMessages((prevMessages) => [
         ...prevMessages,
-        { text: inputMessage, sender: 'user' }
+        { text: inputMessage, sender: "user" },
       ]);
-  
-      setMessages(prevMessages => [
-        ...prevMessages,
-        { text: 'Bot is typing...', sender: 'bot' }
-      ]);
-  
-      setTimeout(() => {
-        setMessages(prevMessages => [
-          ...prevMessages.slice(0, -1),
-          { text: 'This is a dummy response.', sender: 'bot' },
-        ]);
-      }, 1000);
-  
-      setInputMessage('');
+
+      // Make API call to send message to the backend
+      fetch("http://68.183.183.164:6969/chatbot", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message: inputMessage }),
+      })
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error("Network response was not ok.");
+          }
+        })
+        .then((data) => {
+          console.log(data, "safs"); // Log the response received from the backend
+          // Handle the response from the backend
+          // For now, let's assume the backend responds with the bot message
+          setMessages((prevMessages) => [
+            ...prevMessages,
+            { text: data.response, sender: "bot" },
+          ]);
+        })
+        .catch((error) => {
+          console.error(
+            "There was a problem with your fetch operation:",
+            error
+          );
+          // Optionally handle error state
+        });
+
+      setInputMessage("");
     }
   };
 
   return (
     <View style={styles.container}>
-     
       {showAnimation && (
         <LottieView
           source={ChatBotAnimation}
@@ -46,22 +73,29 @@ const ChatBot = () => {
         />
       )}
       <ScrollView
-      
         ref={scrollViewRef}
-        onContentSizeChange={() => scrollViewRef.current.scrollToEnd({ animated: true })}
+        onContentSizeChange={() =>
+          scrollViewRef.current.scrollToEnd({ animated: true })
+        }
         contentContainerStyle={styles.chatContainer}
       >
-         <Text style={styles.chatBotText}>Chat Bot!....</Text>
+        <Text style={styles.chatBotText}>Chat Bot!....</Text>
         {messages.map((message, index) => (
-          <View key={index} style={message.sender === 'user' ? styles.userMessageContainer : styles.botMessageContainer}>
-            {message.sender === 'bot' && showAnimation && (
-              <LottieView
-                source={require('../../animations/chatbotIcon.json')}
-                style={styles.profileIcon}
-                loop
-              />
-            )}
-            <View style={message.sender === 'user' ? styles.userMessage : styles.botMessage}>
+          <View
+            key={index}
+            style={
+              message.sender === "user"
+                ? styles.userMessageContainer
+                : styles.botMessageContainer
+            }
+          >
+            <View
+              style={
+                message.sender === "user"
+                  ? styles.userMessage
+                  : styles.botMessage
+              }
+            >
               <Text>{message.text}</Text>
             </View>
           </View>
@@ -76,7 +110,12 @@ const ChatBot = () => {
           placeholderTextColor="black"
         />
         <TouchableOpacity onPress={handleSendMessage}>
-          <MaterialIcon name="send" size={24} color="#183D3D" style={{ marginRight: 10, marginBottom: 10 }} />
+          <MaterialIcon
+            name="send"
+            size={24}
+            color="#183D3D"
+            style={{ marginRight: 10, marginBottom: 10 }}
+          />
         </TouchableOpacity>
       </View>
     </View>
@@ -86,13 +125,13 @@ const ChatBot = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: "#FFFFFF",
     borderRadius: 20,
     marginTop: 5,
-    position: 'relative',
+    position: "relative",
   },
   animationContainer: {
-    position: 'absolute',
+    position: "absolute",
     top: 0,
     left: 0,
     right: 0,
@@ -104,42 +143,37 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   userMessageContainer: {
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    justifyContent: 'flex-end',
+    flexDirection: "row",
+    alignItems: "flex-end",
+    justifyContent: "flex-end",
     marginBottom: 5,
     marginRight: 5,
   },
   botMessageContainer: {
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    justifyContent: 'flex-start',
+    flexDirection: "row",
+    alignItems: "flex-end",
+    justifyContent: "flex-start",
     marginBottom: 5,
     marginLeft: 5,
   },
   userMessage: {
-    backgroundColor: 'lightblue',
+    backgroundColor: "lightblue",
     padding: 8,
     borderRadius: 8,
-    maxWidth: '80%',
+    maxWidth: "80%",
   },
   botMessage: {
-    backgroundColor: '#aed581',
+    backgroundColor: "#aed581",
     padding: 8,
     borderRadius: 8,
-    maxWidth: '80%',
-  },
-  profileIcon: {
-    width: 40,
-    height: 40,
-    marginRight: 5,
+    maxWidth: "80%",
   },
   inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     borderTopWidth: 1,
     paddingHorizontal: 6,
-    borderTopColor: '#183D3D',
+    borderTopColor: "#183D3D",
     paddingVertical: 10,
     paddingBottom: 0,
   },
@@ -148,7 +182,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
     marginLeft: 5,
     borderWidth: 1,
-    borderColor: '#183D3D',
+    borderColor: "#183D3D",
     borderRadius: 20,
     paddingHorizontal: 20,
     paddingVertical: 10,
@@ -157,8 +191,8 @@ const styles = StyleSheet.create({
   },
   chatBotText: {
     fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    fontWeight: "bold",
+    textAlign: "center",
     marginTop: 20, // Adjust spacing as needed
   },
 });
