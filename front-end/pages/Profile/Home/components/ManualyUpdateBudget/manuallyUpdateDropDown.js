@@ -9,8 +9,7 @@ const ManuallyUpdateBudget = () => {
   const [updateExpense, setUpdateExpense] = useState("");
 
   const handleSubmit = () => {
-    // Implement form submission logic here
-    // This could involve sending data to a server or performing other actions
+
     console.log("Product:", product);
     console.log("Description:", description);
     console.log("Total Amount:", totalAmount);
@@ -29,7 +28,7 @@ const ManuallyUpdateBudget = () => {
                 onChangeText={setDescription}
                 placeholder="Enter description"
                 placeholderTextColor="white"
-                textAlignVertical="center" // Align placeholder text vertically
+                textAlignVertical="center"
               />
             </View>
             <View style={styles.amountContainer}>
@@ -53,16 +52,17 @@ const ManuallyUpdateBudget = () => {
           selectedValue={product}
           onValueChange={(itemValue, itemIndex) => {
             setProduct(itemValue);
-            console.log("Selected Product:", itemValue); // Debug the selected product
+            console.log("Selected Product:", itemValue);
           }}
           style={styles.picker}
-        >
+        >  
           <Picker.Item label="Select a product..." value={null} />
+          <Picker.Item label="Food" value="Food" />
           <Picker.Item label="Transports" value="Transports" />
           <Picker.Item label="Education" value="Education" />
           <Picker.Item label="Pharmacy" value="Pharmacy" />
           <Picker.Item label="Entertainment" value="Entertainment" />
-          <Picker.Item label="Food" value="Food" />
+          
         </Picker>
       </View>
     </ScrollView>
@@ -72,6 +72,7 @@ const ManuallyUpdateBudget = () => {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
+    
   },
   backgroundImage: {
     flex: 1,
@@ -80,9 +81,9 @@ const styles = StyleSheet.create({
   },
   overlay: {
     flex: 1,
-    backgroundColor: "rgba(0, 0, 0, 0.1)", // Adjust opacity by changing the last value (0.5 means 50% opacity)
+    backgroundColor: "rgba(0, 0, 0, 0.7)",
+    paddingTop: 180,
     padding: 20,
-    paddingTop: 180, // Adjust the padding top to maintain space for the product picker
   },
   heading: {
     fontSize: 20,
@@ -124,15 +125,15 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
   submitButton: {
-    backgroundColor: "#007bff",
-    borderRadius: 5,
+    backgroundColor: "green",
+    borderRadius: 15,
     padding: 10, // Decreased padding
     alignItems: "center",
     alignSelf: "center", // Align to center horizontally
     width: 200, // Set a fixed width
   },
   submitButtonText: {
-    color: "#fff",
+    color: "white",
     fontSize: 16,
   },
 });
