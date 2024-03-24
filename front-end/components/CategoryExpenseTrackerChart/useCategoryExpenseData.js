@@ -17,7 +17,7 @@ const useCategoryExpenseData = () => {
     ],
   });
 
-  const ipAddress = "192.168.1.4";
+  const ipAddress = "192.168.8.126";
 
   const getCategoryData = async () => {
     try {

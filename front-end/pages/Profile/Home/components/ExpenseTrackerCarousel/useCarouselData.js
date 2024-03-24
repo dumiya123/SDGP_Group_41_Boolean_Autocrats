@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const useCarouselData = () => {
   const [carouselData, setCarouselData] = useState([]);
 
-  const ipAddress = "192.168.1.4";
+  const ipAddress = "192.168.8.126";
 
   const getExpenseData = async () => {
     try {
