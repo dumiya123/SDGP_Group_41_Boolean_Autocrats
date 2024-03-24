@@ -15,14 +15,8 @@ const Settings = () => {
           onPress={SettingsFunctions.handleEditProfile}
           title="Profile"
           iconName="edit"
-        />
-        <SettingsItem
-          onPress={SettingsFunctions.handlePushNotifications}
-          title="Push Notifications"
-          iconName="bell"
           isLast
         />
-
         <SectionTitle title="Other" />
         <SettingsItem
           onPress={SettingsFunctions.handleInviteFriends}

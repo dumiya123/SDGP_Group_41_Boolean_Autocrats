@@ -35,7 +35,6 @@ import budgetConfigurations from "../pages/Profile/configure_budget/Budget_confi
 
 //navigate settings page
 import EditProfile from "../pages/Profile/Settings/SettingsScreens/EditProfile/editProfile";
-import PushNotifications from "../pages/Profile/Settings/SettingsScreens/PushNotifications/pushNotifications";
 import InviteFriends from "../pages/Profile/Settings/SettingsScreens/InviteFriends/inviteFriends";
 import About from "../pages/Profile/Settings/SettingsScreens/About/about";
 import HelpAndSupport from "../pages/Profile/Settings/SettingsScreens/HelpAndSupport/helpAndSupport";
@@ -218,12 +217,6 @@ const AuthStackNavigator = () => {
         name="Confirm Password"
         component={ConfirmPasswordScreen}
         options={{ headerShown: false }}
-      />
-
-      <Stack.Screen
-        name="Push Notifications"
-        component={PushNotifications}
-        options={{ headerShown: true, headerBackTitleVisible: false }}
       />
       <Stack.Screen
         name="Invite Friends"
