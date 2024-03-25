@@ -11,7 +11,7 @@ const useLoginFunctions = () => {
   //@todo update URL after hosting
   //Replace this with your ipAddress
 
-  const ipAddress = "192.168.8.126";
+  const ipAddress = "68.183.183.164";
 
   const handleGoogleSignIn = () => {
     setLoading(true);

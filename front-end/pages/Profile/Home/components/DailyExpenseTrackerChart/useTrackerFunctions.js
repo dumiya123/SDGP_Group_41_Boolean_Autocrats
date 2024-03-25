@@ -3,7 +3,7 @@ import { useState } from "react";
 const useTrackerFunctions = () => {
   const [weeklyExpenseData, setWeeklyExpenseData] = useState({});
 
-  const ipAddress = "192.168.8.126";
+  const ipAddress = "68.183.183.164";
 
   // Function to call the endpoint and return the amount array
   const getAmountArrayFromExpenses = async () => {

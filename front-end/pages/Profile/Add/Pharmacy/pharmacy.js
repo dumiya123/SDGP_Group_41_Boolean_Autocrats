@@ -14,7 +14,7 @@ const PharmacyScreen = () => {
     percentage: 0,
   });
 
-  const ipAddress = "192.168.8.126";
+  const ipAddress = "68.183.183.164";
 
   useEffect(() => {
     const fetchData = async () => {

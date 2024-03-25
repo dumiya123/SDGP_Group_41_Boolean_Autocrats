@@ -1,4 +1,4 @@
-const ipAddress = "192.168.8.126";
+const ipAddress = "68.183.183.164";
 
 export const handleConfirmVegetables = async (item, quantity) => {
   try {

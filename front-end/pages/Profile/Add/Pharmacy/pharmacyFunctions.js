@@ -1,6 +1,6 @@
 import { format } from "path";
 
-const ipAddress = "192.168.8.126";
+const ipAddress = "68.183.183.164";
 
 export const addMedicine = async (formData) => {
   console.log("formData", formData.amount, formData.name);

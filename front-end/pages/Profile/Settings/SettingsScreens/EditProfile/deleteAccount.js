@@ -14,7 +14,7 @@ import { useNavigation } from "@react-navigation/native";
 import forgetPwImg from "../../../../../pages/forget-password-pages/forget-password-images/lock.png";
 import SubtitleComponent from "../../../../../components/SettingsComponents/Subtittle";
 
-const ipAddress = "192.168.8.126";
+const ipAddress = "68.183.183.164";
 const DeleteAccount = () => {
   const navigation = useNavigation();
   const [password, setPassword] = useState("");

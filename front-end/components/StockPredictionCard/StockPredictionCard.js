@@ -15,7 +15,7 @@ const StockPredictionCard = () => {
   const [predictedPrice, setPredictedPrice] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const ipAddress = "192.168.8.126";
+  const ipAddress = "68.183.183.164";
 
   const predictStock = async () => {
     setLoading(true);

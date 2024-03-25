@@ -1,4 +1,4 @@
-const ipAddress = "192.168.8.126"; // Variable for IP address
+const ipAddress = "68.183.183.164"; // Variable for IP address
 
 export const handleBudgetUpdate = async (receiptDetails) => {
   console.log("efe", receiptDetails);
