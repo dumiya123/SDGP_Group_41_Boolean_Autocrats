@@ -134,7 +134,7 @@ export const fetchExplorer = async (category) => {
   console.log("Fetching data for category:", category);
   try {
     const response = await fetch(
-      `http://192.168.1.2:8080/user/filterCategory`,
+      `http://${ipAddress}:8080/user/filterCategory`,
       {
         method: "POST", // Specify the request method
         headers: {
