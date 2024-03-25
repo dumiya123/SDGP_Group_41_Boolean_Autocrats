@@ -55,7 +55,7 @@ import Pharmacy from "../pages/Profile/Add/Pharmacy/pharmacy";
 import Entertainment from "../pages/Profile/Add/Entertainment/entertainment";
 import Education from "../pages/Profile/Add/Education/education";
 
-import ManuallyUpdateBudget from "../pages/Profile/Home/components/ManualyUpdateBudget/manuallyUpdateDropDown"
+import ManuallyUpdateBudget from "../pages/Profile/Home/components/ManualyUpdateBudget/manuallyUpdateDropDown";
 
 //Entertainment, Education
 
@@ -101,7 +101,7 @@ const AuthStackNavigator = () => {
       <Stack.Screen
         name="Foods"
         component={ExploreFoodScreen}
-        options={{ headerShown: true, headerBackTitleVisible: false   }}
+        options={{ headerShown: true, headerBackTitleVisible: false }}
       />
       <Stack.Screen
         name="VEGETABLESSCREEN"
@@ -134,11 +134,11 @@ const AuthStackNavigator = () => {
         component={budgetConfigurations}
         options={{ headerShown: false }}
       />
-      
+
       <Stack.Screen
         name="Update Expenses"
         component={ManuallyUpdateBudget}
-        options={{ headerShown: true, headerBackTitleVisible: false  }}
+        options={{ headerShown: true, headerBackTitleVisible: false }}
       />
 
       <Stack.Screen

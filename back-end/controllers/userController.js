@@ -4,22 +4,33 @@ const { User } = require("../models");
 let selectedVegController = require("./selectedVegController");
 
 async function signUp(req, res) {
-  console.log("Received user data:", req.body);
-
-  // Check if the username already exists
-  const username = req.body.username;
-  const user = await User.findOne({ where: { username: username } });
-
   try {
-    if (user) {
-      res.send({ message: "Username already exists" });
-    } else {
-      // If the username does not exist, add the new user
-      addUser(req, res);
+    console.log("Received user data:", req.body);
+
+    const { username, email, password } = req.body;
+
+    // Check if the username already exists
+    const existingUser = await User.findOne({ where: { username } });
+    if (existingUser) {
+      return res.status(400).json({ message: "Username already exists" });
     }
-  } catch (err) {
-    console.error("Error during signup:", err);
-    res.status(500).send({ message: "Internal server error" });
+
+    // Hash the password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Create a new user
+    const newUser = await User.create({
+      username,
+      email,
+      password: hashedPassword,
+    });
+
+    res
+      .status(201)
+      .json({ message: "User created successfully", user: newUser });
+  } catch (error) {
+    console.error("Error during signup:", error);
+    res.status(500).json({ message: "Internal server error" });
   }
 }
 

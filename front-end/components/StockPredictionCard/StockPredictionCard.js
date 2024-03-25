@@ -15,12 +15,12 @@ const StockPredictionCard = () => {
   const [predictedPrice, setPredictedPrice] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const ipAddress = "192.168.8.126";
+  const ipAddress = "192.168.1.13";
 
   const predictStock = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`http://${ipAddress}:5000/predict`, {
+      const response = await fetch(`http://${ipAddress}:6868/predict`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -19,7 +19,8 @@ const SignupScreen = () => {
   const [isSelected, setSelection] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isPasswordShown, setIsPasswordShown] = useState(false);
-  const [isConfirmPasswordShown, setIsConfirmPasswordShown] = useState(false);
+  const [passwordError, setPasswordError] = useState("");
+  const [emailError, setEmailError] = useState("");
 
   const {
     userName,
@@ -33,101 +34,71 @@ const SignupScreen = () => {
     onLoginClick,
   } = useSignUpFunctions();
 
-  const togglePasswordVisibility = (setSelectedPassword) => {
-    setSelectedPassword((prev) => !prev);
+  const togglePasswordVisibility = () => {
+    setIsPasswordShown((prev) => !prev);
+  };
+
+  const validatePassword = (text) => {
+    if (text.length < 5 || !/[A-Z]/.test(text) || !/[a-z]/.test(text)) {
+      setPasswordError(
+        "Password must have at least 5 characters with upper and lower case letters."
+      );
+    } else {
+      setPasswordError("");
+    }
+    setPassword(text);
+  };
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleEmailChange = (text) => {
+    setEmail(text);
+    if (!validateEmail(text)) {
+      setEmailError("Please enter a valid email address");
+    } else {
+      setEmailError("");
+    }
   };
 
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-        backgroundColor: "#116D6E", //F3F8FF
-      }}
-    >
-      <Image
-        source={logoImg}
-        style={{
-          width: 300,
-          height: 220,
-          borderRadius: 30,
-        }}
-      />
+    <View style={styles.container}>
+      <Image source={logoImg} style={styles.logo} />
 
-      <Text
-        style={{
-          fontSize: 24,
-          marginBottom: 16,
-          fontWeight: "bold",
-          color: "white",
-        }}
-      >
-        Hello! Register to get Started!
-      </Text>
+      <Text style={styles.title}>Hello! Register to get Started!</Text>
 
-      <View>
+      <View style={styles.inputContainer}>
         <TextInput
-          style={{
-            height: 40,
-            width: 300,
-            borderColor: "#9EC8B9", //9EC8B9
-            borderWidth: 1,
-            marginBottom: 16,
-            paddingLeft: 8,
-            borderRadius: 15,
-            backgroundColor: "white",
-          }}
+          style={styles.input}
           placeholder="Enter Username"
           value={userName}
           onChangeText={(text) => setUserName(text)}
         />
       </View>
 
-      <View>
+      <View style={styles.inputContainer}>
         <TextInput
-          style={{
-            height: 40,
-            width: 300,
-            borderColor: "#9EC8B9",
-            borderWidth: 1,
-            marginBottom: 16,
-            paddingLeft: 8,
-            borderRadius: 15,
-            backgroundColor: "white",
-          }}
+          style={[styles.input, emailError ? styles.inputError : null]}
           placeholder="Enter Email"
           value={email}
-          onChangeText={(text) => setEmail(text)}
+          onChangeText={handleEmailChange}
         />
       </View>
+      {emailError ? <Text style={styles.errorText}>{emailError}</Text> : null}
 
-      <View>
+      <View style={styles.inputContainer}>
         <TextInput
-          style={{
-            height: 40,
-            width: 300,
-            borderColor: "#9EC8B9",
-            borderWidth: 1,
-            marginBottom: 16,
-            paddingLeft: 8,
-            borderRadius: 15,
-            backgroundColor: "white",
-          }}
+          style={styles.input}
           placeholder="Enter Password"
           secureTextEntry={!isPasswordShown}
           value={password}
-          onChangeText={(text) => setPassword(text)}
+          onChangeText={validatePassword}
         />
-
         <TouchableOpacity
-          style={{
-            position: "absolute",
-            right: 12,
-            padding: 12,
-          }}
-          onPress={() => togglePasswordVisibility(setIsPasswordShown)}
+          style={styles.passwordVisibilityToggle}
+          onPress={togglePasswordVisibility}
         >
           <Ionicons
             name={isPasswordShown ? "eye" : "eye-off"}
@@ -137,57 +108,21 @@ const SignupScreen = () => {
         </TouchableOpacity>
       </View>
 
-      <View>
+      <View style={styles.inputContainer}>
         <TextInput
-          style={{
-            height: 40,
-            width: 300,
-            borderColor: "#9EC8B9",
-            borderWidth: 1,
-            marginBottom: 16,
-            paddingLeft: 8,
-            borderRadius: 15,
-            backgroundColor: "white",
-          }}
+          style={styles.input}
           placeholder="Confirm Password"
-          secureTextEntry={isConfirmPasswordShown}
+          secureTextEntry={!isPasswordShown}
           value={confirmPassword}
           onChangeText={(text) => setConfirmPassword(text)}
         />
-
-        <TouchableOpacity
-          style={{
-            position: "absolute",
-            right: 12,
-            padding: 12,
-          }}
-          onPress={() => togglePasswordVisibility(setIsConfirmPasswordShown)}
-        >
-          <Ionicons
-            name={isConfirmPasswordShown ? "eye" : "eye-off"}
-            size={19}
-            color={"black"}
-          />
-        </TouchableOpacity>
       </View>
 
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "flex-start",
-          marginBottom: 1,
-        }}
-      >
+      <View style={styles.checkboxContainer}>
         <CheckBox
           checked={isSelected}
           onPress={() => setSelection(!isSelected)}
-          containerStyle={{
-            marginRight: 8,
-            marginLeft: -77,
-            padding: 0,
-            borderWidth: 0,
-          }}
+          containerStyle={styles.checkbox}
           iconType="material"
           checkedIcon="check-box"
           uncheckedIcon="check-box-outline-blank"
@@ -195,59 +130,141 @@ const SignupScreen = () => {
           iconSize={10}
           checkedColor="black"
         />
-        <Text style={{ color: "white" }}>Agree to Terms And Conditions</Text>
+        <Text style={styles.checkboxText}>Agree to Terms And Conditions</Text>
       </View>
 
       <TouchableOpacity
-        style={{
-          backgroundColor: "#FF9209", //#183D3D
-          borderRadius: 15,
-          paddingVertical: 10,
-          paddingHorizontal: 15,
-          marginTop: 40,
-        }}
+        style={styles.signupButton}
         onPress={handleSignup}
         disabled={loading || (!isSelected && password === confirmPassword)}
       >
-        <Text style={{ color: "white", textAlign: "center", fontSize: 18 }}>
-          Create an Account
-        </Text>
+        <Text style={styles.signupButtonText}>Create an Account</Text>
       </TouchableOpacity>
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          width: "55%",
-          marginBottom: 0,
-          marginTop: 30,
-        }}
-      >
-        <Text style={{ color: "black", fontSize: 15 }}>
-          Already have an account?
-        </Text>
+
+      <View style={styles.loginContainer}>
+        <Text style={styles.loginText}>Already have an account?</Text>
         <TouchableOpacity testID="login" onPress={onLoginClick}>
-          <Text
-            style={{ color: "midnightblue", fontSize: 15, fontWeight: "bold" }}
-          >
-            Log in
-          </Text>
+          <Text style={styles.loginLink}>Log in</Text>
         </TouchableOpacity>
       </View>
 
       {loading && (
-        <View
-          style={{
-            ...StyleSheet.absoluteFill,
-            backgroundColor: "rgba(0,0,0,0.5)",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
+        <View style={styles.loadingOverlay}>
           <ActivityIndicator size="large" color="white" />
         </View>
+      )}
+
+      {passwordError !== "" && (
+        <Text style={styles.errorText}>{passwordError}</Text>
       )}
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "white",
+  },
+  logo: {
+    width: 300,
+    height: 220,
+    borderRadius: 30,
+  },
+  title: {
+    fontSize: 15,
+    marginBottom: 20,
+    fontWeight: "bold",
+    color: "black",
+  },
+  inputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  input: {
+    height: 40,
+    width: 300,
+    borderColor: "#9EC8B9",
+    borderWidth: 1,
+    marginBottom: 16,
+    paddingLeft: 8,
+    borderRadius: 15,
+    backgroundColor: "white",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  passwordVisibilityToggle: {
+    position: "absolute",
+    right: 12,
+    paddingBottom: 12,
+  },
+  checkboxContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    marginBottom: 1,
+    paddingLeft: 80,
+  },
+  checkbox: {
+    marginRight: 8,
+    marginLeft: -77,
+    padding: 0,
+    borderWidth: 0,
+    paddingLeft: 0,
+  },
+  checkboxText: {
+    color: "black",
+  },
+  signupButton: {
+    backgroundColor: "#FF9209",
+    borderRadius: 15,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    marginTop: 40,
+  },
+  signupButtonText: {
+    color: "white",
+    textAlign: "center",
+    fontSize: 18,
+  },
+  loginContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "55%",
+    marginBottom: 0,
+    marginTop: 30,
+  },
+  loginText: {
+    color: "black",
+    fontSize: 15,
+  },
+  loginLink: {
+    color: "midnightblue",
+    fontSize: 15,
+    fontWeight: "bold",
+    paddingLeft: 5,
+  },
+  loadingOverlay: {
+    ...StyleSheet.absoluteFill,
+    backgroundColor: "rgba(0,0,0,0.5)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  errorText: {
+    color: "red",
+    marginTop: -5,
+
+    textAlign: "center",
+    fontStyle: "italic",
+  },
+});
 
 export default SignupScreen;

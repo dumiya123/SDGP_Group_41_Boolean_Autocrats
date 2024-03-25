@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   titleText: {
     flex: 1,
     color: "#FFFFFF",
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "900",
     marginLeft: 15,
   },

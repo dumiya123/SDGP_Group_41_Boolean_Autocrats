@@ -82,8 +82,9 @@ async function handleBeveragesChange(product, json2) {
 }
 
 async function sendNotificationsDb(userIds, product, json2) {
+  console.log(product);
   for (const userId of userIds) {
-    let notification = `Price of ${product.productName} has ${product.changeType} from ${product.oldPrice} to ${product.newPrice}`;
+    let notification = `Price of ${product.productName} has ${product.changeType} of ${product.priceDifference} LKR.`;
 
     notificationController.CreateNotification(userId, notification);
   }
@@ -159,6 +160,6 @@ function getChangedProducts(differences, json1, json2) {
   return changedItems;
 }
 
-// priceAlert("../CategoryData.json", "../CategoryDataTest.json");
+priceAlert("../CategoryData.json", "../CategoryDataTest.json");
 
 module.exports = priceAlert;

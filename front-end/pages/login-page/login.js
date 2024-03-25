@@ -18,7 +18,7 @@ import FacebookIcon from "./login-images/fb.png";
 import useLoginFunctions from "./useLoginFunctions";
 import { useNavigation } from "@react-navigation/native";
 import theme from "../../themes/themes";
-import PasswordInput from '../../components/Text&PasswordInputField/passwordInput'; // Import the PasswordInput component
+import PasswordInput from "../../components/Text&PasswordInputField/passwordInput"; // Import the PasswordInput component
 import ForgetPasswordLink from "../../components/SettingsComponents/forgetpPwBtn"; // Import the ForgetPasswordLink component
 const LoginScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -56,8 +56,8 @@ const LoginScreen = () => {
     <View
       style={{
         flex: 1,
-        backgroundColor: '#F3F8FF',
-        padding: 50,
+        backgroundColor: "#F3F8FF",
+        padding: 30,
         alignItems: "center",
       }}
     >
@@ -105,23 +105,25 @@ const LoginScreen = () => {
         icon="arrow-right"
         buttonColor={theme.colors.buttonSecond}
       />
-      <ForgetPasswordLink title={"Forget your password?"} style={{colour: 'midnghtblue'}}/>
+      <ForgetPasswordLink
+        title={"Forget your password?"}
+        style={{ colour: "midnghtblue" }}
+      />
       <Divider text="Or sign up with" />
 
-      <View style={{ flexDirection: "row", justifyContent: "center",paddingHorizontal: 50 }}>
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "center",
+          paddingHorizontal: 50,
+        }}
+      >
         <SocialMediaButton
           onPress={handleFacebookSignIn}
           source={FacebookIcon}
-          
         />
-        <SocialMediaButton 
-        onPress={handleGoogleSignIn} 
-        source={GoogleIcon} 
-        />
-        <SocialMediaButton
-          onPress={handleTwitterSignIn}
-          source={TwitterIcon}
-        />
+        <SocialMediaButton onPress={handleGoogleSignIn} source={GoogleIcon} />
+        <SocialMediaButton onPress={handleTwitterSignIn} source={TwitterIcon} />
       </View>
 
       <View
@@ -146,7 +148,7 @@ const LoginScreen = () => {
       </View>
 
       {loading && (
-        <View style={{ position: "absolute", top: "52%", alignSelf: "center"}}>
+        <View style={{ position: "absolute", top: "52%", alignSelf: "center" }}>
           <ActivityIndicator size="large" color="midnightblue" />
         </View>
       )}
